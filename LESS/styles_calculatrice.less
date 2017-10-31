@@ -1,0 +1,2300 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*************************************************************  SOMMAIRE **********************************************************/
+/*
+1) BOILERPLATE
+
+2) HEADER CALCULATRICE
+	1. Titre
+	2. Sous_Titre
+	3. Nav
+	4. Récap
+3) FORMULAIRE
+	1. label et input
+	2. label et input Radio
+	3. fieldset_full
+	4. label_half
+	5. tableau input_seul
+	6. zone du formulaire (ex : une surface)
+	7. bulles info
+	8. questions en toggle
+	9. Boutons ajout/suppression/duplication d'une zone du formulaire
+	10. Sous zone en toggle (ex: une ouverture)
+	11. Tableau
+	12. Graphique
+	13. types de mur (pour les formulaires maison)
+	14. erreur du formulaire
+	15. Liste
+4) RESULTAT
+	1. Egale et resultat
+	2. Lien plus
+	3. Tableau recap
+5) FOOTER
+	1. Navigation
+	2. Boutons (Imprimer / Valider)
+6) IMPRIMER
+7) CALCULATRICE SALAIRE
+8) CALCULATRICE ESCALIER
+
+9) CALCULATRICE DEMENAGEMENT
+	1. sprite
+	2. partie resultat
+*/
+
+/*************************************************************  HTML5 ✰ BOILERPLATE *************************************************/
+
+/*@font-face {
+	font-family: 'ConduitITCLightRegular';
+	src: url('@{fontPath}/lt_1-webfont.eot');
+	src: local('☺'), url('@{fontPath}/lt_1-webfont.woff') format('woff'), url('@{fontPath}/lt_1-webfont.ttf') format('truetype'), url('@{fontPath}/lt_1-webfont.svg#webfontXSLtKOJW') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}*/
+
+.calculatrice div, .calculatrice span, .calculatrice object, .calculatrice iframe,
+.calculatrice h1, .calculatrice h2, .calculatrice h3, .calculatrice h4, .calculatrice h5, .calculatrice h6, .calculatrice p, .calculatrice blockquote, .calculatrice pre,
+.calculatrice abbr, .calculatrice address, .calculatrice cite, .calculatrice code, .calculatrice del, .calculatrice dfn, .calculatrice em, .calculatrice img, .calculatrice ins, .calculatrice kbd, .calculatrice q, .calculatrice samp,
+.calculatrice small, .calculatrice strong, .calculatrice sub, .calculatrice sup, .calculatrice var, .calculatrice b, .calculatrice i, .calculatrice dl, .calculatrice dt, .calculatrice dd, .calculatrice ol, .calculatrice ul, .calculatrice li, .calculatrice ul li, .calculatrice ol li,
+.calculatrice fieldset, .calculatrice form, .calculatrice label, .calculatrice legend,
+.calculatrice table, .calculatrice caption, .calculatrice tbody, .calculatrice tfoot, .calculatrice thead, .calculatrice tr, .calculatrice th, .calculatrice td,
+.calculatrice article, .calculatrice aside, .calculatrice canvas, .calculatrice details, .calculatrice figcaption, .calculatrice figure,
+.calculatrice footer, .calculatrice header, .calculatrice hgroup, .calculatrice menu, .calculatrice nav, .calculatrice section, .calculatrice summary,
+.calculatrice time, .calculatrice mark, .calculatrice audio, .calculatrice video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  overflow:visible;
+  background:none;
+  width:auto;
+  height:auto;
+}
+
+.calculatrice article, .calculatrice aside, .calculatrice details, .calculatrice figcaption, .calculatrice figure,
+.calculatrice footer, .calculatrice header, .calculatrice hgroup, .calculatrice menu, .calculatrice nav, .calculatrice section {
+  display: block;
+}
+
+.calculatrice blockquote, .calculatrice q { quotes: none; }
+.calculatrice blockquote:before, .calculatrice blockquote:after,
+.calculatrice q:before, .calculatrice q:after { content: ''; content: none; }
+.calculatrice ins { background-color: #ff9; color: #000; text-decoration: none; }
+.calculatrice mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+.calculatrice del { text-decoration: line-through; }
+.calculatrice abbr[title], .calculatrice dfn[title] { border-bottom: 1px dotted; cursor: help; }
+.calculatrice table { border-collapse: collapse; border-spacing: 0; }
+.calculatrice hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+.calculatrice input, .calculatrice select { vertical-align: middle; }
+
+.calculatrice { font:13px/1.231 sans-serif; *font-size:small; } 
+.calculatrice select, .calculatrice input, .calculatrice textarea, .calculatrice button { font:99% sans-serif; }
+.calculatrice pre, .calculatrice code, .calculatrice kbd, .calculatrice samp { font-family: monospace, sans-serif; }
+
+.calculatrice { overflow-y: inherit; }
+.calculatrice a:hover, .calculatrice a:active { outline: none; }
+.calculatrice ul {list-style-type:none; }
+.calculatrice ol { list-style-type: decimal; }
+.calculatrice nav ul, .calculatrice nav li { margin: 0; list-style:none; list-style-image: none; }
+.calculatrice small { font-size: 85%; }
+.calculatrice strong, .calculatrice th { font-weight: bold; }
+.calculatrice td { vertical-align: top; }
+
+.calculatrice sub, .calculatrice sup { font-size: 75%; line-height: 0; position: relative; }
+.calculatrice sup { top: -0.5em; }
+.calculatrice sub { bottom: -0.25em; }
+
+.calculatrice pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 15px; }
+.calculatrice textarea { overflow: auto; }
+.calculatrice .ie6 legend, .calculatrice .ie7 legend { margin-left: -7px; } 
+.calculatrice input[type="radio"] { vertical-align: text-bottom; }
+.calculatrice input[type="checkbox"] { vertical-align: bottom; }
+.calculatrice .ie7 input[type="checkbox"] { vertical-align: baseline; }
+.calculatrice .ie6 input { vertical-align: text-bottom; }
+.calculatrice label, .calculatrice input[type="button"], .calculatrice input[type="submit"], .calculatrice input[type="image"], .calculatrice button { cursor: pointer; }
+.calculatrice button, .calculatrice input, .calculatrice select, .calculatrice textarea { margin: 0; }
+.calculatrice input:valid, .calculatrice textarea:valid   {  }
+.calculatrice input:invalid, .calculatrice textarea:invalid { border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red; }
+.calculatrice .no-boxshadow input:invalid, .calculatrice .no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+.calculatrice ::-moz-selection{ background: #999999; color:#fff; text-shadow: none; }
+.calculatrice ::selection { background:#999999; color:#fff; text-shadow: none; }
+.calculatrice a:link { -webkit-tap-highlight-color: #999999; }
+
+.calculatrice button {  width: auto; overflow: visible; }
+.calculatrice .ie7 img { -ms-interpolation-mode: bicubic; }
+
+.calculatrice, select, input, textarea {  color: #333; }
+
+/* Page */ 
+.calculatrice { 
+  font-size: 100%; /* Évite un bug d'IE 6-7. (1) */ 
+} 
+.calculatrice { 
+  margin: 0; 
+  padding: 0; /* Remettre à zéro si nécessaire. */ 
+  font-family: Arial, Helvetica, Geneva, Verdana, sans-serif ;
+  font-size: 14px; /* À adapter pour la police choisie. (3) */ 
+  line-height: 1.4em; /* À adapter au design. (4) */ 
+  background: #f1eded; 
+} 
+/* Titres */ 
+.calculatrice h1, .calculatrice h2, .calculatrice h3 { 
+  margin: 1em 0 .5em 0; /* Rapproche le titre du texte. (5) */ 
+  line-height: 1em; 
+  font-weight:normal;
+  font-family:'museo', Arial, Helvetica, sans-serif;
+} 
+.calculatrice h4, .calculatrice h5, .calculatrice h6 { 
+  margin: 1em 0 .5em 0; /* Rapproche le titre du texte. (5) */ 
+  line-height: 1.2; 
+  font-weight:normal;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing:0 em;
+} 
+.calculatrice h1 { 
+  font-size: 24px; 
+} 
+.calculatrice h2 { 
+  font-size: 22px; 
+} 
+.calculatrice h3 { 
+  font-size: 20px; 
+} 
+.calculatrice h4 { 
+  font-size: 18px;
+  margin-top:0; 
+} 
+.calculatrice p{
+	word-wrap:break-word;	
+}
+/* Liens */ 
+.calculatrice a { 
+	/*text-decoration: underline;*/
+	cursor:pointer;
+ 	color:#333;
+}
+/************************************************* HEADER CALCULATRICES ********************************************************/
+.calculatrice{
+	margin:30px 0;
+	padding:0;
+	font:12px/18px Arial, Helvetica, sans-serif ;
+	color:#333;
+	position:relative;
+	background:#efefef;
+}
+.calculatrice li{
+	list-style-type:none;
+	background:none;
+	padding:0;
+	margin:0;
+}
+.calculatrice .calculatrice_fermer{
+	display:none;
+}
+.calculatrice.calculatrice_imc,
+.calculatrice.calculatrice_pd_ideal{
+	overflow:auto;
+}
+/*---------------------------------------TITRE------------------------------------------------------*/
+.calculatrice .calculatrice_titre a{
+	padding:0px 35px 0 0;
+	font:12px/25px Arial, Helvetica, sans-serif;
+	text-align:right;
+	color:#fff;
+	position:relative;
+	background:@color_aplat;
+	display:block;
+	text-decoration:none;
+}
+#centre .article .calculatrice_titre a:visited{
+	color:#fff;
+}
+#article .calculatrice a:hover{
+	color:#fff;
+}
+#article .calculatrice .calculatrice_nav a:hover{
+	color:@violet-typo;
+}
+#article .calculatrice .calculatrice_nav ul li.etape_selected a:hover{
+	color:#fff;
+}
+#article .calculatrice .calculatrice_titre a:hover{
+	background:@color_base;
+	color:#fff;
+}
+.calculatrice .calculatrice_titre span{
+	display:inline-block;
+	width:25px;
+	height:25px;
+	background:url("@{imgPath}/calculatrice/sprite_calculatrice.png") no-repeat scroll 6px -357px @color_base;
+	position:absolute;
+	right:0;
+	top:0;
+}
+.calculatrice .calculatrice_form .titre_choisir{
+	color:#666;
+}
+.calculatrice .calculatrice_form .titre_choisir .label_titre{
+	margin:15px 0;
+	max-width:525px;
+	min-width:380px;
+}
+.calculatrice .calculatrice_form .label_titre{
+	/*margin:0 0 0 90px;*/
+}
+.calculatrice .calculatrice_form .label_titre.label_titre_calculatrice{
+	text-align:center;
+	display:block;
+	max-width:525px;
+	float:none;
+	padding:10px 0;
+}
+.calculatrice .calculatrice_form .label_titre.label_titre_calculatrice p{
+	width:140px;
+	font:bold 12px/18px Arial, Helvetica, sans-serif;
+	display:inline;
+	line-height:20px;
+}
+
+/*---------------------------------------------SS_TITRE-------------------------------------*/
+.calculatrice .calculatrice_form .ss_titre{
+	margin-top:20px;
+	clear:both;
+}
+/*.calculatrice .calculatrice_form .sstitre_calculatrice{
+	width:300px;
+}*/
+/*-----------------------------------------------NAV----------------------------------------*/
+.calculatrice .calculatrice_nav{
+	font: 12px/18px Arial,Helvetica,sans-serif;
+	height: 20px;
+	margin: 20px 0 0 10px;
+}
+.calculatrice .calculatrice_nav ul li{
+	float: left;
+	line-height: 20px;
+	margin: 0 15px 0 0;
+}
+.calculatrice .calculatrice_nav ul li span{
+	display:inline-block;
+	height: 20px;
+	width: 20px;
+	margin:0 5px 0 0;
+	background: url("@{imgPath}/calculatrice/sprite_calculatrice.png") no-repeat scroll 4px -360px @color_aplat;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+.calculatrice .calculatrice_nav a{
+	text-decoration:none;
+	text-transform: uppercase;
+	font:bold 12px/20px Arial,Helvetica,sans-serif;
+}
+.calculatrice .calculatrice_nav ul li.etape_selected span{
+	background-color:@color_aplatC;
+	margin:0;
+}
+.calculatrice .calculatrice_nav ul li.etape_selected a{
+	color: #fff;
+	padding:3px 10px 3px 0;
+	background-color: @color_aplatC;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+.calculatrice .calculatrice_nav ul li.etape_selected a:hover{
+	color: #fff;
+}
+
+/*-----------------------------------RECAP----------------------------*/
+.calculatrice .titre_calculatrice_recap{
+	font:12px/17px Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+	margin:20px 10px;
+	color:#666;
+}
+.calculatrice .calculatrice_recap{
+	position:relative;
+	border: 1px dotted #999;
+	margin:30px 10px;
+	font: normal 12px/18px Arial, Helvetica, sans-serif;
+	color:#666;
+}
+.calculatrice .calculatrice_recap.recap_exception{
+	margin:30px 0px;
+
+}
+.calculatrice .calculatrice_recap .recap_detail{
+	color: #666;
+	margin: 25px 10px 20px 10px;
+}
+.calculatrice .calculatrice_recap .recap_detail p{
+	font-style:normal;
+}
+.calculatrice .calculatrice_recap .recap_detail .mesure_calculatrice{
+	left:365px;
+}
+.calculatrice .calculatrice_recap p{
+	margin:5px 0 0 0;
+	padding-left:40px;
+}
+.calculatrice .calculatrice_recap p:first-child{
+	margin-top:0;
+}
+.calculatrice .calculatrice_recap .sstitre_recap{
+	position:absolute;
+	top:-12px;
+	width:516px;
+	z-index: 100;
+}
+.calculatrice .sstitre_recap > span{
+	padding:0 5px;
+	background-color: #efefef;
+	font-weight:bold;
+}
+.calculatrice .calculatrice_recap ul{
+	padding:0 0 0 110px;
+}
+.calculatrice .calculatrice_recap ul li{
+	background: url("@{imgPath}/calculatrice/sprite_calculatrice.png") no-repeat scroll -4px -121px transparent;
+	padding:0 0 5px 15px;
+	position:relative;
+}
+.calculatrice .calculatrice_recap .modifier_calculatrice,
+.calculatrice .calculatrice_recap .voir_detail_calculatrice{
+	background-color: #efefef;
+	float:right;
+	color: @color_aplat;
+	font: bold 12px/18px Arial;
+	margin:0 0 0 25px;
+	position: relative;
+	text-decoration: none;
+	z-index: 100;
+	padding:0 5px;
+}
+.calculatrice .calculatrice_recap .voir_detail_calculatrice .toggle{
+	width: auto;
+}
+.calculatrice .calculatrice_recap .modifier_calculatrice span,
+.calculatrice .calculatrice_recap .voir_detail_calculatrice .toggle span,
+.calculatrice .calculatrice_resultat .calculatrice_refaire span{
+	display:inline-block;
+	margin-right:5px;
+	height:16px;
+	width:16px;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+.calculatrice .calculatrice_recap .modifier_calculatrice span{
+	background:url("@{imgPath}/calculatrice/sprite_calculatrice.png")no-repeat scroll 0px -592px @color_aplat;
+}
+.calculatrice .calculatrice_recap .voir_detail_calculatrice .toggle span{
+	background:url("@{imgPath}/calculatrice/sprite_calculatrice.png")no-repeat scroll 0px -554px @color_aplat;
+}
+.calculatrice .calculatrice_recap .recap_detail .resultat_recapitulatif{
+	font-weight:normal;
+}
+
+
+/******************************************************* FORMULAIRE ****************************************************/
+.calculatrice .calculatrice_form{
+	position:relative;
+	margin:10px;
+}
+.calculatrice .calculatrice_form.calculatrice_form_exception{
+	position:relative;
+	margin:0;
+}
+
+.calculatrice .calculatrice_form h3{
+	color:@color_aplatC;
+	font: 18px/22px Arial, Helvetica, sans-serif;
+	margin:25px 0 10px 0;
+}
+.calculatrice .calculatrice_form p{
+	color:#666;
+	font: italic 12px/18px Arial, Helvetica, sans-serif;
+}
+.calculatrice .calculatrice_form .label_full span{
+	clear:both;
+	margin:10px 0 0 0;
+	color:#333;
+	font:bold 12px/18px Arial, Helvetica, sans-serif ;
+}
+.calculatrice .calculatrice_form h4{
+	clear:both;
+	margin:0;
+	color:#333;
+	font:bold 12px/18px Arial, Helvetica, sans-serif ;
+}
+.calculatrice .calculatrice_form sup{
+	font-size:6px;
+}
+/*--------------------------- label et input -------------------------------*/
+.calculatrice .calculatrice_form label{
+	font:normal 12px/20px Arial, Helvetica, sans-serif;
+	float:left;
+}
+.calculatrice .calculatrice_form .label_full{
+	float:left;
+	margin:0 0 15px;
+}
+.calculatrice .calculatrice_form .label_full .label_choisir_calculatrice{
+	position:absolute;
+	right:0;
+}
+.calculatrice .calculatrice_form input[type="text"]{
+	float:right;
+	width:84px;
+	height:15px;
+	margin:0;
+	border:solid 1px #dadada;
+}
+/*--------------------------- label et input Radio ------------------------*/
+.calculatrice .calculatrice_form .label_radio{
+	color: #666;
+	margin: 0 0 0 25px;
+	line-height:16px;
+	float:left;
+}
+.calculatrice .calculatrice_form input[type="radio"]{
+	display:block;
+	width:15px;
+	height:14px;
+	margin:0 3px 3px 5px;
+	border:none;
+	background:none;
+}
+/*---------------------- fieldset_full -----------------------------------*/
+.calculatrice .calculatrice_form .fieldset_full{
+	width:518px;
+	margin:15px 0 0 0;
+}
+.calculatrice .calculatrice_form .fieldset_full .label_half{
+	margin:0 0 0 30px;
+	clear:both;
+}
+.calculatrice .calculatrice_form .fieldset_full .label_radio{
+	margin:0 0 0 35px;
+}
+/*--------------------------- label_half -------------------------------------*/
+.calculatrice .calculatrice_form .label_half{
+	position: relative;
+	width:190px;
+	margin: 10px 68px 10px 0;
+	color: #666;
+	line-height: 21px;
+}
+.calculatrice .calculatrice_form .mesure_calculatrice{
+	position: absolute;
+	left: 190px;
+	top: 0px;
+	width: 26px;
+	background-color: #DADADA;
+	text-align: center;
+	line-height:21px;
+}
+.calculatrice .calculatrice_form .liste_centre_calculatrice .label240{
+	margin:5px 30px 5px 125px;
+}
+.calculatrice .calculatrice_form .label_choisir_calculatrice.select_choisir_calculatrice{
+	/*margin:10px 90px 0 0;
+	right:-30px;
+	top:-13px;*/
+}
+.calculatrice .calculatrice_form .label_full .select_titre_choisir{
+	float:none;
+	display:inline;
+	max-width:373px;
+}
+/*--------------------------- tableau input_seul -------------------------------------*/
+.calculatrice .calculatrice_form .input_seul{
+	position: relative;
+	width:70px;
+	margin-right:30px;
+	color: #666;
+	line-height: 21px;
+}
+.calculatrice .input_seul .mesure_calculatrice{
+	left: 75px;
+	top:5px;
+}
+.calculatrice .input_seul input[type="text"]{
+	border: 1px solid #DADADA;
+	float: none;
+	height: 15px;
+	margin: 5px 0 0 10px;
+	width: 60px;
+}
+.calculatrice .calculatrice_form .input_seul ._optional{
+	background: url("@{imgPath}/calculatrice/sprite_calculatrice.png") repeat scroll 3px -148px transparent;
+}
+.calculatrice .calculatrice_form .input_seul ._optional:focus{
+	background:none;
+}
+/*------------------------- zone du formulaire (exemple : une surface) -----------------------------------*/
+.calculatrice .calculatrice_form .fieldset_area{
+	clear:both;
+	margin:20px 0;
+	border-top:2px dashed #bcbcbc;
+	padding-top:20px;
+}
+.calculatrice .calculatrice_form .fieldset_area_footer{
+	clear:both;
+	padding-top:10px;
+	border-top: 2px dashed #BCBCBC;
+	overflow:auto;
+}
+.calculatrice .calculatrice_form .area_on{	/*Nom de la zone*/
+	float:left;
+	color:@color_aplatC;	
+	font: bold 14px/16px Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+}
+.calculatrice .calculatrice_form .fieldset_section{
+	clear:both;
+	position:relative;
+	width:518px;
+}
+.calculatrice .calculatrice_form p.calculatrice_note{
+	clear:both;
+	font-style:italic;
+}
+/*------------------------------ bulles info -------------------------*/
+.calculatrice .calculatrice_bulle{
+	background: url("@{imgPath}/calculatrice/sprite_calculatrice.png") repeat scroll -1px -515px @color_aplat;
+	display: inline-block;
+	height:16px;
+	width:16px;
+	margin:0 0 0 5px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px; 
+	position: relative;
+	cursor: pointer;
+	vertical-align:-3px;
+}
+.calculatrice .calculatrice_bulle span {
+	position:absolute;
+	z-index:100;
+	width:230px;
+	padding:5px;
+	background:#fff;
+	border:2px solid #CCC;
+	border-radius:6px;
+	-webkit-border-radius:6px;
+	-moz-border-radius: 6px;
+	-pie-background: #ffffff; /* PIE */
+	display:none;
+	color:#666;
+	font:normal bold 11px/15px Arial, Helvetica, sans-serif ;
+	text-align:center;
+	top:20px;
+	left:-150px;
+}
+.calculatrice .calculatrice_bulle:hover span {
+	display:block;
+}
+.calculatrice .calculatrice_bulle .grande_bulle{	/* Utilisé quans ya beaucou pde texte */
+	left: -240px;
+	padding: 10px;
+	text-align: left;
+	top: 20px;
+	width: 400px;
+}
+.calculatrice .liste_centre_calculatrice .calculatrice_bulle{
+	top:8px;
+}
+.calculatrice .liste_centre_calculatrice .fieldset_section a{
+	clear: both;
+	float: left;
+	font: 11px/15px Arial, Helvetica, sans-serif;
+	left: 125px;
+	position: relative;
+	text-decoration: none;
+	color:@color_base;
+}
+.calculatrice .liste_centre_calculatrice .fieldset_section span{
+	color: #cc0000;
+	font-weight: bold;
+}
+
+.calculatrice .liste_centre_calculatrice .fieldset_section a:hover{
+	text-decoration:underline;
+}
+.calculatrice .calculatrice_form .label280 select + span{
+	top:0px;
+	left:130px;
+}
+/*------------------------- questions en toggle -----------------------------------*/
+.calculatrice .calculatrice_form .label_choisir_calculatrice{	
+	/*right: 3px;
+	position: absolute;
+	top: 12px;*/
+}
+.calculatrice .calculatrice_form .label_choisir_calculatrice label{
+	margin-left:15px;
+	float:right;
+	position:relative;
+	top:-16px;
+}
+.calculatrice .calculatrice_form .label240{	/* Quand le label est seul et necessite plus de place */
+	width:240px;
+}
+.calculatrice .calculatrice_form .label280{
+	width:280px;
+	margin:5px 9px 5px 95px;
+}
+
+.calculatrice .calculatrice_form .label320{
+	width:320px;
+	margin:5px 9px 5px 95px;
+	position:relative;
+}
+.calculatrice .calculatrice_form .label505{
+	color: #333;
+	font: bold 12px/20px Arial, Helvetica, sans-serif;
+	margin: 0 0 10px;
+	position: relative;
+	width: 505px;
+}
+.calculatrice .calculatrice_form .label300{
+	color: #333;
+	margin: 0 0 10px;
+	position: relative;
+	width:300px;
+}
+.calculatrice .calculatrice_form .label505 .mesure_calculatrice{
+	font:12px/21px Arial, Helvetica, sans-serif;
+}
+.calculatrice .calculatrice_form .label390{
+	margin:10px 0;
+	position: relative;
+	width: 390px;
+}
+.calculatrice .calculatrice_form .label_titre.label340{
+	margin: 5px 9px 5px 94px;
+	position: relative;
+	min-width: 353px;
+}
+.calculatrice .calculatrice_form .label_titre.label340 select{
+	float:right;
+	font:11px/15px Arial, Helvetica, sans-serif;
+	width:122px;
+	border:1px solid #ccc;
+}
+.calculatrice .calculatrice_form .label280 .mesure_calculatrice{
+	left:254px;
+}
+.calculatrice .calculatrice_form .label320 .mesure_calculatrice{
+	left:300px;
+}
+.calculatrice .calculatrice_form .label505 .mesure_calculatrice{
+	left:490px;
+}
+.calculatrice .calculatrice_form .label390 .mesure_calculatrice{
+	left:365px;
+}
+.calculatrice .calculatrice_form .label300 .mesure_calculatrice{
+	left:275px;
+}
+.calculatrice .calculatrice_form .label280 select{
+	float:right;
+	width:90px;
+	font:11px/15px Arial, Helvetica, sans-serif;
+	border:1px solid #dadada;
+}
+.calculatrice .calculatrice_form .label_half.label240 .mesure_calculatrice{
+	left:240px;
+}
+.calculatrice .liste_centre_calculatrice .fieldset_section .meilleur_taux_calculatrice{
+	left:95px;
+}
+/*----------------------------- Boutons ajout/suppression/duplication d'une zone du formulaire ----------------------*/
+.calculatrice .calculatrice_form .area_off,
+.calculatrice .calculatrice_form .area_dupliquer,
+.calculatrice .calculatrice_form .area_plus{
+	float:right;
+	margin:0 0 0 20px;
+	text-decoration: none;
+	font: bold 12px/20px Arial, Helvetica, sans-serif;
+	color: @color_aplat;
+}
+.calculatrice .calculatrice_form .area_off span,
+.calculatrice .calculatrice_form .area_dupliquer span,
+.calculatrice .calculatrice_form .area_plus span{
+	margin:0 5px 0 0;
+	background:url("@{imgPath}/calculatrice/sprite_calculatrice.png") no-repeat scroll 1px -431px @color_aplat;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	height: 20px;
+	width: 20px;
+	display:inline-block;
+}
+.calculatrice .calculatrice_form .area_dupliquer span{
+	background-position: 0 -393px;
+}
+.calculatrice .calculatrice_form .area_plus span{
+	background-position: 1px -471px;
+}
+.calculatrice .calculatrice_form .area_dupliquer + div{	/*Pour que la zone ai un clear both*/
+	clear:both;
+}
+/*----------------------------- Sous zone en toggle (ex: une ouverture)----------------------*/
+.calculatrice .calculatrice_form .area_ajoute{
+	overflow:auto;
+	margin:10px 0 0 0;
+}
+.calculatrice .calculatrice_form .area_ajoute > p{
+	overflow:auto;
+}
+.calculatrice .calculatrice_form .appliScrSubtitle{	/* Titre de la sous zone */
+	color: #666;
+	font: bold 12px/20px Arial,Helvetica,sans-serif;
+}
+.calculatrice .calculatrice_form .area_plus .span_half,
+.calculatrice .calculatrice_form .area_off .span_half{	/* Boutons plus petits */
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	height: 16px;
+	width: 16px;
+	margin: 0 4px 0 0;
+	vertical-align:-2px;
+}
+.calculatrice .calculatrice_form .area_plus .span_half{
+	background-position: -52px -472px;
+}
+.calculatrice .calculatrice_form .area_off .span_half{
+	background-position: -52px -432px;
+}
+.calculatrice .calculatrice_form fieldset .area_plus{	/* Ajouter une sous zone */
+	float:left;
+	margin:0 0 10px 0;
+}
+/*-------------------------------Tableau-------------------------------*/
+.calculatrice table{
+	width:100%;
+	margin:25px auto;
+}
+.calculatrice caption {
+	margin:0 0 10px 0;
+	color:#666;
+	font:bold 14px/18px Arial, Helvetica, sans-serif;
+}
+.calculatrice th{
+	vertical-align: middle;
+	border:1px solid #ccc;
+	padding:5px 10px;
+	background:#fff;
+}
+.calculatrice td{
+	border:1px solid #ccc;
+	text-align:center;
+	vertical-align: middle;
+	padding:5px;
+	background:#fff;
+}
+.calculatrice th.entete_principal {
+	text-align:center;
+	padding: 10px 5px;
+	color:#333;
+	border:1px solid #ccc;
+	font:bold 12px/14px Arial, Helvetica, sans-serif;
+	text-transform:none;
+	background:#ddd;
+}
+.calculatrice th.entete_secondaire{
+	color: @color_base;
+	font:bold 12px/15px Arial,Helvetica,sans-serif;
+	padding: 5px 25px;
+	text-align: center;
+	text-transform: none;
+	width: 118px;
+	background:#eee;
+	border-bottom: 1px solid #CCCCCC;
+}
+.calculatrice .note_tableau_calculatrice{
+	color:#333;
+	margin-bottom:15px;
+}
+.calculatrice table ul li{
+	background:none;
+}
+.calculatrice table.mensualite_calculatrice{
+	margin-bottom:0;
+}
+.calculatrice .calculatrice_form .indication_prix{
+	color: #666666;
+    float: right;
+    font: 10px/15px Arial,Helvetica,sans-serif;
+    padding: 0 5px 0 0;
+    position: relative;
+    top: -20px;
+}
+.calculatrice .calculatrice_form .indication_tableau{
+	font:11px/15px Arial, Helvetica, sans-serif;
+	margin:10px 0 0 0;
+}
+.calculatrice .calculatrice_form .indication_tableau span{
+	font:bold 11px/15px Arial, Helvetica, sans-serif;
+}
+/*------------------------------------ Graphique -------------------------------------*/
+.calculatrice .graphique_calculatrice{
+	margin:25px auto;
+}
+
+/*------------------------------------ Types de mur (pour les formulaires maison) -------------------------------------*/
+.calculatrice ul.type_de_mur li{
+	overflow:auto;
+	float:left;
+	margin: 0 1px 15px 0;
+	/*float:left;*/
+	color:#666;
+	background:none;
+	padding:0;
+}
+.calculatrice .type_de_mur li label{
+	line-height:13px;
+}
+.calculatrice ul.type_de_mur li + li + li + li {
+	margin: 0;
+}
+.calculatrice ul.type_de_mur li + li + li + li input[type="radio"]{
+	margin: 0 3px 3px 20px;
+}
+.calculatrice ul.type_de_mur img{
+	margin:0 0 15px 0;
+}
+.calculatrice .calculatrice_lettre{
+	font:bold 14px/18px "Comic Sans MS", Arial, Helvetica, sans-serif ;
+	color:#9d9d9d;
+}
+
+/*------------------------------- erreur du formulaire ------------------------------*/
+.calculatrice .calculatrice_form .calculatrice_error{
+	padding:4px 0 0 0;
+	color:#cc0000;
+	font-weight:bold;
+	display:block;
+	clear: both;
+	width:240px;
+}
+.calculatrice .calculatrice_form label .calculatrice_error{
+	color:#c00;
+}
+.calculatrice .calculatrice_form .error_full{
+	/*padding:10px 0 0 0;*/
+	color:#cc0000;
+	font-weight:bold;
+	display:block;
+	clear: both;
+	width:400px;
+}
+/*------------------------------- Liste ------------------------------*/
+.calculatrice .calculatrice_form .liste_centre_calculatrice{
+	margin:20px 0;
+	float:left;
+}
+.calculatrice .calculatrice_form .liste_centre_calculatrice li{
+	background:none;
+}
+.calculatrice .calculatrice_form .liste_centre_calculatrice.liste_centre{
+	margin:10px 0;
+	position:relative;
+	top:-15px;
+}
+.calculatrice .calculatrice_form  .choisir_half_calculatrice{
+	width:515px;
+}
+
+
+/*********************************************** RESULTAT **********************************************************/
+/*------------------------------- Egale et resultat -------------------------------*/
+.calculatrice .calculatrice_resultat{
+	position:relative;
+	border-top: 2px solid @color_aplatC;
+	margin:30px 0 0 0;
+	padding:15px 0 0 0;
+	clear:both;
+}
+.calculatrice .resultat_egal{
+	background-color: @color_aplatC;
+	border-radius: 15px;
+	color: #FFFFFF;
+	font-size: 30px;
+	font-weight: bold;
+	height: 30px;
+	width: 30px;
+	line-height: 31px;
+	text-align: center;
+	margin: 0 auto;
+	position:absolute;
+	top:-15px;
+	left:244px;
+	z-index:10;
+}
+.calculatrice .calculatrice_resultat .resultat{
+	color:@color_aplatC;
+	font-size: 19px;
+	margin: 15px 0 5px 0;
+	text-align:center;
+	line-height:25px;
+}
+.calculatrice .calculatrice_resultat .resultat_prix{
+	color:@color_aplatC;
+	font-size: 17px;
+	margin: 10px 0;
+	text-align:center;
+}
+.calculatrice .calculatrice_resultat .sous_resultat{
+	color:@color_base;
+	font-size: 12px;
+	margin: 5px 0;
+	text-align:center;
+}
+.calculatrice .calculatrice_resultat .calculatrice_refaire{
+	display:inline-block;
+	font: bold 12px/18px Arial;
+	text-decoration: none;
+	color:@color_aplat;
+}
+.calculatrice .calculatrice_resultat .calculatrice_refaire span{
+	background:url("@{imgPath}/calculatrice/sprite_calculatrice.png")no-repeat scroll 0px -592px @color_aplat;
+}
+.calculatrice .calculatrice_resultat p{
+	font-style:normal;
+	margin:10px 0;
+}
+.calculatrice .calculatrice_resultat .note_tableau_resultat{
+	
+}
+.calculatrice .calculatrice_resultat .calculatrice_resultat_sstitre{
+	padding: 10px 0;
+	font-weight:bold;
+	font-size:14px;
+}
+.calculatrice .calculatrice_resultat .info_resultat{
+	margin:20px 0 0px 0;
+	padding: 0 0 0 15px;
+	background:url("@{imgPath}/calculatrice/sprite_calculatrice.png")no-repeat scroll -8px -121px transparent;
+}
+.calculatrice .calculatrice_resultat .info_resultat p{
+	margin:0;
+}
+.calculatrice .calculatrice_resultat a{
+	text-decoration:none;
+	color:@color_base;
+}
+.calculatrice .calculatrice_resultat .meilleur_taux_resultat{
+	font: italic 11px/15px Arial, Helvetica, sans-serif;
+	margin:5px 0 0px 0;
+}
+.calculatrice .calculatrice_resultat .meilleur_taux_resultat a{
+	text-decoration:none;
+	float:right;
+}
+.calculatrice .calculatrice_resultat .meilleur_taux_resultat a:hover{
+	text-decoration:underline;
+}
+.calculatrice .calculatrice_resultat .calculatrice_info_resultat{
+	margin:20px 0;
+}
+.calculatrice .calculatrice_resultat .calculatrice_info_resultat li{
+	background:url("@{imgPath}/calculatrice/sprite_calculatrice.png")no-repeat scroll -8px -121px transparent;
+	padding: 0 0 0 15px;
+}
+/*------------------------------- Lien plus -------------------------------*/
+.calculatrice .calculatrice_resultat .lien_plus{
+	text-align:right;
+	margin-right:10px;
+}
+.calculatrice .calculatrice_resultat .lien_plus a{
+	text-decoration:none;
+	font-weight:bold;
+	color:@color_base;
+}
+.calculatrice .calculatrice_resultat .lien_plus a:hover{
+	color:#333;
+}
+.calculatrice .calculatrice_resultat .lien_plus a:before{
+	content:"Aller plus loin\0000a0:\0000a0";
+	font-weight:normal;
+	color:#333;
+}
+/*-------------------------------Tableau recap-------------------------------*/
+.calculatrice .calculatrice_recap .tableau_recap td{
+	text-align:center;
+}
+.calculatrice .calculatrice_recap .tableau_recap ul{
+	padding:0;
+}
+.calculatrice .calculatrice_recap .tableau_recap ul li{
+	background:none;
+}
+.calculatrice .calculatrice_recap th.entete_principal{
+	background:#f5f5f5;
+}
+.calculatrice .calculatrice_resultat .tableau_calculatrice{
+	margin-bottom:0;
+}
+.calculatrice .choixactuel{
+	background:@color_aplatC;
+}
+.calculatrice .choixactuel td{
+	background:@color_aplat;
+	color:#fff;
+}
+.calculatrice .recap_resultat_calculatrice{
+	margin:10px 0;
+}
+.calculatrice .recap_resultat_calculatrice li{
+	background: url("@{imgPathTheme}/puce_tab.png") no-repeat scroll 0 4px transparent;
+	line-height: 135%;
+	margin: 0 0 0 10px;
+	padding: 0 0 4px 15px;
+}
+.calculatrice .sstitre_resultat_calculatrice{
+	margin:0 0 10px 0;
+	text-decoration:underline;
+}
+.calculatrice .savoir_plus_calculatrice{
+	margin:10px 0;
+}
+.calculatrice .calculatrice_resultat table td:hover{
+	background:@color_desat;
+}
+	
+/*****************************************************FOOTER*************************************************************/
+.calculatrice .calculatrice_form .navigation_calculatrice,
+.calculatrice .calculatrice_form .grd_navigation_calculatrice{
+	height: 25px;
+	padding:20px 0;
+	margin:30px 0 0 0;
+	border-top:1px solid #ccc;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #fff;
+        box-shadow: inset 0px 1px 0px 0px #fff;
+	text-align:center;
+	clear:both;
+}
+.calculatrice .calculatrice_form .navigation_calculatrice.nav_resultat{
+	border:none;
+	box-shadow:none;
+	padding:0;
+}
+.calculatrice .calculatrice_form .navigation_calculatrice.nav_resultat a{
+	color:#fff;
+}
+.calculatrice .calculatrice_form .grd_navigation_calculatrice{
+	background: url("@{imgPath}/calculatrice/regle_calculatrice.gif") repeat-x scroll 1px 1px transparent;
+	height:65px;
+}
+/*-----------------------------------------Navigation-----------------------------------------------*/
+.calculatrice .calculatrice_form .navigation_next,
+.calculatrice .calculatrice_form .navigation_prev{
+	font:bold 12px/25px Arial, Helvetica, sans-serif ;
+	background:@color_aplat;
+	color:#fff;
+}
+.calculatrice .calculatrice_form .navigation_next{
+	display: block;
+	float: right;
+	margin-right: 20px;
+	padding-right: 25px;
+	text-align: right;
+	width: 10rem;
+}
+.calculatrice .calculatrice_form .navigation_prev{
+	float: left;
+	height: 16px;
+	padding: 1px 10px 8px 35px;
+}
+.calculatrice .calculatrice_form .navigation_prev:hover,
+.calculatrice .calculatrice_form .navigation_next:hover{
+	background:@color_base;
+}
+.calculatrice .calculatrice_form .navigation_next span,
+.calculatrice .calculatrice_form .navigation_prev span{
+	 background: url("/img/cc/0.1.0/calculatrice/sprite_calculatrice.png") no-repeat scroll 6px -357px #62579e;
+	height: 25px;
+	margin: 0 0 0 10px;
+	position: absolute;
+	width: 25px;
+}
+.calculatrice .calculatrice_form .navigation_prev span{
+	margin: -1px 10px 0 -35px;
+}
+.calculatrice .calculatrice_form .navigation_prev span{
+	background-position: 4px -624px;
+}
+.calculatrice .calculatrice_form .navigation_calculatrice_recalcul{
+	background:none;
+	border: medium none;
+	box-shadow: none;
+	margin: 0;
+	padding: 0;
+}
+.calculatrice .calculatrice_form .navigation_calculatrice_recalcul .bt_connect{
+	float:left;
+	background:#999;
+}
+.calculatrice .calculatrice_form .navigation_calculatrice_recalcul .bt_connect:hover{
+	background:#666;
+}
+.calculatrice .calculatrice_form .navigation_calculatrice_recalcul .bt_connect span{
+	border-right:none;
+}
+/*---------------------------------------------Boutons-------------------------------------------------*/
+.calculatrice .imprimer_calculatrice,
+.calculatrice .btn_calculatrice,
+.calculatrice .offre_financement_calculatrice,
+.calculatrice .devis_calculatrice,
+.calculatrice .bt_connect{
+	display: inline-block;
+	margin: 0 5px;
+	padding:0px 10px;
+	text-align: center;
+	font: bold 14px/30px Arial,Helvetica,sans-serif;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	text-decoration:none;
+}
+.calculatrice .btn_calculatrice{
+	height:20px;
+}
+.calculatrice .btn_connect{
+	float:right;
+	position:relative;
+	top:-15px;
+}
+.calculatrice .navigation_calculatrice .imprimer_calculatrice{
+	background:#999;
+	color:#fff;
+}
+.calculatrice .navigation_calculatrice .imprimer_calculatrice:hover{
+	background:#666;
+	color:#fff;
+}
+.calculatrice navigation_calculatrice .offre_financement_calculatrice{
+	background:#999;
+	color:#fff;
+}
+.calculatrice .bt_connect{
+	background:@color_aplat;
+	color:#fff;
+}
+.calculatrice .bt_connect:hover{
+	background:@color_base;
+}
+.calculatrice .bt_connect span{
+	background: url("@{imgPath}/calculatrice/sprite_calculatrice.png") no-repeat scroll -4px 2px transparent;
+	display: inline-block;
+	height: 30px;
+	width: 25px;
+}
+.calculatrice .imprimer_calculatrice span,
+.calculatrice .calculer_calculatrice span,
+.calculatrice .btn_calculatrice span,
+.calculatrice .offre_financement_calculatrice span,
+.calculatrice .devis_calculatrice span{
+	background: url("@{imgPath}/calculatrice/sprite_calculatrice.png") no-repeat scroll 1px -660px transparent;
+	display: inline-block;
+	margin:0 5px 0 0;
+	height: 30px;
+	width: 25px;
+}
+.calculatrice .btn_calculatrice{
+	float:right;
+	position:relative;
+	top:-30px;
+}
+.calculatrice .offre_financement_calculatrice span{
+	background: url("@{imgPath}/calculatrice/sprite_calculatrice.png") no-repeat scroll -2px -698px transparent;
+}
+.calculatrice .devis_calculatrice span{
+	background: url("@{imgPath}/calculatrice/sprite_calculatrice.png") no-repeat scroll 2px -168px transparent;
+}
+.calculatrice .btn_calculatrice span,
+.calculatrice .calculer_calculatrice span{
+	background-position:-3px -4px;
+	vertical-align:top;
+}
+.calculatrice .imprimer_resultat_calculatrice p{
+	margin:5px auto;
+	width:310px;
+}
+.calculatrice .imprimer_resultat_calculatrice .imprimer_calculatrice,
+.calculatrice .imprimer_resultat_calculatrice .offre_financement_calculatrice,
+.calculatrice .imprimer_resultat_calculatric .devis_calculatrice{
+	border-radius:0;
+	margin:20px 0px 20px 10px;
+	vertical-align:middle;
+}
+.calculatrice .navigation_calculatrice .offre_financement_calculatrice,
+.calculatrice .navigation_calculatrice .devis_calculatrice{
+	background:@color_aplat;
+	color:#fff;
+}
+.calculatrice .navigation_calculatrice .offre_financement_calculatrice:hover,
+.calculatrice .navigation_calculatrice .devis_calculatrice:hover{
+	background:@color_base;
+}
+#appli_imc .bt_connect:hover,
+#appli-poids_ideal .bt_connect:hover{
+	color:#fff;
+}
+
+/*********************************************** CALCULATRICE SALAIRE **********************************************************/
+.calculatrice .calculatrice_form {
+	.bloc_calculatrice{
+		margin:20px auto 0px auto;
+		height:82px;
+		width:448px;
+		overflow:hidden;
+		position:relative;
+		.cat_bloc200{
+			height:75px;
+			width:198px;
+			.gradient(#fff, #eee, #fff);
+			margin:0 10px;
+			cursor:pointer;
+			float:left;
+			font:12px/75px Arial, Helvetica, sans-serif;
+			text-align:center;
+			border:2px solid #ccc;
+			color:#666;
+		}
+		.cat_bloc200:hover{
+			.gradient(#eee, #fff, #eee);
+		}
+		.cat_bloc200.selection_calculatrice{
+			border:2px solid @color_aplatC;
+		}
+		input{
+			position:absolute;
+			top:-20px;
+		}
+		span{
+			width:70px;
+			height:65px;
+			float:left;
+			margin:5px;
+			border-right:1px solid #ccc;
+		}
+		.img_prive{
+			background:url("@{imgPath}/calculatrice/img_salaire.png")no-repeat 2px 9px;
+		}
+		.img_public{
+			background:url("@{imgPath}/calculatrice/img_salaire.png")no-repeat -67px 10px;
+		}
+		.img_cadre{
+			background:url("@{imgPath}/calculatrice/img_salaire.png")no-repeat -2px -59px;
+		}
+		.img_non_cadre{
+			background:url("@{imgPath}/calculatrice/img_salaire.png")no-repeat -68px -59px;
+		}
+		.img_non_titu{
+			background:url("@{imgPath}/calculatrice/img_salaire.png")no-repeat -2px -127px;
+		}
+		.img_fonctionnaire{
+			background:url("@{imgPath}/calculatrice/img_salaire.png")no-repeat -70px -125px;
+		}
+	}
+	.cat_bloc140{
+		height:170px;
+		width:140px;
+		margin: 30px 0 10px 0;
+		cursor:pointer;
+		float:left;
+		font:12px/75px Arial, Helvetica, sans-serif;
+		text-align:center;
+		color:#fff;
+		position:relative;
+		h4{
+			border-bottom:3px solid #fff;
+			font:12px/45px Arial, Helvetica, sans-serif;
+			text-transform:uppercase;
+			color:#fff;
+		}
+		.mesure_calculatrice{
+			position:absolute;
+			top:108px;
+			left:105px;
+		}
+		.ecrire_salaire{
+			margin:0 35px 0 0;
+		}
+		label{
+			margin:20px 10px;
+		}
+		input[type="radio"]{
+			margin-top:2px;
+		}
+		&.cat_annuel .calculatrice_error_text,
+		&.cat_mensuel .calculatrice_error_text,
+		&.cat_horaire .calculatrice_error_text {
+			clear: both;
+			color: #c00;
+			display: block;
+			font-weight: bold;
+			padding: 5px 0 0 0;
+			width: 140px;
+			font:bold 11px/14px Arial, Helvetica, sans-serif;
+			position: absolute;			
+			bottom: -35px;
+		}
+	}
+	.cat_bloc140.bloc_inactif,
+	.cat_bloc140.bloc_inactif h4,
+	.cat_bloc240.bloc_inactif,
+	.cat_bloc240.bloc_inactif h4{
+		background:#eee;
+	}
+	.cat_bloc140.bloc_inactif.cat_majore .calculatrice_bulle{
+		background: url("@{imgPath}/calculatrice/sprite_calculatrice.png") repeat scroll -1px -515px #eee;
+	}
+	.cat_bloc240.bloc_inactif .mesure_calculatrice,
+	.cat_bloc140.bloc_inactif .mesure_calculatrice{
+		background:#ddd;
+	}
+	.cat_annuel,
+	.cat_majore{
+		background:#fe8230;
+		h4,
+		.mesure_calculatrice{
+			background:#f60;
+		}
+	}
+	.cat_majore{
+		margin-left:40px;
+		background:#fe8230;
+		position:relative;
+		h4,
+		.mesure_calculatrice{
+			background:#f60;
+		}
+		.calculatrice_bulle{
+			position:absolute;
+			top:36px;
+			left:57px;
+			background: url("@{imgPath}/calculatrice/sprite_calculatrice.png") repeat scroll -1px -515px #f60;
+			border:2px solid #fff;
+		}
+		.calculatrice_bulle span{
+			position:absolute;
+			top:-5px;
+			left:-5px;
+			z-index:101;
+		}
+		.ecrire_salaire{
+			margin:0px 25px 5px 0;
+		}
+		.calculatrice_error{
+			font: 12px/15px Arial,Helvetica,sans-serif;
+		}
+		span{
+			position: relative;
+			top: 4.2rem;
+		}
+		.indication_IM{
+			color:#fff;
+			font: italic 11px/15px Arial,Helvetica,sans-serif;
+			overflow: auto;
+			width: 140px;
+			margin:35px 0 5px 0;
+		}
+	}
+	.info_majore{
+		border: 2px solid #f60;
+		clear: both;
+		margin: 0 0 0 40px;
+		width:406px; height:120px;
+		padding:10px;
+		position:relative;
+		top:14px;
+		ul{
+			height:200px;
+		}
+		.calculatrice_bulle{
+			background:url("@{imgPath}/calculatrice/sprite_calculatrice.png") repeat scroll -1px -515px #f60;
+			span{
+				top:15px;
+				left:-85px;
+			}
+		}
+		input[type="text"]{
+			width:55px;
+		}
+		.mesure_calculatrice{
+			top:10px;
+			left:373px;
+		}
+		.label400{
+			width:400px;
+			margin:10px 0;
+			select{
+				float:right;
+			}
+			input[type="text"]{
+				margin:0 25px 0 0;
+			}
+			.objet_moins_calculatrice{
+				top:13px;
+				left:315px;
+				background:url("@{imgPath}/calculatrice/sprite_calculatrice.png") no-repeat scroll -52px -432px #f60;
+			}
+			.objet_plus_calculatrice{
+				top:13px;
+				left:383px;
+				background:url("@{imgPath}/calculatrice/sprite_calculatrice.png") no-repeat scroll -52px -472px #f60;
+			}
+			.input30{
+				width:30px;
+			}
+		}
+	}
+	.cat_mensuel{
+		background:#5ec729;
+		h4,
+		.mesure_calculatrice{
+			background:#390;
+		}
+	}
+	.cat_horaire,
+	.cat_traitement{
+		background:#20b4e5;
+		h4,
+		.mesure_calculatrice{
+			background:#09c;
+		}
+	}
+	.bloc_ou{
+		float: left;
+		font: 12px/165px Arial, Helvetica, sans-serif;
+		height: 168px;
+		margin: 30px 9px 10px 9px;
+		text-align: center;
+		text-transform: uppercase;
+		width: 28px;
+		border:1px solid #ccc;
+		background:#eee;
+	}
+	.cat_bloc240{
+		height:165px;
+		width:240px;
+		margin: 30px 0 10px 0;
+		cursor:pointer;
+		float:left;
+		font:12px/75px Arial, Helvetica, sans-serif;
+		text-align:center;
+		color:#fff;
+		position:relative;
+		h4{
+			border-bottom:3px solid #fff;
+			font:12px/45px Arial, Helvetica, sans-serif;
+			text-transform:uppercase;
+			color:#fff;
+		}
+		p{
+			float:left;
+			color:#fff;
+			font:normal 12px/20px Arial, Helvetica, sans-serif;
+		}
+		.mesure_calculatrice{
+			position:absolute;
+			top:0px;
+			left:80px;
+			z-index:100;
+		}
+		.ecrire_salaire{
+			position:absolute;
+			left:0px;
+			top:0px;
+		}
+		li{
+			margin:20px 15px 0 20px;
+			float:left;
+			width:210px;
+		}
+		input[type="radio"]{
+			margin:3px 3px 3px 15px;
+		}
+		.brut_net_calcul{
+			left: 104px;
+			position: absolute;
+			top: 94px;
+			input[type="radio"]{
+				margin:2px 2px 0px 10px;
+			}
+		}
+		.calculatrice_error_text{
+			top: 69px;
+			clear: both;
+			color: #c00;
+			display: block;
+			font-weight: bold;
+			left: -20px;
+			padding: 4px 0 0;
+			position: absolute;
+			width: 240px;
+			font:bold 11px/14px Arial, Helvetica, sans-serif;
+		}
+	}
+	/************* RESULTAT ***************/
+	.precision_IM{
+		color: #333;
+		font: bold 12px/20px Arial,Helvetica,sans-serif;
+		margin: 30px auto;
+		padding: 0 0 0 20px;
+		text-align: center;
+		width: 430px;
+		background:url("@{imgPath}/calculatrice/sprite_calculatrice.png")no-repeat scroll -1px -268px;
+	}
+	.liste_resultat{
+		p{
+			font:bold 12px/15px Arial, Helvetica, sans-serif;
+			color:#333;
+		}
+		ul{
+			padding:0 0 0 20px;
+			margin: 0 0 15px 0;
+		}
+		li{
+			background:url("@{imgPath}/calculatrice/sprite_calculatrice.png")no-repeat scroll -8px -121px;
+			padding:0 0 0 10px;
+		}
+	}
+	.liste_plus_resultat{
+		margin:20px 0;
+		p{
+			font:bold 12px/15px Arial, Helvetica, sans-serif;
+			color:#333;
+		}
+		ul{
+			margin:0 0 0 20px;
+		}
+		li{
+			border-bottom:1px dotted #666;
+			position:relative;
+			height:13px;
+			margin:5px 0;
+		}
+		span{
+			background:#fff;
+			position:absolute;
+			top:1px;
+		}
+		.liste_intitule{
+			padding:0 5px 0 10px;
+			background:url("@{imgPath}/calculatrice/sprite_calculatrice.png")no-repeat scroll -8px -121px #fff;
+		}
+		.precision_liste_resultat{
+			right:0;
+			padding:0 0 0 5px;
+		}
+	}
+}
+/*********************************************** CALCULATRICE ESCALIER **********************************************************/
+#site.noir .calculatrice .calculatrice_nav ul li.etape_selected a{
+	color:#fff;
+}
+#site.noir .calculatrice .calculatrice_nav li a{
+	color:@color_aplat;
+}
+#site.noir .calculatrice .calculatrice_nav li a:hover{
+	color:@color_base;
+}
+.calculatrice .calculatrice_form {
+	.ensemble_escalier{
+		width:520px;
+		overflow:auto;
+	}
+	.cat_bloc160{
+		height:185px;
+		width:160px;
+		margin: 10px 6px;
+		cursor:pointer;
+		float:left;
+		text-align:center;
+		position:relative;
+		overflow:hidden;
+		background:#f0f0f0;
+		text-transform:uppercase;
+		label{
+			font:bold 10px/17px Arial, Helvetica, sans-serif;
+		}
+		input[type="radio"]{
+			position:absolute;
+			top:-20px;
+		}
+		.img_escalier{
+			display:inline-block;
+			width:150px;
+			height:155px;
+			margin:5px;
+		}
+		.escalier_droit{
+			background:url("@{imgPath}/calculatrice/escalier_droit_e1.png")no-repeat scroll 5px 0px #fff;
+		}
+		.escalier_tournant{
+			background:url("@{imgPath}/calculatrice/escalier_tournant_e1.png")no-repeat scroll 5px 0px #fff;
+		}
+		.escalier_helico{
+			background:url("@{imgPath}/calculatrice/escalier_helico_e1.png")no-repeat scroll 5px 0px #fff;
+		}
+		.escalier_tournant_palier{
+			background:url("@{imgPath}/calculatrice/escalier_tournant_palier_e1.png")no-repeat scroll 5px 0px #fff;
+		}
+		.escalier_tournant_quart{
+			background:url("@{imgPath}/calculatrice/escalier_tournant_quart_e1.png")no-repeat scroll 5px 0px #fff;
+		}
+		
+	}
+	.cat_bloc160:hover{
+		background:#ddd;
+	}
+	.illustration_escalier_droit{
+		width:200px;
+		height:200px;
+		float:left;
+		margin:30px 0;
+		span{
+			display:inline-block;
+			width:200px;
+			height:200px;
+			border:3px solid #ddd;	
+		}
+		.img_escalier_droit{
+			background:url("@{imgPath}/calculatrice/EscalierDroit.png")no-repeat scroll 0px 0px #fff;
+		}
+	}
+	.illustration_escalier{
+		width:200px;
+		height:415px;
+		float:left;
+		margin:30px 0;
+		span{
+			display:inline-block;
+			width:200px;
+			height:415px;
+			border:3px solid #ddd;	
+		}
+		.img_escalier_palier{
+			background:url("@{imgPath}/calculatrice/EscalierPalier.png")no-repeat scroll 0px 0px #fff;
+		}
+		.img_escalier_quart{
+			background:url("@{imgPath}/calculatrice/EscalierQuart.png")no-repeat scroll 0px 0px #fff;
+		}
+		.img_escalier_demi{
+			background:url("@{imgPath}/calculatrice/EscalierDemi.png")no-repeat scroll 0px 0px #fff;
+		}
+		.img_escalier_helicoidal{
+			background:url("@{imgPath}/calculatrice/EscalierHelicoidal.png")no-repeat scroll 0px 0px #fff;
+		}
+	}
+	.liste270_calculatrice{
+		float:left;
+		width:270px;
+		margin:30px 0 0 30px;
+		.definition_calculatrice{
+			border:1px solid @color_aplatC;
+			width:245px;
+			padding:10px;
+			background:#fff;
+			margin:0 0 20px 0;
+			color:#666;
+			span{
+				text-decoration:underline;
+			}
+		}
+		li{
+			width:300px;
+			margin:0px 0 10px 0;
+		}
+		p{
+			font-style:normal;
+			width:265px;
+			margin:0 0 5px 0;
+		}
+		.label100{
+			width:100px;
+			margin:0 0 10px 0;
+			input{
+				margin:3px 3px 0 0;
+			}
+		}
+		.label130{
+			width:130px;
+			margin:0px 20px 5px 0;
+			height:45px;
+			font:italic 12px/15px Arial, Helvetica, sans-serif;
+			input{
+				width:100px;
+				margin:5px 0;
+				float:left;
+			}
+			.mesure_calculatrice{
+				left:90px;
+				top:20px;
+				font-style:normal;
+			}
+		}
+		.label240{
+			margin:5px 0;
+		}
+	}
+/******************************** RESULTAT *************************************/
+	.toggle_recap_calculatrice .description_resultat_calculatrice {
+		.mesure_description_resultat{
+			float:right;
+			margin:0 10px 0 0;
+		}
+		ul{
+			padding:0 0 0 20px;
+		}
+	}
+}
+/****************************************************** CALCULATRICE DEMENAGEMENT ****************************************************/
+.calculatrice .calculatrice_form .selection_partie_calculatrice,
+.calculatrice .calculatrice_form .illustration_calculatrice{
+	float:left;
+	margin:30px 0 20px 0;
+}
+.calculatrice .illustration_calculatrice{
+	width:384px;
+	height:287px;
+	background:#fff;
+	border:1px solid #ccc;
+}
+.calculatrice .choix_meuble{
+	overflow:auto;
+}
+.calculatrice .selection_partie_calculatrice li{
+	font:bold 9px/12px Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+	background:#f0f0f0;
+}
+.calculatrice .selection_partie_calculatrice a{
+	text-decoration:none;
+	display:block;
+	padding:5px;
+}
+.calculatrice .selection_partie_calculatrice a:hover{
+	background-color:@color_pale;
+}
+.calculatrice .selection_partie_calculatrice .selection_type_mobilier{
+	background:@color_aplat;
+}
+.calculatrice .selection_partie_calculatrice .selection_type_mobilier a{
+	color:#fff;
+}
+.calculatrice .calculatrice_form .objet_calculatrice{
+	width:95px;
+	height:95px;
+	float:left;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	position:relative;
+	left:1px;
+}
+.calculatrice .calculatrice_form .objet_calculatrice .mobilier_calculatrice{
+	width:95px;
+	height:70px;
+	display:block;
+}
+.calculatrice .calculatrice_form .objet_calculatrice input{
+	width:35px;
+	position:absolute;
+	top:70px;
+	left:28px;
+	text-align:center;
+}
+.calculatrice .calculatrice_form a.objet_plus_calculatrice,
+.calculatrice .calculatrice_form a.objet_moins_calculatrice{
+	.rounded(7px);
+	width:15px;
+	height:15px;
+	position:absolute;
+	display:inline-block;
+	top:73px;
+}
+.calculatrice .calculatrice_form .objet_plus_calculatrice{
+	left:75px;
+	background:url("@{imgPath}/calculatrice/sprite_calculatrice.png")no-repeat scroll -52px -472px @color_base;
+}
+.calculatrice .calculatrice_form .objet_moins_calculatrice{
+	left:6px;
+	background:url("@{imgPath}/calculatrice/sprite_calculatrice.png")no-repeat scroll -52px -432px @color_base;
+}
+#appli_demenagement .calculatrice_form .mobilier_calculatrice:hover{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -1775px transparent;
+}
+#appli_demenagement .calculatrice_form .objet_calculatrice:hover{
+	background-color: @color_pale;
+}
+#appli_demenagement.calculatrice .calculatrice_form .selection_type_mobilier a:hover{
+	color:#fff;
+}
+/*---------------------- sprite déménagement ----------------------*/
+.calculatrice .calculatrice_form .demenagement_vignette_a01{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px 0px #fff; /* banc */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_a02{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px 0px #fff; /* meuble à chaussures */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_a03{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px 0px #fff; /* penderie */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_a04{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px 0px #fff; /* guéridon */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_b01{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -95px #fff; /* frigo */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_b02{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -95px #fff; /* gaziniere */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_b03{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -95px #fff; /* lave vaisselle */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_b04{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px -95px #fff; /* micro-ondes */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_b05{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -190px #fff; /* lave-linge */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_b06{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -190px #fff; /* table */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_b07{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -190px #fff; /* chaise */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_b08{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px -190px #fff; /* elements de cuisine */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_b09{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -0px -285px #fff; /* vaisselier */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_b10{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -285px #fff; /* armoire */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_b11{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -285px #fff; /* poubelle */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_c01{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -0px -380px #fff; /* lave linge */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_c02{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -380px #fff; /* meuble mural */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_c03{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -380px #fff; /* pharmacie */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_d01{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -475px #fff; /* fauteuil */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_d02{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -475px #fff; /* ordinateur */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_d03{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -475px #fff; /* imprimante */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_d04{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px -475px #fff; /* armoire */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_d05{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -570px #fff; /* lampe */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_d06{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -570px #fff; /* bureau */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_d07{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -570px #fff; /* bibliotheque */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_d08{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px -570px #fff; /* secretaire */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_e01{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -665px #fff; /* canapé 3 places */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_e02{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -665px #fff; /* canapé d'angle */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_e03{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -665px #fff; /* fauteuil */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_e04{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px -665px #fff; /* table basse */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_e05{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -760px #fff; /* mauble télé */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_e06{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -760px #fff; /* téléviseur */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_e07{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -760px #fff; /* bibliotheque 1 porte */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_e08{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px -760px #fff; /* table à manger */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_e09{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -0px -855px #fff; /* chaise */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_e10{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -855px #fff; /* buffet */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_e11{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -855px #fff; /* armoire */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_f01{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -950px #fff; /* lit double */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_f02{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -950px #fff; /* lit simple */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_f03{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -950px #fff; /* table de chevet */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_f04{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px -950px #fff; /* lampe de chevet */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_f05{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -1040px #fff; /* armoire 1 porte */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_f06{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -1040px #fff; /* armoire 2 portes */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_f07{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -1040px #fff; /* lit bébé */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_f08{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px -1040px #fff; /* lits superposés */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_f09{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -0px -1130px #fff; /* coffre à jouets */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_f10{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -1130px #fff; /* meuble à langer */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_g01{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -0px -1225px #fff; /* tondeuse à gazon */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_g02{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -1225px #fff; /* mobilier de jardin */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_g03{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -1225px #fff; /* établi */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_g04{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px -1225px #fff; /* cabanon */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_h01{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -1320px #fff; /* plante */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_h02{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -1320px #fff; /* étagère */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_h03{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -1320px #fff; /* grand tapis */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_h04{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px -1320px #fff; /* petit tapis */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_h05{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -1415px #fff; /* miroir */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_h06{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -1415px #fff; /* rideaux */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_i01{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -1510px #fff; /* vélo */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_i02{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -1510px #fff; /* balançoire */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_i03{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -1510px #fff; /* barbecue */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_i04{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px -1510px #fff; /* appareil de musculation */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_i05{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll 0px -1605px #fff; /* aspirateur */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_i06{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -1605px #fff; /* poussette */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_i07{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -190px -1605px #fff; /* parasol */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_i08{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -285px -1605px #fff; /* cantine */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_j01{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -0px -1700px #fff; /* carton (petit) */
+}
+.calculatrice .calculatrice_form .demenagement_vignette_j02{
+	background:url("@{imgPath}/calculatrice/demenagement/sprite_demenagement.png")no-repeat scroll -95px -1700px #fff; /* carton (grand) */
+}
+/*---------------------- partie résultat ----------------------*/
+.calculatrice .calculatrice_form .autre_calculatrice_recap p{
+	font:bold 14px/18px Arial, Helvetica, sans-serif;
+	padding:0 0 0 5px;
+	color:#333;
+}
+.calculatrice .calculatrice_form .autre_calculatrice_recap sup{
+	font:8px/15px Arial, Helvetica, sans-serif;
+}
+.calculatrice .calculatrice_form .resultat sup{
+	font:11px/15px Arial, Helvetica, sans-serif;
+}
+.calculatrice .calculatrice_form .autre_calculatrice_recap .sstitre_recap{
+	margin:0;
+	padding:0 2px;
+	width:492px;
+}
+.calculatrice .calculatrice_form .description_resultat_calculatrice{
+	float:left;
+	width:222px;
+	margin:3px;
+	padding:5px;
+	background-color:#f1f1f1;
+}
+.calculatrice .calculatrice_form .description_resultat_calculatrice .description1{
+	width:145px;
+	display:inline-block;
+}
+.calculatrice .calculatrice_form .description_resultat_calculatrice .description2{
+	width:20px;
+	display:inline-block;
+}
+.calculatrice .calculatrice_form .toggle_recap_calculatrice li{
+	padding:0;
+	margin:0;
+	background:none;
+}
+.calculatrice .calculatrice_form .toggle_recap_calculatrice ul{
+	padding:0;
+	margin:0;
+	overflow:auto;
+}
+#appli_demenagement .calculatrice_form .navigation_calculatrice_recalcul{
+	border: medium none;
+	box-shadow: none;
+	margin: 0 0 10px;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+#appli_demenagement .calculatrice_form .navigation_calculatrice_recalcul .bt_connect{
+	float:left;
+	margin:0 10px 0 0;
+	padding:0;
+	color:#666;
+	background:none;
+	font: bold 12px/25px Arial, Helvetica, sans-serif;
+	border:none;
+}
+#appli_demenagement .calculatrice_form .navigation_calculatrice_recalcul .bt_connect:hover{
+	color:@color_aplatC;
+}
+#appli_demenagement .calculatrice_form .navigation_calculatrice_recalcul .bt_connect span{
+	background: url("@{imgPath}/calculatrice/sprite_calculatrice.png") no-repeat scroll 1px -591px #666;
+	box-shadow:none;
+	height:18px;
+	width:18px;
+	.rounded(9px);
+	padding:0;
+	display:inline-block;
+	margin:0 5px 0 0;
+	vertical-align:-3px;
+}
+#appli_demenagement .navigation_calculatrice .devis_calculatrice,
+#appli_demenagement .navigation_calculatrice .imprimer_calculatrice{
+	color:#fff;
+}
+#appli_demenagement .calculatrice_form .error_full{
+	text-align:center;
+	width:auto;
+	padding:10px;
+}
+.calculatrice .calculatrice_form{
+	.conseil_vehicule{
+		margin:30px 0 15px 0;
+	}
+	.vehicule_demenagement484{
+		float:left;
+		width:480px;
+		background:#eee;
+		margin:0 5px 10px 5px;
+		border:4px solid @color_aplatC;
+		padding:10px;
+		ul{
+			text-align:center;
+			margin:10px 0 0 0;
+		}
+		p{
+			text-align:center;
+			font:12px/15px Arial, Helvetica, sans-serif;
+			color:#333;
+		}
+		li{
+			display:inline-block;
+			width:100px;
+			text-align:center;
+			span{
+				display:inline-block;
+				width:25px;
+				height:30px;
+				position:relative;
+				top:5px;
+			}
+		}
+		span{
+			display:block;
+			width:370px;
+			height:100px;
+			margin:0 auto;
+		}
+		.fourgonnette{
+			background:url("@{imgPath}/calculatrice/demenagement/vehicule_demenagement.png")no-repeat scroll 105px 20px;
+		}
+		.fourgon{
+			background:url("@{imgPath}/calculatrice/demenagement/vehicule_demenagement.png")no-repeat scroll 105px -77px;
+		}
+		.camionnette{
+			background:url("@{imgPath}/calculatrice/demenagement/vehicule_demenagement.png")no-repeat scroll 103px -178px;
+		}
+		.camion{
+			background:url("@{imgPath}/calculatrice/demenagement/vehicule_demenagement.png")no-repeat scroll 101px -291px;
+		}
+		.semi_remorque{
+			background:url("@{imgPath}/calculatrice/demenagement/vehicule_demenagement.png")no-repeat scroll 4px -400px;
+		}
+	}
+	.poids_vehicule{
+			background:url("@{imgPath}/calculatrice/demenagement/vehicule_demenagement.png")no-repeat scroll 2px -520px;
+	}
+	.contenant_vehicule{
+			background:url("@{imgPath}/calculatrice/demenagement/vehicule_demenagement.png")no-repeat scroll -26px -520px;
+	}
+}
+/************************************ Style calculatrice page comprendre *************************/
+.contenu_comprendre{
+	.article{
+		.calculatrice{
+			a:hover span{
+				background-color:@violet-typo!important; 
+			}
+			margin:2.5rem auto;
+			width: 540px;
+			ul{
+				margin:2rem 0 0 1rem;
+				li{
+					&::before{
+						content:"";	
+					}
+				}
+			}
+			th.entete_secondaire{
+				color: #fff;
+			}
+			.calculatrice_recap{
+				th.entete_principal{
+					.gradient(@violet, @violet-typo, @violet);
+				}
+			}
+			.calculatrice_recap,
+			.calculatrice_resultat{
+				a:hover{
+					color:@rouge!important;
+				}
+				.voir_detail_calculatrice:hover > span{
+					background-color: transparent!important;
+				}
+				.imprimer_calculatrice:hover{
+					color:#fff !important;
+					background: @violet-typo;
+				}
+			}
+			.calculatrice_nav{
+				margin: 0;
+				li a{
+					background: none;
+					text-decoration: none;
+				}
+				li.etape_selected a{
+					background: @rouge;
+				}
+			}
+			.calculatrice_form{
+				margin:2rem 1rem;
+				ul {
+					margin:0;
+				}
+				.fieldset_area a:hover,
+				.fieldset_area_footer a:hover{
+					color: #333 !important;
+				}
+				.ecrire_salaire{
+					min-height: 2.5rem;
+				}
+				.navigation_prev{
+					height: 25px;
+				}
+				.navigation_next{
+					width: 13rem;
+				}
+				.cat_majore{
+					.calculatrice_bulle{
+						width: 20px;
+						height: 20px;
+					}
+				}
+				.info_majore{
+					width: 435px;
+					height: 150px;
+					input{
+						min-height: 2.1rem;
+					}
+				}
+				a.objet_plus_calculatrice,
+				a.objet_moins_calculatrice{
+					.radius(7px);
+					text-decoration: none;
+				}
+				.cat_bloc140,
+				.cat_bloc240{
+					input[type="radio"]{
+						display: inline-block;
+					}
+					.mesure_calculatrice{
+						line-height: 25px;
+					}
+				}
+				.cat_bloc140{
+					.mesure_calculatrice{
+						top: 57px;
+					}
+				}
+				.cat_bloc240{
+					.brut_net_calcul{
+						left:108px;
+						top: 103px;
+					}
+					.mesure_calculatrice{
+						top:0;
+						left: 84px;
+					}
+				}
+			}
+		}
+		.calculatrice::after{
+			border-collapse: collapse;
+			clear: both;
+			content: "";
+			display: table;
+		}
+	}
+}

@@ -1,0 +1,4169 @@
+/* *************************************************************************************************************************** *
+ * *  ATTENTION, ce fichier est lié symboliquement.            *
+ * *  Fichier original :     finecommon/themes/comprendrechoisir/common_files/css/styles_devis.less          *
+ * *************************************************************************************************************************** */
+
+/* *********************************************** SOMMAIRE ********************************************************** *
+
+1. VARIABLES LESS	--> Pour les formes landing qui n'appellent que ce fichier less dans leur header (ce fichier est un lien symbolique sur les guides de la defisc)
+
+2. DEMANDE DE DEVIS EN 1 PAGE
+	1. ENTETE
+	2. FORMULAIRE devis_540
+	3. REASSURANCE
+
+3. PAGE FIN
+
+4. DEVIS EN X ETAPES
+	1. ENTETE
+	2. NAVIGATION
+	3. GENERAL
+	4. MISES EN PAGE
+		1. 2 CASES PAR LIGNES
+		2. 3 CASES PAR LIGNES
+		3. 4 CASES PAR LIGNES
+	5. AUTRES ET NE SAIS PAS	--> Commun à tous les formulaires
+	6. QUESTIONS RECURANTES		--> Commun à plusieurs les formulaires
+
+	7. PROJETS MAISON		--> Fenetre, assainissement, abri de piscine...
+	8. DEVIS MAISON			--> Commun à tous les formulaires maisons
+
+	9. DEVIS DEFISC			--> Commun à tous les formulaires defisc
+
+	10. DEVIS AUDITIF		--> Sur Auditif et Acouphènes
+
+	11. COORDONNEES			--> Commun à tous les formulaires
+	12. REASSURANCE
+
+5. PASSER DEVIS EBILBIO
+
+6. MEDIA QUERIES POUR DEVIS DEFISC RESPONSIVE
+
+ * ******************************************************************************************************************* */
+
+/* ********************************************** VARIABLES LESS ***************************************************** */
+.rounded(@radius: 5px) {
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+}
+.gradient(@color: #F5F5F5, @start: #EEEEE, @stop: #FFFFF) {
+	background: @color;
+	background: -moz-linear-gradient(top,  @start 0%, @stop 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop));
+	background: -webkit-linear-gradient(top,  @start 0%,@stop 100%);
+	background: -o-linear-gradient(top,  @start 0%,@stop 100%);
+	background: -ms-linear-gradient(top,  @start 0%,@stop 100%);
+	background: linear-gradient(to bottom,  @start 0%,@stop 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@start, endColorstr=@stop,GradientType=0 );
+}
+.box-shadow(@horizontal:-1px, @vertical:1px, @blur:2px, @spread:1px, @colorshad:#CCC) {
+	-webkit-box-shadow: @horizontal @vertical @blur @spread @colorshad;
+ 	 box-shadow: @horizontal @vertical @blur @spread @colorshad;
+}
+.inner-shadow(@horizontal:-1px, @vertical:1px, @blur:2px, @spread:1px, @colorinset:#CCC) {
+	-webkit-box-shadow: inset @horizontal @vertical @blur @spread @colorinset;
+	box-shadow: inset @horizontal @vertical @blur @spread @colorinset;
+}
+/* Explication display flex */
+/* http://jonibologna.com/flexbox-cheatsheet/ */
+.flex-display(@display: flex) {
+	display: ~"-webkit-@{display}";
+	display: ~"-moz-@{display}";
+	display: ~"-ms-@{display}box"; // IE10 uses -ms-flexbox
+	display: ~"-ms-@{display}"; // IE11
+	display: @display;
+}
+.flex(@columns: initial) {
+	-webkit-flex: @columns;
+	-moz-flex: @columns;
+	-ms-flex: @columns;
+	flex: @columns;
+}
+.flex-dimension(@columns: initial,@width) {
+	-webkit-flex: @columns @width;
+	-moz-flex: @columns @width;
+	-ms-flex: @columns @width;
+	flex: @columns @width;
+}
+.flex-direction(@direction: row) {
+	-webkit-flex-direction: @direction;
+	-moz-flex-direction: @direction;
+	-ms-flex-direction: @direction;
+	flex-direction: @direction;
+}
+.flex-wrap(@wrap: nowrap) {
+	-webkit-flex-wrap: @wrap;
+	-moz-flex-wrap: @wrap;
+	-ms-flex-wrap: @wrap;
+	flex-wrap: @wrap;
+}
+.flex-order(@order: 0) {
+	-webkit-order: @order;
+	-moz-order: @order;
+	-ms-order: @order;
+	order: @order;
+}
+.flex-grow(@grow: 0) {
+	-webkit-flex-grow: @grow;
+	-moz-flex-grow: @grow;
+	-ms-flex-grow: @grow;
+	flex-grow: @grow;
+}
+.align-items(@align: stretch) {
+	-webkit-align-items: @align;
+	-moz-align-items: @align;
+	-ms-align-items: @align;
+	align-items: @align;
+}
+.align-content(@align: stretch) {
+	-webkit-align-content: @align;
+	-moz-align-content: @align;
+	-ms-align-content: @align;
+	align-content: @align;
+}
+.align-self(@align: auto) {
+	-webkit-align-self: @align;
+	-moz-align-self: @align;
+	-ms-align-self: @align;
+	align-self: @align;
+}
+.justify-content(@justify: flex-start) {
+	-webkit-justify-content: @justify;
+	-moz-justify-content: @justify;
+	-ms-justify-content: @justify;
+	justify-content: @justify;
+}
+
+/************************************************************************************************************************/
+/* ************************************************ DEVIS EN 1 PAGE *****************************************************/
+/************************************************************************************************************************/
+
+ /***************************** ENTETE ******************************************/
+.titre_devis{
+	font: 33px/110% 'museo', Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0 0 0.3em;
+}
+.sousTitre_devis{
+	font: 20px Arial, Helvetica, sans-serif;
+	color:#999;
+	margin: 0 0 20px;
+	padding: 0 0 0.3em;
+}
+.sousTitre_devis em{
+	color:@color_contraste;
+	font: normal 20px Arial, Helvetica, sans-serif;
+}
+.antiSPAM_devis{
+	margin:10px 0;
+	font: 11px/14px Arial, Helvetica, sans-serif;
+	color:#666;
+	span{
+		display:block;
+		height:24px;
+		width:24px;
+		float:left;
+		margin:4px 7px 0 0;
+		background:url("@{imgPathTheme}/sprite_devis.jpg") no-repeat -89px -1px;
+	}
+}
+ /**************************************** FORMULAIRE devis_540 *********************************************/
+.devis_540{
+	width:540px;
+	float:left;
+	margin:20px 30px 0 10px;
+}
+.demande_devis{
+	border:5px solid #e9e9e9;
+	padding:20px;
+	margin:0 0 20px 0;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f5f5f5 0%, #ffffff 25%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(25%,#ffffff)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f5f5f5 0%,#ffffff 25%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f5f5f5 0%,#ffffff 25%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f5f5f5 0%,#ffffff 25%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f5f5f5 0%,#ffffff 25%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	font:12px/16px Arial, Helvetica, sans-serif;
+	/*-------------ON ANNULE LES STYLES PAR DEFAUT DE TABLE-------------------------*/
+	form table,
+	form table tr,
+	form table td {
+		background:none;
+		border:none;
+		margin:0;
+		padding:0;
+		font-size:11px;
+		border-collapse:collapse;
+		text-align:left;
+	}
+	form table {
+		width:100%;
+	}
+	/*-------------------------------- général ---------------------------------*/
+	h6,
+	legend{
+		margin:0 0 20px 0;
+		padding:0;
+		font:18px/22px Arial, Helvetica, sans-serif;
+		color:@color_base;
+	}
+	fieldset{
+		margin:0 0 20px 0;
+		padding:0;
+		border:none;
+	}
+	label{
+		float:none;
+		font: 12px/26px Arial, Helvetica, sans-serif;
+	}
+	/*------------------ input text, select et textarea ------------------------*/
+	input[type="text"],
+	select,
+	textarea{
+		float:right;
+		padding:4px;
+		margin:0;
+		border:1px solid #ccc;
+		font:12px/18px Arial, Helvetica, sans-serif;
+		color:#666;
+		.inner-shadow( -5px, 5px, 7px, 0, #f5f5f5);
+		background:#fff;
+	}
+	input[type="text"]{
+		height:15px;
+	}
+	select{
+		height:25px;
+	}
+	option{
+		width:auto;
+	}
+	input[type="text"]:focus,
+	textarea:focus,
+	select:focus{
+		outline: 3px solid @color_base;
+		border:1px solid @color_base;
+	}
+	/*------ projet et info ---------*/
+	.projetDevis input[type="text"],
+	.infosDevis input[type="text"]{
+		width:260px;
+	}
+	.projetDevis input[type="checkbox"],
+	.infosDevis input[type="checkbox"]{
+		margin:5px 5px 5px 0;
+		width:15px;
+		height:15px;
+		border:none;
+		background:none;
+		float:left;
+	}
+	.projetDevis select,
+	.infosDevis select{
+		width:270px;
+	}
+	.projetDevis label[for="form_main-description"]{/*On utilise le for pour éviter de rajouter une classe sur le label description qui passe sous l'erreur dans Chrome*/
+		display:block;
+	}
+	.projetDevis textarea[id="form_main-description"]{/*Surtout utile dans les form landing 3 sante (appareil auditif et accouphene)*/
+		margin:0 0 20px 0;
+	}
+	.projetDevis textarea{
+		width:480px;
+		max-width:480px;
+		min-width:480px;
+		margin:0;
+		overflow:auto;
+	}
+	.projetDevis p,
+	.infosDevis p{
+		padding:5px 0;
+		margin:0;
+	}
+	#p-description{
+	 	font: 12px/26px Arial,Helvetica,sans-serif;
+	}
+	#p-description a{
+		color:@color_base;
+		text-decoration:underline;
+	}
+	.projetDevis td.checkbox{
+		padding:0 0 5px 0;
+	}
+	.projetDevis label.checkbox{
+		padding:0;
+		margin:0;
+		float:left;
+		width:auto;
+		line-height:16px;
+		color:#666;
+	}
+	.projetDevis input.checkbox{
+		clear:both;
+		margin:0 5px 10px 0;
+	}
+	.projetDevis .radio_projet{/*Quand il y a des boutons radio dans la paartie projet ex : telesurveillance et videosurveillance*/
+		width:270px;
+		float:right;
+	}
+	.projetDevis .radio_projet input.bulle{
+		margin:0;
+	}
+	.projetDevis .radio_projet input.bulle + label + input{
+		margin:0 0 0 72px;
+	}
+	/*----- coordonnées ----*/
+	.coordonneeDevis input[type="text"]{
+		width:150px;
+	}
+	.coordonneeDevis select{
+		width:160px;
+	}
+	.coordonneeDevis tr td{
+		width:245px;
+	}
+	.coordonneeDevis tr td:first-child input,
+	.coordonneeDevis tr td:first-child select{
+		margin:5px 20px 5px 0;
+	}
+	.coordonneeDevis select.small{
+		width:60px;
+		margin:5px 20px 5px 0;
+	}
+	.coordonneeDevis tr td select.small + input{
+		width:85px;
+		margin:5px 5px 5px 0;
+	}
+	.coordonneeDevis tr td input.long{
+		margin:5px 0;
+		width:415px;
+	}
+	.coordonneeDevis label,
+	.coordonneeDevis select,
+	.coordonneeDevis input{
+		margin:5px 0;
+	}
+	.coordonneeDevis label{
+		display:inline-block;
+		padding:0;
+	}
+	/*----- marketing et validation ----*/
+	.marketing {
+		margin:0;
+	}
+	.marketing p {
+		float:left;
+		font:12px/30px Arial, Helvetica, sans-serif;
+		height:32px;
+		margin:0;
+	}
+	.marketing div{
+		float:right;
+		margin:0 0 0 20px;
+	}
+	.marketing .bulle{
+		margin:0;
+	}
+	.marketing .bulle + label + input{
+		margin:0 0 0 30px;
+	}
+	.marketing .antiSPAM_devis {
+		font: 11px/13px Arial, Helvetica, sans-serif;
+		width:330px;
+		height:auto;
+		margin:35px 0 0 0;
+	}
+	/*------------------ BOUTON ------------------------*/
+	.marketing .bouton input{
+		display:block;
+		float:none;
+		border:none;
+		background:none;
+		width:120px;
+		margin:0;
+		color:#fff;
+		text-transform:uppercase;
+		font: bold 16px/38px Arial, Helvetica, sans-serif;
+		cursor:pointer;
+		filter:none;
+	}
+	.marketing .bouton{
+		float:right;
+		height:40px;
+		width:120px;
+		margin:30px 0 10px 0;
+		.rounded (5px);
+		.gradient (#343434, #969696, #343434);
+	}
+	.marketing .bouton:hover{
+		.gradient (#969696, #343434, #969696);
+	}
+	/*------------------ input radio ------------------------*/
+	input[type="radio"]{
+		width:15px;
+		height:15px;
+		float:none;
+		vertical-align: -4px;
+		margin:0;
+		border:none;
+		background:none;
+	}
+	/* bloc vous etes */
+	label.bulle{
+		padding:0;
+		margin:0 0 0 4px;
+		cursor:pointer;
+	}
+	input.bulle{
+		margin:0 0 0 162px;
+	}
+	input.bulle + label + input{
+		margin:0 0 0 40px;
+	}
+	/*------------------ erreur ------------------------*/
+	.erreur.show {
+		display:inline-block;
+		visibility:visible;
+		height:100%
+	}
+	.erreur.hide {
+		display:none;
+		visibility:hidden;
+		height:0%;
+	}
+	p.erreur {
+		background: none;
+		clear: none;
+		color: #CC0000;
+		font-size: 12px;
+		font-weight: normal;
+		line-height: 130%;
+		margin: 0;
+		padding: 0px 0px 15px 0;
+		text-align: left;
+		width: auto;
+		height:auto;
+	}
+	.erreur + .erreur{
+		float:right;
+	}
+	textarea + .erreur{
+		padding:5px 0 15px 0;
+	}
+}
+.cnil_devis{
+	margin:10px 0 20px 0;
+	font:11px/14px Arial, Helvetica, sans-serif;
+	color:#666;
+}
+/*----------------------------------- spécificité des form_sante -------------------------------------*/
+.demande_devis.form_sante{
+	.projetDevis input[type="text"],
+	.infosDevis input[type="text"]{
+		width:220px;
+	}
+	.projetDevis select,
+	.infosDevis select{
+		width:230px;
+	}
+}
+/*----------------------------------- spécificité des form_b2b -------------------------------------*/
+.demande_devis.form_b2b{
+	.projetDevis input[type="text"]{
+		width:175px;
+	}
+	.projetDevis select{
+		width:185px;
+	}
+	.projetDevis input.long{	/*champs précisez*/
+		width:415px;
+	}
+	.projetDevis input[type="radio"] + label{	/*boutons radios du formulaire routage*/
+		padding:0;
+		margin:0 20px 0 0;
+		color:#666;
+	}
+	textarea{
+		margin:0 0 20px 0;
+	}
+	/*--------- partie info complementaires sur l'entreprise -------*/
+	.infosDevis input[type="text"]{
+		width:120px;
+	}
+	.infosDevis select{
+		width:130px;
+	}
+	.infosDevis label{
+		margin:5px 0;
+		display:inline-block;
+		padding:0;
+	}
+	.infosDevis select,
+	.infosDevis input[type="text"],{
+		margin:5px 0;
+	}
+	.infosDevis tr td:first-child input,
+	.infosDevis tr td:first-child select{
+		margin:5px 20px 5px 0;
+	}
+	.infosDevis tr td input.bulle{
+		margin:0 0 0 35px;
+	}
+}
+/*----------------------------------- spécificité des form_defiscCentre -------------------------------------*/
+.demande_devis.form_defiscCentre{
+	.coordonneeDevis tr td:first-child + td input[type="text"]{
+		width:100px;
+	}
+	.coordonneeDevis tr td:first-child + td select{
+		width:110px;
+	}
+	table.projetDevis + table {
+		margin:20px 0 0 0;
+	}
+}
+.hook_simulation{	/*Présent sur la page comprendre/simulation du site scellier*/
+	overflow:auto;
+	input[type="text"],
+	select{
+		width:115px;
+		margin:0 10px 0 0;
+	}
+	input.checkbox{
+		margin:6px 5px 0 0;
+	}
+	form table{
+		margin:0 0 20px 0;
+	}
+}
+/*----------------------------------- spécificité des form_argent -------------------------------------*/
+.demande_devis.form_argent{
+	.projetDevis input[type="text"],
+	.infosDevis input[type="text"]{
+		width:245px;
+	}
+	.projetDevis select,
+	.infosDevis select{
+		width:255px;
+	}
+	input.bulle { /* Radios dans la partie projet ex : assurance animaux*/
+	    margin: 0 0 0 140px;
+	}
+	input.bulle + label + input{
+		margin:0 0 0 40px;
+	}
+	em{
+		font-size:10px;
+	}
+}
+/*----------------------------------- formulaire demenagement / garde-meuble -------------------------------------*/
+.demande_devis .localisationDem {
+	overflow:hidden;
+	clear:both;
+	legend{
+		margin:0 0 10px 0;
+		font-size:14px;
+	}
+	.depart{
+		margin:0 30px 0 0;
+	}
+	.depart,
+	.arrivee {
+		float:left;
+		width:225px;
+	}
+	.adresse-garde-meuble table{
+		width:225px;
+	}
+	input[type="text"]{
+		width:140px;
+	}
+	select{
+		width:150px;
+	}
+}
+/*----------------------------------- formulaire dans article (annuler les styles du cms) -------------------------------------*/
+.article .demande_devis .coordonneeDevis p{
+	margin:0;
+	line-height:16px;
+}
+/* *********************************************** REASSURANCE ****************************************************/
+
+#droite_devis {
+	.reassurance_devis{
+		padding:0;
+		margin:20px 0;
+		li{
+			list-style:none;
+		}
+		li:first-child,
+		li:first-child + li + li{
+			text-align:left;
+		}
+		li:first-child + li,
+		li:first-child + li + li + li{
+			text-align:right;
+		}
+		li p{
+			padding:10px 0 0 0;
+			font: 18px/22px Arial, Helvetica, sans-serif;
+		}
+		li div{
+			clear:both;
+			height:20px;
+			width:21px;
+			margin:auto;
+			background:url("@{imgPathTheme}/sprite_devis.jpg") no-repeat 0px -328px;
+		}
+		li span{
+			display:block;
+			width:80px;
+			height:78px;
+		}
+		.rea_clic{
+			float:left;
+			margin:0 10px 0 30px;
+			background:url("@{imgPathTheme}/sprite_devis.jpg") no-repeat 0px -4px;
+		}
+		.rea_chrono{
+			float:right;
+			margin:0 30px 0 10px;
+			background:url("@{imgPathTheme}/sprite_devis.jpg") no-repeat 0px -86px;
+		}
+		.rea_devis{
+			float:left;
+			margin:0 10px 0 50px;
+			background:url("@{imgPathTheme}/sprite_devis.jpg") no-repeat 0px -164px;
+		}
+		.rea_pro{
+			float:right;
+			margin:0 70px 0 10px;
+			background:url("@{imgPathTheme}/sprite_devis.jpg") no-repeat 0px -243px;
+		}
+	}
+	.reassurancePJ_devis{
+		padding:20px;
+		margin:0 20px 20px 0;
+		border:1px solid #aaa;
+		font:14px/18px Arial, Helvetica, sans-serif;
+		text-align:center;
+		span{
+			display:block;
+		}
+		.rea_logoCC{
+			background:url("@{imgPathTheme}/sprite_devis.jpg") no-repeat 0px -351px;
+			height:50px;
+			width:190px;
+			margin:0 auto 15px auto;
+		}
+		.rea_logoPJG{
+			background:url("@{imgPathTheme}/sprite_devis.jpg") no-repeat 1px -405px;
+			height:64px;
+			width:175px;
+			margin:10px auto 0 auto;
+		}
+	}
+}
+
+/************************************************************************************************************************/
+/* ***************************************************** PAGE FIN *******************************************************/
+/************************************************************************************************************************/
+.merci_devis{
+	.merci{
+		padding:20px 20px 0 20px;
+		margin:0;
+		background:#EEE;
+		-webkit-border-radius: 10px 10px 0px 0px;
+		border-radius: 10px 10px 0px 0px;
+		text-align:center;
+		font:18px/22px Arial, Helvetica, sans-serif;
+		box-sizing: border-box;
+	}
+	.merci strong{
+		font-weight:normal;
+	}
+	.merci + p{
+		padding: 10px 20px 20px 20px;
+		margin:0;
+		background:#EEE;
+		-webkit-border-radius: 0px 0px 10px 10px;
+		border-radius: 0px 0px 10px 10px;
+		text-align:center;
+		font:14px/22px Arial, Helvetica, sans-serif;
+		box-sizing: border-box;
+	}
+	.merci + p + p{ /*sur les formulaires défisc*/
+		padding: 10px 0 0 0;
+		margin:0;
+		font:12px/18px Arial, Helvetica, sans-serif;
+	}
+	.merci + p + p + p, /*sur les formulaires défisc*/
+	.merci + p + p + p + p{
+		padding: 0;
+		margin:0;
+		font:12px/18px Arial, Helvetica, sans-serif;
+	}
+	.autresProjets {
+		margin: 50px 0 0;
+		padding: 0;
+		position:relative;
+	}
+	.autresProjets img {
+		display:none;
+	}
+	.autresProjets p {
+		font: bold 14px/18px Arial, Helvetica, sans-serif;
+		color:@color_contraste;
+		border-bottom:5px solid #999;
+		text-align:right;
+	}
+	.autresProjets p strong {
+		font: bold 14px/18px Arial, Helvetica, sans-serif;
+		text-transform:uppercase;
+		color:#333;
+		position:absolute;
+		bottom:7px;
+		left:0;
+	}
+	h3{
+		height:36px;
+		margin:15px 0 0 0;
+		font: bold 14px/18px Arial, Helvetica, sans-serif;
+		color:#666;
+	}
+	.colonne3,
+	.colonne2{
+		float:left;
+		width:205px;
+		margin:0 20px 10px 0;
+	}
+	.colonnes{
+		overflow:hidden;
+		clear:both;
+	}
+	.colonnes ul{
+		padding:0;
+		margin:5px 0 10px 0;
+	}
+	.colonnes li{
+		list-style:none;
+		padding:2px 0 2px 12px;
+		font:13px/18px Arial, Helvetica, sans-serif;
+		background:url("@{imgPathTheme}/puce_fleche-liste.png") no-repeat 0 4px transparent;
+	}
+	.colonnes li a{
+		text-decoration:none;
+	}
+	.colonnes li a:hover{
+		text-decoration:underline;
+	}
+	.menu{
+		clear:both;
+		font: 14px/18px Arial, Helvetica, sans-serif;
+		text-align:right;
+	}
+}
+
+/************************************************************************************************************************/
+/* *********************************************** DEVIS EN X ETAPES ****************************************************/
+/************************************************************************************************************************/
+
+
+.Xetapes{
+	float:left;
+	margin:20px 30px 20px 10px;
+	max-width:660px;
+}
+/***************************************** ENTETE *****************************************/
+h1.titre_devis{
+	font: 31px 'museo', Arial, Helvetica, sans-serif;
+	color:#333;
+	margin:10px 0 5px 0;
+}
+h2.sousTitre_devis,
+h6.sousTitre_devis{
+	font: 20px Arial, Helvetica, sans-serif;
+	color:#999;
+	margin:0 0 10px 0;
+}
+.Xetapes .terminer_recap_lead{ /*Titre pour le devis sur l'ebibliothèque*/
+	font:24px/34px Arial, Helvetica, sans-serif;
+}
+.devis_etapes{
+	position:relative;
+	overflow:hidden;
+	width:634px;	/*On peut retirer cette largeur pour faire un devis qui s'adapte mais il faut metre des % dans la suite*/
+	min-height:400px;
+	margin:20px 0;
+	padding:10px 10px 0 10px;
+	border: 3px #ccc solid;
+	background: url("@{imgPath}/devis/trame_devis.gif") repeat;
+	font:16px Arial, Helvetica, sans-serif;
+	color: #333;
+	/***************************************** NAVIGATION *****************************************/
+	.etape_prev,
+	.etape_next{
+		position:absolute;
+		top:10px;
+		left:10px;
+		width:40px;
+		height:40px;
+		background: url("@{imgPath}/sprite_commun.png") no-repeat -149px 8px #ccc;
+		border:none;
+		margin:0;
+		padding:0;
+		cursor:pointer;
+	}
+	.etape_next{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat -146px -29px #ccc;
+		left:auto;
+		right:10px;
+	}
+	.etape_prev:hover,
+	.etape_next:hover{
+		background-color:#999;
+		border:none;
+	}/***************************************** GENERAL *****************************************/
+	.etape_question{
+		min-height:400px;
+	}
+	label{	/* Questions */
+		display:block;
+		text-align:center;
+		padding:20px 45px;
+	}
+	.etape_question > span{	/* Cases */
+		display:block;
+		float:left;
+		height:105px;
+		padding:5px;
+		border:3px solid #ddd;
+		background:#fff;
+		font:18px/22px Arial, Helvetica, sans-serif;
+		text-align:center;
+		color:#333;
+		cursor:pointer;
+		position:relative;
+	}
+	.etape_question > span:hover,
+	.etape_question .selected{
+		border:3px solid @color_aplat;
+		color:@color_base;
+	}
+	input,
+	textarea{
+		padding:5px;
+		margin:10px 0;
+		border:3px solid #ddd;
+		background:#fff;
+		font:14px/18px Arial, Helvetica, sans-serif;
+	}
+	input:focus,
+	textarea:focus{
+		border:3px solid @color_aplat;
+		outline:none;
+	}
+	input[type="radio"]{
+		width:15px;
+		height:15px;
+		margin:4px 5px 4px 0;
+		padding:0;
+		border:none;
+		background:none;
+	}
+	label.radio{
+		cursor:pointer;
+	}
+	.erreur{	/* Erreurs */
+		position:relative;
+		top:-10px;
+		width:300px;
+		height:auto;
+		padding:5px;
+		margin:0 7px 0 0;
+		background:#e9e9e9;
+		font:bold 14px/18px Arial, Helvetica, sans-serif;
+		color:#cc0000;
+	}
+	.erreur.full{
+		width:610px;
+		margin: 5px 0;
+		top: 0;
+	}
+	.show.erreur{
+		display:inline-block;
+	}
+	.erreur + .erreur{
+		margin:0;
+	}
+	.hide.erreur + .show.erreur{
+		margin:0 0 0 322px;
+	}
+
+	span span{	/* Illustrations */
+		position:absolute;
+		overflow:hidden;
+	}
+	.bouton_etape{
+		position:absolute;
+		bottom:10px;
+		right:10px;
+		height:50px;
+		width:120px;
+		border:5px solid #fff;
+		.rounded(10px);
+		.gradient (@color_degradFonceC, @color_degradClairC, @color_degradFonceC);
+		text-align:center;
+		button,
+		input{
+			height:60px;
+			width:120px;
+			padding:15px 0;
+			margin:0;
+			background:none;
+			border:none;
+			.rounded(10px);
+			color:#fff;
+			text-align:center;
+			font:24px/20px Arial, Helvetica, sans-serif;
+			cursor:pointer;
+			text-shadow: 0px 0px 5px #999999;
+		}
+		input{
+			padding:0;
+		}
+	}
+	.bouton_etape:hover{
+		.gradient (@color_degradClairC, @color_degradFonceC, @color_degradClairC);
+	}
+	/**************************************** MISES EN PAGE *************************************************/
+
+	/*--------------------------- 2 CASES PAR LIGNES -------------------------------------*/
+	/*2 cases sur 1 ligne au centre (le texte est géré cas par cas)*/
+	.par2 {
+		.etape_question > span{
+			width:286px;
+			margin:80px 30px 30px 0;
+		}
+		.etape_question label + span + span,
+		.etape_question label + span + span + span + span{
+			margin:80px 0 30px 0;
+		}
+		span span{	/* Illustrations */
+			top:-40px;
+			left:-13px;
+			height:195px;
+			width:319px;
+		}
+	}
+	/*4 cases sur 2 lignes (texte en bas)*/
+	.par2.ligne_double {
+		.etape_question > span {
+			height: 23px;
+			padding: 88px 5px 5px;
+			margin-top: 21px;
+		}
+	}
+	/*------------------ 3 CASES PAR LIGNES (toujours avec le texte en bas)----------*/
+	/*3 cases sur 2 lignes (texte en bas)*/
+	.par3 {
+		.etape_question > span{
+			width:188px;
+			height:23px;
+			padding:87px 5px 5px 5px; /* fixe le texte en bas*/
+			margin:40px 10px 10px 0;
+		}
+		.etape_question label + span + span + span,
+		.etape_question label + span + span + span + span + span + span,
+		.etape_question label + span + span + span + span + span + span + span + span + span{
+			width:186px;
+			margin:40px 0 10px 0;
+		}
+		span span{	/* Illustrations */
+			top:-30px;
+			left:0;
+			height:110px;
+			width:200px;
+		}
+	}
+	/*3 cases sur 1 ligne au centre (texte en bas)*/
+	.par3.ligne_seule{
+		.etape_question > span{
+			margin-top:80px;
+		}
+	}
+	/*------------------ 4 CASES PAR LIGNES (toujours avec le texte en bas)----------*/
+	.par4 {
+		.etape_question > span{
+			width:145px;
+			height:20px;
+			padding:80px 0 5px 0; /* fixe le texte en bas*/
+			margin:40px 10px 10px 0;
+		}
+		.etape_question label + span + span + span + span,
+		.etape_question label + span + span + span + span + span + span + span + span,
+		.etape_question label + span + span + span + span + span + span + span + span + span + span + span + span{
+			margin:40px 0 10px 0;
+		}
+		span span{	/* Illustrations */
+			top:-30px;
+			left:0;
+			height:110px;
+			width:145px;
+		}
+	}
+	/***************************************** AUTRES ET NE SAIS PAS *****************************************/
+	.par2 .etape_question .autre,
+	.par2.ligne_double .etape_question .autre { /* Autre plus grand */
+		height:65px;
+		width:201px;
+		padding:45px 90px 5px 5px;
+		span{
+			background:url("@{imgPath}/devis/autre_saispas.png") no-repeat 176px -234px;
+		}
+	}
+	.par3 .autre span{ /* Autre */
+		background:url("@{imgPath}/devis/autre_saispas.png") no-repeat 58px 7px;
+	}
+	.par4 .autre span{ /* Autre */
+		background:url("@{imgPath}/devis/autre_saispas.png") no-repeat 32px 6px;
+	}
+	.etape_question .sais_pas span{	/* Ne sais pas */
+		background:url("@{imgPath}/devis/autre_saispas.png") no-repeat 26px -113px;
+	}
+
+	/**************************************** QUESTIONS RECURANTES *************************************************/
+	/*------------------ FENETRE PLUS ----------*/
+	.materiaux{
+		span span{
+			background:url("@{imgPath}/devis/fenetre_plus.png") no-repeat 5px 0;
+		}
+		.bois_pvc span{
+			background-position:-197px 0;
+		}
+		.alu span{
+			background-position:-388px 0;
+		}
+	}
+	.combien{
+		background:url("@{imgPath}/devis/fenetre_plus.png") no-repeat 46px -170px;
+		input,
+		.erreur{
+			width:250px;
+			position:absolute;
+			top:230px;
+			left:200px;
+			text-align:center;
+		}
+		.erreur{
+			height: 40px;
+			top: 273px;
+			width: 256px;
+		}
+	}
+	.mesure{
+		background:url("@{imgPath}/devis/fenetre_plus.png") no-repeat 0px -589px;
+		input,
+		.erreur{
+			width:265px;
+			position:absolute;
+			top:170px;
+			left:180px;
+		}
+		.erreur{
+			min-height: 18px;
+			top: 213px;
+			width: 271px;
+			text-align:center;
+		}
+	}
+	/*------------------ ETAPE OUI NON ----------*/
+	.etape_oui_non {
+		.etape_question > span{
+			height: 25px;
+			padding: 85px 5px 5px;
+		}
+		span span{
+			top:-86px;
+			height:170px;
+		}
+		.sais_pas span{
+			background:url("@{imgPath}/devis/gd_saispas.png") no-repeat -1px 1px;
+			left:-10px;
+			width:215px;
+		}
+	}
+	/*------------------ MATERIAUX 6 OPTIONS (initialement dans volet) ----------*/
+	.materiau_6options{
+		span span{
+			background:url("@{imgPath}/devis/volet.png") no-repeat 30px -332px;
+		}
+		.pvc span{
+			background-position:-144px -334px;
+		}
+		.alu span{
+			background-position:24px -478px;
+		}
+		.metal span{
+			background-position:-132px -487px;
+		}
+	}
+	/**************************************** PROJETS *************************************************/
+	/*------------------ PROJET FENETRE ----------*/
+	.projet_fenetre{
+		span span{
+			background:url("@{imgPath}/devis/fenetre.png") no-repeat 35px 2px;
+		}
+		.porte_blindee span{
+			background-position:-121px 2px;
+		}
+		.porte_interieur span{
+			background-position:-273px 2px;
+		}
+		.porte_fenetre span{
+			background-position:-425px 2px;
+		}
+		.fenetre span{
+			background-position:-591px 2px;
+		}
+		.baie_vitree span{
+			background-position:-803px 2px;
+		}
+		.fenetres_volets span{
+			background-position:-1008px 2px;
+		}
+		.volets span{
+			background-position:-1180px 2px;
+		}
+	}
+	/*------------------ PROJET ASSAINISSEMENT  ----------*/
+	.projet_assainissement .etape_question .assainissement_fosse_septique { /* Autre plus grand */
+		height:75px;
+		width:181px;
+		padding:35px 5px 5px 110px;
+		span{
+			background:url("@{imgPath}/devis/assainissement.png") no-repeat 17px -8px;
+		}
+	}
+	/*------------------ PROJET ABRI-PISCINE ----------*/
+	.projet_abri-de-piscine{
+		span span{
+			height: 120px;
+			top: -40px;
+			background:url("@{imgPath}/devis/abri-piscine.png") no-repeat -3px -7px;
+		}
+		.abri_bas span{
+			background-position:-219px -7px ;
+		}
+	}
+	.piscine_existant{
+		span span{
+			height: 127px;
+			top: -44px;
+			background:url("@{imgPath}/devis/abri-piscine.png") no-repeat -6px -135px;
+		}
+		.enterree span{
+			background-position: -222px -135px;
+		}
+		.semienterree span{
+			background-position: -435px -140px;
+		}
+	}
+	/*------------------ PROJET HUMIDITE ----------*/
+	.projet_humidite .traitement_anti_humidite{
+		height: 25px;
+		padding: 85px 5px 5px;
+		span{
+			background:url("@{imgPath}/devis/humidite.png") no-repeat -8px 1px;
+		}
+	}
+	.projet_humidite span span{
+		height: 175px;
+		top: -72px;
+	}
+	.type_surface{
+		span span{
+			background:url("@{imgPath}/devis/humidite.png") no-repeat 23px -187px;
+		}
+		.type_sol span{
+			background-position: -191px -187px;
+		}
+		.type_combles span{
+			background-position: -191px -320px;
+		}
+		.type_soussol span{
+			background-position: 25px -317px;
+		}
+	}
+	.horaire_input{
+		background: url("@{imgPath}/devis/auditif.png") no-repeat 27px -622px;
+		min-height: 400px;
+		input{
+			left: 280px;
+			position: absolute;
+			top: 170px;
+			width: 327px;
+		}
+		.erreur {
+			left: 270px;
+			top: 151px;
+			width: 333px;
+		}
+	}
+	.construction_annee{
+		background: url("@{imgPath}/devis/humidite_plus.png") no-repeat -10px 107px;
+		min-height: 400px;
+		input{
+			left: 280px;
+			position: absolute;
+			top: 133px;
+			width: 327px;
+			text-align:center;
+		}
+		.erreur {
+			left: 270px;
+			top: 114px;
+			width: 333px;
+		}
+	}
+	/*------------------ PROJET VOLET ----------*/
+	.projet_volet{
+		span span{
+			height: 114px;
+			background:url("@{imgPath}/devis/volet.png") no-repeat -21px -19px;
+		}
+		.fenetres_volets span{
+			background-position:-234px -24px;
+		}
+	}
+	.volet_type{
+		span span{
+			height:120px;
+			background:url("@{imgPath}/devis/volet.png") no-repeat 13px -165px;
+		}
+		.roulant span{
+			background-position:-209px -165px;
+		}
+		.sais_pas span{
+			background-position:88px -105px;
+		}
+		.autre span{
+			height:172px;
+		}
+	}
+	/*------------------ PROJET MONTE ESCALIER ----------*/
+	.projet_monteEscalier{
+		span span{
+			height:120px;
+			background:url("@{imgPath}/devis/monte-escalier.png") no-repeat 74px -1px;
+		}
+		.mini_ascenseur span{
+			background-position:75px -160px;
+		}
+		.plateforme_fauteuil_roulant span{
+			background-position:74px -322px;
+		}
+		.autre span{
+			height:172px;
+		}
+	}
+	/*------------------ PROJET BAIGNOIRE A PORTE ----------*/
+	.projet_baignoire_porte .etape_question .baignoire_porte { /* Autre plus grand */
+		height:25px;
+		padding:85px 5px 5px 5px;
+		span{
+			background:url("@{imgPath}/devis/baignoire-porte.png") no-repeat 28px -4px;
+		}
+	}
+	.projet_baignoire_porte .etape_question > span,
+	.projet_baignoire_porte .etape_question .autre{
+		margin-top:105px;
+	}
+	.projet_baignoire_porte span span{
+		top: -86px;
+	}
+	/*------------------ PROJET ALARME ----------*/
+	.projet_alarme .etape_question{
+		span{
+			height:30px;
+			padding:85px 0 5px 0;
+		}
+		.anti_infraction,
+		.teleassistance{
+			height:45px;
+			padding:70px 0 5px 0;
+		}
+		span span{
+			height:20px;
+			background:url("@{imgPath}/devis/alarme.png") no-repeat 1px -11px;
+		}
+		.telesurveillance span{
+			background-position:-161px -22px;
+		}
+		.videosurveillance span{
+			background-position:-319px -17px;
+		}
+		.alarme_incendie span{
+			background-position:-485px -13px;
+		}
+		.alarme_piscine span{
+			background-position:-665px -18px;
+		}
+		.teleassistance span{
+			top:-40px;
+			background-position:-826px -11px;
+		}
+		.autre span{
+			top:-40px;
+			background:url("@{imgPath}/devis/autre_saispas.png") no-repeat 32px 6px;
+		}
+	}
+	/*------------------ PROJET VERANDA ----------*/
+	.projet_veranda{
+		span span{
+			height: 114px;
+			background:url("@{imgPath}/devis/veranda.png") no-repeat 1px -1px;
+		}
+		.sas_entree span{
+			background-position:21px -148px;
+		}
+		.pergola span{
+			background-position:2px -295px;
+		}
+		.loggia span{
+			background-position:16px -440px;
+		}
+	}
+	/*------------------ PROJET COMBLES ----------*/
+	.projet_combles{
+		.etape_question .amenagement_combles,
+		.etape_question .isolation_combles,
+		.etape_question .isolation_combles_amenageables{
+			height: 43px;
+			padding: 67px 5px 5px;
+		}
+		span span{
+			background:url("@{imgPath}/devis/combles.png") no-repeat 6px -4px;
+		}
+		.amenagement_combles span{
+			height:119px;
+			top:-53px;
+		}
+		.isolation_combles span{
+			height:119px;
+			top:-53px;
+			background-position:-6px -141px;
+		}
+		.isolation_combles_amenageables span{
+			height:119px;
+			top:-53px;
+			background-position:-3px -296px;
+		}
+		.fenetre_toit span{
+			background-position:-1px -465px;
+		}
+		.surelevation span{
+			height:112px;
+			background-position:9px -627px;
+		}
+	}
+	.charpente_existant{
+		span span{
+			background:url("@{imgPath}/devis/combles.png") no-repeat -5px -772px;
+		}
+		.americaine span{
+			background-position:-5px -926px;
+		}
+		.metallique span{
+			background-position:2px -1085px;
+		}
+	}
+	.plancher_type{
+		span span{
+			height:120px;
+			background:url("@{imgPath}/devis/combles.png") no-repeat  23px -1222px;
+		}
+		.plancher span{
+			background-position: 33px -1363px;
+		}
+		.beton span{
+			background-position: 26px -1509px ;
+		}
+		.autre span{
+			height:172px;
+		}
+	}
+	/*------------------ PROJET POELE ET CHEMINEE ----------*/
+	.projet_poele-cheminee{
+		span span{
+			height: 114px;
+			background:url("@{imgPath}/devis/poele-cheminee.png") no-repeat 1px -1px;
+		}
+		.cheminee span{
+			height:125px;
+			top:-40px;
+			background-position:21px -11px;
+		}
+		.poele_granules span{
+			background-position:5px -379px;
+		}
+		.poele_bois span{
+			background-position:5px -492px;
+		}
+		.ramonage span{
+			background-position:16px -144px;
+		}
+		.autre_poele span{
+			background-position:13px -264px;
+		}
+	}
+	/*------------------ PROJET CHAUDIERE ----------*/
+	.projet_chaudiere{
+		.etape_question > span{
+			height:45px;
+			padding:65px 0 5px 0;
+		}
+		.etape_question .autre{
+			height:25px;
+			padding:85px 0 5px 0;
+		}
+		span span{
+			height: 114px;
+			background:url("@{imgPath}/devis/chaudiere.png") no-repeat 1px -1px;
+		}
+		.chaudiere_installation span{
+			height:125px;
+			top:-40px;
+			background-position:-5px -5px;
+		}
+		.installation_chaudiere_fioul span{
+			height:125px;
+			top:-40px;
+			background-position:-7px -134px;
+		}
+		.installation_chaudiere_bois span{
+			background-position:20px -264px;
+		}
+		.installation_chaudiere_mixte span{
+			background-position:17px -384px;
+		}
+		.chauffage_central_installation span{
+			background-position:-3px -492px;
+		}
+		.chaudiere_entretien span{
+			background-position:3px -606px;
+		}
+		.chaudiere_depannage span{
+			background-position:-13px -717px;
+		}
+	}
+	.existant_chaudiere{
+		span span{
+			height: 114px;
+			background:url("@{imgPath}/devis/chaudiere.png") no-repeat 1px 1px;
+		}
+		.chaudiere_gaz span{
+			background-position:32px -831px;
+		}
+		.chaudiere_fioul span{
+			background-position:35px -967px;
+		}
+		.chaudiere_bois span{
+			background-position:18px -1116px;
+		}
+		.chaudiere_aucune span{
+			background-position:25px -1250px;
+		}
+
+	}
+	/*------------------ PROJET POMPE A CHALEUR ----------*/
+	.projet_pompe-a-chaleur{
+		span span{
+			height: 114px;
+			background:url("@{imgPath}/devis/pac.png") no-repeat 1px -1px;
+		}
+		.pompe-a-chaleur_air-air span{
+			background-position:-3px 2px;
+		}
+		.pompe-a-chaleur_air-eau span{
+			background-position:-3px -128px;
+		}
+		.pompe-a-chaleur_eau-eau span{
+			background-position:-3px -272px;
+		}
+		.pompe-a-chaleur_geothermie span{
+			background-position:-3px -416px;
+		}
+	}
+	.existant_pac .etape_question{
+		.pac_gaz,
+		.pac_fioul,
+		.autre{
+			height:25px;
+			padding:105px 5px 5px 5px;
+		}
+		.pac_gaz span{
+			height:130px;
+			background:url("@{imgPath}/devis/pac.png") no-repeat 19px -581px;
+		}
+		.pac_fioul span{
+			height:130px;
+			background:url("@{imgPath}/devis/pac.png") no-repeat 12px -762px;
+		}
+
+	}
+	/*------------------ PROJET ISOLATION ----------*/
+	.projet_isolation{
+		.etape_question > span{
+			height:45px;
+			padding:65px 0 5px 0;
+		}
+		.etape_question .fenetre_volet,
+		.etape_question .sais_pas{
+			height:23px;
+			padding:87px 0 5px 0;
+		}
+		span span{
+			height: 114px;
+			background:url("@{imgPath}/devis/isolation.png") no-repeat 1px -1px;
+		}
+		.isolation_combles span{
+			background-position:-5px -3px;
+		}
+		.isolation_combles_amenageables span{
+			background-position:-7px -101px;
+		}
+		.isolation_exterieur span{
+			background-position:1px -221px;
+		}
+		.isolation_interieur span{
+			background-position:-4px -340px;
+		}
+		.isolation_insufflation span{
+			background-position:-19px -469px;
+		}
+		.fenetre_volet span{
+			background-position:8px -588px;
+		}
+		.traitement_anti_humidite span{
+			background-position:-18px -728px;
+		}
+		.sais_pas span{
+			background:url("@{imgPath}/devis/autre_saispas.png") no-repeat 8px -112px;
+		}
+	}
+	.existant_isolation{
+		span span{
+			height: 114px;
+			background:url("@{imgPath}/devis/isolation.png") no-repeat 1px 1px;
+		}
+		.isolation_polystyrene span{
+			background-position:-7px -817px;
+		}
+		.isolation_laine_roche span{
+			background-position:6px -923px;
+		}
+		.isolation_cellulose span{
+			background-position:9px -1042px;
+		}
+		.isolation_insufflation span{
+			background-position:-13px -1158px;
+		}
+
+	}
+	.souhait_isolation{
+		span span{
+			height: 114px;
+			background:url("@{imgPath}/devis/isolation.png") no-repeat 1px 1px;
+		}
+		.souhait_polystyrene span{
+			background-position:-7px -1284px;
+		}
+		.souhait_laine_roche span{
+			background-position:6px -1390px;
+		}
+		.souhait_cellulose span{
+			background-position:9px -1509px;
+		}
+		.souhait_insufflation span{
+			background-position:-13px -1619px;
+		}
+	}
+	/*------------------ PROJET PLANCHER CHAUFFANT ----------*/
+	.projet_plancher-chauffant{
+		.etape_question > span{
+			height:45px;
+			padding:65px 5px 5px 5px;
+		}
+		.etape_question .radiateurs_electriques,
+		.etape_question .autre{
+			height:23px;
+			padding:87px 5px 5px 5px;
+		}
+		span span{
+			background:url("@{imgPath}/devis/plancher-chauffant.png") no-repeat 16px -3px;
+		}
+		.plancher_chauffant_eau_chaude span{
+			background-position:16px -123px;
+		}
+		.plancher_chauffant_definir span{
+			background-position:16px -237px;
+		}
+		.radiateurs_electriques span{
+			background-position:16px -350px;
+		}
+		.pompe_a_chaleur_plancher_chauffant span{
+			background-position:16px -481px;
+		}
+	}
+	/*------------------ PROJET RADIATEUR ----------*/
+	.projet_radiateur{
+		.etape_question > span{
+			font:bold 13px/16px Arial, Helvetica, sans-serif;
+		}
+		.etape_question > span:hover,
+		.etape_question .selected{
+			color:darken(@color_contraste, 5%);
+		}
+		.etape_question .chauffage_electrique_installation,
+		.etape_question .chauffage_electrique_reparation{
+			height:35px;
+			padding:65px 0 5px 0;
+		}
+		span span{
+			height:105px;
+			background:url("@{imgPath}/devis/radiateur.png") no-repeat 12px 11px;
+		}
+		.radiateurs_a_eau span{
+			background-position:5px -92px;
+		}
+		.seche_serviette span{
+			background-position:46px -198px;
+		}
+		.chauffage_electrique_installation span{
+			background-position:2px -302px;
+		}
+		.chauffage_electrique_reparation span{
+			background-position:16px -395px;
+		}
+		.plancher_chauffant span{
+			background-position:0px -484px;
+		}
+		.autre span{
+			background:url("@{imgPath}/devis/autre_saispas.png") 32px 2px;
+		}
+	}
+	/*------------------ PROJET ISOLATION ----------*/
+	.projet_chauffage{
+		.etape_question .chauffage_central_installation,
+		.etape_question .poele_cheminee,
+		.etape_question .plancher_chauffant{
+			height:45px;
+			padding:55px 0 5px 0;
+		}
+		span span{
+			background:url("@{imgPath}/devis/chauffage.png") no-repeat 13px 2px ;
+		}
+		.chauffage_central_installation span{
+			background-position:2px -107px;
+		}
+		.poele_cheminee span{
+			background-position:4px -217px;
+		}
+		.radiateur span{
+			background-position:30px -315px;
+		}
+		.pac span{
+			background-position:2px -423px;
+		}
+		.plancher_chauffant span{
+			background-position:3px -530px;
+		}
+		.chauffage_solaire span{
+			background-position:0 -626px;
+		}
+	}
+	/*------------------ PROJET CHAUFFE-EAU ----------*/
+	.projet_chauffe-eau{
+		.etape_question > span{
+			height:45px;
+			padding:65px 5px 5px 5px;
+		}
+		.etape_question .autre{
+			height:23px;
+			padding:87px 5px 5px 5px;
+		}
+		span span{
+			top: -35px;
+			background:url("@{imgPath}/devis/chauffe-eau.png") no-repeat;
+		}
+		.CE_electrique span{
+			height: 125px;
+			top: -55px;
+			background-position: 16px -5px;
+		}
+		.CE_solaire span{
+			background-position:19px -150px;
+		}
+		.depannage_CE span{
+			height: 125px;
+			top: -55px;
+			background-position:16px -286px;
+		}
+		.CE_chaudiere span{
+			background-position:15px -443px;
+		}
+	}
+	/*------------------ PROJET SAUNA ----------*/
+	.projet_sauna{
+		span{
+			height:20px;
+			padding:95px 0 10px 0;
+		}
+		span span{
+			padding:0;
+			width:200px;
+			margin:0 50px;
+			height:150px;
+			background:url("@{imgPath}/devis/sauna.png") no-repeat 5px 2px ;
+		}
+		.spa_jacuzzi span{
+			background-position:-212px 2px;
+		}
+		.hammam span{
+			background-position:-444px 2px;
+		}
+	}
+	.par2.projet_sauna .etape_question .autre span{
+		height:200px;
+		margin:0;
+		width:300px;
+	}
+	/*------------------ PROJET OBSEQUES ----------*/
+	.prestation_obseques{
+		.etape_question{
+			background-color:#D4EDFF;
+			width:655px;
+			position:relative;
+			left:-10px;
+			top:-10px;
+		}
+		.moyen{
+			background: url("@{imgPath}/devis/trame_devis.gif") repeat;
+			margin:0;
+			padding:20px 0;
+			width:655px;
+		}
+		span{
+			height:20px;
+			padding:95px 0 10px 0;
+		}
+		span span{
+			padding:0;
+			width:200px;
+			margin:0 50px;
+			height:150px;
+		}
+	}
+	.par3.prestation_obseques .etape_question{
+		span{
+			margin:50px 0 10px 10px;
+			height:40px;
+			padding:35px 5px;
+		}
+		.img_obseques{
+			width:655px;
+			height:150px;
+			border:none;
+			padding:0;
+			margin:0;
+			position:absolute;
+			bottom:-10px;
+			cursor:inherit;
+			background:url("@{imgPath}/devis/fond_obseques.png") no-repeat 0px 0px;
+		}
+	}
+	/*------------------ PROJET RCPro ----------*/
+	.projet_rcpro{
+		.etape_question .assurance_homme_cle-mandataire,
+		.etape_question .resposabilite_civile_professionnelle{
+			padding:67px 5px 5px 5px;
+			height:42px;
+		}
+		span span{
+			height: 114px;
+			background:url("@{imgPath}/devis/rcpro.png") no-repeat -3px -21px;
+		}
+		.resposabilite_civile_professionnelle span{
+			top:-40px;
+		}
+		.assurance_chomage span{
+			background-position:-3px -141px;
+		}
+		.sante_mutuelle span{
+			background-position:-3px -263px;
+		}
+		.deces-invalidite span{
+			background-position:-3px -396px;
+		}
+		.assurance_homme_cle-mandataire span{
+			background-position:-3px -539px;
+		}
+		.epargne_entreprise span{
+			background-position:-3px -671px;
+		}
+		.retraite span{
+			height:120px;
+			background-position:-3px -816px;
+			top:-40px;
+		}
+	}
+	.domaine_activite{
+		.etape_question .artisan,
+		.etape_question .profession_reglementee{
+			padding:67px 5px 5px 5px;
+			height:42px;
+		}
+		span span{
+			height: 114px;
+			background:url("@{imgPath}/devis/rcpro.png") no-repeat -3px -993px;
+		}
+		.artisan span{
+			background-position:-3px -1157px;
+			top:-40px;
+		}
+		.profession_liberale span{
+			background-position:-3px -1306px;
+		}
+		.deces-invalidite span{
+			background-position:-3px -1426px;
+		}
+		.profession_reglementee span{
+			background-position:-3px -1580px;
+			top:-45px;
+		}
+	}
+	/*------------------ PROJET MACHINE AFFRANCHIR ----------*/
+	.projet_machine-affranchir{
+		.etape_question > span{
+			height:23px;
+			padding:87px 5px 5px 5px;
+		}
+		span span{
+			background:url("@{imgPath}/devis/machine-affranchir.png") no-repeat 13px -6px;
+		}
+		.machine_affranchir span{
+			height:140px;
+			top:-55px;
+		}
+	}
+	.volume{
+		span span{
+			height:120px;
+			background:url("@{imgPath}/devis/machine-affranchir.png") no-repeat 13px -146px;
+		}
+		.volume_150 span{
+			background-position:13px -258px;
+		}
+		.volume_250 span{
+			background-position:13px -379px;
+		}
+		.volume_500 span{
+			background-position:13px -539px;
+		}
+	}
+	.existant_machine_affranchir{
+		.etape_question > span{
+			height:23px;
+			padding:87px 5px 5px 5px;
+		}
+		span span{
+			height:130px;
+			top:-50px;
+			background:url("@{imgPath}/devis/machine-affranchir.png") no-repeat 13px -718px;
+		}
+		.non span{
+			background-position:18px -918px;
+		}
+	}
+	.service{
+		.etape_question > span{
+			height:23px;
+			padding:87px 5px 5px 5px;
+		}
+		span span{
+			height:140px;
+			top:-60px;
+			background:url("@{imgPath}/devis/machine-affranchir.png") no-repeat 13px -1121px;
+		}
+		.non span{
+			background-position:18px -908px;
+		}
+	}
+	.par2.fournisseurs_machine_affranchir .etape_question .autre span{
+			height:175px;
+			background:url("@{imgPath}/devis/autre_saispas.png") no-repeat 176px -237px;
+		}
+	.fournisseurs_machine_affranchir{
+		span span{
+			top:-30px;
+			height:120px;
+			background:url("@{imgPath}/devis/devis_b2b.png") no-repeat 40px -2465px;
+		}
+		.couts_telephonie span{
+			background-position:64px -1494px;
+		}
+		.titre_restaurant span{
+			background-position:44px -1610px;
+		}
+		.checkbox{
+			background: url("@{imgPath}/devis/devis_defisc.png") no-repeat scroll -701px -6px !important;
+			height: 22px;
+			left: 270px;
+			position: absolute;
+			top: 5px;
+			width: 22px;
+		}
+		.selected .checkbox {
+			background: url("@{imgPath}/devis/devis_defisc.png") no-repeat scroll -731px -1px !important;
+			height: 27px;
+			top: 0;
+			width: 26px;
+		}
+		.bouton_etape{
+			float:right;
+			clear:both;
+			position:relative;
+		}
+	}
+	/*------------------ PROJET STANDARD TELEPHONIQUE ----------*/
+	.projet_standard-telephonique{
+		.etape_question > span{
+			padding:67px 5px 5px 5px;
+			height:42px;
+		}
+		span span{
+			background:url("@{imgPath}/devis/standard_tel.png") no-repeat 0px -4px;
+			top:-40px;
+		}
+		.evoluer span{
+			background-position:0px -135px;
+		}
+		.installer span{
+			background-position:0px -270px;
+		}
+		.etape_question .img_standard_tel{
+			width:655px;
+			height:150px;
+			border:none;
+			padding:0;
+			margin:0;
+			left:0;
+			position:absolute;
+			bottom:0;
+			cursor:inherit;
+			background:url("@{imgPath}/devis/standardiste.png") no-repeat 0px 0px;
+		}
+	}
+	.preference{
+		span span{
+			height:120px;
+			top:-40px;
+			background:url("@{imgPath}/devis/standard_tel.png") no-repeat 8px -400px;
+		}
+		.louer span{
+			background-position:-3px -569px;
+		}
+	}
+	.par3.existant_standard_telephonique .etape_question > span{
+		width:168px;
+	}
+	.existant_standard_telephonique{
+		.etape_question > span{
+			padding:67px 15px 5px 15px;
+			height:42px;
+			width:168px;
+		}
+		span span{
+			background:url("@{imgPath}/devis/standard_tel.png") no-repeat 0px -727px;
+			top:-80px;
+			height:150px;
+		}
+		.locataire span{
+			background-position:0px -900px;
+		}
+		.non span{
+			background-position:5px -1059px;
+		}
+	}
+	.nombre_tel{
+		span span{
+			background:url("@{imgPath}/devis/standard_tel.png") no-repeat -20px -1242px;
+			height:80px;
+			top:0;
+		}
+		.nombre_tel-2_4 span{
+			background-position:-24px -1334px;
+		}
+		.nombre_tel-5_6 span{
+			background-position:-24px -1429px;
+		}
+		.nombre_tel-7_9 span{
+			background-position:-24px -1543px;
+		}
+		.nombre_tel-10_14 span{
+			background-position:-27px -1649px;
+		}
+		.nombre_tel-15_19 span{
+			background-position:-27px -1749px;
+		}
+		.nombre_tel-20_49 span{
+			background-position:-27px -1860px;
+		}
+		.nombre_tel-plus_50 span{
+			background-position:-29px -1975px;
+		}
+	}
+	.internet,
+	.operateur_fixe{
+		.etape_question .sfr{
+			padding:57px 0px 5px 0px;
+			height:42px;
+		}
+		span span{
+			background:url("@{imgPath}/devis/standard_tel.png") no-repeat -25px -2080px;
+		}
+		.bouygues span{
+			background-position:-25px -2180px;
+		}
+		.sfr span{
+			background-position:-25px -2310px;
+		}
+		.free span{
+			background-position:-32px -2409px;
+		}
+		.aucun span{
+			background-position:-22px -1077px;
+			height:120px;
+		}
+		.etape_question .fd_operateur{
+			position:absolute;
+			bottom:10px;
+			right:80px;
+			display:inline-block;
+			width:180px;
+			height:180px;
+			border:none;
+			cursor:auto;
+			margin:0;
+			padding:0;
+		}
+	}
+	.operateur_fixe .etape_question .fd_operateur{
+		background:url("@{imgPath}/devis/standard_tel.png") no-repeat -7px -2550px;
+	}
+	.internet .etape_question .fd_operateur{
+		background:url("@{imgPath}/devis/standard_tel.png") no-repeat -9px -2760px;
+	}
+	.fournisseurs_standard_telephonique .bouton_etape{
+		float:right;
+		clear:both;
+		position:relative;
+		right:0;
+		margin:20px 0 0 0;
+	}
+	/**************************************** DEVIS B2B *************************************************/
+	.fournisseurs{
+		 .etape_question > span{
+			height:43px;
+			padding:67px 5px 5px 5px;
+		}
+		.etape_question .titre_restaurant,
+		.etape_question .autre,
+		.etape_question .voiture_societe,
+		.etape_question .fontaine_eau{
+			height:23px;
+			padding:87px 5px 5px 5px;
+		}
+		label{
+			padding:0 5px 0 45px;
+		}
+		span span{
+			top:-38px;
+			height:120px;
+			background:url("@{imgPath}/devis/devis_b2b.png") no-repeat -10px -1217px;
+		}
+		.alarme_telesurveillance span{
+			background-position:1px -1357px;
+		}
+		.couts_telephonie span{
+			background-position:-14px -1503px;
+		}
+		.titre_restaurant span{
+			background-position:-4px -1610px;
+		}
+		.voiture_societe span{
+			background-position:-10px -2787px;
+		}
+		.fontaine_eau span{
+			background-position:-10px -2631px;
+		}
+		.checkbox{
+			background: url("@{imgPath}/devis/devis_defisc.png") no-repeat scroll -701px -6px !important;
+			height: 22px;
+			left: 170px;
+			position: absolute;
+			top: 5px;
+			width: 22px;
+		}
+		.selected .checkbox {
+			background: url("@{imgPath}/devis/devis_defisc.png") no-repeat scroll -731px -1px !important;
+			height: 27px;
+			top: 0;
+			width: 26px;
+		}
+		small{
+			font:11px/14px Arial, Helvetica, sans-serif;
+		}
+	}
+	.chiffre_affaire{
+		background:url("@{imgPath}/devis/devis_defisc.png") no-repeat -17px -496px;
+		.etape_question > span{
+			width:81px;
+			font:bold 13px/18px Arial,Helvetica,sans-serif;
+		}
+		.moins-100{
+			margin:220px 10px 0 0;
+			height:70px;
+			padding:30px 5px 5px 5px;
+		}
+		.revenu-100{
+			margin:182px 10px 0 0;
+			height:91px;
+			padding:47px 5px 5px 5px;
+		}
+		.revenu-500{
+			margin:143px 10px 0 0;
+			height:116px;
+			padding:61px 5px 5px 5px;
+		}
+		.revenu-1000{
+			margin:106px 10px 0 0;
+			height:139px;
+			padding:75px 5px 5px 5px;
+		}
+		.revenu-5000{
+			margin:70px 10px 0 0;
+			height:161px;
+			padding:89px 5px 5px 5px;
+		}
+		.plus-15{
+			margin:30px 0 0 0;
+			height:184px;
+			padding:106px 5px 5px 5px;
+		}
+	}
+	.delais{
+		span span{
+			height:130px;
+			background:url("@{imgPath}/devis/sprite_delais.png") no-repeat 58px 0px;
+			top:-45px;
+		}
+		.mois span{
+			background-position:58px -148px;
+			top:-10px;
+			height:115px;
+		}
+		.mois_3 span{
+			background-position:58px -265px;
+		}
+		.sais_pas span{
+			background-position:30px -103px;
+		}
+	}
+	.par2.delais .sais_pas span{
+		background-position:88px -103px;
+	}
+	.vous_etes{
+		.etape_question > span {
+			font:17px/22px Arial, Helvetica, sans-serif;
+		}
+		.etape_question .artisan{
+			height:43px;
+			padding:67px 3px 5px 3px;
+		}
+		span span{
+			background:url("@{imgPath}/devis/devis_b2b.png") no-repeat -1px 10px;
+			height:120px;
+		}
+		.artisan span{
+			background-position:-5px -121px;
+		}
+		.administration span{
+			background-position:-5px -230px;
+		}
+		.association span{
+			background-position:-5px -370px;
+			height:100px;
+			top:0;
+		}
+		.particulier span{
+			background-position:-9px -477px;
+		}
+	}
+	.societe{
+		background:url("@{imgPath}/devis/nom_entite_fd.png") no-repeat 105px 76px;
+		input{
+			margin:110px 158px 10px 158px;
+			width:300px;
+		}
+		.erreur{
+			margin:0 158px !important;
+			width:306px;
+		}
+	}
+	.salaries{
+		span span{
+			height: 114px;
+			background:url("@{imgPath}/devis/devis_b2b.png") no-repeat -1px -597px;
+		}
+		.dix_19 span{
+			background-position:-1px -695px;
+		}
+		.vingt_49 span{
+			background-position:3px -809px;
+		}
+		.cinquante_99 span{
+			background-position:3px -950px;
+		}
+		.plus_100 span{
+			background-position:-1px -1073px;
+		}
+	}
+	.poste{
+		.etape_question span:nth-child(5){
+			margin:40px 0 10px 0;
+		}
+		.etape_question > span {
+			height:23px;
+			margin:40px 10px 10px 0;
+			padding:87px 0 5px 0;
+			width:145px;
+			border-radius:0px;
+		}
+		span span{
+			height: 114px;
+			width:145px;
+			background:url("@{imgPath}/devis/devis_b2b.png") no-repeat -25px -1739px;
+		}
+		.etape_question .pdg,
+		.etape_question .responsable,
+		.etape_question .prof_liberale{
+			height:43px;
+			padding:67px 0px 5px 0px;
+		}
+		.pdg span{
+			background-position:-25px -1880px;
+		}
+		.responsable span{
+			background-position:-25px -1995px;
+		}
+		.cadre span{
+			background-position:-30px -2085px;
+		}
+		.employe span{
+			background-position:-26px -2188px;
+		}
+		.prof_liberale span{
+			background-position:-25px -2329px;
+		}
+	}
+	/**************************************** DEVIS MAISON *************************************************/
+	.description{
+		background:url("@{imgPath}/devis/devis_maison.png") no-repeat 0px 45px;
+		textarea{
+			width:618px;
+			max-width:618px;
+			min-width:618px;
+			max-height:140px;
+			height:71px;
+			overflow:auto;
+			position:absolute;
+			top:140px;
+			left:10px;
+		}
+		.erreur{
+			width:618px;
+			position:absolute;
+			top: 122px;
+			left:10px;
+			height: 18px;
+			width: 624px;
+		}
+	}
+	.pro_part{
+		.etape_question > span{
+		height:85px;
+		padding:25px 5px 5px 5px;
+		}
+		span span{
+			background:url("@{imgPath}/devis/devis_maison.png") no-repeat 0px -365px;
+		}
+		.professionnel span{
+			background-position:-372px -365px;
+		}
+	}
+	.prop_loc{
+		.etape_question .proprietaire, /* Exception prop loc : 3 cases mais le texte est décalé en haut*/
+		.etape_question .locataire{
+			height:95px;
+			width:100px;
+			padding:15px 5px 5px 95px;
+		}
+		.proprietaire span,
+		.locataire span,{
+			left:-10px;
+			height:180px;
+			background:url("@{imgPath}/devis/devis_maison.png") no-repeat -4px -565px;
+		}
+		.locataire span{
+			background-position:-358px -590px;
+		}
+	}
+	.batiment{
+		span span{
+			background:url("@{imgPath}/devis/devis_maison.png") no-repeat -9px -798px;
+		}
+		.appartement span{
+			background-position:-178px -798px;
+		}
+		.immeuble span{
+			height:143px;
+			top:-64px;
+			background-position:-538px -763px;
+		}
+		.bureaux span{
+			background-position:-15px -913px;
+		}
+		.local_com span{
+			background-position:-174px -909px;
+		}
+		.local_indu span{
+			background-position:-354px -911px;
+		}
+	}
+	.batiment_3options{
+		span span{
+			background:url("@{imgPath}/devis/devis_maison.png") no-repeat 16px -798px;
+		}
+		.appartement span{
+			background-position:-152px -795px;
+		}
+	}
+	.etat{
+		span span{
+			height:130px;
+			top:-41px;
+			background:url("@{imgPath}/devis/devis_maison.png") no-repeat -1px -1056px;
+		}
+		.neuf span{
+			background-position:-225px -1066px;
+		}
+		.en_construction span{
+			background-position:-475px -1068px;
+		}
+	}
+	.delais{
+		.asap span,
+		.calendrier span{
+			height:155px;
+			top:-72px;
+			background:url("@{imgPath}/devis/devis_maison.png") no-repeat 25px -1216px;
+		}
+		.calendrier span{
+			background-position:-200px -1205px;
+		}
+	}
+	/**************************************** DEVIS DEFISC *************************************************/
+	.objectifs{
+		overflow:hidden;
+		label{
+			padding:0;
+			text-align:left;
+		}
+		.bouton_etape{
+			top:10px;
+		}
+		.etape_question > span{
+			height:25px;
+			padding:85px 5px 5px 5px;
+		}
+		span span{
+			background:url("@{imgPath}/devis/devis_defisc.png") no-repeat 40px -23px;
+			top:-92px;
+			height:171px;
+		}
+		.patrimoine span{
+			background-position:-308px -22px;
+		}
+		.retraite span{
+			background-position:32px -284px;
+		}
+		.deces span{
+			background-position:-315px -282px;
+		}
+		small{
+			font-size:14px;
+		}
+		span .checkbox{
+			position:absolute;
+			top:5px;
+			left:5px;
+			height:22px;
+			width:22px;
+			background:url("@{imgPath}/devis/devis_defisc.png") no-repeat -701px -6px;
+		}
+		.selected .checkbox{
+			top:0px;
+			height:27px;
+			width:26px;
+			background:url("@{imgPath}/devis/devis_defisc.png") no-repeat -731px -1px;
+		}
+		.erreur{
+			text-align:center;
+			position:absolute;
+			left:262px;
+			top:278px;
+			width:121px;
+		}
+	}
+	.revenus_foyer{
+		background:url("@{imgPath}/devis/devis_defisc.png") no-repeat -17px -496px;
+		.etape_question > span{
+			width:81px;
+		}
+		.revenu_moins{
+			margin:220px 10px 0 0;
+			height:70px;
+			padding:30px 5px 5px 5px;
+		}
+		.revenu_1000{
+			margin:182px 10px 0 0;
+			height:91px;
+			padding:47px 5px 5px 5px;
+		}
+		.revenu_2000{
+			margin:143px 10px 0 0;
+			height:116px;
+			padding:61px 5px 5px 5px;
+		}
+		.revenu_3000{
+			margin:106px 10px 0 0;
+			height:139px;
+			padding:75px 5px 5px 5px;
+		}
+		.revenu_5000{
+			margin:70px 10px 0 0;
+			height:161px;
+			padding:89px 5px 5px 5px;
+		}
+		.revenu_plus{
+			margin:30px 0 0 0;
+			height:184px;
+			padding:106px 5px 5px 5px;
+		}
+	}
+	.nombre{
+		span{
+			background:url("@{imgPath}/devis/nombres.png") no-repeat 65px 14px !important;
+		}
+		.deux{
+			background-position:65px -87px !important;
+		}
+		.trois{
+			background-position:65px -187px !important;
+		}
+		.quatre{
+			background-position:57px -288px !important;
+		}
+		.plus_cinq{
+			background-position:37px -385px !important;
+		}
+	}
+	.situation{
+		span span{
+			background:url("@{imgPath}/devis/devis_defisc.png") no-repeat -16px -937px;
+			height:165px;
+			left: -10px;
+			top: -50px;
+			width: 220px;
+		}
+		.concubinage span{
+			background-position:-306px -937px;
+		}
+		.marie span{
+			background-position:-555px -937px;
+		}
+		.divorce span{
+			background-position:-145px -1110px;
+		}
+		.veuf span{
+			background-position:-437px -1110px;
+		}
+	}
+	.prop_loc.par2{
+		.etape_question .proprietaire, /* Exception prop loc : 3 cases mais le texte est décalé en haut*/
+		.etape_question .locataire{
+			height:95px;
+			width:171px;
+			margin:80px 30px 30px 0;
+			padding:15px 5px 5px 120px;
+		}
+		.etape_question .locataire{
+			margin:80px 0 30px 0;
+		}
+		.proprietaire span,
+		.locataire span,{
+			left:-10px;
+			height:180px;
+			background:url("@{imgPath}/devis/devis_maison.png") no-repeat 19px -565px;
+		}
+		.locataire span{
+			background-position:-341px -580px;
+		}
+	}
+	.naissance{
+		background:url("@{imgPath}/devis/devis_defisc.png") no-repeat 184px -1272px;
+		input,
+		.erreur{
+			width:250px;
+			position:absolute;
+			top:262px;
+			left:190px;
+			text-align:center;
+		}
+		.erreur{
+			height: 40px;
+			top: 305px;
+			width: 256px;
+		}
+	}
+	/**************************************** DEVIS AUDITIF *************************************************/
+	.quand{
+		.etape_question > span{
+			height: 23px;
+			margin: 30px 10px 10px 0;
+			padding: 95px 5px 5px;
+			width: 188px;
+		}
+		 .etape_question .delai_fewweeks{
+			height: 50px;
+			padding: 68px 5px 5px;
+		}
+		span span{
+			height:193px;
+			top:-102px;
+			background:url("@{imgPath}/devis/auditif.png") no-repeat 6px -6px;
+		}
+		.delai_nextweek span{
+			background-position:-241px 0;
+		}
+		.delai_fewweeks span{
+			background-position:-482px -8px;
+		}
+	}
+	.who{
+		span span{
+			height:170px;
+			top:-61px;
+			background:url("@{imgPath}/devis/auditif.png") no-repeat 19px -258px;
+		}
+		.who_friend span{
+			background-position:-235px -258px;
+		}
+		.who_family span{
+			background-position:-495px -258px;
+		}
+	}
+	.lieu.lieu_CP{
+		input{
+			position: absolute;
+			top: 170px;
+			left:140px;
+			width:355px;
+    		}
+		.erreur{
+			top:151px;
+			left:130px;
+			width:360px;
+		}
+	}
+	.attente{
+		.etape_question > span{
+			height: 23px;
+			margin: 21px 30px 30px 0;
+			padding: 88px 5px 5px;
+		}
+		.etape_question label + span + span,
+		.etape_question label + span + span + span + span {
+			margin: 21px 0 30px;
+		}
+		span span{
+			background:url("@{imgPath}/devis/auditif.png") no-repeat 76px -485px;
+		}
+		.attente_choose span{
+			background:url("@{imgPath}/devis/auditif.png") no-repeat -448px -484px;
+		}
+		.attente_renew span{
+			background:url("@{imgPath}/devis/auditif.png") no-repeat -164px -485px;
+		}
+	}
+	.horaire{
+		background:url("@{imgPath}/devis/auditif.png") no-repeat 418px -622px;
+		min-height:400px;
+		.etape_question > span{
+			width:170px;
+			height:23px;
+			margin:40px 20px 0 0;
+			padding:40px 5px;
+		}
+		.etape_question label + span + span + span {
+			clear:both;
+		}
+	}
+	/**************************************** COORDONNEES *************************************************/
+	.antiSPAM_devis{
+		position:absolute;
+		bottom:0;
+		padding:0;
+		width:500px;
+	}
+	.nom,
+	.lieu{
+		input{
+			width:294px;
+			margin-right:10px;
+			float: left;
+		}
+		.input_deuxieme{
+			margin-right:0px;
+		}
+		.input_full{
+			width:614px;
+		}
+	}
+	.lieu_defisc{
+		.bouton_etape_defisc{
+			position: static;
+			float: right;
+			input{
+				width: 100%;
+			}
+			.bt_envoyer_defiscalisation{
+				height: 50px !important;
+			}
+		}
+	}
+	.nom{
+		.etape_question{
+			min-height:230px;
+		}
+		.etape_question .mademoiselle{ /*Dernière case de la ligne (différente structure du html qu'au-dessus)*/
+			margin:40px 0 10px 0;
+			width:96px;
+		}
+		.etape_question > span{ /* Exception Madame/Mademoiselle : le texte est décalé en haut à gauche*/
+			height:95px;
+			width:100px;
+			padding:15px 90px 5px 10px;
+		}
+		.etape_question .monsieur{ /* Exception Monsieur : le texte est décalé en haut à droite*/
+			padding:15px 5px 5px 95px;
+		}
+		.etape_question .erreur{
+			text-align:center;
+		}
+		span span{	/* Illustrations */
+			top:-48px;
+			left:0;
+			height:180px;
+			width:200px;
+			z-index:10; /*Passe devant l'erreure civilité*/
+			background:url("@{imgPath}/devis/devis_coordonnees.png") no-repeat -10px -18px;
+		}
+		.madame span{
+			background-position:-131px -19px;
+		}
+		.mademoiselle span{
+			background-position:-320px -19px;
+			width:207px;
+		}
+		.etape_champs{
+			margin:0;
+			padding:0;
+			overflow:hidden;
+			border:none;
+		}
+	}
+	.lieu{
+		background:url("@{imgPath}/devis/devis_coordonnees.png") no-repeat 133px -195px;
+		min-height:400px;
+		.etape_champs{
+			clear:both;
+			overflow:hidden;
+			padding:90px 0 98px 0;
+			border:none;
+		}
+	}
+	.etape_champs{
+		label{
+			float: left;
+			width:47.5%;
+			margin: 0 0 0 5%;
+			padding: 0;
+			background-color: none;
+			&:nth-of-type(2n+1){
+				clear: both;
+				margin-left:0;
+			}
+			input{
+				width: 100%;
+				box-sizing: border-box;
+				margin: 5px 0;
+			}
+			.erreur.show{
+				box-sizing: border-box;
+			}
+		}
+		> div{
+			clear: both;
+			float: left;
+			// width: 100%;
+			margin-top: 10px;
+			p{
+				float: left;
+				margin-right: 10px;
+			}
+			label:nth-of-type(n){
+				width: auto;
+				clear: none;
+				input{
+					margin: 0 5px 0 0;
+					width: inherit;
+				}
+				+ label{
+					margin-left: 15px;
+				}
+			}
+			.offre_part{
+				float: none;
+				margin-bottom: 5px;
+				margin: 0;
+			}
+		}
+	}
+	.bt_terminer{
+		.flex-display(flex);
+		.align-items(center);
+		.flex-wrap(wrap);
+		.justify-content(flex-end);
+		width: 100%;
+		p{
+			// .flex(1 0 auto);
+			text-align: right;
+			margin-bottom: 0;
+		}
+		input{
+			position: static;
+			color: #fff;
+			font-size: 20px;
+			font-weight: bold;
+			// .flex(0 0 0);
+			width: auto;
+			padding: 10px;
+			margin-left: 10px;
+			bottom: 0;
+		}
+	}
+	.etape_fin{
+		min-height:400px;
+		.etape_radio{
+			clear:both;
+			border:none;
+			label{
+				width:490px;
+				padding:0;
+				text-align:left;
+				color:#666;
+				font:18px/22px Arial, Helvetica, sans-serif;
+			}
+			label.radio,
+			label.inscription_cgu{
+				width:auto;
+				padding:0 15px 0 0;
+			}
+			label.radio + label.radio{
+				padding:0;
+			}
+			label.radio:hover{
+				color:@color_base;
+			}
+		}
+		label + .etape_radio{
+			padding-top:50px;
+		}
+		// .bouton_etape{
+		// 	position:static;
+		// 	margin:50px auto 0 auto;
+		// 	width:180px;
+		// 	height:70px;
+		// 	input{
+		// 		width:180px;
+		// 		height:70px;
+		// 	}
+		// }
+		.bouton_etape{
+			position: static;
+			float: right;
+			margin-top: 10px;
+			background: rgba(0,0,0,0);
+			font-size: 15px;
+			display: flex;
+			width: auto;
+			> p{
+				margin-right: 10px;
+				color: #666;
+				font-size: 15px;
+				align-self: flex-end;
+			}
+			input{
+				flex: 1 0 0;
+				background-color: #fa3c3c;
+			}
+		}
+		.cnil_information{
+			background-color: rgba(255,255,255,0);
+		}
+	}
+}
+.cnil_information{
+	clear: both;
+	float: left;
+	margin-top: 40px;
+	font-size: 11px;
+	color: #666;
+	a{
+		color: #4b4182;
+		text-decoration: underline;
+		&:hover{
+			color: #fa3c3c;
+		}
+	}
+	&.cnil_defisc{
+		padding-top: 10px;
+		background-color: rgba(255,255,255,.8);
+	}
+}
+@media only screen and (max-width: 800px) {
+	.devis_responsive,
+	.devis_responsive.tunnel_devis{
+		.defisc_devis{
+			.devis_etapes{
+				.nom{
+					.etape_question > span{
+						width: 30%;
+						&:nth-of-type(3){
+							clear:none;
+						}
+					}
+					.etape_champs input{
+						min-height: inherit;
+					}
+				}
+				.bt_terminer{
+					.bouton_etape{
+						margin: inherit;
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 500px) {
+	.devis_responsive,
+	.devis_responsive.tunnel_devis{
+		#devis_epargne.defisc_devis,
+		.defisc_devis{
+			.devis_etapes{
+				background: #fff;
+				border: 1px solid #ccc;
+				/** Styles communs */
+				> label{
+					font-size: 15px;
+				}
+				.etape_prev{
+					left: 0;
+					top: 0;
+				}
+				.etape_next{
+					right: 0;
+					top: 0;
+				}
+				._step{
+					padding-top: 30px;
+					.etape_question{
+						min-height: auto;
+					}
+				}
+				._step ._question > label,
+				._step > label{
+					padding: 0;
+					width: auto;
+					margin-bottom: 20px;
+				}
+				#_form-step-1 ._option{
+					padding: 10px 10px 10px 40px;
+					margin-bottom: 0;
+				}
+				#_form-step-4 ._option{
+					min-height: auto;
+					height: auto;
+				}
+				input{
+					border:1px solid #ccc;
+					&:focus{
+						border: 1px solid @violet;
+					}
+				}
+				.objectifs,
+				.fournisseurs,
+				.fournisseurs_machine_affranchir{
+					span .checkbox{
+						top: 50%;
+						margin-top: -11px;
+						.scale(.7);
+					}
+					.selected{
+						.checkbox{
+							margin-top: -14px;
+						}
+					}
+				}
+				.bouton_etape{
+					margin-top: 10px;
+					width: 100%;
+					.rounded(0);
+					border:none;
+					button,
+					input{
+						padding: 10px;
+						font-size: 16px;
+						width: 100%;
+						border:none;
+					}
+				}
+				/** Etape 1 **/
+				.par2.objectifs{
+					.etape_question > span{
+						padding: 10px 10px 10px 40px;
+						text-align: left;
+					}
+				}
+				.par3.nombre{
+					.etape_question > span{
+						background: none !important;
+						&:nth-of-type(1)::before{
+							content: "1";
+						}
+						&:nth-of-type(2)::before{
+							content: "2";
+						}
+						&:nth-of-type(3)::before{
+							content: "3";
+						}
+						&:nth-of-type(4)::before{
+							content: "4";
+						}
+						&:nth-of-type(5)::before{
+							content: "5+";
+						}
+						&:nth-of-type(2n+1){
+							clear: none;
+						}
+					}
+				}
+				.revenus_foyer,
+				.par2,
+				.par3{
+					.etape_question > span{
+						padding: 8px 0;
+						margin: 0;
+						font-size: 16px;
+						font-weight: normal;
+						border: 1px solid #ccc;
+						width: 100%;
+						span{
+							display: none;
+						}
+						&.selected{
+							border: 1px solid @violet;
+						}
+						&:nth-of-type(n+2){
+							margin-top: 10px;
+						}
+					}
+				}
+				.nom{
+					.etape_question{
+						.flex-display(flex);
+						.flex-wrap(wrap);
+						.align-items(flex-end);
+						.justify-content(space-around);
+						span{
+							width: auto;
+							padding: 5px;
+						}
+					}
+					.etape_champs{
+						padding: 0;
+						margin: 10px 0 0 0;
+					}
+					input{
+						border:1px solid #ccc;
+					}
+					.radio{
+						margin-top: 5px;
+						margin-bottom: 0;
+						+ .radio{
+							margin-left: 10px;
+						}
+					}
+				}
+				.lieu{
+					padding-top: 30px;
+				}
+				.bt_terminer{
+					.flex-display(flex);
+					.align-content(flex-end);
+					.flex-wrap(nowrap);
+					padding-top: 15px;
+					.bouton_etape{
+						padding: 10px;
+						.rounded(0);
+						border:none;
+						font-size: 16px;
+						margin-top: 0;
+						width: auto;
+					}
+					p{
+						text-align: right;
+					}
+				}
+			}
+		}
+	}
+}
+/***************************************** REASSURANCE *****************************************/
+#droite_etapes{
+	float:left;
+	width:300px;
+	height:370px;
+	margin:20px 10px 20px 0;
+	background:url("@{imgPath}/devis/reassurance.png") no-repeat;
+	p{
+		width:150px;
+		margin:55px 20px 20px 40px;
+		font:18px/22px Arial, Helvetica, sans-serif;
+		text-align:center;
+	}
+}
+#droite_etapes.etape_ebiblio{
+	margin:300px 0 0 0;
+}
+/**********************************************************************************************************************************/
+/**************************************************** PASSER DEVIS EBILBIO ****************************************************** */
+/**********************************************************************************************************************************/
+.entete_merci{
+	font: 24px/150% 'museo', Arial, Helvetica, sans-serif;
+	padding-bottom:15px;
+}
+.merci_lead{
+	border:3px solid #93c01f;
+	border-radius: 5px;
+	margin:0 0 30px 0;
+	padding:15px 40px 15px 15px;
+	font:14px/18px Arial, Helvetica, sans-serif;
+}
+.merci_lead span{
+	font-weight:bold;
+}
+.remerciement_lead{
+	font:18px/20px Arial, Helvetica, sans-serif;
+}
+.remerciement_demande,
+.merci_telechargement_document{
+	padding:15px 0 0 45px;
+}
+.remerciement_demande{
+	background:url('@{imgPathTheme}/sprite_e-biblio.png')no-repeat -5px -1341px transparent;
+}
+.merci_telechargement_document{
+	background:url('@{imgPathTheme}/sprite_e-biblio.png')no-repeat -6px -1234px transparent;
+}
+.email_incorrect_lead{
+	margin:10px 0 0 0;
+	font:12px/14px Arial, Helvetica, sans-serif;
+}
+/**********************************************************************************************************************************/
+/**************************************** MEDIA QUERIES POUR DEVIS DEFISC RESPONSIVE ********************************************* */
+/**********************************************************************************************************************************/
+#devis_epargne.tunnel_devis{
+	max-width:1030px;
+	width:auto;
+}
+@media only screen and (max-width:1030px) {
+	#devis_epargne{
+		#droite_etapes{
+			width:auto;
+			height:auto;
+			float:none;
+			clear:both;
+			background:none;
+			p{
+				width:auto;
+				margin:0 0 0 20px;
+				text-align:left;
+			}
+		}
+		.antiSPAM_devis{
+			position: inherit;
+			width: 100%;
+		}
+	}
+}
+@media only screen and (max-width:995px) {
+	#devis_epargne {
+		.devis_etapes{
+			margin: 0 auto;
+			form fieldset{
+				width: auto;
+			}
+		}
+		input[type='text'],
+		input[type='number'],
+		textarea {
+			font-size: 16px;
+		}
+	}
+}
+
+@media only screen and (max-width:700px) {
+	#devis_epargne{
+		box-sizing: border-box;
+		.devis_etapes,
+		.devis_etapes *{
+			box-sizing: border-box !important;
+		}
+		.bouton_etape{
+			position:inherit;
+			display: table;
+			margin: 0 auto;
+		}
+		.Xetapes{
+			margin: 10px 0 20px 0;
+		}
+		.devis_etapes {
+			width:100%;
+			padding: 0 3rem 3rem;
+			box-sizing: border-box;
+			._option{
+				width: 100%;
+				height: auto;
+				padding: 4rem 2rem 4rem 27rem;
+			}
+			.objectifs .etape_question > span{
+				padding: 2rem 2rem 2rem 28rem;
+			}
+			._step {
+				._question > label, & > label{
+					width: 88%;
+					padding-right: 1.5rem;
+				}
+				fieldset{
+					width: 100%;
+					padding: 10px 0;
+				}
+				fieldset input,
+				.etape_radio label{
+					width: 100%;
+				}
+				.bt_terminer input{
+					width: auto;
+					margin:0;
+				}
+
+			}
+			.situation span span{
+				top: -30%;
+			}
+			.erreur{
+				top: auto;
+				left: 0;
+				width: 100%;
+				height: auto;
+				padding: 2rem;
+			}
+		}
+
+		/*Etape 1*/
+		#_form-step-1 {
+			padding-bottom: 4rem;
+			.bouton_etape{
+				bottom: -1rem;
+				top:inherit;
+			}
+		}
+		/*Etape 2*/
+		#_form-step-2 {
+			background: none;
+				._option{
+					margin: 0 0 1.5rem 0;
+					padding: .5rem;
+				}
+		}
+		/* Etape 3 */
+		#_form-step-3 {
+			background:none;
+			label{
+				float: none;
+				display: inline-block;
+			}
+			#_form_etude-annee_naissance{
+				position: inherit;
+				width: 70%;
+				margin: 2rem auto;
+				display: block;
+			}
+		}
+		/*Etape 4*/
+		#_form-step-4{
+			._option{
+				 width: 47%;
+				min-height: 12rem;
+				margin: 0 1rem 1rem 0;
+				padding: 0;
+			}
+		}
+		/*Etape 7*/
+		#_form-step-7 {
+			min-height: 89rem;
+			.etape_champs{
+				margin: 0;
+			}
+			.option{
+				padding: 4rem 2rem 4rem 4rem;
+				&>span{
+					top:-44%;
+				}
+			}
+		}
+		#_form-step-9 fieldset label input{
+			width: auto;
+		}
+	}
+}
+
+@media only screen and (max-width:480px) {
+	/*Suppression des images */#devis_epargne .devis_etapes ._step span span:first-of-type {background: none;height: 0;}
+	#devis_epargne .titre_devis{
+		display:none;
+	}
+	#devis_epargne{
+		.devisGaucheTitre{
+			font:2.2rem/2.4rem 'museo', Arial, Helvetica, sans-serif;
+			 padding: 0 0 1rem;
+		}
+		.devisGaucheTitre:before{
+			display: none;
+		}
+		/*Général*/
+		._step {
+			._option{
+				width: 100%;
+				height: auto;
+				margin: 0 0 1.5rem 0;
+				padding: 1rem;
+			}
+			.etape_question {
+				min-height: 290px;
+			}
+			.etape_question > span{
+				padding: 1.5rem;
+			}
+			fieldset{
+				padding: 10px 0;
+			}
+			fieldset input{
+				width: 100%;
+			}
+			.etape_champs{
+				margin-bottom: 0px;
+			}
+		}
+		/*Etape 1*/
+		#_form-step-1 {
+			._option{
+				margin-bottom: 3rem;
+				padding: 1rem 1rem 1rem 3rem;
+			}
+		}
+		/*Etape 4*/
+		#_form-step-4{
+			._option{
+				display: block;
+				float: none;
+				height: 12rem;
+				margin: 0 auto 1rem;
+				padding: 0.5rem;
+				width: 90%;
+				clear: both;
+			}
+		}
+		/*Etape 5 & Etape 6*/
+		#_form-step-5,#_form-step-6 {
+			 span span{
+				background: none;
+				height: 0;
+			}
+		}
+		/*Etape 7*/
+		#_form-step-7 {
+			min-height: 40rem;
+		}
+		/*Etape 8*/
+		.devis_etapes .lieu{
+			background: none;
+		}
+		.devis_etapes ._step .bt_terminer input{
+			margin: 0 auto;
+		}
+	}
+	.devis_etapes .etape_champs .bt_terminer p{
+		font-size: 14px;
+		text-align: center;
+		float: none;
+		width: 100%;
+	}
+}
+
+
+
+
+/**************************************************************** SOMMAIRE ****************************************************************
+
+*	Demande de devis (spécialement pour le devis humidité pour le moment)
+
+*	Responsive Design
+
+/********************************** Demande de devis **********************************/
+.form_devis{
+	padding: 5rem 0 0 0;
+}
+.tunnel_devis{
+	position :relative;
+	width:1030px;
+	margin: 0 auto;
+	padding:1rem;
+	background: #fff;
+	.Xetapes{
+		float: left;
+		max-width:660px;
+		margin:20px 30px 20px 10px;
+		.terminer_recap_lead{ /*Titre pour le devis sur l'ebibliothèque*/
+			font:24px/34px Arial, Helvetica, sans-serif;
+		}
+	}
+	h1.titre_devis{
+		font: 31px 'museo', Arial, Helvetica, sans-serif;
+		color:#333;
+		margin:10px 0 5px 0;
+	}
+	h2.sousTitre_devis,
+	h6.sousTitre_devis{
+		font: 20px Arial, Helvetica, sans-serif;
+		color:#999;
+		margin:0 0 10px 0;
+	}
+	h1{
+		color: inherit;
+		font-size: 3rem;
+		font-family: 'museo', Calibri, Arial, Helvetica, sans-serif;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+	}
+	h2.sousTitre_devis,
+	h6.sousTitre_devis{
+		margin: 0 0 10px 0;
+		font-size: 2rem;
+		font-family: Calibri, Arial, Helvetica, sans-serif;
+		color: #999;
+		em{
+			color: @rouge;
+			font-style: normal;
+		}
+	}
+	*{
+		box-sizing: content-box;
+	}
+	#droite_devis{
+		float: left;
+		width: 430px;
+		margin: 20px 0 0;
+	}
+	form{
+		position:static;
+	}
+	select{
+		min-height: inherit;
+	}
+	input{
+		min-height:2.5rem;
+	}
+	.projetDevis input[type="checkbox"],
+	.infosDevis input[type="checkbox"]{
+		min-height:inherit;
+	}
+	h2::after{
+		display: none;
+	}
+	.demande_devis{
+		.coordonneeDevis{
+			label{
+				line-height:3.6rem;
+			}
+			select.small{
+				width:50px;
+			}
+			tr td select.small + input{
+				clear:none;
+			}
+		}
+		&.form_b2b .infosDevis select {
+			width: 120px;
+		}
+		&.form_argent .projetDevis select,
+		&.form_argent .infosDevis select{
+			width:245px;
+		}
+		.projetDevis select,
+		.infosDevis select{
+			width:260px;
+		}
+		.marketing .bouton input{
+			padding:0;
+		}
+	}
+	.devis_etapes{
+		position:relative;
+		overflow:hidden;
+		width:634px;	/*On peut retirer cette largeur pour faire un devis qui s'adapte mais il faut metre des % dans la suite*/
+		min-height:400px;
+		margin:20px 0;
+		padding:10px 10px 0 10px;
+		border: 3px #ccc solid;
+		background: url("@{imgPath}/devis/trame_devis.gif") repeat;
+		font:16px/22px Arial, Helvetica, sans-serif;
+		color: #333;
+		.bouton_etape{
+			width:auto;
+			button{
+				height:auto;
+			}
+		}
+		.etape_fin .bouton_etape{
+			width: 190px;
+			height: 80px;
+		}
+		.erreur{
+			float: left;
+			&.full{
+				float:none;
+				margin: 0;
+			}
+		}
+		.etape_prev,
+		.etape_next{
+			position:absolute;
+			top:10px;
+			left:10px;
+			width:40px;
+			height:40px;
+			background: url("@{imgPath}/sprite_commun.png") no-repeat -149px 8px #ccc;
+			border:none;
+			margin:0;
+			padding:0;
+			cursor:pointer;
+		}
+		.etape_next{
+			background: url("@{imgPath}/sprite_commun.png") no-repeat -146px -29px #ccc;
+			left:auto;
+			right:10px;
+		}
+		.etape_prev:hover,
+		.etape_next:hover{
+			background-color:#999;
+			border:none;
+		}/***************************************** GENERAL *****************************************/
+		.etape_question{
+			min-height:400px;
+		}
+		label{	/* Questions */
+			width:544px;
+			display:block;
+			float:left;
+			font:18px/22px Arial, Helvetica, sans-serif;
+			text-align:center;
+			margin:10px 0 20px 0;
+			padding:0 45px;
+		}
+		.etape_question > span{	/* Cases */
+			display:block;
+			float:left;
+			height:105px;
+			padding:5px;
+			border:3px solid #ddd;
+			background:#fff;
+			font:18px/22px Arial, Helvetica, sans-serif;
+			text-align:center;
+			color:#333;
+			cursor:pointer;
+			position:relative;
+		}
+		.etape_question > span:hover,
+		.etape_question .selected{
+			border:3px solid @color_aplat;
+			color:@color_base;
+		}
+		input,
+		textarea{
+			padding:5px;
+			margin:10px 0;
+			border:3px solid #ddd;
+			background:#fff;
+			font:14px/18px Arial, Helvetica, sans-serif;
+		}
+		input:focus,
+		textarea:focus{
+			border:3px solid @color_aplat;
+			outline:none;
+		}
+		input[type="radio"]{
+			width:15px;
+			height:15px;
+			margin:4px 5px 4px 0;
+			padding:0;
+			border:none;
+			background:none;
+		}
+		label.radio{
+			cursor:pointer;
+		}
+		.erreur{	/* Erreurs */
+			position:relative;
+			top:-10px;
+			width:300px;
+			height:auto;
+			padding:5px;
+			margin:0 7px 0 0;
+			background:#e9e9e9;
+			font:bold 14px/18px Arial, Helvetica, sans-serif;
+			color:#cc0000;
+		}
+		.erreur.full{
+			width:610px;
+			margin:0 0 0 5px;
+		}
+		.show.erreur{
+			display:inline-block;
+		}
+		.erreur + .erreur{
+			margin:0;
+		}
+		.hide.erreur + .show.erreur{
+			margin:0 0 0 322px;
+		}
+
+		span span{	/* Illustrations */
+			position:absolute;
+			overflow:hidden;
+		}
+		.bouton_etape{
+			position:absolute;
+			bottom:10px;
+			right:10px;
+			height:50px;
+			width:120px;
+			border:5px solid #fff;
+			.radius(10px);
+			.gradient (@color_degradFonceC, @color_degradClairC, @color_degradFonceC);
+			text-align:center;
+			button,
+			input{
+				width:120px;
+				padding:15px 0;
+				margin:0;
+				background:none;
+				border:none;
+				.radius(10px);
+				color:#fff;
+				text-align:center;
+				font:24px/20px Arial, Helvetica, sans-serif;
+				cursor:pointer;
+				text-shadow: 0px 0px 5px #999999;
+			}
+			input{
+				padding:0;
+			}
+		}
+		.bouton_etape:hover{
+			.gradient (@color_degradClairC, @color_degradFonceC, @color_degradClairC);
+		}
+		/**************************************** MISES EN PAGE *************************************************/
+
+		/*--------------------------- 2 CASES PAR LIGNES -------------------------------------*/
+		/*2 cases sur 1 ligne au centre (le texte est géré cas par cas)*/
+		.par2 {
+			.etape_question > span{
+				width:286px;
+				margin:80px 30px 30px 0;
+			}
+			.etape_question label + span + span,
+			.etape_question label + span + span + span + span{
+				margin:80px 0 30px 0;
+			}
+			span span{	/* Illustrations */
+				top:-40px;
+				left:-13px;
+				height:195px;
+				width:319px;
+			}
+		}
+		/*4 cases sur 2 lignes (texte en bas)*/
+		.par2.ligne_double {
+			.etape_question > span {
+				height: 23px;
+				padding: 88px 5px 5px;
+				margin-top: 21px;
+			}
+		}
+		/*------------------ 3 CASES PAR LIGNES (toujours avec le texte en bas)----------*/
+		/*3 cases sur 2 lignes (texte en bas)*/
+		.par3 {
+			.etape_question > span{
+				width:188px;
+				height:23px;
+				padding:87px 5px 5px 5px; /* fixe le texte en bas*/
+				margin:40px 10px 10px 0;
+			}
+			.etape_question label + span + span + span,
+			.etape_question label + span + span + span + span + span + span,
+			.etape_question label + span + span + span + span + span + span + span + span + span{
+				width:186px;
+				margin:40px 0 10px 0;
+			}
+			span span{	/* Illustrations */
+				top:-30px;
+				left:0;
+				height:110px;
+				width:200px;
+			}
+		}
+		/*3 cases sur 1 ligne au centre (texte en bas)*/
+		.par3.ligne_seule{
+			.etape_question > span{
+				margin-top:80px;
+			}
+		}
+		/*------------------ 4 CASES PAR LIGNES (toujours avec le texte en bas)----------*/
+		.par4 {
+			.etape_question > span{
+				width:145px;
+				height:20px;
+				padding:80px 0 5px 0; /* fixe le texte en bas*/
+				margin:40px 10px 10px 0;
+			}
+			.etape_question label + span + span + span + span,
+			.etape_question label + span + span + span + span + span + span + span + span,
+			.etape_question label + span + span + span + span + span + span + span + span + span + span + span + span{
+				margin:40px 0 10px 0;
+			}
+			span span{	/* Illustrations */
+				top:-30px;
+				left:0;
+				height:110px;
+				width:145px;
+			}
+		}
+		/***************************************** AUTRES ET NE SAIS PAS *****************************************/
+		.par2 .etape_question .autre,
+		.par2.ligne_double .etape_question .autre { /* Autre plus grand */
+			height:65px;
+			width:201px;
+			padding:45px 90px 5px 5px;
+			span{
+				background:url("@{imgPath}/devis/autre_saispas.png") no-repeat 176px -234px;
+			}
+		}
+		.par3 .autre span{ /* Autre */
+			background:url("@{imgPath}/devis/autre_saispas.png") no-repeat 58px 7px;
+		}
+		.par4 .autre span{ /* Autre */
+			background:url("@{imgPath}/devis/autre_saispas.png") no-repeat 32px 6px;
+		}
+		.etape_question .sais_pas span{	/* Ne sais pas */
+			background:url("@{imgPath}/devis/autre_saispas.png") no-repeat 26px -113px;
+		}
+		/*------------------ ETAPE OUI NON ----------*/
+		.etape_oui_non {
+			.etape_question > span{
+				height: 25px;
+				padding: 85px 5px 5px;
+			}
+			span span{
+				top:-86px;
+				height:170px;
+			}
+			.sais_pas span{
+				background:url("@{imgPath}/devis/gd_saispas.png") no-repeat -1px 1px;
+				left:-10px;
+				width:215px;
+			}
+		}
+		/********************* PROJET HUMIDITE ************************/
+		.projet_humidite .traitement_anti_humidite{
+			height: 25px;
+			padding: 85px 5px 5px;
+			span{
+				background:url("@{imgPath}/devis/humidite.png") no-repeat -8px 1px;
+			}
+		}
+		.projet_humidite span span{
+			height: 175px;
+			top: -72px;
+		}
+		.type_surface{
+			span span{
+				background:url("@{imgPath}/devis/humidite.png") no-repeat 23px -187px;
+			}
+			.type_sol span{
+				background-position: -191px -187px;
+			}
+			.type_combles span{
+				background-position: -191px -320px;
+			}
+			.type_soussol span{
+				background-position: 25px -317px;
+			}
+		}
+		.horaire_input{
+			background: url("@{imgPath}/devis/auditif.png") no-repeat 27px -622px;
+			min-height: 400px;
+			input{
+				right: 20px;
+				position: absolute;
+				top: 50%;
+				width: 327px;
+				margin-top: -1.25rem;
+			}
+			.erreur {
+				position: absolute;
+				right: 20px;
+				top: calc(57.5%);
+				width: 333px;
+				margin: 0;
+			}
+		}
+		.construction_annee{
+			background: url("@{imgPath}/devis/humidite_plus.png") no-repeat -10px 107px;
+			min-height: 400px;
+			input{
+				right: 10px;
+				position: absolute;
+				top: 133px;
+				width: 327px;
+				text-align:center;
+			}
+			.erreur {
+				left: 291px;
+				top: 114px;
+				width: 333px;
+			}
+		}
+		/**************************************** DEVIS MAISON *************************************************/
+		.description{
+			background:url("@{imgPath}/devis/devis_maison.png") no-repeat 0px 45px;
+			textarea{
+				width:100%;
+				max-width:100%;
+				max-height:140px;
+				overflow:auto;
+				margin-top: 110px;
+				box-sizing: border-box;
+			}
+			.erreur{
+				width:618px;
+				position:absolute;
+				top: 122px;
+				left:10px;
+				height: 18px;
+				width: 624px;
+			}
+		}
+		.pro_part{
+			.etape_question > span{
+				height:85px;
+				padding:25px 5px 5px 5px;
+			}
+			span span{
+				background:url("@{imgPath}/devis/devis_maison.png") no-repeat 0px -365px;
+				left: 50%;
+				margin-left: -160px;
+			}
+			.professionnel span{
+				background-position:-372px -365px;
+			}
+		}
+		.prop_loc{
+			.etape_question .proprietaire, /* Exception prop loc : 3 cases mais le texte est décalé en haut*/
+			.etape_question .locataire{
+				height:95px;
+				width:100px;
+				padding:15px 5px 5px 95px;
+			}
+			.proprietaire span,
+			.locataire span,{
+				left:-10px;
+				height:180px;
+				background:url("@{imgPath}/devis/devis_maison.png") no-repeat -4px -565px;
+			}
+			.locataire span{
+				background-position:-358px -590px;
+			}
+		}
+		.batiment{
+			span span{
+				background:url("@{imgPath}/devis/devis_maison.png") no-repeat -9px -798px;
+			}
+			.appartement span{
+				background-position:-178px -798px;
+			}
+			.immeuble span{
+				height:143px;
+				top:-64px;
+				background-position:-538px -763px;
+			}
+			.bureaux span{
+				background-position:-15px -913px;
+			}
+			.local_com span{
+				background-position:-174px -909px;
+			}
+			.local_indu span{
+				background-position:-354px -911px;
+			}
+		}
+		.batiment_3options{
+			span span{
+				background:url("@{imgPath}/devis/devis_maison.png") no-repeat 16px -798px;
+			}
+			.appartement span{
+				background-position:-152px -795px;
+			}
+		}
+		.etat{
+			span span{
+				height:130px;
+				top:-41px;
+				background:url("@{imgPath}/devis/devis_maison.png") no-repeat -1px -1056px;
+			}
+			.neuf span{
+				background-position:-225px -1066px;
+			}
+			.en_construction span{
+				background-position:-475px -1068px;
+			}
+		}
+		.delais{
+			.asap span,
+			.calendrier span{
+				height:155px;
+				top:-72px;
+				background:url("@{imgPath}/devis/devis_maison.png") no-repeat 25px -1216px;
+			}
+			.calendrier span{
+				background-position:-200px -1205px;
+			}
+		}
+		.combien{
+			background:url("@{imgPath}/devis/fenetre_plus.png") no-repeat 46px -170px;
+			input,
+			.erreur{
+				width:250px;
+				position:absolute;
+				top:230px;
+				left:200px;
+				text-align:center;
+			}
+			.erreur{
+				height: 40px;
+				top: 273px;
+				width: 256px;
+			}
+		}
+		/**************************************** COORDONNEES *************************************************/
+		.antiSPAM_devis{
+			position:absolute;
+			bottom:20px;
+			padding:0;
+			width:500px;
+			font-size: 12px;
+			line-height: 100%;
+		}
+		.nom,
+		.lieu{
+			input{
+				width:294px;
+				margin-right:10px;
+				float:left;
+			}
+			.input_deuxieme{
+				margin-right:0px;
+			}
+			.input_full{
+				width:614px;
+			}
+		}
+		.nom{
+			.etape_question{
+				min-height:230px;
+			}
+			.etape_question .mademoiselle{ /*Dernière case de la ligne (différente structure du html qu'au-dessus)*/
+				margin:40px 0 10px 0;
+				width:96px;
+			}
+			.etape_question > span{ /* Exception Madame/Mademoiselle : le texte est décalé en haut à gauche*/
+				height:95px;
+				width:100px;
+				padding:15px 90px 5px 10px;
+			}
+			.etape_question .monsieur{ /* Exception Monsieur : le texte est décalé en haut à droite*/
+				padding:15px 5px 5px 95px;
+			}
+			.etape_question .erreur{
+				text-align:center;
+			}
+			span span{	/* Illustrations */
+				top:-34px;
+				left:0;
+				height:180px;
+				width:200px;
+				z-index:10; /*Passe devant l'erreure civilité*/
+				background:url("@{imgPath}/devis/devis_coordonnees.png") no-repeat -10px -18px;
+			}
+			.madame span{
+				background-position:-131px -19px;
+			}
+			.mademoiselle span{
+				background-position:-320px -19px;
+				width:207px;
+			}
+			.etape_champs{
+				margin:0 0 60px 0;
+				padding:0;
+				overflow:hidden;
+				border:none;
+			}
+		}
+		.lieu{
+			background:url("@{imgPath}/devis/devis_coordonnees.png") no-repeat 133px -195px;
+			min-height:400px;
+			.etape_champs{
+				clear:both;
+				overflow:hidden;
+				padding:90px 0 98px 0;
+				border:none;
+			}
+		}
+		.etape_fin{
+			min-height:400px;
+			.etape_radio{
+				clear:both;
+				border:none;
+				label{
+					width:490px;
+					padding:0;
+					text-align:left;
+					color:#666;
+					font:18px/22px Arial, Helvetica, sans-serif;
+				}
+				label.radio,
+				label.inscription_cgu{
+					width:auto;
+					padding:0 15px 0 0;
+				}
+				label.radio + label.radio{
+					padding:0;
+				}
+				label.radio:hover{
+					color:@color_base;
+				}
+			}
+			label + .etape_radio{
+				padding-top:50px;
+			}
+			.bouton_etape{
+				position:static;
+				margin:50px auto 0 auto;
+				width:180px;
+				height:70px;
+				input{
+					width:180px;
+					height:70px;
+				}
+			}
+		}
+	}
+	#droite_etapes{
+		float:left;
+		width:300px;
+		height:370px;
+		margin:20px 10px 20px 0;
+		background:url("@{imgPath}/devis/reassurance.png") no-repeat;
+		p{
+			width:150px;
+			margin:55px 20px 20px 40px;
+			font:18px/22px Arial, Helvetica, sans-serif;
+			text-align:center;
+		}
+	}
+	#droite_etapes.etape_ebiblio{
+		margin:300px 0 0 0;
+	}
+}
+/************************************************************************************************************************/
+/* ***************************************************** PAGE FIN *******************************************************/
+/************************************************************************************************************************/
+.merci_devis{
+	.merci{
+		padding:20px 20px 0 20px;
+		margin:0 auto;
+		width: 100%;
+		background:#EEE;
+		-webkit-border-radius: 10px 10px 0px 0px;
+		border-radius: 10px 10px 0px 0px;
+		text-align:center;
+		font:18px/22px Arial, Helvetica, sans-serif;
+	}
+	.merci strong{
+		font-weight:normal;
+	}
+	.merci + p{
+		padding: 10px 20px 20px 20px;
+		margin:0 auto;
+		width: 100%;
+		background:#EEE;
+		-webkit-border-radius: 0px 0px 10px 10px;
+		border-radius: 0px 0px 10px 10px;
+		text-align:center;
+		font:14px/22px Arial, Helvetica, sans-serif;
+	}
+	.merci + p + p{ /*sur les formulaires défisc*/
+		padding: 10px 0 0 0;
+		margin:0;
+		font:12px/18px Arial, Helvetica, sans-serif;
+	}
+	.merci + p + p + p, /*sur les formulaires défisc*/
+	.merci + p + p + p + p{
+		padding: 0;
+		margin:0;
+		font:12px/18px Arial, Helvetica, sans-serif;
+	}
+	.autresProjets {
+		margin: 50px 0 0;
+		padding: 0;
+		position:relative;
+	}
+	.autresProjets img {
+		display:none;
+	}
+	.autresProjets p {
+		font: bold 14px/18px Arial, Helvetica, sans-serif;
+		color:@color_contraste;
+		border-bottom:5px solid #999;
+		text-align:right;
+	}
+	.autresProjets p strong {
+		font: bold 14px/18px Arial, Helvetica, sans-serif;
+		text-transform:uppercase;
+		color:#333;
+		position:absolute;
+		bottom:7px;
+		left:0;
+	}
+	h3{
+		height:36px;
+		margin:15px 0 0 0;
+		font: bold 14px/18px Arial, Helvetica, sans-serif;
+		color:#666;
+	}
+	.colonne3{
+		float:left;
+		width:30%;
+		margin:0 0 20px 0;
+	}
+	.colonne3:nth-of-type(3n+2){
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	.colonne3:nth-of-type(3n+1){
+		clear: both;
+	}
+	.colonne2{
+		float:left;
+		width:47.5%;
+		margin:0 0 20px 0;
+	}
+	.colonne2:nth-of-type(2n+2){
+		margin-left: 5%;
+	}
+	.colonne2:nth-of-type(2n+1){
+		clear: both;
+	}
+	.colonnes{
+		overflow:hidden;
+		clear:both;
+	}
+	.colonnes ul{
+		padding:0;
+		margin:5px 0 10px 0;
+	}
+	.colonnes li{
+		list-style:none;
+		padding:2px 0 2px 12px;
+		font:13px/18px Arial, Helvetica, sans-serif;
+		background:url("@{imgPathTheme}/puce_fleche-liste.png") no-repeat 0 4px transparent;
+	}
+	.colonnes li a{
+		text-decoration:none;
+	}
+	.colonnes li a:hover{
+		text-decoration:underline;
+	}
+	.menu{
+		clear:both;
+		font: 14px/18px Arial, Helvetica, sans-serif;
+		text-align:right;
+	}
+}

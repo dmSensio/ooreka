@@ -1,0 +1,581 @@
+/************* SOMMAIRE ***********
+
+I.Fonction Less
+II.Variables Less
+III. Style commun
+	a.Inscription
+	b.Questions
+	c.Parrainage
+	d.Page fin MERCI
+
+*/
+
+/************************************* Fonction LESS *************************************/
+.scale(@scale){
+	-webkit-transform: scale(@scale);
+	-moz-transform: scale(@scale);
+	-ms-transform: scale(@scale);
+	-o-transform: scale(@scale);
+	transform: scale(@scale);
+}
+.transition (@propriete:all, @duree:1s, @fonction:ease-in-out, @delay:0s) {
+	-webkit-transition: @propriete @duree @fonctiont @delay;
+	-moz-transition: @propriete @duree @fonction @delay;
+	-ms-transition: @propriete @duree @fonction @delay;
+	-o-transition: @propriete @duree @fonction @delay;
+	transition: @propriete @duree @fonction @delay;
+}
+/************************************* Fonction LESS *************************************/
+@orange_grdf: #F08A00;
+@bleu_grdf:#00a6e4;
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:700);
+
+
+
+/************************************* Styles commun *************************************/
+
+.clearfix::after{
+	content: "";
+	clear: both;
+	display: table;
+	border-collapse: collapse;
+}
+.jeu_grdf{
+	box-sizing: border-box;
+}
+a,
+aside,
+figure,
+img,
+input[type=button]{
+	.transition(all, 0.3s, ease-in-out, 0s)
+}
+figure{
+	margin: 0;
+}
+.erreur{
+	border: 1px solid red!important;
+	box-shadow: 0 0 12px -2px red;
+}
+
+/*-------------- INSCRIPTION ---------------*/
+
+.jeu_grdf_inscription{
+	position: relative;
+	height: 800px;
+	background: url("https://media.ooreka.fr/public/image/habillage_jeu_grdf-source-12089581.png");
+	aside{
+		position: absolute;
+		top: 28%;
+		right: 8%;
+		opacity: 0.93;
+		h2{
+			margin:0;
+			padding: 20px 8px;
+			width: 215px;
+			font-size: 40px;
+			background: @orange_grdf;
+			color:#fff;
+		}
+		p{
+			padding: 8px;
+			background: #fff;
+			color:#999;
+			font-size: 16px;
+			span{
+				font-size: 20px;
+				color:@orange_grdf;
+			}
+		}
+	}
+	aside:hover{
+		.scale(1.1);
+		opacity: 1;
+	}
+}
+#_form_inscription:before{
+	content: 'Inscrivez-vous vite !';
+	position: absolute;
+	top: 20px;
+	left: -225px;
+	padding: 5px 0;
+	font-size: 20px;
+	background: #fff;
+	color: @orange_grdf;
+}
+#_form_inscription{
+	position: absolute;
+	bottom: 65px;
+	right: 0;
+	label,
+	p{
+		font-size: 14px;
+	}
+	.reglement_jeu{
+		margin-bottom: 15px;
+		font-size: 12px;
+		display: block;
+		color:#F08A00;
+	}
+	.radio{
+		margin-bottom: 20px;
+		label{
+			display: inline-block;
+			cursor: pointer;
+			position: relative;
+			padding-left: 25px;
+			margin-right: 15px;
+			&:before{
+				content: "";
+				display: inline-block;
+
+				width: 14px;
+				height: 14px;
+
+				margin-right: 10px;
+				position: absolute;
+				left: 0;
+				bottom: -2px;
+				background-color: #fff;
+				border:1px solid @orange_grdf;
+				border-radius: 9px;
+			}
+		}
+		input[type=radio]{
+			display: none;
+		}
+		input[type=radio]:checked + label:before{
+			content: "•";
+			color: @orange_grdf;
+			font-size: 24px;
+			text-align: center;
+			line-height: 14px;
+			.scale(1.2);
+			.transition(all, 0.1s, ease-in-out, 0s);
+		}
+		p{
+			float: left;
+			margin-right: 15px;
+			padding-top: 5px;
+		}
+	}
+	.champ_contact{
+		width: 690px;
+		margin-bottom: 20px;
+		.control{
+			float:left;
+			margin-bottom: 10px;
+			label{
+				width: 90px;
+			}
+		}
+		input{
+			margin:0 25px 0 5px;
+			background: none;
+			border: 1px solid @orange_grdf;
+		}
+	}
+	input[type=button]{
+		position: absolute;
+		bottom: -41px;
+		right: 20px;
+		width: 270px;
+		padding: 10px;
+		font-size: 20px;
+		cursor:pointer;
+		color:#fff;
+		background: @orange_grdf;
+		border: none;
+		border-radius: 20px;
+	}
+	input[type=button]:hover{
+		background: #ff9300;
+	}
+	.radio-erreur:before{
+		border: 1px solid red!important;
+		box-shadow: 0 0 12px -2px red;
+	}
+}
+.mentions_legales{
+	font-size: 12px;
+	margin-right: 10px;
+	color:#666;
+}
+#_errorMail{
+	position: absolute;
+	top: 50%;
+	left: 6%;
+	padding: 15px;
+	color: #fff;
+	border-radius: 20px;
+	background: none repeat scroll 0 0 red;
+}
+
+/*-------------- QUESTIONS ---------------*/
+#_stepForm{
+	.question_jeu{
+		position: relative;
+		padding:150px 20px 30px 90px;
+		background: url("https://media.ooreka.fr/public/image/habillage_questions-source-12095029.png") no-repeat @bleu_grdf;
+		h1{
+			margin: 15px 0 25px 0;
+			line-height: 22px;
+			font-size: 2.2rem;
+			font-weight: bold;
+			font-family: Arial,Helvetica,sans-serif;
+			color:#fff;
+		}
+		figure:first-of-type{
+			margin-right: 20px;
+		}
+		figure{
+			float: left;
+			width: 430px;
+			border-radius: 15px;
+			overflow: hidden;
+			cursor: pointer;
+			text-align: center;
+			background: @orange_grdf;
+			span{
+				display: block;
+				overflow: hidden;
+				max-height: 235px;
+			}
+			img{
+				max-width: 450px;
+			}
+			figcaption{
+				padding: 16px 0;
+				font-size: 22px;
+				color: #fff;
+			}
+		}
+		._option:hover{
+			background: #FF9A16;
+			.scale(1.02);
+			box-shadow: 0 20px 42px -26px #000;
+		}
+		._option:active{
+			.scale(1);
+		}
+		button{
+			position: absolute;
+			bottom: 30px;
+			right: 30px;
+			padding: 8px 43px 8px 20px;
+			border-radius: 5px;
+			border: none;
+			font-size: 20px;
+			font-weight: bold;
+			color:@bleu_grdf;
+			background: url("https://media.ooreka.fr/sprite_jeu_grdf-source-12095389.png") no-repeat -168px -3px #fff;
+			cursor: pointer;
+		}
+	}
+}
+/*////-------- Réponse à la question -------////*/
+#_stepForm{
+	._form-reponse-valid,
+	._form-reponse-echec{
+		figure{
+			position: relative;
+			cursor:inherit;
+			span:after{
+				content:"";
+				position: absolute;
+				left: 39%;
+				top: 22%;
+				width:130px;
+				height: 110px;
+				background: url("https://media.ooreka.fr/sprite_jeu_grdf-source-12095389.png") no-repeat;
+			}
+		}
+		h3,
+		p{
+			color:#fff;
+		}
+		h3{
+			font-size: 22px;
+			margin-top: 0;
+		}
+		p{
+			font-size: 16px;
+			line-height:20px;
+		}
+	}
+	.info_question{
+		font-size: 12px !important;
+		font-style: italic;
+		a{
+			color:#fff;
+		}
+	}
+	/*---- Bonne réponse ----*/
+	._form-reponse-valid{
+		figure{
+			background:#45A331;
+			span:after{
+				background-position:-284px -183px;
+			}
+		}
+		.add_points{
+			margin:15px 0 15px 170px;
+			font-family: 'Amatic SC', Arial;
+			font-size: 40px;
+		}
+	}
+	/*---- Mauvaise réponse ----*/
+	._form-reponse-echec{
+		.question_jeu{
+			padding-top:210px;
+		}
+		figure{
+			background:#CD2218;
+			span:after{
+				background-position:-284px -403px;
+			}
+		}
+	}
+
+	/*/////--- Dotation --//////*/
+	.dotation{
+		text-align: center;
+		h2{
+			position: relative;
+			margin: 30px;
+			span{
+				position: relative;
+				padding: 0 25px;
+				background: #fff;
+				color:#999;
+			}
+		}
+		h2:before{
+			content:"";
+			position: absolute;
+			left: 0;
+			top: 8px;
+			width:100%;
+			height: 1px;
+			background: -moz-linear-gradient(left,  #ffffff 12%, #f08a00 50%, #ffffff 88%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, right top, color-stop(12%,#ffffff), color-stop(50%,#f08a00), color-stop(88%,#ffffff)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(left,  #ffffff 12%,#f08a00 50%,#ffffff 88%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(left,  #ffffff 12%,#f08a00 50%,#ffffff 88%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(left,  #ffffff 12%,#f08a00 50%,#ffffff 88%); /* IE10+ */
+			background: linear-gradient(to right,  #ffffff 12%,#f08a00 50%,#ffffff 88%); /* W3C */
+		}
+		.sc_dotation{
+			font-size: 20px;
+			color:@orange_grdf;
+		}
+		.sc_dotation:before{
+			content:"";
+			position: absolute;
+			top:-3px;
+			left:-10px;
+			width: 28px;
+			height:28px;
+			background: url("https://media.ooreka.fr/sprite_jeu_grdf-source-12095389.png") no-repeat -9px -10px;
+		}
+		/*-- DOTATION VISUEL --*/
+		ul{
+			position: relative;
+			margin:0;
+			padding:0;
+			li{
+				display: inline-block;
+				position: relative;
+				width: 140px;
+				height: 70px;
+				padding-left:130px;
+				margin-right: 40px;
+				list-style: none;
+				font-size: 14px;
+				text-align: left;
+				color:@orange_grdf;
+			}
+			li:last-of-type{
+				margin-right: 0;
+			}
+			li:last-of-type:after{
+				background: none;
+			}
+			li:before{
+				content:" ";
+				position: absolute;
+				left:0;
+				width: 115px;
+				height: 100px;
+				background: url("https://media.ooreka.fr/sprite_jeu_grdf-source-12095389.png") no-repeat ;
+			}
+			li:nth-child(1):before{
+				background-position: 0 -70px;
+			}
+			li:nth-child(2):before{
+				background-position: 0 -220px;
+			}
+			li:nth-child(3):before{
+				background-position: 0 -367px;
+			}
+			li:after{
+				content:" ";
+				background: url("https://media.ooreka.fr/sprite_jeu_grdf-source-12095389.png") no-repeat 0 -632px;
+				position: absolute;
+				top:0;
+				right: -40px;
+				width: 50px;
+				height: 100px;
+			}
+			/*-- Tranche Nombre de point -- */
+			p{
+				font-size: 14px;
+				line-height: 17px;
+				color:@orange_grdf
+			}
+			p:after{
+				content:" ";
+				display: block;
+				left:0;
+				width: 120px;
+				height: 40px;
+				background: url("https://media.ooreka.fr/sprite_jeu_grdf-source-12095389.png") no-repeat;
+			}
+			.dotation1:after{
+				background-position: -274px -716px;
+			}
+			.dotation2:after{
+				background-position: -274px -636px;
+			}
+			.dotation3:after{
+				background-position: -274px -566px;
+			}
+		}
+	}
+}
+/*-------------- PARRAINAGE -------------------*/
+.jeu_grdf_parrainage{
+	position: relative;
+	height: 460px;
+	padding-top: 235px;
+	background: url("https://media.ooreka.fr/public/image/habillage_parrainage-source-12101900.png");
+	font-size: 16px;
+	.resultat_jeu{
+		padding-left: 20px;
+		font-size: 22px;
+		font-weight: bold;
+		background:@bleu_grdf;
+	}
+	blockquote{
+		padding-left: 20px;
+		display: block;
+		margin:25px 0;
+		line-height: 18px;
+	}
+	.score_dotation_1,
+	.score_dotation_2,
+	.score_dotation_3{
+		position: relative;
+		margin-left: 175px;
+		padding-right: 510px;
+		color:#fff;
+	}
+	.score_dotation_1:after,
+	.score_dotation_2:after,
+	.score_dotation_3:after{
+		position: absolute;
+	}
+	.score_dotation_1:after{
+		content:url("https://media.ooreka.fr/public/image/liseuse_dotation-source-12101998.png");
+		top: -80px;
+		right: 40px;
+	}
+	.score_dotation_2:after{
+		content:url("https://media.ooreka.fr/public/image/bike_dotation-source-12101996.png");
+		top: -80px;
+		right: 40px;
+	}
+	.score_dotation_3:after{
+		content:url("https://media.ooreka.fr/public/image/iPad_dotation-source-12101997.png");
+		top: -80px;
+		right: 0px;
+	}
+	.chance_mail_parrainage{
+		position: absolute;
+		bottom: 20px;
+		left:30px;
+		color:@orange_grdf;
+		&> div{
+			position: relative;
+		}
+		&> div:after{
+			content:" ";
+			position: absolute;
+			top:0;
+			width: 180px;
+			height: 40px;
+			background: url("https://media.ooreka.fr/sprite_jeu_grdf-source-12095389.png") 20px -534px no-repeat;
+			.transition(all, 0.3s, ease-in-out, 0s)
+		}
+		&> div:hover:after{
+			background-position: 10px -534px;
+		}
+		p{
+			font-weight: bold;
+		}
+		span{
+			font-size:14px;
+		}
+		input{
+			float:none;
+			width: 200px;
+			height: 25px;
+			margin: 15px 0 0;
+		}
+	}
+	.bouton_etape{
+		position: absolute;
+		bottom: 10px;
+		right:50px;
+		text-align: center;
+		button{
+			display: block;
+			margin-bottom: 10px;
+			padding: 10px 130px 10px 110px;
+			background:url("https://media.ooreka.fr/sprite_jeu_grdf-source-12095389.png") no-repeat -170px -50px @orange_grdf;
+			font-size: 20px;
+			border:none;
+			border-radius: 20px;
+			cursor: pointer;
+			color:#fff;
+		}
+		a{
+			font-size: 13px;
+			text-decoration: underline;
+		}
+	}
+}
+
+
+
+/*-------------- PAGE FIN MERCI ---------------*/
+.merci_grdf{
+	padding-top: 170px;
+	text-align: center;
+	background: url("https://media.ooreka.fr/public/image/page_fin_jeu_grdf-source-12092677.png") no-repeat @bleu_grdf;
+	p{
+		margin:0 100px 20px 330px;
+		text-align: left;
+		color: #fff;
+	}
+	p:first-of-type{
+		font-size: 22px;
+		font-weight: bold;
+	}
+	p:last-of-type{
+		font-size: 16px;
+		line-height: 19px;
+	}
+	img{
+		margin-bottom: 10px;
+	}
+}

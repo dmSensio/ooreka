@@ -1,0 +1,485 @@
+/* SOMMAIRE
+
+*/
+@import 'styles_variables';
+hr{
+	border: 0;
+	height: 1px;
+	background: @color_base;
+}
+#dossier_epargne{
+	font:1.3rem/1.8rem Arial, Helvetica, sans-serif;
+	margin:auto;
+	max-width: 100rem;
+
+	*{
+		box-sizing:border-box;
+	}
+	a{
+		color:@color_base;
+		text-decoration:none;
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+	}
+	a:hover{
+		color:@color_contraste;
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+	}
+	.header_epargne{
+		margin:2% 0 3rem 0;
+		border-bottom:1px solid #ccc;
+		padding:0 0 20px 0;
+	}
+	.header_epargne h1{
+		padding:0px;
+		display: inline-block;
+		width:87%;
+		margin:0;
+		color:@color_base;
+		font:2.9rem/3.3rem 'museo',sans-serif;
+	}
+	.article_epargne{
+		margin:0 0px 3rem 0px;
+		clear:both;
+		float: left;
+		width:660px;
+		.simulation-ancre{
+			font:bold 1.6rem/1.9rem Arial, Helvetica, sans-serif;
+			padding:20px;
+			margin: 10px 0 30px 0;
+			background-color:#eee;
+			text-align:center;
+			transition: all .4s ease;
+		}
+	}
+	.intro_epargne{
+		margin:0 0 20px 0;
+		float: left;
+		width: 100%;
+	}
+	.intro_epargne p{
+		color: #666;
+		font: italic 1.6remx/150% Arial,Helvetica,sans-serif;
+	}
+	.intro_epargne .signature{
+		font: 1.2rem/140% Arial, Helvetica, sans-serif;
+	}
+	.signature span{
+		color: #333;
+		font:italic bold 1.2rem/140% Georgia,"Times New Roman",Times,serif;
+	}
+	.txt_epargne{
+		clear:both;
+		margin:0 0 50px 0;
+	}
+	h2{
+		color:#333;
+		font:2.4rem/2.6rem 'museo', Arial, Helvetica, sans-serif;
+		margin:20px 0 10px 0;
+	}
+	p{
+		margin:0 0 10px 0;
+	}
+	ol{
+		margin:0 0 20px 0;
+		padding:0 0 0 50px;
+	}
+	ol li{
+		margin:0 0 5px 0;
+	}
+	ul{
+		padding:0 0 0 35px;
+		margin:10px 0;
+	}
+	ul li{
+		list-style:none;
+		background: url("@{imgPathTheme}/puce_fleche-liste.png") no-repeat 0 3px;
+		padding:0 0 5px 15px;
+	}
+	ul li ul{
+		margin:10px 0 0 0;
+		padding:0 0 0 15px;
+	}
+	.imgcentrer{
+		float: left;
+		margin:0 20px 0 0;
+	}
+	.exemple {
+		color: @color_base;
+		font: italic 1.2rem/1.6rem Arial, Helvetica, sans-serif;
+		margin-left: 0;
+	}
+	.note{
+		color: @color_base;
+		font: italic 1.2rem/1.6rem Arial, Helvetica, sans-serif;
+		margin-left: 0;
+		overflow: hidden;
+	}
+	/*----------------------------------------- COLONNE DE DROITE / CHANGEMENT ARTICLE ----------------------------------------------------*/
+	.changement_article{
+		float: right;
+		display:block;
+		width:40px;
+		height:40px;
+		.rounded(10px);
+		background:url("@{imgPath}/sprite_commun.png") no-repeat scroll -145px -29px lighten(@color_aplat, 20%);
+		margin:0;
+	}
+	.changement_article:last-child{
+		margin:0 .5rem;
+		background-position:-149px 8px;
+	}
+	.changement_article:hover{
+		background-color:@color_aplat;
+	}
+	/*----------------------------------------- COLONNE DE DROITE / BOX DEVIS ----------------------------------------------------*/
+	.colD_epargne{
+		position: relative;
+		width:300px;
+		float: right;
+		margin:0 0 3% 1%;
+	}
+	.boxDevis_epargne{
+		border:1px solid @violet;
+		text-align:center;
+		background-color: #fdfdfd;
+		.boxDevisTitre{
+			background-color: @violet-typo;
+			padding: 10px;
+			color: #fff;
+			font: 2rem/120% "museo", Calibri, Arial, Helvetica, sans-serif;
+		}
+		p{
+			font: 1.6rem/110% Calibri, Arial, Helvetica, sans-serif;
+			margin: 0;
+			+ p{
+				margin-top: 10px;
+			}
+		}
+		a{
+			color:#fff;
+		}
+		span{
+			display: block;
+		}
+	}
+	/*----------------------------------------- COLONNE DE DROITE / NAV VERTICALE ----------------------------------------------------*/
+	.navVerticale_epargne{
+		margin:20px 0 0 0;
+		background-color:#f0f0f0;
+		padding:40px 20px 20px 20px;
+		position:relative;
+		width:300px;
+		float: left;
+	}
+	.navVerticale_epargne img{
+		width:120px;
+		margin:0 auto 5px;
+	}
+	.navVerticale_epargne p{
+		margin:0;
+	}
+	p.navVerticaleTitre{
+		margin:0;
+		padding:0;
+		background-color:@color_base;
+		color:#fff;
+		text-align:center;
+		font:22px/40px 'museo', Arial, Helvetica, sans-serif;
+		position:absolute;
+		top:0;
+		left:0;
+		width:300px;
+	}
+	.navVerticaleSsTitre{
+		font:bold 14px/17px Arial, Helvetica, sans-serif;
+		padding:0;
+	}
+	.mini_article{
+		float:left;
+		clear:both;
+		padding:20px 0;
+		border-bottom:1px solid #ccc;
+	}
+	.mini_article:last-child{
+		border-bottom:none;
+	}
+	.col_mini_article{
+		float:left;
+		width:120px;
+		margin:0 20px 0 0;
+	}
+	.col_mini_article a{
+		display:block;
+		color:#333;
+	}
+	.col_mini_article a:hover{
+		color:@color_contraste;
+	}
+	.col_mini_article:last-child{
+		margin:0;
+	}
+	.navVerticale_epargne ul{
+		padding:0;
+		margin:10px 0 0 0;
+	}
+	.navVerticale_epargne li{
+		margin:0 0 5px 0;
+		padding:0;
+	}
+	.navVerticale_epargne li a{
+		display:block;
+		padding:0 0 0 15px;
+		text-decoration:none;
+		font:12px/15px Arial, Helvetica, sans-serif;
+	}
+	.navVerticale_epargne li a{
+		display:block;
+		padding:0 0 0 15px;
+		text-decoration:none;
+		font:12px/15px Arial, Helvetica, sans-serif;
+	}
+	.navVerticale_epargne .bt_savoir{
+		background:#ddd;
+		color: #333;
+		float: left;
+		height: 25px;
+		line-height: 25px;
+		padding: 0 25px 0 0;
+		position: relative;
+		text-align: center;
+		width: 120px;
+		cursor:pointer;
+		text-decoration:none;
+	}
+	.navVerticale_epargne .bt_savoir:after{
+		content:"";
+		width:25px;
+		height:25px;
+		display:inline-block;
+		position:absolute;
+		vertical-align:-5px;
+		right:0;
+		background: url("@{imgPath}/sprite_commun.png") no-repeat -153px -160px #999;
+	}
+	.navVerticale_epargne .bt_savoir:hover{
+		background:#999;
+		color:#fff;
+	}
+}
+/*----------------------------------------- DEVIS ----------------------------------------------------*/
+#devis_epargne{
+	clear: both;
+	width: 660px;
+	float: left;
+	margin-bottom: 5rem;
+	.titre_devis{
+		font: 3rem/110% "museo", Calibri, Arial, Helvetica, sans-serif;
+		color: @violet;
+	}
+	.sousTitre_devis{
+		font-size: 2rem;
+		margin: 2rem 0;
+	}
+}
+/*----------------------------------------- Box "Vous payez trop d'impots ?" ----------------------------------------------------*/
+#dossier_epargne{
+	.boxDevis_epargne{
+		cursor: pointer;
+	}
+	.box_devis_responsive{
+		display: none;
+		background-color: @violet;
+		padding: 2rem 1rem;
+		float: left;
+		width: 100%;
+		clear: both;
+		margin: 2rem 0;
+		p,
+		a{
+			color: #fff;
+		}
+		p{
+			text-align: center;
+			font-size: 2rem;
+			font-family: "museo", Calibri, Arial, Helvetica, sans-serif;
+		}
+		a{
+			display: table;
+			margin: 0 auto;
+		}
+	}
+	.box_fixed,
+	.box_non_visible{
+		position: fixed;
+		left: 0; // le top est géré en JS "positionBoxDevis"
+		width: 100%;
+		background-color: @violet-typo;
+		border: none;
+		z-index: 2;
+		.transition(top, .5s, ease-in-out, 0s);
+		.animation(slideDown, .5s, ease-in-out, 0s);
+		.boxDevisTitre{
+			padding: 0;
+		}
+		.element_boxDevis{
+			width: 1000px;
+			margin: 0 auto;
+			padding: 5px;
+			.flex-display(flex);
+			.align-items(center);
+			> div{
+				margin-right: 5rem;
+				> p{
+					display: block;
+					color: #fff;
+					+ p{
+						margin: 0;
+					}
+				}
+			}
+			.boxDevisTitre{
+				font-size: 2.2rem;
+			}
+		}
+		p{
+			font-size: 1.5rem;
+		}
+		span{
+			display: inline-block;
+		}
+	}
+	.box_non_visible{
+		.box-shadow(0, 0, 0, 0, rgba(255,255,255,0));
+	}
+}
+
+/**************** MEDIA QUERIES ************ */
+
+/*--- /!\ Les media queries du devis defisc sont dans le fichier styles_devis --- */
+
+@viewport{
+	width: device-width;
+	zoom:1;
+}
+
+@media only screen and (max-width:1000px) {
+	#dossier_epargne{
+		.box_devis_responsive{
+			display: block;
+		}
+		.boxDevis_epargne{
+			display: none;
+		}
+	}
+}
+@media only screen and (max-width:995px) {
+	#dossier_epargne{
+		border: 1.5rem solid #ffffff;
+		.header_epargne h1{
+			width: 81%;
+		}
+		.article_epargne{
+			width: 100%;
+		}
+		 .intro_epargne{
+			width:100%
+		}
+		 .colD_epargne{
+			display: none;
+		}
+		/*======= DEVIS ======*/
+		#devis_epargne {
+			width: 100%;
+			.devisGauche{
+				width:100%
+			}
+			.devisGaucheTitre{
+				margin: 1rem auto;
+				padding: 0 0 2rem 0;
+				width: 100%;
+				text-align: center;
+			}
+			.devisGaucheTitre:before{
+				display: inline-block;
+				position: inherit;
+				margin-right: .5rem;
+				bottom: auto;
+			}
+			.devisGaucheTitre span{
+				display: inline;
+				font: inherit;
+			}
+			.devisReassurance {
+				display: none;
+			}
+			.devis_etapes{
+				margin:0 auto;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width:600px) {
+	#dossier_epargne{
+		font:1.5rem/1.8rem Arial, Helvetica, sans-serif;
+		.header_epargne{
+			position: relative;
+		}
+		.header_epargne h1{
+			width:100%;
+			padding-bottom: 2.5rem;
+		}
+		 .changement_article{
+			display:block;
+			width: auto;
+			height: auto;
+			background: none;
+		}
+		.changement_article:hover{
+			background:none!important;
+		}
+		.art-suivant:before, .art-precedent:before{
+			padding: 1rem;
+			position: absolute;
+			bottom: .5rem;
+			background:#f4f4f4;
+		}
+		.header_epargne  .art-suivant:before{
+			content: "Article Suivant";
+			 right: 0;
+		}
+		.header_epargne .art-precedent:before{
+			content: "Article précédent ";
+			left: 0;
+		}
+		.presentation_devis{
+			margin: 0;
+			border: none;
+			p{
+				position: static;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width:500px) {
+	#dossier_epargne {
+		.imgcentrer{
+			float: none;
+			img{
+				min-width: 100%;
+			}
+		}
+		.article_epargne .simulation-ancre{
+			display: none;
+		}
+	}
+}

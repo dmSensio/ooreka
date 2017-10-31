@@ -1,0 +1,359 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url("@{fontPath}/icomoon.eot");
+	src:url("@{fontPath}/icomoon.eot") format('embedded-opentype'),
+	url("@{fontPath}/icomoon.woff") format('woff'),
+	url("@{fontPath}/icomoon.ttf") format('truetype'),
+	url("@{fontPath}/icomoon.svg") format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'icomoon2';
+	src:url("@{fontPath}/icomoon2.eot");
+	src:url("@{fontPath}/icomoon2.eot") format('embedded-opentype'),
+	url("@{fontPath}/icomoon2.woff") format('woff'),
+	url("@{fontPath}/icomoon2.ttf") format('truetype'),
+	url("@{fontPath}/icomoon2.svg") format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+/**********************/
+.icon{
+	position:relative;
+	&::before,
+	&::after{
+		display:inline-block;
+		font-size: 18px;
+		font-family: 'icomoon';
+		color:#666;
+		vertical-align:-3px;
+		font-weight: normal;
+	}
+	&::before{
+		margin:0 5px 0 0;
+	}
+	&::after{
+		margin:0 0 0 5px;
+	}
+}
+.icone{
+	position:relative;
+	&::before,
+	&::after{
+		display:inline-block;
+		font-size: 18px;
+		font-family: 'icomoon2';
+		color:#666;
+		vertical-align:-3px;
+		font-weight: normal;
+	}
+	&::before{
+		margin:0 5px 0 0;
+	}
+	&::after{
+		margin:0 0 0 5px;
+	}
+}
+.icon{
+	&.icon-attention::before{
+		content: "\e600";
+		color:@rouge;
+	}
+	&.icon-fleche::before{
+		content: "\e601";
+		color:@violet;
+		vertical-align:2px;
+		.scale(1.2);
+	}
+	&.icon-tick::before{
+		content: "\e602";
+		color:@vert;
+	}
+	&.icon-chevron::before{
+		content: "\e603";
+		.scale-rotate(.5, 90deg);
+	}
+	&.icon-position::before{
+		content: "\e604";
+	}
+	&.icon-pouce::before{
+		content: "\e605";
+	}
+	&.icon-discussion::before{
+		content: "\e606";
+	}
+	&.icon-feuille::before{
+		content: "\e607";
+	}
+	&.icon-croix::before{
+		content: "\e608";
+	}
+	&.icon-tel::before{
+		content: "\e60a";
+	}
+	&.icon-loupe::before{
+		content: "\e60b";
+	}
+	&.icon-question::before{
+		content: "\e60c";
+	}
+	&.icon-ecran::before{
+		content: "\e60f";
+	}
+	&.icon-lunettes::before{
+		content: "\e610";
+	}
+	&.icon-pourcent::before{
+		content: "\e60d";
+		color:@violet;
+	}
+	&.icon-telecharger::before{
+		content: "\e60e";
+		color:@rouge;
+	}
+	&.icon-euros::before{
+		content: "\e611";
+	}
+	&.icon-avion::before{
+		content: "\e612";
+	}
+	&.icon-stylo::before{
+		content: "\e613";
+	}
+	&.icon-guillemet{
+		position:relative;
+		&::before{
+			content: "\e614";
+			position: absolute;
+			top: .3rem;
+			left: -2.5rem;
+			color:@rouge;
+			.scale(1.3);
+			font-style: normal;
+		}
+	}
+	&.icon-interrogation::before{
+		content: "\e615";
+	}
+	&.icon-enveloppe::before{
+		content: "\e616";
+	}
+	&.icon-plus::before{
+		content: "\e617";
+	}
+	&.icon-horloge::before{
+		content: "\e618";
+		color:@violet;
+	}
+	&.icon-personne::before{
+		content: "\e619";
+		color:@violet;
+	}
+	&.icon-excel::before{
+		content: "\e61a";
+		color:#1f7244;
+	}
+	&.icon-word::before{
+		content: "\e61b";
+		color:#295497;
+	}
+	&.icon-zip::before{
+		content: "\e61c";
+	}
+	&.icon-localiser::before{
+		content: "\e61d";
+		.scale(1.2);
+	}
+	&.icon-trouver::before{
+		content: "\e61e";
+	}
+	&.icon-courbe::before{
+		content: "\e61f";
+	}
+	&.icon-medicament::before{
+		content: "\e620";
+	}
+	&.icon-panier::before{
+		content: "\e62a";
+	}
+	&.icon-ampoule::before{
+		content: "\e609";
+	}
+	&.icon-oeil::before{
+		content: "\e623";
+	}
+	&.icon-lumiere::before{
+		content: "\e621";
+	}
+	&.icon-chapeau::before{
+		content: "\e622";
+	}
+	&.icon-formulaire::before{
+		content: "\e624";
+	}
+	&.icon-modele-contrat::before{
+		content: "\e625";
+	}
+	&.icon-modele-lettre::before{
+		content: "\e626";
+	}
+	&.icon-fp::before{
+		content: "\e627";
+	}
+	&.icon-check-list::before{
+		content: "\e628";
+	}
+	&.icon-moins::before {
+		content: "\e629";
+	}
+	&.icon-pince::before{
+		content: "\e62b";
+	}
+	&.icon-play::before{
+		content: "\e62c";
+		.scale(1.3);
+	}
+	&.icon-plante::before{
+		content: "\e62d";
+	}
+}
+.icone{
+	&.icon-compas::before{
+		content: "\e922";
+	}
+	&.icon-rapport::before{
+		content: "\e900";
+	}
+	&.icon-switch::before{
+		content: "\e920";
+	}
+	&.icon-poubelle::before{
+		content: "\e901";
+	}
+	&.icon-illustration::before{
+		content: "\e91c";
+	}
+	&.icon-ciseaux::before{
+		content: "\e91d";
+	}
+	&.icon-plume::before{
+		content: "\e91e";
+	}
+	&.icon-promo::before{
+		content: "\e918";
+	}
+	&.icon-photo::before{
+		content: "\e919";
+	}
+	&.icon-coordonne::before{
+		content: "\e91a";
+	}
+	&.icon-web::before{
+		content: "\e91b";
+	}
+	&.icon-email::before{
+		content: "\e914";
+	}
+	&.icon-horloge2::before{
+		content: "\e915";
+	}
+	&.icon-imprimante::before{
+		content: "\e916";
+	}
+	&.icon-phone-line::before{
+		content: "\e917";
+	}
+	&.icon-maison::before{
+		content: "\e911";
+	}
+	&.icon-etoile::before{
+		content: "\e912";
+	}
+	&.icon-etoilePleine::before{
+		content: "\e913";
+	}
+	&.icon-livre::before{
+		content: "\e910";
+	}
+	&.icon-facebook::before{
+		content: "\e90c";
+	}
+	&.icon-googleplus::before{
+		content: "\e90d";
+	}
+	&.icon-sms::before{
+		content: "\e90e";
+	}
+	&.icon-twitter::before{
+		content: "\e90f";
+	}
+	&.icon-piscine::before{
+		content: "\e908";
+	}
+	&.icon-cinema::before{
+		content: "\e909";
+	}
+	&.icon-immobilier::before{
+		content: "\e90a";
+	}
+	&.icon-hotel::before{
+		content: "\e90b";
+	}
+	&.icon-hospital::before{
+		content: "\e903";
+	}
+	&.icon-gite::before{
+		content: "\e904";
+	}
+	&.icon-taxi::before{
+		content: "\e905";
+	}
+	&.icon-bar::before{
+		content: "\e906";
+	}
+	&.icon-medecin::before{
+		content: "\e907";
+	}
+	&.icon-pharmacie2::before{
+		content: "\e902";
+	}
+	&.icon-banque::before{
+		content: "\e91f";
+	}
+	&.icon-restaurant-couvert::before{
+		content: "\e921";
+	}
+	&.icon-tick-bulle::before{
+		content: "\e800";
+	}
+	&.icon-content::before{
+		content: "\e603";
+	}
+	&.icon-triste::before{
+		content: "\e604";
+	}
+	&.icon-pharmacie::before{
+		content: "\e602";
+	}
+	&.icon-mobile::before{
+		content: "\e601";
+	}
+	&.icon-indesirable::before{
+		content: "\e600";
+	}
+	&.icon-calendar::before{
+		content: "\e953";
+	}
+}
+.icone{
+	&.icon-facebook::before {
+		color: #3B5999;
+	}
+	&.icon-googleplus::before {
+		color: #dc4a38;
+	}
+	&.icon-twitter::before {
+		color: #28a9e0;
+	}
+}

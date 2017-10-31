@@ -1,0 +1,407 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ==========================================================================
+   Fonctions less
+   ========================================================================== */
+.border-radius(@radius: 5px) {
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+}
+.gradient(@color: #F5F5F5, @start: #EEEEE, @stop: #FFFFF) {
+	background: @color;
+	background: -moz-linear-gradient(top,  @start 0%, @stop 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop));
+	background: -webkit-linear-gradient(top,  @start 0%,@stop 100%);
+	background: -o-linear-gradient(top,  @start 0%,@stop 100%);
+	background: -ms-linear-gradient(top,  @start 0%,@stop 100%);
+	background: linear-gradient(to bottom,  @start 0%,@stop 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@start, endColorstr=@stop,GradientType=0 );
+}
+.box-shadow(@horizontal:-1px, @vertical:1px, @blur:2px, @spread:1px, @colorshad:#CCC) {
+	-webkit-box-shadow: @horizontal @vertical @blur @spread @colorshad;
+ 	 box-shadow: @horizontal @vertical @blur @spread @colorshad;
+}
+.inset-shadow(@horizontal:-1px, @vertical:1px, @blur:2px, @spread:1px, @colorinset:#CCC) {
+	-webkit-box-shadow: inset @horizontal @vertical @blur @spread @colorinset;
+	box-shadow: inset @horizontal @vertical @blur @spread @colorinset;
+}
+.transition(@property:All, @duration:1s, @ease:ease-in-out, @delay:0s) {
+	transition: @property @duration @ease @delay;
+	-webkit-transition: @property @duration @ease @delay;
+	-moz-transition: @property @duration @ease @delay;
+	-o-transition: @property @duration @ease @delay;
+}
+.bt(icon){
+	font-family: 'icomoon';
+	margin:0 8px 0 0;
+	color:#fff;
+	vertical-align:-1px;
+}
+
+/* ==========================================================================
+variables less
+========================================================================== */
+
+@violet: #4b4182;
+@violet-typo: #62579e;
+@rouge: #fa3c3c;
+@orange: #fa6414;
+@vert: #93c01f;
+@jaune: #fac800;
+
+/* ==========================================================================
+styles par défault
+========================================================================== */
+
+@font-face {
+	font-family: "museo";
+	font-style: normal;
+	font-weight: normal;
+	src: url("http://bacasable.test1.finemedia.fr/font/museo500.eot?") format("eot"),
+	url("http://bacasable.test1.finemedia.fr/font/museo500.woff") format("woff"),
+	url("http://bacasable.test1.finemedia.fr/font/museo500.ttf") format("truetype");
+}
+@font-face {
+	font-family: 'icomoon';
+	src:url('http://bacasable.test1.finemedia.fr/font/icomoon.eot');
+	src:url('http://bacasable.test1.finemedia.fr/font/icomoon.eot') format('embedded-opentype'),
+		url('http://bacasable.test1.finemedia.fr/font/icomoon.woff') format('woff'),
+		url('http://bacasable.test1.finemedia.fr/font/icomoon.ttf') format('truetype'),
+		url('http://bacasable.test1.finemedia.fr/font/icomoon.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin:0;
+	padding:0;
+}
+.hidden{
+	display:none;
+}
+html,
+button,
+input,
+select,
+textarea {
+    color: #333;
+}
+html{
+	background:#fff;
+	font: 20px Calibri, Arial, Helvetica, sans-serif;
+}
+ul,
+ol {
+	list-style: none;
+	list-style-image: none;
+}
+a{
+	text-decoration:none;
+	color:#62579e;
+}
+h1{
+	clear:both;
+	margin:0 0 3% 0;
+	font:200% "museo", Arial, Helvetica, sans-serif;
+}
+h2{
+	clear:both;
+	margin:0px 0 2% 0;
+	font:160% "museo", Arial, Helvetica, sans-serif;
+}
+h3{
+	clear:both;
+	margin:0px 0 2% 0;
+	font:120% "museo", Arial, Helvetica, sans-serif;
+}
+hr{
+	margin:0 0 1% 0;
+	border-top:2px solid @violet;
+	border-bottom:none;
+}
+/* ------------------------ boutons ------------------------ */
+.bt_rouge{
+	.gradient(@rouge, @orange, @rouge);
+	.box-shadow(2px, 2px, 0, 0px, #951e1e);
+	position:relative;
+	top:0;
+	left:0;
+	.border-radius(3px);
+	color:#fff;
+	cursor:pointer;
+}
+.bt_rouge:hover{
+	top:2px;
+	left:2px;
+	box-shadow:none;
+	.transition(all, 0.2s, ease-out, 0s);
+}
+.bt_max{
+	padding:5px 10px;
+	font:18px/21px 'museo';
+}
+.bt_fort{
+	padding:3px 8px;
+	font:16px/19px 'museo';
+}
+.bt_violet{
+	background:@violet;
+	.border-radius(3px);
+	color:#fff;
+	cursor:pointer;
+}
+.bt_violet:hover{
+	background:@violet-typo;
+}
+.bt_moyen{
+	padding:3px 8px;
+	font:14px/17px 'museo';
+}
+.bt_min{
+	padding:3px 5px;
+	font:bold 13px/17px 'Calibri', Arial, Helvetica, sans-serif;
+}
+.icon_question:before {
+	content: "\e600";
+	.bt(icon);
+}
+/* ------------------------ popin ------------------------ */
+.popin{
+	position:fixed; top:0; right:100%;
+	opacity:1;
+	.transition(opacity, 2s, ease-in, 2s);
+}
+.popin:target{
+	opacity:0;
+	right:0;
+}
+.popin_box{
+	width: 50%; min-width:290px;
+	margin:30px auto;
+	padding:3%;
+	background:#fff;
+	border:5px solid @vert;
+	.border-radius(5px);
+	text-align:center;
+	font:bold 140% 'Calibri', Arial, Helvetica, sans-serif;
+	color:@vert;
+}
+
+/* ==========================================================================
+layout
+========================================================================== */
+
+.w1000{
+	clear:both;
+	overflow:auto;
+	box-sizing:content-box;
+	max-width:1000px;
+	margin:auto;
+	padding:0 15px;
+}
+section{
+	clear:both;
+	float:left;
+}
+.w-entier{
+	width:100%;
+	margin:0 0 3% 0;
+}
+.w-demi{
+	width:47.5%;
+	margin:0 0% 3% 5%;
+	float:left;
+}
+.w-demi:nth-child(2n+1){
+	margin:0 0 3% 0;
+	clear:both;
+}
+.w-tiers{
+	float:left;
+	width:30%;
+	margin:0 0% 3% 5%;
+}
+.w-tiers:nth-child(3n+1){
+	margin:0 0% 3% 0;
+	clear:both;
+}
+.w-quart{
+	width:21.25%;
+	float:left;
+	margin:0 0% 3% 5%;
+}
+.w-quart:nth-child(4n+1){
+	margin:0 0 3% 0;
+	clear:both;
+}
+.w-2-tiers{
+	width:65%;
+	float:left;
+}
+.w-2-tiers .w-demi{
+	width:47.5%;
+	margin:0 0% 3% 0%;
+	float:left;
+}
+.w-2-tiers .w-demi:nth-child(2n+1){
+	margin:0 0 3% 5%;
+	clear:none;
+}
+.w-1-tiers{
+	width:30%;
+	float:left;
+	margin:0 0 3% 5%;
+}
+
+/* ==========================================================================
+mediaqueries
+========================================================================== */
+@media only screen and (min-width: 640px) and (max-width: 959px) {
+	html{
+		background:#CFF !important;
+	}
+}
+@media only screen and (max-width: 639px) {
+	html{
+		background:#FFC !important;
+	}
+	.w-demi{
+		width:100%;
+		clear:both;
+		margin:0 0 5% 0 !important;
+	}
+	.w-tiers{
+		width:47.5%;
+	}
+	.w-tiers:nth-child(2n+1){
+		clear:both;
+		margin:0 0 5% 0;
+	}
+	.w-tiers:nth-child(2n+2){
+		clear:none;
+		margin:0 0 5% 5%;
+	}
+	.w-quart{
+		width:47.5%;
+	}
+	.w-quart:nth-child(2n+1){
+		clear:both;
+		margin:0 0 5% 0;
+	}
+	.w-2-tiers .w-demi{
+		width:100%;
+	}
+}
+
+/* ==========================================================================
+header
+========================================================================== */
+
+/* ------------------------ meta-nav ------------------------ */
+.meta-nav{
+	overflow:auto;
+	li{
+		display:block;
+		float:left;
+	}
+	a{
+		display:block;
+		font-size:70%;
+		padding:.2em .8em;
+	}
+	a:hover{
+		background:#eee;
+	}
+}
+.meta-login{
+	float:right;
+	a{
+		color:@rouge;
+	}
+}
+header{
+	margin:0 0 5% 0;
+}
+header hr{
+	margin:0 0 1% 0;
+	border-top:1px solid #ddd;
+	border-bottom:none;
+}
+/* ------------------------ header ------------------------ */
+.header-droite{
+	float:right;
+}
+.expert{
+	display:inline-block;
+	height:55px;
+	width:55px;
+	overflow:hidden;
+	.border-radius(30px);
+	border:3px solid @rouge;
+}
+.expert img{
+	max-height:55px;
+	max-width:55px;
+}
+/* ------------------------ navigation ------------------------ */
+header nav {
+	background:@violet;
+	margin:5% 0;
+	font: 100% "museo", Calibri, Helvetica, sans-serif;
+	a{
+		color:#fff;
+		display:block;
+	}
+}
+.nav-titre{
+	margin:10px 0 20px 0;
+	li:first-child{
+		float:left;
+		font-size:180%;
+	}
+	li:last-child{
+		float:right;
+	}	
+}
+.nav-maj{
+	clear:both;
+	float:left;
+	display:table;
+	table-layout: fixed;
+	max-width:78%; height:50px;
+	margin:40px 0 0 0;
+	li{
+		display:table-cell;
+		text-align: center;
+		vertical-align: middle;
+		font:80% "museo", Arial, Helvetica, sans-serif;
+	}
+	a{
+		padding:10px;
+	}
+	.menu_select{
+		background:#fff;
+		.border-radius(5px 5px 0 0);
+	}
+	.menu_select a{
+		color:@violet-typo;
+	}
+}
+.nav-min{
+	float:right;
+	max-width:22%; height:50px;
+	margin:40px 0 0 0;
+	font: 75% Calibri, Helvetica, sans-serif;
+	li{
+		display:block;
+		float:right;
+	}
+	a{
+		padding:.2em .5em;
+	}
+}

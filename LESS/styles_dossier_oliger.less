@@ -1,0 +1,650 @@
+/* SOMMAIRE
+
+*/
+@import 'styles_variables';
+#dossier_oliger{
+	font:14px/18px Arial, Helvetica, sans-serif;
+	*{
+		box-sizing:border-box;
+	}
+	a,img{
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+	}
+	a:hover{
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+	}
+	ul{
+		list-style: none;
+	}
+	.header_oliger{
+		position:relative;
+		left:-10px;
+		height:175px;
+		width: 1030px;
+		padding:66px 0 0 30px;
+		background:url('@{imgPath}/dossier/oliger/bandeau_oliger.jpg')no-repeat;
+		color:#fff;
+		font:30px 'CodePro', Arial, Helvetica, sans-serif;
+		margin:30px 0 30px 0;
+	}
+
+/*=========================== ARTICLE OLIGER ===================================*/
+
+	.article_oliger{
+		clear:both;
+		float:left;
+		margin:0px 30px 20px 20px;
+		width:640px;
+	}
+
+	.chapeau_article{
+		font: 16px/19px Arial,Helvetica,sans-serif;
+	}
+
+	.article_oliger ul{
+		list-style: disc;
+		margin: 0 0 10px 0;
+	}
+	.article_oliger ul li{
+		margin:0 0 5px 0;
+	}
+	.article_oliger h3:before {
+		    content: "• ";
+		    color: #f05a28;
+	}
+	h1,h2{
+		color: #f05a28;
+	}
+	h1{
+		font:26px 'CodePro', Arial, Helvetica, sans-serif;
+		margin:0 0 10px 0;
+	}
+	h2{
+		font:18px Arial, Helvetica, sans-serif;
+		font-weight:bold;
+		margin:20px 0 10px 0;
+	}
+	h3{
+		color:#333;
+		font:16px Arial, Helvetica, sans-serif;
+		font-weight:bold;
+		margin:0 0 10px 0;
+	}
+	.signature_dossierSpe{
+		margin:0 0 20px 0;
+		color: #999;
+		font: 12px/150% Arial,Helvetica,sans-serif;
+	}
+	.signature{
+		color: #333;
+		font:italic bold 12px/140% Georgia,"Times New Roman",Times,serif;
+	}
+
+	.article_oliger p{
+		margin:0 0 10px 0;
+	}
+	.article_oliger .imgcentrer {
+		float: left;
+		width: 320px;
+		margin: 0;
+	}
+	.article_oliger img {
+		float:left;
+	}
+
+/*======================== COLONNE DE DROITE /  TELECHARGEMENT ========================*/
+
+	.col_d_oliger{
+		float:left;
+		width:300px;
+		margin: 0 0 30px 0;
+	}
+	.bloc_telechargement{
+		clear:both;
+		text-align:center;
+		padding:20px 20px 30px 20px;
+		margin: 0 0 20px 0;
+		background: #f0f0f0;
+		color:#333;
+		img{
+			margin:0 0 20px 0;
+		}
+		p{
+			margin:0 0 5px 0;
+			font:bold 16px Arial, Helvetica, sans-serif;
+		}
+		p:last-of-type{
+			font: 14px Arial, Helvetica, sans-serif;
+			margin:0 0 10px 0;
+		}
+		.bt_telechargement{
+			padding:7px 37px 7px 21px;
+			background:url('@{imgPath}/dossier/oliger/sprite_oliger.png')no-repeat 161px -95px #f05a28;
+			text-decoration:none;
+			font:16px Arial, Helvetica, sans-serif;
+			color:#fff;
+		}
+		.bt_telechargement:hover{
+			background:url('@{imgPath}/dossier/oliger/sprite_oliger.png')no-repeat 165px -95px #ff6e3e;
+		}
+	}
+	/*
+	.bloc_telechargement{
+		height:195px;
+		width:300px;
+		padding:20px;
+		margin: 0 0 30px 0;
+		border:1px solid #CCC;
+		font:16px/18px Arial,Helvetica,sans-serif;
+		color:#333;
+		transition: all 0.3s ease;
+	}
+	.bloc_telechargement img{
+		float:left;
+		margin:0 20px 0 0;
+	}
+
+	.bloc_telechargement p{
+		margin:0 0 5px 0;
+	}
+	.bloc_telechargement p:last-of-type{
+		margin:0 0 20px 0;
+	}
+
+	.bloc_telechargement a{
+		background:url('@{imgPath}/dossier/oliger/sprite_oliger.png')no-repeat 78px -95px #f05a28;
+		color:#fff;
+		padding:7px 28px 7px 13px;
+		border: 1px solid #fff;
+		text-decoration: none;
+	}
+	.bloc_telechargement a:hover{
+		background:url('@{imgPath}/dossier/oliger/sprite_oliger.png')no-repeat 84px -95px #ff6e3e;
+	}
+	.bloc_telechargement:hover{
+		color:#fff;
+		background:#f05a28;
+	} */
+	.partenariat{
+		clear: both;
+		position:relative;
+		padding: 0 70px 0 0;
+		text-align:center;
+		color:#333;
+	}
+	.partenariat:after{
+		content:'';
+		position:absolute;
+		top:-15px;
+		right:20px;
+		display: block;
+		height: 50px;
+		width: 87px;
+		background:url('@{imgPath}/dossier/oliger/logo_oliger.jpg')no-repeat;
+	}
+
+/*======================= COLONNE DE DROITE / NAV VERTICALE ============================*/
+
+	.nav_verticale_oliger{
+		clear:both;
+		float:left;
+		position:relative;
+		margin:0 0 30px 0;
+		padding:50px 20px 10px;
+		font:13px Arial,Helvetica,sans-serif;
+		border:1px solid #e3e3e3;
+		.nav_v_titre{
+			position:absolute;
+			left:0;
+			right: 0;
+			top:0;
+			padding:10px 20px;
+			background-color:#1e2526;
+			text-align:center;
+			font:20px'CodePro', Arial, Helvetica, sans-serif;
+			color:#fff;
+		}
+
+		.imgcentrer{
+			float:left;
+			margin:0 20px 0 0;
+		}
+		a{
+			color:#333;
+			text-decoration:none;
+		}
+		a:hover{
+			color:#f05a28;
+		}
+		.mini_article{
+			clear:both;
+			float:left;
+			padding:20px 0;
+			border-bottom:1px solid #ccc;
+		}
+		.mini_article:last-child{
+			border:none;
+		}
+		img{
+			width:120px;
+			margin:0 auto 10px;
+			border:1px solid #e3e3e3;
+		}
+		img:hover{
+			opacity:0.8;
+		}
+
+		.bt_savoir{
+			float:left;
+			position:relative;
+			height:25px;
+			width:120px;
+			padding:0 0 0 8px;
+			line-height:25px;
+			background-color:#e3e3e3;
+			color:#333;
+		}
+		.bt_savoir:after{
+			content:"";
+			background:url('@{imgPath}/dossier/oliger/sprite_oliger.png')no-repeat -20px -99px #999;
+			position:absolute;
+			right:0;
+			display:inline-block;
+			height:25px;
+			width:25px;
+		}
+		.bt_savoir:hover{
+			background-color:#999;
+			color:#fff;
+		}
+		.col_mini_article{
+			float:left;
+			width:120px;
+			margin:0 18px 0 0;
+		}
+		.col_mini_article:last-child{
+			margin:0;
+		}
+
+		.col_mini_article .nav_verticale_sstitre{
+			font:14px Arial, Helvetica, sans-serif;
+			padding:0;
+			margin:0 0 10px 0;;
+		}
+
+		.col_mini_article ul {
+			margin:0;
+			padding:0;
+		}
+
+		.col_mini_article ul li {
+			font:12px Arial, Helvetica, sans-serif;
+			padding:0 0 0 10px;
+			margin:0 0 5px;
+			background:url('@{imgPath}/dossier/oliger/sprite_oliger.png')no-repeat -33px -65px;
+		}
+
+		.col_mini_article ul li a {
+			color:#666;
+		}
+		.col_mini_article ul li a:hover {
+			color:#000;
+		}
+	}
+
+/*======================================== BLOC BAS SLIDER ANIMATION =====================================*/
+	.content_slider {
+		clear:both;
+		margin: 20px;
+		background:#f05a28;
+		font: 16px Arial, Helvetica, sans-serif;
+		color:#fff;
+		.title {
+			float:left;
+			padding:35px 45px;
+			font:18px/18px Arial, Helvetica, sans-serif;
+			text-align:center;
+			color:#FFF;
+		}
+
+		.title:before{
+			content:"";
+			background: url('https://media.ooreka.fr/public/image/picto-oliger-source-10957050.jpg') no-repeat 80px 0px;
+			display: block;
+			height: 120px;
+			padding:0 0 3px 0;
+		}
+	}
+	.content_slider:after{
+		content:url(https://media.ooreka.fr/public/image/logo-oliger-mini-source-10957775.jpg);
+		position: absolute;
+		bottom: 10px;
+		right:30px;
+		z-index:10;
+	}
+	#slideshow {
+		position: relative;    /*le parent positionné*/
+		width: 610px;          /*limite en largeur (1 élément du slideshow)*/
+		height: 240px;         /*limite en hauteur*/
+		overflow: hidden;      /*on cache ce qui déborde*/
+	}
+	#sContent {
+		position: absolute;   /*élément hors du flux*/
+		top: 0;               /*on le positionne précisément dans ...*/
+		left: 0;              /*l'angle haut gauche de son parent positionné*/
+		width: 3050px;         /*ou 300% car 3 éléments*/
+		margin: 0;
+		padding: 0;
+		z-index: 10;
+	    /*transition*/
+		-webkit-transition: all 1s ease;
+		-moz-transition: all 1s ease;
+		-o-transition: all 1s ease;
+		transition: all 1s ease;
+	}
+	#sContent li {
+		float:left;      /*on aligne les éléments du slideshow*/
+		width:610px;
+		padding:20px;
+		text-align:center;
+	}
+
+	#sContent li img{
+		float:left;
+		height: 200px;
+		margin:0 0 0 20px;
+	}
+
+	#sContent p{
+		margin:50px 0 25px 0;
+	}
+	#sContent .imgcentrer {
+		display: inline;
+	}
+	#sContent  span{
+		display:block;
+		font:14px/20px Arial,Helvetica,sans-serif;
+	}
+
+	/* Bouton */
+	#sContent a{
+		text-decoration: none;
+		color:#fff;
+		transition: all 0.3s;
+	}
+	#sContent .bt_sContent{
+		border:1px solid #fff;
+		padding:7px 30px;
+	}
+
+	#sContent .bt_sContent:hover{
+		background:#fff;
+		border:1px solid #fff;
+		color:#f05a28;
+	}
+	/* Bouton */
+
+	#slideshow .next, #slideshow .prev {
+		position: absolute;
+		top: 100px;
+		z-index: 20;
+		margin:0 10px 0 0;
+	}
+
+	.next,.next1,.next2,.next3,.next4{
+		background:url('@{imgPath}/dossier/oliger/sprite_oliger.png') no-repeat -53px -57px;
+		height:32px;
+		width:23px
+	}
+
+	.prev,.prev1,.prev2,.prev3,.prev4{
+		background:url('@{imgPath}/dossier/oliger/sprite_oliger.png') no-repeat 1px -57px;
+		height:32px;
+		width:23px
+	}
+
+	#slideshow .prev { left: 0; }
+	#slideshow .next { right: 0; }
+
+	/* initialisation */
+	#slideshow .next, #slideshow .prev { display: none; }
+	#slideshow .next1 { display: block; }
+
+	/* Vers 1ère étape */
+	#s1:target #sContent { left: 0px; }
+	#s1:target .next, #s1:target .prev { display: none; }
+	#s1:target .next1 { display: block; }
+
+	/* Vers 2ème étape */
+	#s2:target #sContent { left: -100%; } /*ou -100%*/
+	#s2:target .next, #s2:target .prev { display: none; }
+	#s2:target .next2, #s2:target .prev2 { display: block; }
+
+	/* Vers 3ème étape */
+	#s3:target #sContent { left: -200%; } /*ou -100%*/
+	#s3:target .next, #s3:target .prev { display: none; }
+	#s3:target .next3, #s3:target .prev3 { display: block; }
+
+	/* Vers 4ème étape */
+	#s4:target #sContent { left: -300%; } /*ou -100%*/
+	#s4:target .next, #s4:target .prev { display: none; }
+	#s4:target .next4, #s4:target .prev4 { display: block; }
+
+	/* Vers 5ème étape */
+	#s5:target #sContent { left: -400%; } /*ou -200%*/
+	#s5:target .next, #s5:target .prev { display: none; }
+	#s5:target .prev5 { display: block; }
+
+
+/*======================================== PAGE TELECHARGEMENT =====================================*/
+	.formulaire_telechargement{
+		position: relative;
+		margin: 0 20px;
+		p{
+			font:22px'CodePro', Arial, Helvetica, sans-serif;
+			color: #f05a28;
+		}
+		.partenariat_oliger{
+			position: absolute;
+			top: 0;
+			right:0;
+			font:11px Arial,Helvetica,sans-serif ;
+		}
+	}
+
+/*======================================== INTERVIEW =====================================*/
+
+	.interview_oliger{
+		clear:both;
+		float:left;
+		margin:0px 30px 20px 20px;
+		width:640px;
+		h1{
+			color:#f05a28;
+			font: bold 24px Arial, Helvetica, sans-serif;
+			margin:0 0 20px 0;
+		}
+		h2{
+			color:#f05a28;
+			font:14px/140% Arial, Helvetica, sans-serif;
+			font-weight:bold;
+			margin:20px 0 10px 0;
+		}
+		h3{
+			color:#527dad;
+			font:16px Arial, Helvetica, sans-serif;
+			font-weight:bold;
+			margin:0 0 10px 0;
+		}
+		.imgcentrer{
+			float:left;
+			margin: 0;
+			img{
+				height: 150px;
+			}
+		}
+		.fiche_interview{
+			margin: 0 0 20px 0;
+			height: 150px;
+			background: #f7f7f7;
+			.infos_interview{
+				float: left;
+				margin: 0 0 20px 0;
+				padding:20px;
+				font: 12px Arial, Helvetica, sans-serif;
+			}
+			.nom{
+				font: bold 14px Arial, Helvetica, sans-serif;
+				color:#f05a28;
+			}
+			p{
+				color:#808080;
+			}
+		}
+		.preambule{
+			font: italic 12px/140% Arial, Helvetica, sans-serif;
+		}
+		blockquote{
+			margin:0 0 0 20px;
+			padding: 0 0 0 15px;
+			border-left: 2px solid #e3e3e3;
+			font:13px/140% Arial, Helvetica, sans-serif;
+			p{
+				padding: 0 0 10px 0;
+			}
+			p:last-child{
+				padding: 0;
+			}
+		}
+	}
+
+/*======================================== Page Demande telechargement =====================================*/
+
+	.demande_de_catalogue{
+		margin: 0 0 0 20px;
+		.mention_dl_catalogue{
+			font:13px Arial, Helvetica, sans-serif;
+			margin: 0 0 10px 0;
+		}
+		img{
+			float: left;
+			margin: 5px 20px 20px 0;
+		}
+		#RequetePro_contact {
+			position: relative;
+			float: left;
+			width: 760px;
+			margin:0 0 20px 0;
+			> p{
+				display: none;
+			}
+			label, .message_contact{
+				font:bold 12px Arial, Helvetica, sans-serif;
+			}
+			input{
+				width: 230px;
+				margin: 0 20px 5px 0;
+				border:1px solid #dfdfdf;
+			}
+			label.checkbox{
+				margin: 20px 15px 0 0;
+				line-height: 14px;
+				font:11px Arial, Helvetica, sans-serif;
+			}
+			#RequetePro_contact_phoneContact {
+				width: 14px;
+				height: 14px;
+				margin: 0 5px 0 0 ;
+			}
+			.message_contact{
+				float: left;
+			}
+			textarea{
+				width:480px;
+				height:25px;
+				resize:none;
+				border:1px solid #dfdfdf;
+			}
+			.bt_valider{
+				position: absolute;
+				bottom: 0;
+				right: 35px;
+				width: 200px;
+				padding: 7px 0;
+				background: #f05a28;
+				font:bold 14px Arial, Helvetica, sans-serif;
+				color: #fff;
+				border:none;
+				cursor: pointer;
+			}
+			.bt_valider:hover{
+				background: #FF7E52;
+			}
+			.erreur_formulaire {
+				font: 12px Arial,Helvetica,sans-serif;
+				color:red;
+			}
+		}
+	}
+
+/*================================== REMERCIEMMENT CONTACT =========================================*/
+	.remerciement_contact{
+		float:left;
+		margin:50px 0 60px 0;
+		p{
+			font:24px/30px 'CodePro', Arial, Helvetica, sans-serif;
+			text-align:center;
+			color:#f05a28;
+			float:left;
+			width:650px;
+		}
+		a{
+			float:left;
+			position:relative;
+			top:25px;
+			left:50px;
+			width:200px;
+			padding:10px;
+			display:block;
+			text-decoration: none;
+			font:17px/17px 'CodePro', Arial, Helvetica, sans-serif;
+			background:#f05a28;
+			color:#fff;
+			text-align:center;
+		}
+		a:hover{
+			background:#ff6e3e;
+		}
+		a:last-child{
+			font:14px Arial, Helvetica, sans-serif;
+			background: #fff;
+			text-decoration: underline;
+			color:#333;
+		}
+		a:last-child:hover{
+			color:#f05a28;
+		}
+		span{
+			display:block;
+		}
+		.livrable_pdf{
+			margin: 10px 0 0 0;
+			font:14px Arial, Helvetica, sans-serif;
+			color:#666;
+		}
+		.logo_partenaire{
+			width:100px;
+			height:85px;
+			margin:20px auto 0px auto;
+			background:url('@{imgPath}/dossier/oliger/logo_oliger_hd.jpg')no-repeat scroll 0px 0px;
+		}
+	}
+}

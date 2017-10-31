@@ -1,0 +1,414 @@
+
+/************************************* Fonction LESS *************************************/
+.radius(@radius: 5px) {
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+}
+.gradient(@color: #F5F5F5, @start: #EEEEE, @stop: #FFFFF) {
+	background: @color;
+	background: -moz-linear-gradient(top,  @start 0%, @stop 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop));
+	background: -webkit-linear-gradient(top,  @start 0%,@stop 100%);
+	background: -o-linear-gradient(top,  @start 0%,@stop 100%);
+	background: -ms-linear-gradient(top,  @start 0%,@stop 100%);
+	background: linear-gradient(to bottom,  @start 0%,@stop 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@start, endColorstr=@stop,GradientType=0 );
+}
+.box-shadow(@horizontal:-1px, @vertical:1px, @blur:2px, @spread:1px, @colorshad:#CCC) {
+	-webkit-box-shadow: @horizontal @vertical @blur @spread @colorshad;
+ 	 box-shadow: @horizontal @vertical @blur @spread @colorshad;
+}
+.inset-shadow(@horizontal:-1px, @vertical:1px, @blur:2px, @spread:1px, @colorinset:#CCC) {
+	-webkit-box-shadow: inset @horizontal @vertical @blur @spread @colorinset;
+	box-shadow: inset @horizontal @vertical @blur @spread @colorinset;
+}
+.transition (@propriete:all, @duree:1s, @fonction:ease-in-out, @delay:0s) {
+	-webkit-transition: @propriete @duree @fonctiont @delay;
+	-moz-transition: @propriete @duree @fonction @delay;
+	-o-transition: @propriete @duree @fonction @delay;
+	transition: @propriete @duree @fonction @delay;
+}
+.transform-origin (@x-origin, @y-origin) {
+	-webkit-transform-origin : @x-origin @y-origin;
+	-moz-transform-origin : @x-origin @y-origin;
+	-ms-transform-origin : @x-origin @y-origin;
+	-o-transform-origin : @x-origin @y-origin;
+	transform-origin : @x-origin @y-origin;
+}
+.rotate (@degres) {
+	transform: rotate(@degres);
+	-webkit-transform:rotate(@degres);
+}
+.scale(@scale){
+	-moz-transform: scale(@scale);
+	-webkit-transform: scale(@scale);
+	-o-transform: scale(@scale);
+	-ms-transform: scale(@scale);
+	transform: scale(@scale);
+}
+.scale-rotate(@scale, @degres){
+	-moz-transform: scale(@scale) rotate(@degres);
+	-webkit-transform: scale(@scale) rotate(@degres);
+	-o-transform: scale(@scale) rotate(@degres);
+	-ms-transform: scale(@scale) rotate(@degres);
+	transform: scale(@scale) rotate(@degres);
+}
+
+/************************************* Style Opération Spéciale commune  *************************************/
+
+.ope_spe{
+	font:14px/18px Arial, Helvetica, sans-serif;
+	*{
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	h1,
+	h2,
+	h3{
+		color:@op_color_base;
+		margin:0 0 10px 0;
+	}
+	h1{
+		font:26px "museo", Calibri, Arial, Helvetica, sans-serif;
+	}
+	h2{
+		font:23px "museo", Calibri, Arial, Helvetica, sans-serif;
+	}
+	h3 {
+		font:20px "museo", Calibri, Arial, Helvetica, sans-serif;
+	}
+	ul,
+	ol {
+		list-style: none;
+		list-style-image: none;
+		padding-left:1rem;
+		padding-bottom: 0;
+	}
+	ul::after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+	
+	a{
+		color:@op_liens;
+		text-decoration:none;
+		cursor:pointer;
+	}
+	a,
+	img,
+	a:hover,.imgcentrer{
+		.transition (all, .3s, ease-in-out, 0s);
+	}
+	
+	.header_banniere{
+		position:relative;
+		left:-10px;
+		width: 1030px;
+		height:175px;
+		padding:66px 0 0 30px;
+		color:@op_color_header;
+		background: @op_header;
+		font:34px 'Museo', Arial, Helvetica, sans-serif;
+		margin:0 0 20px 0;
+	}	
+	.article{
+		clear:both;
+		float:left;
+		margin:0px 30px 20px 20px;
+		width:640px;
+		a{
+			color:@op_color_base;
+		}
+		ul li {
+			background: @op_sprite;
+			line-height: 135%;
+			margin: 0 0 0.5em 10px;
+			overflow: hidden;
+			padding: 0 0 0 13px;
+		}
+		.chapeau_article{
+			font: 16px/19px Arial,Helvetica,sans-serif;
+		}
+		p{
+			 line-height: 140%;
+   			 padding: 0 0 0.8em;
+		}
+		.signature_dossierSpe{
+			margin:0 0 20px 0;
+			color: #999;
+			font: 12px/150% Arial,Helvetica,sans-serif;
+			.signature{
+				color: #333;
+				font:italic bold 12px/140% Georgia,"Times New Roman",Times,serif;
+			}
+		}
+		.encart_numero{
+			padding: 20px;
+			margin-bottom: 10px;
+			background: @op_encart_article;
+			p{
+				padding: 0;
+			}
+			.encart_titre{
+				font:bold 18px Arial,Helvetica,sans-serif;
+				padding-bottom: 5px;
+			}
+			.encart_info{
+				span{
+					font:bold 18px arial,helvetica,sans-serif;
+					color:@op_color_base;
+				}
+			}
+			.encart_mention{
+				font:11px arial,helvetica,sans-serif;
+				color:@op_encart_mention;
+			}
+		}
+	}
+	.colonne_droite {
+		float: left;
+		width:300px;
+		margin-bottom: 30px;
+		> div{
+			margin-bottom: 20px;
+		}
+	}
+	.article_annexe {
+		clear:both;
+		margin-left: 20px;
+		ul{
+			margin: 10px 0;
+			padding: 0;
+		}
+		li a:hover{
+			.imgcentrer{
+				box-shadow: 0 10px 15px -5px #999;
+			}
+			.article_annexe_titre{
+				color:@op_color_base;
+			}
+		}
+		.article_annexe_titre{
+			background: @op_sprite;
+			color:@op_article_annexe;
+			padding-left: 15px;
+			.transition (all, .3s, ease-in-out, 0s);
+		}
+		span.imgcentrer img{
+			max-height: 237px;
+			margin: 0;
+		}
+		/*3 Article */
+		.article_annexe_3 li {
+			float:left;
+			max-width: 310px;
+			margin-right: 20px;
+			.imgcentrer{
+				max-height: 225px;
+			}
+		}
+		.article_annexe_3 li:last-child {
+			margin-right: 0;
+		}
+	}
+	.publiredac{
+		padding: 10px;
+		background:@op_encart_article;
+		img{
+			float:left;
+			margin-right: 10px;
+		}
+		ul{
+			margin-bottom: 0;
+		}
+		p{
+			font-weight: bold;
+		}
+	}
+}
+
+
+
+
+///*======================== A REPRENDRE DANS LE GENERAL========================*/
+//	
+//	.col_d_stannah{
+//		float:left;
+//		width:300px;
+//		margin: 0 0 30px 0;
+//	}
+//	.bloc_telechargement{
+//		clear:both;
+//		text-align:center;
+//		padding:20px 20px 30px 20px;
+//		margin: 0 0 20px 0;
+//		background: #f0f0f0;
+//		color:#333;
+//		img{
+//			margin:0 0 20px 0;
+//		}
+//		p{
+//			margin:0 0 5px 0;
+//			font:bold 16px Arial, Helvetica, sans-serif;
+//		}
+//		p:last-of-type{
+//			font: 14px Arial, Helvetica, sans-serif;
+//			margin:0 0 10px 0;
+//		}
+//		.bt_telechargement{
+//			padding:7px 37px 7px 21px;
+//			background:url('@{imgPath}/dossier/oliger/sprite_oliger.png')no-repeat 161px -95px #f05a28;
+//			text-decoration:none;
+//			font:16px Arial, Helvetica, sans-serif;
+//			color:#fff;	
+//		}
+//		.bt_telechargement:hover{
+//			background:url('@{imgPath}/dossier/oliger/sprite_oliger.png')no-repeat 165px -95px #ff6e3e;	
+//		}
+//	}
+//	.partenariat{
+//		clear: both;
+//		position:relative;
+//		padding: 0 70px 0 0;
+//		text-align:center;
+//		color:#333;
+//	}
+//	.partenariat:after{
+//		content:'';
+//		position:absolute;
+//		top:-15px;
+//		right:20px;
+//		display: block;
+//		height: 50px;
+//		width: 87px;
+//		background:url('@{imgPath}/dossier/oliger/logo_oliger.jpg')no-repeat;
+//	}
+//
+///*======================= COLONNE DE DROITE / NAV VERTICALE ============================*/
+//
+//	.nav_verticale_stannah{
+//		clear:both;
+//		float:left;
+//		position:relative;
+//		margin:0 0 30px 0;
+//		padding:50px 20px 10px;
+//		font:13px Arial,Helvetica,sans-serif;
+//		border:1px solid #e3e3e3;
+//		.nav_v_titre{
+//			position:absolute;
+//			left:0;
+//			right: 0;
+//			top:0;
+//			padding:10px 20px;
+//			background-color:#1e2526;
+//			text-align:center;
+//			font:20px'CodePro', Arial, Helvetica, sans-serif;
+//			color:#fff;
+//		}
+//
+//		.imgcentrer{
+//			float:left;
+//			margin:0 20px 0 0;
+//		}
+//		a{
+//			color:#333;
+//			text-decoration:none;
+//		}
+//		a:hover{
+//			color:#f05a28;
+//		}
+//		.mini_article{
+//			clear:both;
+//			float:left;
+//			padding:20px 0;
+//			border-bottom:1px solid #ccc;
+//		}
+//		.mini_article:last-child{
+//			border:none;
+//		}
+//		img{
+//			width:120px;
+//			margin:0 auto 10px;
+//			border:1px solid #e3e3e3;		
+//		}
+//		img:hover{
+//			opacity:0.8;
+//		}
+//	
+//		.bt_savoir{
+//			float:left;
+//			position:relative;
+//			height:25px;
+//			width:120px;
+//			padding:0 0 0 8px;
+//			line-height:25px;
+//			background-color:#e3e3e3;
+//			color:#333;
+//		}
+//		.bt_savoir:after{
+//			content:"";
+//			background:url('@{imgPath}/dossier/oliger/sprite_oliger.png')no-repeat -20px -99px #999;
+//			position:absolute;
+//			right:0;
+//			display:inline-block;
+//			height:25px;
+//			width:25px;
+//		}
+//		.bt_savoir:hover{
+//			background-color:#999;
+//			color:#fff;
+//		}
+//		.col_mini_article{
+//			float:left;
+//			width:120px;
+//			margin:0 18px 0 0;
+//		}
+//		.col_mini_article:last-child{
+//			margin:0;
+//		}
+//		
+//		.col_mini_article .nav_verticale_sstitre{
+//			font:14px Arial, Helvetica, sans-serif;
+//			padding:0;
+//			margin:0 0 10px 0;;
+//		}
+//		
+//		.col_mini_article ul {
+//			margin:0;
+//			padding:0;
+//		}
+//		
+//		.col_mini_article ul li {
+//			font:12px Arial, Helvetica, sans-serif;
+//			padding:0 0 0 10px;
+//			margin:0 0 5px;
+//			background:url('@{imgPath}/dossier/oliger/sprite_oliger.png')no-repeat -33px -65px;
+//		}
+//		
+//		.col_mini_article ul li a {
+//			color:#666;
+//		}
+//		.col_mini_article ul li a:hover {
+//			color:#000;
+//		}
+//	}
+//
+//
+///*======================================== PAGE TELECHARGEMENT =====================================*/
+//	.formulaire_telechargement{
+//		position: relative;
+//		margin: 0 20px;
+//		p{
+//			font:22px'CodePro', Arial, Helvetica, sans-serif;
+//			color: #f05a28;
+//		}
+//		.partenariat_stannah{
+//			position: absolute;
+//			top: 0;
+//			right:0;
+//			font:11px Arial,Helvetica,sans-serif ;
+//		}
+//	}
+//}

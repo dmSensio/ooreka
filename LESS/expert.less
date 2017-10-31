@@ -1,0 +1,1517 @@
+/*///////////////////////////////////////// SOMMAIRE /////////////////////////////////////////*
+
+*	Carte de visite Expert
+		** Par défaut
+		** Témoignage
+		** Top Expert
+		** Compte connecte header
+		** Petite taille
+		** Grande taille
+		** Niveau expert
+		** Nombre de réponses expert
+*	Profil Expert
+*	Expert auteur
+*	Top 3 experts
+*	Responsive Design
+
+/************************************* Carte de visite Expert *************************************/
+
+/*----------------------- Par défaut -----------------------*/
+.img_expert{
+	float: left;
+	position: relative;
+	.rotate(0deg);
+	display: block;
+	span,
+	img{
+		position: absolute;
+		top: 0;
+		left: 0;
+		.rotate(0deg);
+	}
+}
+.img_expert.icon-pic::before{
+	position: absolute;
+	.rotate(198deg);
+	color: @rouge;
+}
+.info_expert{
+	padding: 0 0 0 2rem;
+	overflow: hidden;
+	font-size: 1.4rem;
+	p{
+		margin: 0;
+	}
+}
+.nom_expert{
+	font-size:2rem;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	.transition(color, .3s, ease-in-out, 0s);
+	&:hover{
+		color: @rouge;
+	}
+}
+.nom_expert + p{
+	font-size:1.4rem;
+}
+/*------------------- Témoignage ----------------------*/
+.temoignage_expert .nom_expert{
+	font-family: @museo;
+}
+.temoignage_expert .nom_expert + p{
+	font-size:1.7rem;
+}
+.temoignage_expert p:first-child{
+	margin:0 0 1rem 0;
+}
+.temoignage_expert.info_expert{
+	font-size: 1.8rem;
+}
+/*------------------- Top Expert ----------------------*/
+.top_expert .nom_expert{
+	margin-right: .5rem;
+	font-size:3.5rem;
+	font-family: @museo;
+}
+.top_expert p,
+.top_expert .niveau_expert{
+	font-size:2rem;
+}
+.top_expert .societe_expert{
+	font-weight: bold;
+}
+/*------------------- Compte connecte header ----------------------*/
+.meta_compte .bt_compte,
+.expert_25w{
+	line-height:26px;
+	.img_expert{
+		float: left;
+		height: 25px;
+		width: 25px;
+		margin-right:5px;
+		.radius(15px);
+		box-sizing: content-box;
+		span,
+		img{
+			width:25px;
+			.radius(15px);
+		}
+		span{
+			display: inline-block;
+			height: 25px;
+			line-height: 25px;
+			background-color: #ddd;
+			color: @violet;
+			text-align: center;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+		}
+	}
+	.img_expert.icon-pic:before{
+		top:-.6rem;
+		right: -1.2rem;
+	}
+}
+/*------------------- Petite taille ----------------------*/
+.expert_60w{
+	position: relative;
+	.img_expert{
+		width:60px;
+		height:60px;
+		margin-top: 1rem;
+		box-sizing: content-box;
+		background-color: @violet;
+		border:3px solid @violet;
+		.radius(35px 0 35px 35px);
+		span{
+			height: 60px;
+			line-height: 60px;
+			background-color: #ddd;
+			color: @violet;
+			text-align: center;
+			font-size: 3rem;
+			text-transform: uppercase;
+		}
+		span,
+		img{
+			width:60px;
+			.radius(30px);
+		}
+	}
+	.img_expert.icon-pic::before{
+		top: 5px;
+		right: -12px;
+	}
+}
+/*------------------- Grande taille ----------------------*/
+.expert_110w{
+	position: relative;
+	.img_expert{
+		width:110px;
+		height:110px;
+		margin-top: .5rem;
+		box-sizing: content-box;
+		background-color: @violet;
+		border:5px solid @violet;
+		.radius(60px 0 60px 60px);
+		span{
+			display: inline-block;
+			height: 110px;
+			line-height: 110px;
+			background-color: #ddd;
+			color: @violet;
+			text-align: center;
+			font-size: 5rem;
+			text-transform: uppercase;
+		}
+		span,
+		img{
+			width:110px;
+			.radius(55px);
+		 }
+	}
+	.img_expert.icon-pic::before{
+		top: 20px;
+		right: -13px;
+	}
+}
+/*------------------- Niveau Expert ----------------------*/
+.expert_60w .niveau_expert span{
+	width:104px;
+	height:14px;
+}
+.expert_110w .niveau_expert span{
+	width:140px;
+	height:16px;
+}
+.niveau_expert{
+	padding-bottom: 1rem;
+	padding-top: .5rem;
+	font-size: 1.4rem;
+	font-weight:bold;
+	span{
+		position: relative;
+		display:inline-block;
+		margin:0;
+		border: 2px solid #fff;
+		.radius(3px);
+		vertical-align:middle;
+	}
+	.niveau_0{
+		background:
+			linear-gradient(
+			to right ,
+			#d8d8d8 9%,
+			#fff 9%, #fff 10%,
+			#d8d8d8 10%, #d8d8d8 19%,
+			#fff 19%, #fff 20%,
+			#d8d8d8 20%, #d8d8d8 29%,
+			#fff 29%, #fff 30%,
+			#d8d8d8 30%, #d8d8d8 39%,
+			#fff 39%, #fff 40%,
+			#d8d8d8 40%, #d8d8d8 49%,
+			#fff 49%, #fff 50%,
+			#d8d8d8 50%, #d8d8d8 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_1{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			#d8d8d8 10%, #d8d8d8 19%,
+			#fff 19%, #fff 20%,
+			#d8d8d8 20%, #d8d8d8 29%,
+			#fff 29%, #fff 30%,
+			#d8d8d8 30%, #d8d8d8 39%,
+			#fff 39%, #fff 40%,
+			#d8d8d8 40%, #d8d8d8 49%,
+			#fff 49%, #fff 50%,
+			#d8d8d8 50%, #d8d8d8 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_2{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			#d8d8d8 20%, #d8d8d8 29%,
+			#fff 29%, #fff 30%,
+			#d8d8d8 30%, #d8d8d8 39%,
+			#fff 39%, #fff 40%,
+			#d8d8d8 40%, #d8d8d8 49%,
+			#fff 49%, #fff 50%,
+			#d8d8d8 50%, #d8d8d8 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_3{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			#d8d8d8 30%, #d8d8d8 39%,
+			#fff 39%, #fff 40%,
+			#d8d8d8 40%, #d8d8d8 49%,
+			#fff 49%, #fff 50%,
+			#d8d8d8 50%, #d8d8d8 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_4{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			#d8d8d8 40%, #d8d8d8 49%,
+			#fff 49%, #fff 50%,
+			#d8d8d8 50%, #d8d8d8 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_5{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			@vert 40%, @vert 49%,
+			#fff 49%, #fff 50%,
+			#d8d8d8 50%, #d8d8d8 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_6{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			@vert 40%, @vert 49%,
+			#fff 49%, #fff 50%,
+			@vert 50%, @vert 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_7{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			@vert 40%, @vert 49%,
+			#fff 49%, #fff 50%,
+			@vert 50%, @vert 59%,
+			#fff 59%, #fff 60%,
+			@vert 60%, @vert 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_8{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			@vert 40%, @vert 49%,
+			#fff 49%, #fff 50%,
+			@vert 50%, @vert 59%,
+			#fff 59%, #fff 60%,
+			@vert 60%, @vert 69%,
+			#fff 69%, #fff 70%,
+			@vert 70%, @vert 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_9{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			@vert 40%, @vert 49%,
+			#fff 49%, #fff 50%,
+			@vert 50%, @vert 59%,
+			#fff 59%, #fff 60%,
+			@vert 60%, @vert 69%,
+			#fff 69%, #fff 70%,
+			@vert 70%, @vert 79%,
+			#fff 79%, #fff 80%,
+			@vert 80%, @vert 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_8::after,
+	.niveau_9::after,
+	.niveau_10::after{
+		content: "";
+		position: absolute;
+		top: -12px;
+		right: -18px;
+		width:30px;
+		height: 40px;
+		background: url("@{imgPath}/sprite_general.png") no-repeat -110px -14px;
+		.scale(.8);
+	}
+	.niveau_8.icon-tick::before,
+	.niveau_9.icon-tick::before,
+	.niveau_10.icon-tick::before{
+		display: inline-block;
+		position: absolute;
+		top: -6px;
+		right: -19.5px;
+		z-index: 1;
+		.scale(.45);
+	}
+	.icon-tick::before{
+		display: none;
+	}
+	.niveau_10{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			@vert 40%, @vert 49%,
+			#fff 49%, #fff 50%,
+			@vert 50%, @vert 59%,
+			#fff 59%, #fff 60%,
+			@vert 60%, @vert 69%,
+			#fff 69%, #fff 70%,
+			@vert 70%, @vert 79%,
+			#fff 79%, #fff 80%,
+			@vert 80%, @vert 89%,
+			#fff 89%, #fff 90%,
+			@vert 90%);
+	}
+}
+.bg_violet {
+	.expert_110w{
+		.img_expert{
+			background-color:#fff;
+			border: 5px solid #fff;
+		}
+	}
+}
+/*------------------------ Nombre de réponses expert ------------------------*/
+.nb_reponse{
+	float: right;
+	> p{
+		float: left;
+		margin:0 .5rem 0 0;
+		line-height: 26px;
+		font-size: 1.6rem;
+	}
+	.expert_25w{
+		float: right;
+	}
+	&.plus_nb_reponse{
+		padding-right: 3rem;
+		.expert_25w:first-of-type{
+			position: relative;
+			&::after{
+				position: absolute;
+				top: 50%;
+				margin-top: -3px;
+				right: -10px;
+				content: "";
+				float: left;
+				display: block;
+				width: 5px;
+				height: 5px;
+				.radius(50%);
+				background-color: @rouge;
+				box-shadow: 7px 0 0 @rouge, 14px 0 0 @rouge;
+			}
+		}
+	}
+}
+.erreur_expertise{
+	margin:0 0 2rem 0;
+	color:@rouge;
+}
+/*Ma question concerne un autre sujet*/
+.liste_expertise.autre_sujet{
+	margin:0 0 2rem 0;
+	li,
+	li:hover{
+		border:none;
+		line-height:2rem;
+	}
+	li label{
+		&::before{
+			top:0;
+		}
+		&::after{
+			top:.4rem;
+			left: 1rem;
+		}
+	}
+	.selection,
+	.selection:hover{
+		border:none;
+	}
+}
+/*Ma question concerne un autre sujet et www*/
+.liste_expertise.pas_illu{
+	span{
+		padding:0;
+	}
+	span::before{
+		background:none;
+	}
+	label{
+		padding:0 1rem .5rem 4rem;
+	}
+	li label::after{
+		left: .5rem;
+	}
+}
+.autre_sujet.pas_illu{
+	li label::after{
+		left: 1rem;
+	}
+}
+/************************************* Profil Expert *************************************/
+.entete_profil{
+	color: #fff;
+	position: relative;
+	.image_marque img{
+		float: left;
+		width: 110px;
+	}
+	h1{
+		margin-bottom: .5rem;
+		text-transform: capitalize;
+		font-size:4rem;
+	}
+	.metier_expert,
+	.societe_expert{
+		display: inline-block;
+		text-transform: capitalize;
+	}
+	.societe_expert + .metier_expert{
+		border-left: 1px solid #fff;
+		padding-left: .8rem;
+		margin-left: .5rem;
+	}
+	.niveau_expert{
+		font-weight:lighter;
+		+ p{
+			font-size: 1.6rem;
+		}
+	}
+	.site_expert{
+		color: #fff;
+	}
+}
+.entete_profil.header_profil{
+	.w1000{
+		position: relative;
+		padding-bottom: 6.5rem;
+	}
+	.w_2_3{
+		margin-bottom: 0;
+	}
+	.w_1_3{
+		.lien_site_plan{
+			margin-top: 1.5rem;
+		}
+		.bt_contour_blanc{
+			float: left;
+			border: 1px solid #ccc;
+			padding: .4rem .8rem;
+			.box-shadow(4px, 4px, 10px, -4px, #333);
+			.radius(3px);
+			color: #fff;
+			font-size: 1.8rem;
+			+ .bt_contour_blanc{
+				margin-left: 1rem;
+			}
+			&::before{
+				color: #fff;
+				vertical-align: -2px;
+			}
+			&:hover{
+				background-color: @violet-typo;
+			}
+		}
+		> p{
+			margin-top: 0;
+			margin-bottom: 1rem;
+		}
+		.numero_affiche{
+			line-height: 29px;
+		}
+		.icone::before{
+			margin: 0;
+		}
+	}
+	.bt_modifier_photo{
+		float: left;
+		clear: both;
+		margin-bottom: 2rem;
+		margin-left: 1rem;
+		padding: .5rem 1rem;
+		background: #fff;
+		.radius(3px);
+		font-family: @museo;
+		&:hover{
+			background: @violet-typo;
+			color:#fff;
+		}
+	}
+	.icon-stylo{
+		&::before{
+			color: @violet-typo;
+		}
+		&:hover::before{
+			color: #fff;
+		}
+	}
+	.bt_fort{
+		margin: 0;
+	}
+	nav{
+		position: absolute;
+		bottom: 0;
+		z-index: 20;
+		a{
+			float: left;
+			padding: 1rem 2rem;
+			.radius(5px 5px 0 0);
+			font-size: 2.2rem;
+			font-family: @museo;
+			color: #fff;
+			&:hover{
+				background: @violet-typo;
+			}
+		}
+		.selectionne{
+			color: #666;
+			background: #fff;
+			cursor: default;
+			&:hover{
+				background: #fff;
+			}
+		}
+	}
+	.reseau_social{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		a{
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			margin-right: .5rem;
+			background: url("@{imgPath}/reseau_social.png") no-repeat 0 -30px;
+			.radius(3px);
+		}
+		a:last-of-type{
+			margin-right: 0;
+		}
+		.google{
+			background-position: -30px -30px;
+		}
+		.twitter{
+			background-position: -60px -30px;
+		}
+		.viadeo{
+			background-position: -90px -30px;
+		}
+		.linkedin{
+			background-position: -120px -30px;
+		}
+		.pinterest{
+			background-position: -150px -30px;
+		}
+	}
+	.lien_crochet{
+		padding-top: 1rem;
+		padding-right: 1rem;
+	}
+	+ .signaler_expert{
+		padding-top: 1rem;
+		padding-bottom: 0;
+	}
+}
+.profil_expert{
+	margin-bottom: 5rem;
+	select{
+		padding: 0 0 0 .5rem;
+	}
+	.contenu_profil {
+		overflow: hidden;
+		.une_liste .une_QR .w_1_2{
+			text-align:center;
+			line-height: 100%;
+		}
+	}
+	.presentation_profil{
+		p{
+			margin:0 0 1rem 0;
+		}
+		.expertise_expert{
+			margin-top:2rem;
+			p{
+				margin-bottom:1rem;
+				font-family: @museo;
+			}
+		}
+		.liste_expertise{
+			margin: 0;
+			li:hover{
+				border:1px solid #ccc;
+			}
+			label{
+				padding-left:6rem;
+				cursor: auto;
+			}
+			label::after{
+				display:none;
+			}
+			span::before{
+				left:0.6rem;
+			}
+			span{
+				padding:0;
+			}
+		}
+	}
+	.contact_profil{
+		.w_1_3{
+			position:relative;
+		}
+		fieldset:first-child{
+			margin:0;
+		}
+		textarea{
+			min-height:100px;
+		}
+		.bt_fort{
+			margin-top: 2rem;
+		}
+		.info_profil{
+			a{
+				display: block;
+				word-wrap: break-word;
+			}
+			img{
+				display: block;
+				max-width:100%;
+				max-height: 15rem;
+				margin-top: 1rem;
+			}
+			> div{
+				margin-top:1rem;
+				padding:0 0 0 4rem;
+			}
+			p{
+				margin: 0;
+			}
+			.icon-position p span{
+				display:block;
+			}
+			.icon-tel{
+				.bt_min{
+					margin: 0 0 .7rem 0;
+				}
+				.numero_affiche{
+					margin-bottom: 1rem;
+				}
+			}
+			.icon{
+				clear:both;
+				float: left;
+				strong{
+					display:block;
+				}
+			}
+			.icon::before{
+				position:absolute;
+				color:@violet;
+			}
+			.icon-position::before{
+				top:1.4rem;
+				left:.8rem;
+				.scale(2);
+			}
+			.icon-tel::before{
+				top:1rem;
+				left:.5rem;
+				.scale(1.7);
+			}
+			a{
+				.transition(color, .3s, ease-in-out, 0s);
+				&:hover{
+					color: @rouge;
+				}
+			}
+		}
+	}
+	.map{
+		overflow:hidden;
+		#mymap{
+			width:100%;
+			height: 30rem;
+		}
+	}
+	.stat_profil{
+		.w_1_4,
+		.w_1_3{
+			text-align:center;
+			.icon{
+				padding-top:5rem;
+				margin-top:3rem;
+				span{
+					display:block;
+					font-size:4.6rem;
+					font-family: @museo;
+				}
+			}
+			.icon::before{
+				position:absolute;
+				left:47%;
+				top:2rem;
+			}
+			.icon-pouce::before{
+				color:@violet;
+				.scale(2.5);
+			}
+			.icon-discussion::before{
+				color:@rouge;
+				.scale(2);
+			}
+			.icon-feuille::before{
+				left:48%;
+				color:@orange;
+				.scale(2);
+			}
+		}
+		.clearfix + div{
+			margin-top:3rem;
+		}
+		.w_1_4:first-of-type .icon-pouce::before,
+		.w_1_3:first-of-type .icon-pouce::before{
+			color:@rouge;
+		}
+		.graphique{
+			height: 370px;
+			margin-top:2rem;
+			border:1px solid #ccc;
+			overflow-x: auto;
+			overflow-y: hidden;
+			div:first-child{
+				width: 0 !important;
+				div{
+					svg{
+						margin-top: -67px;
+						> rect{
+							fill-opacity:0;
+						}
+						> g{
+							g:first-child rect{
+								display:none;
+							}
+							g:nth-child(4) g:nth-last-child(-n+5){
+								display:none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.stat_profil > p, .stat_profil div p{
+		font-family: @museo;
+	}
+	.stat_profil .bulle_aide.stat{
+		top: 1.5rem;
+		right: 1.5rem;
+	}
+	.contact_profil .bulle_aide{
+		top:0px;
+		right:0px;
+	}
+	.stat_profil{
+		position: relative;
+		.bulle_aide{
+			top:0px;
+			right:0px;
+			.icon-croix::before{
+				top: 1rem;
+				right: 1rem;
+			}
+		}
+	}
+	.aucune_liste p{
+		margin:6rem 0 4rem 0;
+		text-align:center;
+	}
+}
+/**********************************************************************************************/
+/**********************************************************************************************/
+/**********************************************************************************************/
+/**********************************************************************************************/
+/**********************************************************************************************/
+/**********************************************************************************************/
+/**********************************************************************************************/
+/**********************************************************************************************/
+.header_profil{
+	.expert_110w .bulle_aide{
+		top:110px;
+		left:0px;
+	}
+}
+.bulle_aide{
+	position:absolute;
+	z-index: 10;
+	.translateX(0px);
+	div{
+		width:300px;
+		padding:3rem 1rem 1rem 1rem;
+		background:@jaune;
+		color:#333;
+		text-align:center;
+	}
+	input{
+		display: none;
+	}
+	&.enlever_bulle_gauche{
+		transition:all 1s cubic-bezier(1, -0.12, .3, 1) 0s;
+		.translateX(-2000px);
+	}
+	&.enlever_bulle_droite.droite,
+	&.droite input:checked ~ div,
+	&.enlever_bulle_stat.stat,
+	&.stat input:checked ~ div{
+		transition:all 1s cubic-bezier(1, -0.12, .3, 1) 0s;
+		.translateX(2000px);
+	}
+	label{
+		position: absolute;
+		top: 5px;
+		right: 0;
+		z-index: 10;
+		cursor: pointer;
+	}
+	.icon-croix:hover::before{
+		color: #333;
+	}
+	input:checked ~ label::before{
+		height: 0;
+		padding: 0;
+		.scale(0);
+	}
+}
+/***************************** Expert auteur *****************************/
+.expert_auteur{
+	margin-top: 1rem;
+	> .bg_violet{
+		margin-bottom: 2rem;
+		.w1000{
+			padding: 3rem 15px;
+		}
+	}
+	h1{
+		margin-bottom: 0;
+		text-align: center;
+	}
+	.presentation_expert_auteur{
+		margin: 2rem auto;
+		text-align: center;
+		p{
+			padding: 0 5rem;
+		}
+	}
+	.bandeau_violet_motif{
+		padding: 1rem 0 2rem 0;
+		background: url("@{imgPath}/fd_violet_motif.png") repeat !important;
+		text-align: center;
+		color: #fff;
+		h2{
+			font-size: 4rem;
+			line-height: 100%;
+			font-family: @museo;
+			text-shadow: none;
+		}
+	}
+	.les_experts_auteurs{
+		margin: 3rem 0;
+		+ a {
+			display: block;
+			text-align: right;
+			&::before{
+				color: @violet;
+			}
+			&:hover{
+				color: @rouge;
+				&::before{
+					color: @rouge;
+				}
+			}
+		}
+	}
+	.w_1_3{
+		margin-top: 4rem;
+	}
+	.w_1_3:nth-of-type(-n+3){
+		margin-top: 0;
+	}
+	.expert_110w{
+		text-align:center;
+		.img_expert{
+			float: none;
+			margin: auto;
+			.rotate(135deg);
+			img{
+				.rotate(-135deg);
+			}
+			+ div{
+				padding-top: 4rem;
+			}
+		}
+		.nom_expert{
+			font-family: @museo;
+			display: block;
+			margin-bottom: .5rem;
+			+ p{
+				font-size: 1.8rem;
+				line-height: 100%;
+			}
+			&:hover{
+				color: #333;
+			}
+		}
+		.txt_petit{
+			margin-top: .5rem;
+		}
+	}
+	.expert_domaine{
+		h2{
+			margin-top: 6rem;
+		}
+		a{
+			display: block;
+			margin-top: 1rem;
+			&:hover{
+				color: @rouge;
+			}
+		}
+	}
+}
+.img_city_univers{
+	margin-top:4rem ;
+	background: url("@{imgPath}/fd_wall-of-expert.png") repeat-x;
+	.w1000{
+		padding: 0;
+		img{
+			display: block;
+		}
+	}
+}
+
+/***************************** Top 3 experts *****************************/
+.top3_expert{
+	clear:both;
+	margin-bottom: 5rem;
+	h2{
+		margin-bottom: 4rem;
+		&::after{
+			border: none;
+		}
+	}
+	.img_expert{
+		float:none;
+		margin:0 auto;
+		.rotate(135deg);
+		span::after,
+		.medaillon_img::after{
+			content: "";
+			position: absolute;
+			width: 48px;
+			height: 68px;
+			background: url("@{imgPath}/sprite_general.png") no-repeat -171px -2px;
+		}
+		img,
+		span{
+			float:none;
+			.rotate(-135deg);
+			&::after{
+				top: 1rem;
+				left:-4.2rem;
+			}
+		}
+		.medaillon_img:after{
+			top: 8.5rem;
+			left:7.2rem;
+			.rotate(-135deg);
+		}
+	}
+	.info_expert{
+		margin-top:4rem;
+		padding: 0;
+		text-align: center;
+		font-size: 1.4rem;
+	}
+	.nom_expert{
+		font-family: @museo;
+		+ p{
+			margin-top: .5rem;
+		}
+	}
+	.niveau_expert {
+		font-weight: bold;
+	}
+	.w_1_3 .img_expert span::before,
+	.w_1_3 .img_expert .medaillon_img::before{
+		position: absolute;
+		z-index:10;
+		font-size: 3rem;
+		font-family: @museo;
+		color: #333;
+	}
+	.w_1_3 .img_expert span::before{
+		top: 1.2rem;
+		left:-2.4rem;
+	}
+	.w_1_3 .img_expert .medaillon_img::before{
+		top: 10.8rem;
+		left:7.7rem;
+		.rotate(-135deg);
+	}
+	.w_1_3:nth-of-type(1) .img_expert{
+		.medaillon_img::before,
+		span::before{
+			content:"1";
+			line-height: normal;
+		}
+	}
+	.w_1_3:nth-of-type(2) .img_expert{
+		.medaillon_img::before,
+		span::before{
+			content:"2";
+			line-height: normal;
+		}
+	}
+	.w_1_3:nth-of-type(3) .img_expert{
+		.medaillon_img::before,
+		span::before{
+			content:"3";
+			line-height: normal;
+		}
+	}
+}
+/************************************* Responsive Design *************************************/
+@media only screen and (max-width: 1000px) {
+	.liste_expert_domaine .top3_expert .expert_110w .niveau_expert span{
+		display: block;
+		margin: 0 auto;
+	}
+	.liste_expert_domaine .top3_expert .expert_60w .niveau_expert span{
+		display: block;
+		text-align:left;
+	}
+	.liste_expert .expert_110w .niveau_expert span{
+		display: block;
+		margin: 0 auto;
+	}
+	.liste_expert .expert_60w .niveau_expert span{
+		display: block;
+		text-align:left;
+	}
+}
+@media only screen and (max-width: 800px) {
+	/*------------------------ Profil Expert ------------------------*/
+	.entete_profil.header_profil{
+		// padding-top: 4rem;
+		.w_1_3{
+			width: 100%;
+			margin-top: 2rem;
+			padding-left: 14rem;
+			// margin-bottom: 2rem;
+			// p{
+			// 	display: inline-block;
+			// 	margin-right: 3rem;
+			// }
+		}
+		nav a{
+			font-size: 1.6rem;
+		}
+		.bt_modifier_photo{
+			position: absolute;
+			top: 1.5rem;
+			left: 2rem;
+		}
+		.w_1_3 .reseau_social p{
+			vertical-align: 2px;
+		}
+	}
+	.expert_auteur{
+		.w_1_3:nth-of-type(3){
+			margin-top: 4rem;
+		}
+		.presentation_expert_auteur p{
+			padding: 0;
+		}
+	}
+	.profil_expert{
+		.bulle_aide{
+			width: 100%;
+			position: static;
+		}
+		.bulle_aide div{
+			width: 100%;
+			padding-top: 1rem;
+			padding-right: 5rem;
+		}
+		.contact_profil{
+			.w_2_3{
+				margin-bottom: 2rem;
+			}
+			.aide_contact{
+				margin-left: 0;
+				margin-top: 2rem;
+				width: 100%;
+			}
+			.w_1_3{
+				img{
+					float: left;
+					margin-right: 3rem;
+				}
+				img ~ div{
+					overflow: hidden;
+				}
+			}
+			form{
+				width: 100%;
+				margin: 0;
+			 }
+			fieldset{
+				width: 100%;
+				margin-top: 0;
+				margin-bottom: 2rem;
+			}
+			fieldset:first-child{
+				margin: 0;
+			}
+			.bt_fort{
+				margin: 0;
+			}
+			.w_1_3.map{
+				width: 100%;
+			}
+		}
+		.stat_profil{
+			.w_1_3{
+				margin-top: 2rem;
+				width: 47.5%;
+			}
+			.icon{
+				margin-top: 0;
+			}
+			.w_1_3:last-child{
+				margin-bottom:0;
+			}
+		}
+		.liste_profil{
+			.w_5_6{
+				width: 80%;
+			}
+		}
+		.une_liste .une_QR .w_1_2{
+			float:left;
+			clear:none;
+			position: relative;
+			width: 47.5%;
+			margin: 2rem 0 0 5%;
+			margin-top:0;
+			padding-left: 5rem;
+			padding-top: 1rem;
+			.petit_vote{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			&:first-of-type {
+				margin-left: 0;
+			}
+		}
+		.contenu_profil .une_liste .une_QR .w_1_2{
+			text-align:left;
+		}
+	}
+	.nb_reponse{
+		&.plus_nb_reponse{
+			.expert_25w:first-of-type::after{
+				display: none;
+			}
+			.expert_25w:last-of-type::after{
+				content: "...";
+				float: left;
+				display: block;
+				line-height: 1rem;
+				font-size: 3.5rem;
+				color: @rouge;
+			}
+		}
+	}
+	.liste_expert_domaine{
+		.w_1_2{
+			width:47.5%;
+		}
+		.w_1_2:nth-of-type(2n+1){
+			clear:both;
+			margin-left:0;
+		}
+		.w_1_2:nth-of-type(2n+2){
+			margin-left:5%;
+			clear: none;
+		}
+	}
+	.liste_expert_domaine .top3_expert .expert_60w .niveau_expert span,
+	.liste_expert_domaine .top3_expert .expert_110w .niveau_expert span{
+		display: inline-block;
+	}
+}
+@media only screen and (max-width: 500px) {
+	/*------------------------ Profil Expert ------------------------*/
+	.entete_profil{
+		.info_expert{
+			padding: 4rem 0 0 0;
+		}
+	}
+	.img_expert{
+		float: none;
+		display: block;
+		margin: 0 auto;
+		.rotate(135deg);
+		span,
+		img{
+			.rotate(-135deg);
+		}
+	}
+	.top_expert .nom_expert,
+	.top_expert .societe_expert{
+		font-size: 3rem;
+	}
+	.entete_profil.header_profil{
+		position: relative;
+		h1{
+			font-size: 2.4rem;
+		}
+		.w_1_3{
+			padding-left: 9rem;
+			> p{
+				display: block;
+			}
+		}
+		// .reseau_social{
+		// 	p{
+		// 		display: block;
+		// 		margin-right: 0;
+		// 	}
+		// }
+		// hr{
+		// 	margin-top: 6rem;
+		// 	margin-bottom: 4rem;
+		// }
+		.metier_expert,
+		.societe_expert{
+			font-size: 1.8rem;
+		}
+		.niveau_expert{
+			clear: both;
+			margin-top: 1rem;
+			font-size: 1.8rem;
+		}
+		.img_expert{
+			float: inherit;
+			width: 60px;
+			height: 60px;
+			margin-right: 2rem;
+			.rotate(0);
+			img{
+				.rotate(0);
+			}
+		}
+		nav a{
+			font-size: 1.5rem;
+		}
+		// .bt_fort{
+		// 	margin-bottom:0;
+		// 	position: absolute;
+		// 	bottom: 8rem;
+		// 	font-size:2rem;
+		// 	top: auto;
+		// 	right: 1.5rem;
+		// 	left: auto;
+		// }
+		.bt_modifier_photo{
+			right: 2rem;
+			left: auto;
+		}
+		.info_expert{
+			padding: 0;
+		}
+		.reseau_social a{
+			margin-right: 0;
+			.scale(.6);
+		}
+		.icon-mobile::before{
+			display: none;
+		}
+	}
+	.expert_auteur{
+		.w_1_3:nth-of-type(2){
+			margin-top: 4rem;
+		}
+	}
+	.profil_expert{
+		.contact_profil{
+			form{
+				 width: 100%;
+			}
+			.w_1_3.map{
+				display: none;
+			}
+		}
+		.liste_profil{
+			.w_5_6{
+				width: 100%;
+			}
+			 .w_1_6{
+				width: 100%;
+				margin-left: 0;
+				text-align:left;
+				.petit_vote{
+					display: inline-block;
+					text-align: center;
+				}
+			}
+		}
+		.stat_profil .w_1_4:nth-of-type(n) {
+			width: 47.5%;
+			margin-top: 0;
+		}
+	}
+	.liste_expert_domaine{
+		.w_1_2{
+			width:100%;
+		}
+		.w_1_2:nth-of-type(2n+2){
+			margin-left:0%;
+		}
+	}
+	.liste_expert .expert_110w .niveau_expert span{
+		display: inline-block;
+		margin: 0 auto;
+	}
+	.liste_expert .expert_60w .niveau_expert span{
+		display: inline-block;
+		text-align: left;
+	}
+}

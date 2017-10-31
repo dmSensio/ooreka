@@ -1,0 +1,633 @@
+
+p.titreExpert {
+	color:#333;
+	font:31px/120% 'museo',sans-serif;
+	padding:0 0 3px 0;
+	margin:0 0 10px 0;
+}
+.ban_devenir_expert{
+        position: relative;
+        background: @violet;
+        padding: 2rem;
+        .rounded(3px);
+        &:after{
+                content: "";
+                position: absolute;
+                right: 1.5rem;
+                bottom: 0;
+                width: 10rem;
+                height: 7rem;
+                background: url("@{imgPath}/chouette_clin_oeil.svg") no-repeat 0 0;
+                background-size: 100px;
+        }
+        p{
+                float: left;
+                margin-right: 2rem;
+                font-size: 2.1rem;
+                font-family: "museo", Arial, Helvetica, sans-serif;
+                color: #fff;
+                span{
+                        display: block;
+                        padding-top: .5rem;
+                }
+        }
+        a{
+                margin: 0;
+        }
+}
+.tableauExperts{
+	&:after{
+		content:"";
+		clear:both;
+		display:table;
+	}
+	.filtres{
+		margin:20px 0;
+		text-align:right;
+	}
+	.expert_60w{
+		float:left;
+		width:47.5%;
+		padding:15px 0;
+		border-top:1px solid #ccc;
+	}
+	.expert_60w:nth-of-type(odd){
+		margin-right:5%;
+	}
+	.expert_60w:nth-of-type(-n+2){
+		border-top:none;
+	}
+	#pagination{
+		clear:both;
+		margin-top:30px;
+		float:left;
+		width:100%;
+	}
+}
+
+/* ATTENTION : Styles copiés de la nouvelle charte (expert.less) */
+/************************************* Carte de visite Expert *************************************/
+/*------------------- Par défaut ----------------------*/
+.img_expert{
+	float:left;
+	position: relative;
+	.rotate(0deg);
+        span,
+        img{
+		position: absolute;
+		top: 0;
+		left: 0;
+		.rotate(0deg);
+	}
+}
+.img_expert.icon-pic::before{
+	position: absolute;
+	.rotate(196deg);
+	color: @rouge;
+}
+.info_expert{
+	padding: 0 0 0 2rem;
+	overflow: hidden;
+	p{
+		margin: 0;
+	}
+}
+.nom_expert{
+	font:2rem Calibri, Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	.transition(color, 0.3s, ease-in-out, 0s);
+}
+.nom_expert:hover{
+	color:@rouge;
+}
+.nom_expert + p{
+	font-size:1.4rem;
+}
+.info_expert{
+	p{
+		color:#333;
+	}
+	.txt_moyen{
+		font: 1.4rem Calibri, Arial, Helvetica, sans-serif;
+	}
+	.niveau_expert{
+		font: bold 1.4rem Calibri, Arial, Helvetica, sans-serif;
+	}
+}
+/*------------------- Compte connecte header ----------------------*/
+.meta_compte .bt_compte,
+.expert_25w{
+	line-height:26px;
+	.img_expert{
+		float: left;
+		height: 25px;
+		width: 25px;
+		margin-right:5px;
+		.rounded(15px);
+		box-sizing: content-box;
+		span,
+		img{
+			width:25px;
+			.rounded(15px);
+		}
+		span{
+			display: inline-block;
+			height: 25px;
+			line-height: 25px;
+			background-color: #ddd;
+			color: @violet;
+			text-align: center;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+		}
+	}
+	.img_expert.icon-pic:before{
+		top:-.6rem;
+		right: -1.2rem;
+	}
+}
+/*------------------- Petite taille ----------------------*/
+.expert_60w{
+	position: relative;
+	.img_expert{
+		width:60px;
+		height:60px;
+		border:3px solid @violet;
+		.rounded(35px 0 35px 35px);
+		background-color: @violet;
+		box-sizing: content-box;
+		margin-top: 1rem;
+		span{
+			height: 60px;
+			line-height: 60px;
+			background-color: #ddd;
+			color: @violet;
+			text-align: center;
+			font-size: 3rem;
+			text-transform: uppercase;
+		}
+		span,
+		img{
+			width:60px;
+			.rounded(30px);
+		}
+	}
+	.img_expert.icon-pic::before{
+		top: 5px;
+		right: -12px;
+	}
+}
+/*------------------- Grande taille ----------------------*/
+.expert_110w{
+	position: relative;
+	.img_expert{
+		width:110px;
+		height:110px;
+		border:5px solid @violet;
+		.rounded(60px 0 60px 60px);
+		background-color: @violet;
+		box-sizing: content-box;
+		margin-top: .5rem;
+		span{
+			display: inline-block;
+			height: 110px;
+			line-height: 110px;
+			background-color: #ddd;
+			color: @violet;
+			text-align: center;
+			font-size: 5rem;
+			text-transform: uppercase;
+		}
+		span,
+		img{
+			width:110px;
+			.rounded(55px);
+		 }
+	}
+	.img_expert.icon-pic::before{
+		top: 20px;
+		right: -13px;
+	}
+}
+
+/*------------------- Niveau Expert ----------------------*/
+.expert_60w .niveau_expert span{
+	width:104px;
+	height:14px;
+	box-sizing:border-box;
+}
+.expert_110w .niveau_expert span{
+	width:140px;
+	height:16px;
+}
+.niveau_expert{
+	padding-bottom: 1rem;
+	padding-top: .5rem;
+	span{
+		display:inline-block;
+		vertical-align:-3px;
+		margin:0 0 0 .5rem;
+		border: 2px solid #fff;
+		.rounded(3px);
+		position: relative;
+	}
+	.niveau_0{
+		background:
+			linear-gradient(
+			to right ,
+			#d8d8d8 9%,
+			#fff 9%, #fff 10%,
+			#d8d8d8 10%, #d8d8d8 19%,
+			#fff 19%, #fff 20%,
+			#d8d8d8 20%, #d8d8d8 29%,
+			#fff 29%, #fff 30%,
+			#d8d8d8 30%, #d8d8d8 39%,
+			#fff 39%, #fff 40%,
+			#d8d8d8 40%, #d8d8d8 49%,
+			#fff 49%, #fff 50%,
+			#d8d8d8 50%, #d8d8d8 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_1{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			#d8d8d8 10%, #d8d8d8 19%,
+			#fff 19%, #fff 20%,
+			#d8d8d8 20%, #d8d8d8 29%,
+			#fff 29%, #fff 30%,
+			#d8d8d8 30%, #d8d8d8 39%,
+			#fff 39%, #fff 40%,
+			#d8d8d8 40%, #d8d8d8 49%,
+			#fff 49%, #fff 50%,
+			#d8d8d8 50%, #d8d8d8 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_2{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			#d8d8d8 20%, #d8d8d8 29%,
+			#fff 29%, #fff 30%,
+			#d8d8d8 30%, #d8d8d8 39%,
+			#fff 39%, #fff 40%,
+			#d8d8d8 40%, #d8d8d8 49%,
+			#fff 49%, #fff 50%,
+			#d8d8d8 50%, #d8d8d8 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_3{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			#d8d8d8 30%, #d8d8d8 39%,
+			#fff 39%, #fff 40%,
+			#d8d8d8 40%, #d8d8d8 49%,
+			#fff 49%, #fff 50%,
+			#d8d8d8 50%, #d8d8d8 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_4{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			#d8d8d8 40%, #d8d8d8 49%,
+			#fff 49%, #fff 50%,
+			#d8d8d8 50%, #d8d8d8 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_5{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			@vert 40%, @vert 49%,
+			#fff 49%, #fff 50%,
+			#d8d8d8 50%, #d8d8d8 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_6{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			@vert 40%, @vert 49%,
+			#fff 49%, #fff 50%,
+			@vert 50%, @vert 59%,
+			#fff 59%, #fff 60%,
+			#d8d8d8 60%, #d8d8d8 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_7{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			@vert 40%, @vert 49%,
+			#fff 49%, #fff 50%,
+			@vert 50%, @vert 59%,
+			#fff 59%, #fff 60%,
+			@vert 60%, @vert 69%,
+			#fff 69%, #fff 70%,
+			#d8d8d8 70%, #d8d8d8 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_8{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			@vert 40%, @vert 49%,
+			#fff 49%, #fff 50%,
+			@vert 50%, @vert 59%,
+			#fff 59%, #fff 60%,
+			@vert 60%, @vert 69%,
+			#fff 69%, #fff 70%,
+			@vert 70%, @vert 79%,
+			#fff 79%, #fff 80%,
+			#d8d8d8 80%, #d8d8d8 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_9{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			@vert 40%, @vert 49%,
+			#fff 49%, #fff 50%,
+			@vert 50%, @vert 59%,
+			#fff 59%, #fff 60%,
+			@vert 60%, @vert 69%,
+			#fff 69%, #fff 70%,
+			@vert 70%, @vert 79%,
+			#fff 79%, #fff 80%,
+			@vert 80%, @vert 89%,
+			#fff 89%, #fff 90%,
+			#d8d8d8 90%);
+	}
+	.niveau_8:after,
+	.niveau_9:after,
+	.niveau_10:after{
+		content: "";
+		position: absolute;
+		right: -18px;
+		top: -12px;
+		width:30px;
+		height: 40px;
+		background: url("@{imgPath}/sprite_general.png") no-repeat -110px -14px;
+		.scale(.8);
+	}
+	.niveau_8.icon-tick:before,
+	.niveau_9.icon-tick:before,
+	.niveau_10.icon-tick:before{
+                content: "\e602";
+                color:@vert;
+		.scale(.5);
+		position: absolute;
+		right: -20.5px;
+		top: -6px;
+		z-index: 1;
+		display: inline-block;
+	}
+	.icon-tick:before{
+		display: none;
+	}
+	.niveau_10{
+		background:
+			linear-gradient(
+			to right ,
+			@vert 9%,
+			#fff 9%, #fff 10%,
+			@vert 10%, @vert 19%,
+			#fff 19%, #fff 20%,
+			@vert 20%, @vert 29%,
+			#fff 29%, #fff 30%,
+			@vert 30%, @vert 39%,
+			#fff 39%, #fff 40%,
+			@vert 40%, @vert 49%,
+			#fff 49%, #fff 50%,
+			@vert 50%, @vert 59%,
+			#fff 59%, #fff 60%,
+			@vert 60%, @vert 69%,
+			#fff 69%, #fff 70%,
+			@vert 70%, @vert 79%,
+			#fff 79%, #fff 80%,
+			@vert 80%, @vert 89%,
+			#fff 89%, #fff 90%,
+			@vert 90%);
+	}
+}
+/*  -- Fin styles copiés de la nouvelle charte -- */
+
+/*** TOP EXPERTS ***/
+.topExperts {
+	margin:0 0 20px 0;
+	padding:0;
+	overflow:auto;
+}
+div.topExperts div.unTopExpert  {
+	clear:both;
+}
+div.topExperts div.unTopExpert img.avatar {
+	border:1px solid #979797;
+	float:left;
+	max-width:80px;
+	max-height:80px;
+	margin:0 3px 0 0;
+}
+div.topExperts div.infosExpert {
+	background:transparent url('@{imgPathTheme}/fd_topExpert_haut.gif') no-repeat 0 0;
+	float:right;
+	margin:0 0 15px 0;
+	padding:0;
+	width:590px;
+	overflow:hidden;
+}
+div.topExperts div.infosExpert div.basInfosExperts {
+	background:transparent url('@{imgPathTheme}/fd_topExpert_bas.gif') no-repeat left bottom;
+	margin:0;
+	padding:5px 12px 10px 16px;
+}
+div.topExperts div.infosExpert div.gaucheInfos {
+	float:left;
+	width:442px;
+}
+div.topExperts div.infosExpert h3.pseudo {
+	font:normal 14px/140% Arial, Helvetica, sans-serif;
+	margin:0 0 3px 0;
+}
+div.topExperts div.infosExpert h3.pseudo a {
+	margin:0 0 3px 0;
+	color:@color_base;
+	font-style:normal;
+	text-decoration:none;
+	text-transform:capitalize;
+	font-size:14px;
+}
+div.topExperts div.infosExpert div.gaucheInfos h3.pseudo a:hover {
+	text-decoration:underline;
+}
+div.topExperts div.infosExpert div.gaucheInfos div.bandeauGris {
+	border:none;
+	padding:3px;
+	margin:0;
+	background:#FFF;
+	height:9px;
+	overflow:hidden;
+	width:420px;
+	position:relative;
+}
+div.topExperts div.infosExpert div.gaucheInfos div.bandeauGris span {
+	text-transform:uppercase;
+	font:bold 9px/100% Arial, Helvetica, sans-serif;
+}
+div.topExperts div.infosExpert div.gaucheInfos img.etiquette {
+	position:absolute;
+	top:3px;
+	right:3px;
+}
+div.topExperts div.infosExpert div.droiteInfos {
+	float:left;
+	width:105px;
+	font:normal 12px/140% Arial, Helvetica, sans-serif;
+	margin:5px 0 0 0;
+	text-align:right;
+}
+div.topExperts div.infosExpert div.droiteInfos a{
+	text-decoration:none;
+	color:#333;
+}
+div.topExperts div.infosExpert div.droiteInfos a strong{
+	color:@color_base;
+	font-weight:bold;
+}
+div.topExperts div.infosExpert p.activite {
+	clear:both;
+	margin:0 0 7px 0;
+	padding:10px 0 7px 0;
+	border-bottom:1px dotted #999;
+	font:normal 12px/120% Arial, Helvetica, sans-serif;
+}
+div.topExperts div.infosExpert p.tag {
+	margin:0;
+	padding:0;
+	font:normal 12px/140% Arial, Helvetica, sans-serif;
+}
+div.topExperts div.infosExpert p.tag em{
+	color:@color_base;
+	font-style:normal;
+}
+div.topExperts div.infosExpert p.tag a {
+	text-decoration:none;
+	color:#333;
+}
+div.topExperts div.infosExpert p.tag a:hover {
+	text-decoration:underline;
+	color:@color_base;
+}

@@ -1,0 +1,1964 @@
+/**************************************************************** SOMMAIRE ****************************************************************
+
+*	Recherche
+*	Trouver un médicament
+*	Responsive Design
+
+/********************************** Recherche **********************************/
+.recherche_sujet{
+	clear: both;
+	position: relative;
+	overflow:hidden;
+	padding: 2.5rem;
+	margin-bottom: 2rem;
+	p{
+		float: left;
+		margin-right: 3rem;
+		font-family: @museo;
+		font-size: 2.5rem;
+		color: #fff;
+	}
+	fieldset{
+		position: relative;
+		width: 43%;
+		margin-top: 0;
+		padding: 0;
+		&.icon::before{
+			position: absolute;
+			right: 0;
+			top: 0;
+			font-size: 2.8rem;
+		}
+		input[type="text"]{
+			width: 100%;
+			padding: .3rem 1rem;
+			.radius(20px);
+			border: none;
+		}
+	}
+	&::after{
+		content: "";
+		display: inline-block;
+		position: absolute;
+		right:2rem;
+		bottom: -5.5rem;
+		width: 10rem;
+		height: 13rem;
+		background-image: url("@{imgPath}/chouette_clin_oeil.svg");
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-size: 100% auto;
+	}
+	.form_recherche{
+		.search{
+			+ input[type=submit]{
+				min-height: 30px;
+			}
+			~ .icon-loupe{
+				min-height: 30px;
+				top:2px;
+				right: 2px;
+				&::before{
+					vertical-align: -3px;
+					.scale(1.4);
+				}
+			}
+			&:focus ~ .icon-loupe{
+				min-height: 26px;
+				.radius(20px);
+			}
+		}
+	}
+}
+/*---- FILTRE PAGE RECHERCHE -----*/
+.filter_page_recherche{
+	margin-bottom: 3rem;
+	font-size: 1.6rem;
+	.affiner_recherche{
+		display: none;
+	}
+	.selected{
+		font-weight: bold;
+		color: #000;
+		border-bottom: 2px solid #000;
+	}
+	li {
+		display: inline-block;
+		+ li{
+			margin-left: 1.5rem;
+		}
+	}
+}
+.page_recherche{
+	//*---------- Remontée généralisée ---------*//
+	+ .w_1_3 .pub_right{
+		padding-left: 2rem;
+	}
+	.nb_results{
+		color: #999;
+		margin-bottom: 2rem;
+	}
+	a:hover{
+		color:@rouge;
+	}
+	.remontee_recherche{
+		margin-bottom: 4rem;
+		.lien_fort{
+			font-size: 1.6rem;
+		}
+		.remontee_titre{
+			display: block;
+			margin-bottom: 1.5rem;
+			font-size: 2.4rem;
+			font-family: @museo;
+		}
+		.remontee_img{
+			float: left;
+			margin-right: 2.5rem;
+			img{
+				display: block;
+			}
+		}
+		.remontee_info{
+			overflow: hidden;
+			p{
+				margin-bottom: 1rem;
+			}
+			aside{
+				display: inline-block;
+				font-size: 1.6rem;
+				margin-bottom: 1rem;
+				vertical-align: top;
+				+ aside{
+					margin-left: .5rem;
+					padding-left: 1rem;
+					border-left: 1px solid #ccc;
+				}
+			}
+			.plus_de_choix{
+				font-size: 1.6rem;
+				a:hover{
+					color: @rouge;
+				}
+				a + a,
+				span + span{
+					margin-left: .2rem;
+					padding-left: .5rem;
+					border-left: 1px solid #ccc;
+				}
+			}
+			&.icon,
+			&.icone{
+				position: relative;
+				padding-left: 6rem;
+				&::before{
+					position: absolute;
+					left: 0;
+					top: 0;
+					font-size: 5rem;
+				}
+			}
+		}
+		.lien_fort.icon-telecharger::before{
+			font-size: 2.4rem;
+			font-weight: 700;
+		}
+		.expert_60w .img_expert{
+			margin-top: 0;
+		}
+		&.list_ebibliotheque,
+		&.list_qr,
+		&.list_expert{
+			.liens{
+				font-size: 1.6rem;
+				&.icon{
+					position: relative;
+					padding-left: 6rem;
+					&::before{
+						position: absolute;
+						left: 0;
+						top: 0;
+						font-size: 4rem;
+					}
+				}
+				p{
+					margin: 0 0 .4rem 0;
+					a,
+					span{
+						display: inline;
+					}
+				}
+			}
+		}
+		&.list_qr,
+		&.list_expert{
+			.liens{
+				a{
+					margin-right: .7rem;
+					padding-right: .7rem;
+					border-right: 1px solid #ccc;
+				}
+			}
+		}
+	//*-------------- Remontée HomePage -----------*//
+		&.homepage{
+			.remontee_img{
+				width: 110px;
+				height: 110px;
+				background-size: cover;
+				background-position: center center;
+			}
+		}
+	//*-------------- Remontée How To -----------*//
+		&.howto{
+			.remontee_info{
+				.niveau{
+					position: relative;
+					padding-left: 3rem;
+					&::before{
+						content: "";
+						display: inline-block;
+						position: absolute;
+						left:0;
+						bottom: 2px;
+						width: 25px;
+						height: 20px;
+						background-image: url("@{imgPath}/sprite_niveaux.png");
+						background-repeat: no-repeat;
+					}
+					&.facile::before{
+						background-position: 50% 0;
+					}
+					&.moyen::before{
+						background-position: 50% 46%;
+					}
+					&.difficile::before{
+						background-position: 50% 93%;
+					}
+				}
+				.plus_de_choix{
+					span{
+						color:#999;
+						&::before{
+							color:#999;
+						}
+					}
+				}
+			}
+		}
+	//*-------------- Remontée Plante -----------*//
+		&.plant{
+			.remontee_info{
+				p{
+					position: relative;
+					span{
+						&:first-child{
+							background:#fff;
+							padding-right: 1rem;
+						}
+						&:last-child{
+							position: absolute;
+							right: 0;
+							bottom: 0;
+							background-color: #fff;
+						}
+					}
+					&::after{
+						content: "";
+						position: absolute;
+						left: 0;
+						right: 0;
+						bottom: .5rem;
+						z-index: -1;
+						border-bottom: 1px solid #ccc;
+					}
+				}
+			}
+			/*--- niveau entretien ---*/
+			.niveau_entretien_easy{
+				background-position: 5px -165px;
+			}
+			.niveau_entretien_moderate{
+				background-position: -65px -165px;
+			}
+			.niveau_entretien_hard{
+				background-position: -135px -165px;
+			}
+			/*--- besoin en eau ---*/
+			.besoin_eau_low{
+				background-position: 0 -140px;
+			}
+			.besoin_eau_medium{
+				background-position: -70px -140px;
+			}
+			.besoin_eau_large{
+				background-position: -140px -140px;
+			}
+			/*--- exposition ---*/
+			.exposition_soleil{
+				background-position: -50px -215px;
+			}
+			.exposition_mi_ombre{
+				background-position: -25px -215px;
+			}
+			.exposition_ombre{
+				background-position: 0 -215px;
+			}
+		}
+	//*-------------- Remontée Question -----------*//
+		&.question{
+			.txt_question{
+				padding-left: 6rem;
+				> p{
+					font-style: italic;
+				}
+			}
+			.icon.icon-guillemet::before{
+				font-style: normal;
+				left:0;
+				top: 0;
+				font-size: 40px;
+			}
+			.nb_reponse{
+				float: none;
+				.expert_25w{
+					float:none;
+				}
+			}
+			.plus_de_choix{
+				padding-left: 6rem;
+				a{
+					float: left;
+					display: block;
+					width: 65%;
+				}
+				span{
+					float: right;
+					width: 35%;
+					padding-left: .5rem;
+				}
+			}
+		}
+	//*-------------- Remontée Modèle -----------*//
+		&.model{
+			.remontee_info{
+				&.icon::before{
+					font-size: 42px;
+					top: .5rem;
+				}
+			}
+		}
+	//*-------------- Remontée Ebook & KIT-----------*//
+		&.ebook{
+			.remontee_img{
+				img{
+					width: 115px;
+					&.kit{
+						border: 1px solid @violet;
+					}
+				}
+			}
+		}
+	//*-------------- Remontée expert -----------*//
+		&.expert{
+			.job{
+				font-size: 2rem;
+			}
+			.niveau_expert{
+				font-size: 2rem;
+			}
+		}
+	//*-------------- Remontée Vidéo -----------*//
+		&.video{
+			time{
+				display: block;
+				margin-bottom: 1rem;
+			}
+			time + p{
+				font-size: 1.6rem;
+			}
+			.remontee_img{
+				position: relative;
+				img{
+					width: 200px;
+				}
+				&::before{
+					content:"";
+					display: block;
+					position: absolute;
+					top: 50%;
+					right: 50%;
+					width: 65px;
+					height: 65px;
+					margin-right: -35px;
+					margin-top: -32px;
+					background: url("https://media.ooreka.fr/public/image/bt_play_video-source-12349556.png")
+				}
+			}
+		}
+	//*-------------- Remontée médicament -----------*//
+		&.drug{
+			p{
+				margin: 0;
+			}
+			.icone{
+				padding-left: 6.5rem;
+				&::before{
+					left: -.5rem;
+					color: #56b539;
+				}
+			}
+		}
+	//*-------------- Remontée Liste QR -----------*//
+		&.list_qr{
+			.liens.icon::before{
+				font-size: 3.5rem;
+			}
+		}
+	//*-------------- Remontée Liste EXPERT -----------*//
+		&.list_expert{
+			.img_expert{
+				margin-right: 2.5rem;
+				margin-top: .5rem;
+			}
+			.liens{
+				overflow: hidden;
+			}
+		}
+	//*-------------- Remontée Liste PLANTE -----------*//
+		&.list_plante{
+			p{
+				margin-bottom: 0;
+			}
+			.icon{
+				padding-left: 6.5rem;
+				&::before{
+					font-weight: bold;
+					font-size: 4.5rem;
+					color: #93c01f;
+				}
+			}
+		}
+	//*-------------- Remontée Liste ALPHA & FICHE & ASTUCE (3 images)-----------*//
+		&.list_3_img{
+			p{
+				margin-bottom: 1.5rem;
+			}
+			.w_1_3{
+				img{
+					float: left;
+					margin-right: 1rem;
+					width: 65px;
+				}
+				span{
+					display: block;
+					font-size: 1.6rem;
+					overflow: hidden;
+				}
+			}
+		}
+	//*-------------- Remontée Liste Vidéo -----------*//
+		&.list_video{
+			p{
+				margin-bottom: 1rem;
+			}
+			.remontee_video{
+				position: relative;
+				float: left;
+				width: 120px;
+				margin-right: 2rem;
+				.img_video{
+					position: relative;
+					display: block;
+					img{
+						width: 100%;
+					}
+					&::before{
+						content:"";
+						display: block;
+						position: absolute;
+						top: 50%;
+						right: 50%;
+						width: 65px;
+						height: 65px;
+						margin-right: -32px;
+						margin-top: -34px;
+						background: url("https://media.ooreka.fr/public/image/bt_play_video-source-12349556.png");
+						.scale(.6);
+					}
+				}
+				a:last-of-type{
+					font-size: 1.6rem;
+					display: block;
+				}
+			}
+		}
+	}
+}
+/********************************** Trouver un médicament **********************************/
+.dico_medicament{
+	/////// MOTEUR RECHERCHE /////
+	.moteur_medicament{
+		background-image: url("@{imgPath}/medicaments/bg_medicament.jpg");
+		background-repeat: no-repeat;
+		background-position: center center;
+		form{
+			padding: 4rem 20px 2rem 20px;
+			border: none;
+			box-sizing: content-box;
+			color: #fff;
+			background: @violet;
+			.radius(1rem);
+		}
+		svg{
+			width: 6rem;
+			height: 6rem;
+			&.icon-info-bulle{
+				width: 1.8rem;
+				height: 1.8rem;
+				margin-left: .5rem;
+				cursor: pointer;
+			}
+		}
+		.titre{
+			font-size: 2rem;
+			font-family: @museo;
+		}
+		.bt_rouge{
+			float: right;
+			text-align: center;
+		}
+		._bt_fixe{
+			display: none;
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			padding: 1rem;
+			.gradient(@rouge, @orange, @rouge);
+			text-align: center;
+			font-size:1.8rem;
+			font-family: @museo;
+			color:#fff;
+			z-index: 1;
+		}
+		.recherche{
+			.flex-display(flex);
+			.align-items(center);
+			margin-bottom: 4rem;
+			.titre{
+				max-width: 40rem;
+				font-size: 2.5rem;
+				padding-left: 7rem;
+				margin-right: 2rem;
+				text-align: center;
+				&.icon-medicament::before{
+					position: absolute;
+					top: 50%;
+					left: 1.8rem;
+					margin-top: -3rem;
+					font-size: 6rem;
+					color: #fff;
+				}
+			}
+			input{
+				width: 50%;
+				height: 3rem;
+				padding-left: 1.5rem;
+				border:none;
+				font-size: 1.6rem;
+				.radius(2rem);
+				&::-webkit-input-placeholder{
+					color: #999;
+				}
+			}
+		}
+		.filtres{
+			.titre{
+				margin-bottom: 1rem;
+			}
+			.liste_filtre{
+				margin-left: -.5rem;
+				margin-right: -.5rem;
+				li{
+					width: 33.33%;
+					float: left;
+					padding-left: .5rem;
+					padding-right: .5rem;
+					color: #666;
+					text-align: center;
+					svg{
+						display: block;
+						margin: 0 auto;
+					}
+				}
+			}
+			.w_1_2{
+				div + div{
+					margin-top: 1.5rem;
+				}
+			}
+			input{
+				display: none;
+			}
+			input[type="checkbox"]:checked + label{
+				color: #fff;
+				background-color: @vert;
+				svg{
+					display: none;
+				}
+				&.sans_picto::before{
+					display: none;
+				}
+				&::before{
+					font-size: 3rem;
+					margin: 1.5rem 0;
+					font-family: 'icomoon';
+					content: "\e602";
+					color:#fff;
+					.animation(bounceIn, .6s, ease, 0s);
+				}
+			}
+			label{
+				.flex-display(flex);
+				.flex-direction(column);
+				.justify-content(space-around);
+				min-height: 12.4rem;
+				padding: 1.3rem 1.4rem;
+				margin-bottom: 1rem;
+				background-color: #fff;
+				font-size: 1.6rem;
+				cursor: pointer;
+				.radius(.5rem);
+				.transition(all, .3s, ease, 0s);
+				&.sans_picto{
+					min-height: 7rem;
+					padding: 1.5rem 1.4rem;
+				}
+			}
+		}
+		.complement_info{
+			margin: 3rem 0;
+			.titre{
+				margin-bottom: .5rem;
+			}
+			.icon-stylo{
+				position: relative;
+				&::before{
+					position: absolute;
+					right: 0;
+					bottom: 1rem;
+					color: #fff;
+					font-size: 1.4rem;
+				}
+			}
+			input{
+				width: 100%;
+				padding-bottom: .5rem;
+				padding-right: 3rem;
+				font-size: 1.4rem;
+				font-style: italic;
+				color:#eee;
+				background: none;
+				border: none;
+				border-bottom: 1px solid #fff;
+				&::-webkit-input-placeholder{
+					color: #eee;
+				}
+				&::-moz-placeholder{
+					color: #eee;
+				}
+				&:-ms-input-placeholder {
+					color: #eee;
+				}
+				&:-moz-placeholder {
+					color: #eee;
+				}
+			}
+		}
+	}
+	.classement_ATC{
+		margin-top: 2rem;
+		li:first-letter,
+		p:first-letter,
+		a:first-letter{
+			text-transform: capitalize;
+		}
+		.listing_ATC{
+			text-transform:lowercase;
+			cursor: pointer;
+			color: @violet;
+			.ATC{
+				.flex-display(flex);
+				.align-items(center);
+				height: 11rem;
+				padding-right: 6rem;
+				border: 1px solid #ccc;
+				box-sizing: content-box;
+				&.icon-chevron::before{
+					position: absolute;
+					right: 1rem;
+					top: 50%;
+					margin-top: -2.25rem;
+					font-size: 4.5rem;
+					color: @violet;
+					.scale-rotate(.5,270deg);
+				}
+			}
+			&.open{
+				.ATC{
+					background: @violet;
+					color: #fff;
+					&.icon-chevron::before{
+						color: #fff;
+						.scale-rotate(.5,90deg);
+					}
+				}
+			}
+			ul{
+				border: 1px solid #ccc;
+				border-top: none;
+				li{
+					font-size: 1.4rem;
+					+ li{
+						border-top: 1px solid #ccc;
+					}
+					a{
+						display: block;
+						padding: 1rem;
+					}
+				}
+			}
+		}
+		// Image ATC
+		.img_ATC{
+			min-width:11rem;
+			height:11rem;
+			border-right:1px solid #ccc;
+			margin-right: 1rem;
+		}
+		.img_A,
+		.img_B,
+		.img_C,
+		.img_D,
+		.img_G,
+		.img_H,
+		.img_J,
+		.img_L,
+		.img_M,
+		.img_N,
+		.img_P,
+		.img_R,
+		.img_S,
+		.img_V{
+			background:url("@{imgPath}/medicaments/sprite_ATC.jpg") no-repeat 0 0;
+			background-size: 11rem;
+		}
+		.img_A{
+			background-position: 0 0;
+		}
+		.img_B{
+			background-position: 0 -11rem;
+		}
+		.img_C{
+			background-position: 0 -22rem;
+		}
+		.img_D{
+			background-position: 0 -33rem;
+		}
+		.img_G{
+			background-position: 0 -44rem;
+		}
+		.img_H{
+			background-position: 0 -55rem;
+		}
+		.img_J{
+			background-position: 0 -66rem;
+		}
+		.img_L{
+			background-position: 0 -77rem;
+		}
+		.img_M{
+			background-position: 0 -88rem;
+		}
+		.img_N{
+			background-position: 0 -99rem;
+		}
+		.img_P{
+			background-position: 0 -110rem;
+		}
+		.img_R{
+			background-position: 0 -121rem;
+		}
+		.img_S{
+			background-position: 0 -132rem;
+		}
+		.img_V{
+			background-position: 0 -143rem;
+		}
+	}
+	.disclamer_med{
+		color: @rouge;
+	}
+}
+/********************************** Moteur Plante **********************************/
+.moteur_plante{
+	.recherche_mots_cles{
+		margin-bottom: 3rem;
+		.champ_recherche{
+			width: 80%;
+			height: 3rem;
+			padding: 0 1rem;
+			border: 1px solid #ccc;
+		}
+		.bt_submit{
+			height: 3rem;
+			padding: 0 1.5rem;
+			.gradient(@rouge, @orange, @rouge);
+			font-size: 1.6rem;
+			font-family: @museo;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+		}
+		.recherche_lettres{
+			margin-top: .5rem;
+			a{
+				display: block;
+				float: left;
+				padding: 0 1rem;
+				text-align: center;
+				+ a{
+					border-left: 1px solid #eee;
+				}
+				&:hover{
+					background-color: #eee;
+				}
+			}
+		}
+	}
+	.w_full,
+	.w_1_3,
+	.w_1_4{
+		> p{
+			position: relative;
+			padding: 1rem 3rem 1rem 1rem;
+			border-bottom: 1px solid #fff;
+			background-color: #ddd;
+			font-family: @museo;
+			font-size: 1.8rem;
+			&.icon-chevron{
+				&.close::before{
+					.scale-rotate(.5,-90deg);
+				}
+				&::before{
+					display: none;
+					position: absolute;
+					right: .5rem;
+					top: 50%;
+					margin-top: -1.75rem;
+					font-size: 3.5rem;
+					color: @violet;
+				}
+			}
+		}
+		> ul {
+			padding: 1rem;
+		}
+		background-color: #eee;
+	}
+	.w_full{
+		margin: 2rem 0;
+	}
+	.row_1,
+	.row_2,
+	.row_3,
+	.row_7{
+
+		.flex-display(flex);
+		.flex-wrap(wrap);
+		margin-left: -1rem;
+		margin-right: -1rem;
+		li{
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+		input{
+			display: none;
+		}
+		input[type="checkbox"]:checked + label,
+		input[type="radio"]:checked + label,{
+			&::before{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin: -1.9rem 0 0 -1.9rem;
+				font-size: 3.5rem;
+				font-family: 'icomoon';
+				content: "\e602";
+				color:rgba(0, 0, 0, 0.7);
+				text-shadow: 0 0 15px rgba(256, 256, 256, 0.6);
+				.animation(bounceIn, .6s, ease, 0s);
+				z-index: 1;
+			}
+			border-color: @vert;
+			color: @vert;
+		}
+		label,
+		.bt_sous_liste{
+			position: relative;
+			display: block;
+			margin-bottom: 1.5rem;
+			cursor: pointer;
+			font-size: 1.4rem;
+			font-family: @museo;
+			color: @violet;
+			text-align: center;
+			border: 3px solid @violet;
+			background-color: #fff;
+			.radius(5px);
+		}
+		.link_popupinfo{
+			.icon_info-bulle{
+				display: inline-block;
+				margin: 0 .5rem 0 0;
+			}
+		}
+		&.no_info{
+			padding-bottom: 0;
+		}
+	}
+	.row_1,
+	.row_2,
+	.row_3,
+	.row_7,
+	.row_input{
+		.link_popupinfo{
+			.flex(1 0 100%);
+			font-size: 1.4rem;
+		}
+	}
+	.row_1,
+	.row_3{
+		&.row_icon_left,
+		&.row_img_left,
+		&.row_txt_left{
+			label,
+			.bt_sous_liste{
+				.flex-display(flex);
+				.align-items(center);
+				text-align: left;
+			}
+		}
+		&.row_icon_left{
+			input[type="checkbox"]:checked + label{
+				&::before{
+					left: 2.2rem;
+					margin-left: 0;
+					margin-top: -1.3rem;
+					font-size: 2.6rem;
+					color: @vert;
+				}
+				span{
+					background-image: none;
+				}
+			}
+		}
+	}
+	.row_1{
+		> li{
+			width: 100%;
+		}
+		&.row_sous_liste{
+			label{
+				padding-right: 3rem;
+				margin-bottom: 0;
+				border:none;
+				margin-top: .3rem;
+				.radius(0);
+			}
+		}
+		&.row_txt_left{
+			input[type="checkbox"]:checked + label{
+				&::before{
+					left: 2rem;
+					margin-left: 0;
+					margin-top: -1rem;
+					font-size: 2rem;
+					color: @vert;
+				}
+				padding-left: 6rem;
+			}
+			label{
+				padding: 2rem 3rem;
+			}
+		}
+	}
+	.row_2{
+		li{
+			.flex(1 1 50%);
+		}
+		label{
+
+			padding-bottom: .5rem;
+		}
+		&.row_txt span{
+			display: block;
+			float: none;
+			margin: 0 auto;
+		}
+	}
+	.row_3{
+		li{
+			.flex(1 1 33.33%);
+		}
+		label{
+			width: 100%;
+			padding: .2rem;
+		}
+		&.row_txt span{
+			display: block;
+			float: none;
+			margin: .75rem auto;
+		}
+		&.row_img_left{
+			label{
+				padding: 0;
+			}
+			input[type="checkbox"]:checked + label{
+				&::before{
+					left: 1.5rem;
+					margin-left: 0;
+				}
+			}
+		}
+	}
+	.row_7{
+		li{
+			.flex(0 1 14.28%);
+			.flex-display(flex);
+		}
+		label{
+			width: 100%;
+		}
+	}
+	.row_input{
+		input{
+			display: none;
+		}
+
+		li{
+			margin-bottom: .5rem;
+		}
+		label{
+			position: relative;
+			display: block;
+			padding-left: 3rem;
+			font-size: 1.8rem;
+			cursor: pointer;
+			&::before{
+				content:"";
+				position: absolute;
+				left: 0;
+				top: 50%;
+				margin-top: -.625rem;
+				display: block;
+				width: 1.25rem;
+				height: 1.25rem;
+				background-color: #fff;
+				border: 1px solid #ccc;
+				.radius(2px);
+			}
+		}
+		input[type="checkbox"]:checked + label{
+			color: @vert;
+			&::after{
+				position: absolute;
+				content:"\e602";
+				font-size: 18px;
+				font-family: 'icomoon';
+				left: 0;
+				color: @vert;
+				.animation(bounceIn, .6s, ease, 0s);
+			}
+		}
+		.link_popupinfo{
+			padding: 1rem 0 0;
+			margin-bottom: 0;
+		}
+	}
+	._disable{
+		opacity: .5;
+		label{
+			border-color: #aaaaab;
+			color: #aaaaab;
+		}
+	}
+	.bt_liste::after{
+		content:"\e603";
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		margin-top: -1rem;
+		display:inline-block;
+		font-size: 18px;
+		font-family: 'icomoon';
+		.scale-rotate(.8,180deg);
+	}
+	.bt_retour{
+		display: block;
+		padding: .5rem;
+		background-color: #fff;
+		font-family: @museo;
+		font-size: 1.6rem;
+		&.icon-chevron::before{
+			.scale-rotate(.8,0);
+		}
+		&:hover::before{
+			color: @rouge;
+		}
+	}
+	.ss_titre{
+		font-size: 3rem;
+		font-family: @museo;
+		margin: 0 0 2rem 0;
+		line-height: 100%;
+	}
+	.barre_fixe_resultat{
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 1;
+		background-color: #ccc;
+		div{
+			.flex-display(flex);
+			.justify-content(space-between);
+			.align-items(center);
+			position: relative;
+			max-width: 1000px;
+			margin: 0 auto;
+		}
+		a{
+			padding: 1rem 4rem 1rem 2rem;
+			font-family: @museo;
+			color: #fff;
+			.gradient(@rouge, @orange, @rouge);
+			text-align: center;
+		}
+		._noResult{
+			padding: 1rem 2rem;
+			background: #999;
+			cursor: default;
+			.icon::before{
+				display: none;
+			}
+		}
+		span{
+			display: inline-block;
+			&::before{
+				position: relative;
+				float: right;
+				top: .4rem;
+				margin-right: -2rem;
+				font-size: 1.4rem;
+				color: #fff;
+				.rotate(180deg)
+			}
+		}
+	}
+	.hauteur_maturite li{
+		.flex-display(flex);
+	}
+	.periodicite_plante{
+		clear:both;
+		padding-top: 2rem;
+		table{
+			font-size: 1.4rem;
+			text-transform: uppercase;
+			border: 10px solid #eee;
+		}
+		td{
+			padding: 1rem 0;
+			background-color: #fff;
+			text-align: center;
+			border: 2px solid #eee;
+			cursor: pointer;
+			color: @violet;
+			font-weight: bold;
+		}
+		._selected1,
+		._selected2,
+		._selected3,
+		._selected4{
+			color: #fff;
+			background-color: @vert
+		}
+	}
+	.nature_terre li p{
+		font-size: 1.6rem;
+		padding-right: .5rem;
+		span{
+			display: block;
+			margin-top: .5rem;
+			font-size: 1.4rem;
+			font-family: @calibri;
+		}
+	}
+	.forme_plante label{
+		padding: .5rem;
+	}
+	.icon_info-bulle{
+		display: inline-block;
+		width: 2rem;
+		height: 2rem;
+		margin-right: .5rem;
+		background-image: url("@{imgPath}/plantes/sprite-multiples.png");
+		background-position: -105px -218px;
+		background-repeat: no-repeat;
+		background-size: 77rem;
+		vertical-align: middle;
+	}
+	///////// ICON PLANTE
+	.picto_arbre,
+	.picto_arbuste,
+	.picto_plante_fruit,
+	.picto_plante_ornementale,
+	.picto_plante_bassin,
+	.picto_arbre_fruitier,
+	.picto_conifere,
+	.picto_palmier,
+	.picto_arbre_fleurs,
+	.picto_topiaire,
+	.picto_arbuste_fleur,
+	.picto_arbuste_fruitier,
+	.picto_arbuste_topiaire,
+	.picto_plante_decorative,
+	.picto_plante_fleurs,
+	.picto_herbe_gramine,
+	.picto_plante_grasse,
+	.picto_plante_fruit_decoratif,
+	.picto_plante_carnivore,
+	.picto_plante_grimpante,
+	.picto_legume_racine,
+	.picto_legume_exotique,
+	.picto_legume_ancien,
+	.picto_legume_autre,
+	.picto_fruitier_arbre,
+	.picto_petit_fruit,
+	.picto_aromatique,
+	.picto_plante_tisane,
+	.picto_autre_medicinale,
+	.picto_plante_immerge,
+	.picto_plante_berges{
+		display: block;
+		min-width: 6rem;
+		height: 6.5rem;
+		margin-right: 1.5rem;
+		background-image: url("@{imgPath}/plantes/sprite-plantes.png");
+		background-size: 54rem;
+		background-repeat: no-repeat;
+	}
+	/// ARBRE
+	.picto_arbre{
+		background-position: 5px -119px;
+	}
+	.picto_arbuste{
+		background-position: 5px 0;
+	}
+	.picto_plante_fruit{
+		background-position: -356px -299px;
+	}
+	.picto_plante_ornementale{
+		background-position: -51px -299px;
+	}
+	.picto_plante_bassin{
+		background-position: -59px -178px;
+	}
+	.picto_arbre_fruitier{
+		background-position: -55px -119px;
+	}
+	.picto_palmier{
+		background-position: -176px -119px;
+	}
+	.picto_arbre_fleurs{
+		background-position: -117px -119px;
+	}
+	.picto_topiaire{
+		background-position: -237px -119px;
+	}
+	.picto_conifere{
+		background-position: -297px -119px;
+	}
+	/// ARBUSTE
+	.picto_arbuste_fleur{
+		background-position: -117px 0;
+	}
+	.picto_arbuste_fruitier{
+		background-position: -57px 0;
+	}
+	.picto_arbuste_topiaire{
+		background-position: -177px 0;
+	}
+	/// PLANTES ORNEMENTALES
+	.picto_plante_decorative{
+		background-position: -54px -57px;
+	}
+	.picto_plante_fleurs{
+		background-position: 6px -57px;
+	}
+	.picto_herbe_gramine{
+		background-position: -354px -57px;
+	}
+	.picto_plante_grasse{
+		background-position: -115px -57px;
+	}
+	.picto_plante_fruit_decoratif{
+		background-position: -235px -57px;
+	}
+	.picto_plante_carnivore{
+		background-position: -295px -57px;
+	}
+	.picto_plante_grimpante{
+		background-position: -175px -57px;
+	}
+	///// FRUIT / LEGUME / AROMATIQUE
+	.picto_legume_racine{
+		background-position: 2px -240px;
+	}
+	.picto_legume_exotique{
+		background-position: -59px -240px;
+	}
+	.picto_legume_ancien{
+		background-position: -119px -240px;
+	}
+	.picto_legume_autre{
+		background-position: -179px -240px;
+	}
+	.picto_fruitier_arbre{
+		background-position: -240px -240px;
+	}
+	.picto_petit_fruit{
+		background-position: -297px -240px;
+	}
+	.picto_aromatique{
+		background-position: -358px -243px;
+	}
+	.picto_plante_tisane{
+		background-position: -420px -237px;
+	}
+	.picto_autre_medicinale{
+		background-position: -479px -237px;
+	}
+	/// PLANTE DE BASSIN
+	.picto_plante_immerge{
+		margin-left: 1rem;
+		background-position: 0 -180px;
+	}
+	.picto_plante_berges{
+		background-position: -121px -177px;
+	}
+	////////////////////////////////
+	///////// ICONE FLEURS /////////
+	////////////////////////////////
+	.couleur_fleur span,
+	.couleur_feuille span{
+		display: block;
+		margin: 0 auto;
+		width: 7rem;
+		height: 6rem;
+		background-size: 77rem;
+	}
+	.fleur_white{
+		background-position: 0 -5px;
+	}
+	.fleur_grey{
+		background-position: -70px -5px;
+	}
+	.fleur_yellow{
+		background-position: -140px -5px;
+	}
+	.fleur_orange{
+		background-position: -210px -5px;
+	}
+	.fleur_red{
+		background-position: -280px -5px;
+	}
+	.fleur_pink{
+		background-position: -350px -5px;
+	}
+	.fleur_violet_purple{
+		background-position: -420px -5px;
+	}
+	.fleur_blue{
+		background-position: -490px -5px;
+	}
+	.fleur_green{
+		background-position: -560px -5px;
+	}
+	.fleur_black{
+		background-position: -630px -5px;
+	}
+	.fleur_multicolor{
+		background-position: -700px -5px;
+	}
+	///////// ICONE FEUILLES
+	.feuille_silver{
+		background-position: 0 -75px;
+	}
+	.feuille_golden{
+		background-position: -70px -75px;
+	}
+	.feuille_pale_green{
+		background-position: -140px -75px;
+	}
+	.feuille_dark_green{
+		background-position: -280px -75px;
+	}
+	.feuille_red{
+		background-position: -560px -75px;
+	}
+	.feuille_purple{
+		background-position: -490px -75px;
+	}
+	.feuille_black{
+		background-position: -420px -75px;
+	}
+	.feuille_blue{
+		background-position: -350px -75px;
+	}
+	.feuille_variegated{
+		background-position: -210px -75px;
+	}
+	/////////// ICON RESISTANCE
+	.resistance_fragile{
+		width: 1.7rem;
+	}
+	.resistance_proteger{
+		width: 4rem;
+	}
+	.resistance_rustique{
+		width: 6rem;
+	}
+	/////////// ICON ENTRETIEN
+	.niveau_entretien_easy{
+		width: 1.7rem;
+	}
+	.niveau_entretien_moderate{
+		width: 4rem;
+	}
+	.niveau_entretien_hard{
+		width: 6rem;
+	}
+	/////////// ICON ENTRETIEN
+	.besoin_eau_low{
+		width: 1.7rem;
+	}
+	.besoin_eau_medium{
+		width: 3.3rem;
+	}
+	.besoin_eau_large{
+		width: 5rem;
+	}
+	///////// ICON HAUTEUR A MATURITE
+	.maturite_petit,
+	.maturite_moyen,
+	.maturite_grand{
+		display: block;
+		width: 7rem;
+		height: 9.5rem;
+		background-image: url("@{imgPath}/plantes/sprite-maturite.png");
+		background-size: 20rem;
+		background-repeat: no-repeat;
+	}
+	.maturite_petit{
+		background-position: 0 0;
+	}
+	.maturite_moyen{
+		background-position: -63px 0;
+	}
+	.maturite_grand{
+		background-position: -130px 0;
+	}
+	//////// ICON FEUILLAGE
+	.feuillage_caduc,
+	.feuillage_persistant{
+		display: block;
+		max-width: 13rem;
+		height: 11rem;
+		background-image: url("@{imgPath}/plantes/sprite-feuillage.jpg");
+		background-size: 25rem;
+		background-repeat: no-repeat;
+	}
+	.feuillage_persistant{
+		background-position: 0 0;
+	}
+	.feuillage_caduc{
+		background-position: -125px 0;
+	}
+	/////// IMG NATURE DE LA TERRE
+	.nature_argileuse,
+	.nature_calcaire,
+	.nature_sableuse,
+	.nature_caillouteuse,
+	.nature_bruyere,
+	.nature_humifere,
+	.nature_terreau{
+		display: block;
+		margin-right:1rem;
+		min-width: 7rem;
+		height: 7rem;
+		background-image: url("@{imgPath}/plantes/sprite-nature-terre.jpg");
+		background-size: 49rem;
+		background-repeat: no-repeat;
+	}
+	.nature_argileuse{
+		background-position: 0 0;
+	}
+	.nature_caillouteuse{
+		background-position: -70px 0;
+	}
+	.nature_calcaire{
+		background-position: -140px 0;
+	}
+	.nature_humifere{
+		background-position: -210px 0;
+	}
+	.nature_sableuse{
+		background-position: -280px 0;
+	}
+	.nature_terreau{
+		background-position: -350px 0;
+	}
+	.nature_bruyere{
+		background-position: -420px 0;
+	}
+	//////// ICON FORME
+	.forme_buisson,
+	.forme_boule,
+	.forme_ouvert,
+	.forme_conique,
+	.forme_elance,
+	.forme_palme,
+	.forme_pleureur,
+	.forme_grimpant,
+	.forme_palisse,
+	.forme_etale{
+		display: block;
+		width: 10rem;
+		height: 10.5rem;
+		margin: 0 auto;
+		background-image: url("@{imgPath}/plantes/forme.png");
+		background-size: 1000%;
+		background-repeat: no-repeat;
+	}
+	.forme_etale{
+		background-position: 0 0;
+	}
+	.forme_buisson{
+		background-position: 11% 0;
+	}
+	.forme_boule{
+		background-position: 22% 0;
+	}
+	.forme_ouvert{
+		background-position: 33.3% 0;
+	}
+	.forme_conique{
+		background-position: 44.4% 0;
+	}
+	.forme_elance{
+		background-position: 55.5% 0;
+	}
+	.forme_palme{
+		background-position: 66.6% 0;
+	}
+	.forme_pleureur{
+		background-position: 77.7% 0;
+	}
+	.forme_palisse{
+		background-position: 88.6% 0;
+	}
+	.forme_grimpant{
+		background-position: 99.7% 0;
+	}
+
+}
+/********************************** Responsive Design **********************************/
+@media only screen and (max-width: 1030px) {
+	.recherche_sujet{
+		fieldset{
+			margin: 1rem auto 0 auto;
+		}
+		p{
+			text-align: center;
+			float: none;
+			margin-right: 0;
+		}
+	}
+	.dico_medicament{
+		.moteur_medicament form{
+			.radius(0);
+		}
+	}
+}
+@media only screen and (max-width: 900px) {
+	.recherche_sujet{
+		margin-bottom: 2rem;
+	}
+	.page_recherche{
+		width: 100%;
+		margin-right: 0;
+		+ .w_1_3 .pub_right{
+			display: none;
+		}
+	}
+}
+@media only screen and (max-width: 800px) {
+	.recherche_sujet fieldset{
+		width:55%;
+	}
+	.dico_medicament{
+		.moteur_medicament{
+			form{
+				.bt_rouge{
+					float: none;
+					display: block;
+					max-width: 25rem;
+					margin: 1rem auto;
+				}
+			}
+			.recherche{
+				.flex-direction(column);
+				.titre{
+					margin-right: 0;
+					margin-bottom: 2rem;
+				}
+				input{
+					width: 90%;
+				}
+			}
+			._bt_fixe{
+				display: block;
+				.translateY(0);
+				.transition(all, .3s, ease, 0s);
+				&.hide{
+					.translateY(100%);
+				}
+			}
+		}
+	}
+	.moteur_plante{
+		.nature_terre .row_3 li{
+			.flex-basis(100%);
+		}
+		.feuillage label{
+			max-width: 13rem;
+			margin: 0 auto 1.5rem;
+		}
+		.periodicite_plante{
+			li:nth-child(n+3){
+				margin-top: 2rem;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 700px) {
+	.recherche_sujet{
+		&::after{
+			display: none;
+		}
+		p{
+			text-align: center;
+		}
+	}
+	.filter_page_recherche{
+		margin-bottom: 2rem;
+		&.afficher_liste{
+			.filtre{
+				padding-bottom: 1rem;
+				border-bottom: 1px solid #ccc;
+			}
+			.filtre,
+			li{
+				display: block;
+			}
+			.affiner_recherche::before{
+				.scale-rotate(.6,90deg);
+			}
+		}
+		.affiner_recherche{
+			display: block;
+			text-align: right;
+			padding-right: 2.5rem;
+			cursor: pointer;
+			color: @rouge;
+			&::before{
+				position: absolute;
+				right: 0;
+				color: @rouge;
+				.scale-rotate(.6,-90deg);
+			}
+		}
+		.filtre{
+			display: none;
+		}
+		li{
+			margin-bottom: 1rem;
+			+ li{
+				margin-left: 0;
+			}
+		}
+	}
+}
+@media only screen and (max-width:650px) {
+	.page_recherche{
+		.remontee_recherche{
+			&.plant{
+				.remontee_info{
+					clear: both;
+				}
+				.remontee_img{
+					margin-bottom: 1.5rem;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 500px) {
+	.recherche_sujet fieldset{
+		width:100%;
+	}
+	.page_recherche{
+		.remontee_recherche{
+			margin-bottom: 3rem;
+			.remontee_titre{
+				font-size: 2rem;
+			}
+			.remontee_info{
+				overflow: inherit;
+				&.icon,
+				&.icone{
+					padding-left: 4.5rem;
+					&::before{
+						font-size: 30px;
+					}
+				}
+			}
+			.remontee_img{
+				margin-right: 1rem;
+				margin-bottom: 1rem;
+				img{
+					width: 65px;
+				}
+			}
+			&.howto{
+				aside + aside{
+					display: block;
+					margin-left: 0;
+					border-left:none;
+				}
+			}
+			&.question{
+				.icon.icon-guillemet::before{
+					font-size: 30px;
+				}
+				.txt_question{
+					padding-left: 4.5rem;
+				}
+				.plus_de_choix{
+					padding-left: 0;
+					a{
+						float: none;
+						display: inline;
+					}
+					span{
+						float: none;
+						width: auto;
+						padding-left: 0;
+					}
+				}
+			}
+			&.model{
+				.remontee_info{
+					padding-left: 0;
+					&.icon::before{
+						font-size: 30px;
+					}
+				}
+				aside{
+					display: block;
+					margin-bottom: 0;
+					font-size: 1.4rem;
+				}
+				aside + aside{
+					margin-left: 0;
+					padding-left: 0;
+					border-left:none;
+				}
+				.info_model{
+					padding-left: 4.5rem;
+					margin-bottom: 1rem;
+				}
+			}
+			&.ebook{
+				aside{
+					font-size: 1.4rem;
+					+ aside{
+						padding-left: .5rem;
+					}
+				}
+				.remontee_img{
+					img{
+						width: 65px;
+					}
+				}
+			}
+			&.expert,
+			&.list_expert{
+				.job{
+					font-size: 1.8rem;
+				}
+				.img_expert{
+					float: left;
+				}
+				.img_expert,
+				.img_expert img{
+					.rotate(0);
+				}
+			}
+			&.video{
+				.remontee_img{
+					&::before{
+						.scale(.7);
+					}
+					img{
+						width: 145px;
+					}
+				}
+				.remontee_info{
+					overflow: inherit;
+					p{
+						clear: both;
+						margin-bottom: 0;
+					}
+				}
+			}
+			&.drug{
+				.icone::before{
+					font-size: 40px;
+				}
+			}
+			&.list_ebibliotheque,
+			&.list_qr,
+			&.list_expert{
+				.liens{
+					&.icon{
+						padding-left: 4.5rem;
+						&::before{
+							font-size: 3rem;
+						}
+					}
+				}
+			}
+			&.list_video{
+				.remontee_video{
+					width: 100%;
+					margin-bottom: .5rem;
+					.img_video{
+						float: left;
+						margin-right: 1.5rem;
+						img{
+							width: 90px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.dico_medicament{
+		.moteur_medicament{
+			form{
+				padding-top: 2.5rem;
+			}
+			svg{
+				width: 5rem;
+				height: 5rem;
+			}
+			.recherche{
+				.titre{
+					padding-left: 4.5rem;
+					max-width: 30rem;
+					font-size: 2rem;
+					&.icon-medicament::before{
+						left: .5rem;
+						margin-top: -2rem;
+						font-size: 4rem;
+					}
+				}
+			}
+			.filtres {
+				label{
+					font-size: 1.4rem;
+					padding: 1.3rem 1rem;
+					&.sans_picto{
+						min-height: 9rem;
+						padding: 1rem;
+					}
+				}
+				input[type="checkbox"]:checked + label::before{
+					margin: 1rem 0;
+				}
+			}
+		}
+	}
+	.moteur_plante{
+		.w_full,
+		.w_1_3,
+		.w_1_4{
+			> p{
+				cursor: pointer;
+				&.icon-chevron{
+					&::before{
+						display: block;
+					}
+				}
+			}
+		}
+		.row_7{
+			li{
+				.flex-basis(100%);
+			}
+			label{
+				.flex-display(flex);
+				.align-items(center);
+				padding: 0;
+				font-size: 1.6rem;
+				span{
+					width: 7.5rem;
+					height: 7.8rem;
+					margin: 0 1rem;
+				}
+			}
+			input[type="checkbox"]:checked + label::before{
+				left: 2.5rem;
+				margin-left: 0;
+			}
+		}
+		.row_icon_left li{
+			.flex-basis(100%);
+		}
+		.barre_fixe_resultat{
+			max-height: 4.2rem;
+			p{
+				display: none;
+			}
+			a{
+				width: 100%;
+			}
+		}
+		.ss_titre{
+			font-size: 2rem;
+		}
+	}
+}

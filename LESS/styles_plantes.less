@@ -1,0 +1,2712 @@
+/* *********************** SOMMAIRE ************************* */
+
+/*
+I - Spans communs plante
+	1. niveau entretien
+	2. besoin en eau
+	3. exposition
+	4. exception exposition
+	5. CLIMAT
+
+II - RECHERCHE PLANTES
+	1. RECHERCHE PAR NOM
+	2. RECHERCHE PAR CRITERES
+	3. COULEUR FLEUR ET FEUILLE (petit format)
+	4. NIVEAUX ENTRETIEN, EAU, SOLEIL
+	5. CRITERES COMPLEMENTAIRES
+	6. TABLES PERIODICITE
+
+III - HP plantes
+	1. SLIDER
+	2. TOGGLE SUR LA HP
+	3. TYPE D'ARBRES
+	4. TYPE D'ARBRES MENU DEROULANT
+	5. COULEUR FLEUR ET FEUILLE (grand format)
+	6. CLIMAT
+	7. FORME
+	8. INFORMATION BULLE EXPOSTION
+	-------------> les boites en bas sont dans styles_sous_contenus
+
+IV - RESULTAT DE RECHERCHE
+	1. RECHERCHE PLANTES SUR LA PAGE RESULTAT
+		1. filtres
+		2. type d'arbres
+		3. feuilles et fleurs
+	2. LISTE DE RESULTAT
+		1. description + img
+		2. lien
+		3. comparaison
+		4. aucun resultat
+
+V - Fiches Plantes
+	1. img / img_selected
+	2. carousel / carousel_img
+	3. intro longue/courte
+	4. partie_sommaire et fiche identité
+	5. colonne_sous_parties
+		a. span_colonne_sous_parties (feuilles/fleurs)
+	6. tableau périodicité
+	7. tableau variétés plantes
+	8. partie Html
+	9. Classes du CMS
+	10. Comment immédiat
+
+VI - COMPARATIF
+	1. entete_tableau
+	2. th / td
+	3. lien
+	4. popin alerte comparatif
+
+VII - BOX RECHERCHE COLONNE DE DROITE
+
+VIII - RECHERCHE EBIBLIOTHEQUE
+
+*/
+/******************************************** COMMUN ***********************/
+
+.niveau_entretien_easy,
+.niveau_entretien_moderate,
+.niveau_entretien_hard{
+	display:inline-block;
+	height:20px;
+	width:56px;
+	vertical-align:bottom;
+}
+.niveau_entretien_easy{
+	background:url("@{imgPath}/sprite_droite.png")no-repeat -10px -122px transparent;
+}
+.niveau_entretien_moderate{
+	background:url("@{imgPath}/sprite_droite.png")no-repeat -78px -122px transparent;
+}
+.niveau_entretien_hard{
+	background:url("@{imgPath}/sprite_droite.png")no-repeat -145px -122px transparent;
+}
+/*------------------------------------------ besoin en eau --------------------------------------*/
+.besoin_eau_low,
+.besoin_eau_medium,
+.besoin_eau_large{
+	display:inline-block;
+	height:20px;
+	width:56px;
+	vertical-align:bottom;
+}
+.besoin_eau_low{
+	background:url("@{imgPath}/sprite_droite.png")no-repeat -10px -89px transparent;
+}
+.besoin_eau_medium{
+	background:url("@{imgPath}/sprite_droite.png")no-repeat -67px -89px transparent;
+}
+.besoin_eau_large{
+	background:url("@{imgPath}/sprite_droite.png")no-repeat -127px -89px transparent;
+}
+/*------------------------------------------ exposition --------------------------------------*/
+.exposition_soleil,
+.exposition_mi_ombre,
+.exposition_ombre{
+	display: inline-block;
+	height: 20px;
+	width: 3rem;
+	vertical-align: bottom;
+}
+.exposition_soleil{
+	background: url("@{imgPath}/sprite_plantes.png")no-repeat -686px -1px transparent;
+}
+.exposition_mi_ombre{
+	background: url("@{imgPath}/sprite_plantes.png")no-repeat -686px -32px transparent;
+}
+.exposition_ombre{
+	background: url("@{imgPath}/sprite_plantes.png")no-repeat -686px -64px transparent;
+}
+/*------------------------------------------ resistance --------------------------------------*/
+.resistance_rustique,
+.resistance_proteger,
+.resistance_fragile{
+	display:inline-block;
+	height:20px;
+	width:56px;
+	vertical-align:bottom;
+}
+.resistance_rustique{
+	background:url("@{imgPath}/sprite_droite.png")no-repeat -133px -246px transparent;
+}
+.resistance_proteger{
+	background:url("@{imgPath}/sprite_droite.png")no-repeat -72px -246px transparent;
+}
+.resistance_fragile{
+	background:url("@{imgPath}/sprite_droite.png")no-repeat -8px -246px transparent;
+}
+/*------------------------------------------ exception exposition --------------------------------------*/
+.description_plante_recherche .element_description_plantes{
+	border-left:1px solid #ccc;
+	margin:5px 0px;
+	display: inline-block;
+}
+.description_plante_recherche a + .element_description_plantes{
+	border-left:none;
+}
+.description_plante_recherche .element_description_plantes span{
+	margin:0 10px 0 15px;
+}
+.description_plante_recherche .element_description_plantes .exposition_plante{
+	margin:0;
+}
+/*-------------------------------------- CLIMAT ------------------------------------------------*/
+.oceanique_plantes,
+.continental_plantes,
+.mediterraneen_plantes,
+.semi_oceanique_plantes,
+.montagnard_plantes,
+.interieur_plantes{
+	display: inline-block;
+	width: 6.5rem;
+	height: 6rem;
+	color: #666;
+	vertical-align: text-top;
+}
+.montagnard_plantes{
+	background: url("@{imgPath}/sprite_plantes.png")no-repeat -725px -26px transparent;
+}
+.oceanique_plantes{
+	background: url("@{imgPath}/sprite_plantes.png")no-repeat -879px -26px transparent;
+}
+.mediterraneen_plantes{
+	background: url("@{imgPath}/sprite_plantes.png")no-repeat -1028px -26px transparent;
+}
+.continental_plantes{
+	background: url("@{imgPath}/sprite_plantes.png")no-repeat -950px -26px transparent;
+}
+.semi_oceanique_plantes{
+	background: url("@{imgPath}/sprite_plantes.png")no-repeat -802px -26px transparent;
+}
+.interieur_plantes{
+	background: url("@{imgPath}/sprite_plantes.png")no-repeat -1777px -26px transparent;
+}
+/*-------------------------------------- CULTIVABLE INTERIEUR ------------------------------------------------*/
+.cultivable_interieur{
+	display:inline-block;
+	height:20px;
+	width:25px;
+	vertical-align:bottom;
+	background:url("@{imgPath}/sprite_droite.png")no-repeat -24px -270px transparent;
+}
+/*------------------------------------------ exception exposition --------------------------------------*/
+.description_plante_recherche .element_description_plantes{
+	border-left:1px solid #ccc;
+	margin:5px 0px;
+	display: inline-block;
+}
+.description_plante_recherche a + .element_description_plantes{
+	border-left:none;
+}
+.description_plante_recherche .element_description_plantes span{
+	margin:0 10px 0 15px;
+}
+.description_plante_recherche .element_description_plantes .exposition_plante{
+	margin:0;
+}
+/******************************************** RECHERCHE PLANTES *************************************************/
+.recherche_criteres .information_plante,
+.recherche_plante .information_plante{
+	width:250px;
+	padding:25px 10px 5px 10px;
+	text-transform:none;
+	color:#333;
+	font:11px/130% Arial, Helvetica, sans-serif;
+	display:none;
+	position:absolute;
+	.rounded(5px);
+	background:#fff;
+	z-index:100;
+	border:3px solid #ccc;
+	top:30px;
+	left:0px;
+}
+.criteres_comp .information_plante{
+	top: 50px;
+}
+#resultat_plante .recherche_plante .information_expo{
+	width: 300px;
+	left:0;
+	.info_bulle{
+		overflow: hidden;
+		margin-top: 10px;
+		span{
+			top: 8px;
+		}	
+		li{
+			margin-bottom: 2rem;
+			clear: both;
+			aside{
+				overflow: hidden;
+				font-size: 1.1rem;	
+			}
+			&::before{
+				content: "";
+				display: block;
+				float: left;
+				width: 13rem;
+				height: 13rem;
+				margin-right: 2rem;
+				background:url("@{imgPath}/sprite_plantes.png") no-repeat transparent;
+			}
+			&.soleil::before{
+				background-position: -1857px -6px;
+			}
+			&.mi-ombre::before{
+				background-position: -2007px -6px;
+			}
+			&.ombre::before{
+				background-position: -2136px -6px;
+			}
+		}
+	}
+}
+.recherche_criteres .information_plante a,
+.recherche_plante .information_plante a{
+	float:right;
+	margin:5px 0 0 0;
+	display:inline-block;
+}
+.recherche_criteres .bulle_info,
+.recherche_plante .bulle_info{
+	display:inline-block;
+	height:14px;
+	width:14px;
+	margin:0 0 0 5px;
+	padding:0;
+	background:url("@{imgPath}/sprite_commun.png")no-repeat 0 -511px;
+	border:none;
+	cursor:pointer;
+	vertical-align: middle;
+}
+.recherche_criteres .bulle_info:hover,
+.recherche_plante .bulle_info:hover{
+	opacity:0.6;
+}
+.recherche_criteres .information_plante em,
+.recherche_plante .information_plante em{
+	margin:7px 0 0 0;
+	display:inline-block;
+	font:bold 11px/130% Arial, Helvetica, sans-serif;
+	color:#333;
+}
+.recherche_criteres .information_plante span,
+.recherche_plante .information_plante span{
+	position:absolute;
+	top:5px;
+	right:5px;
+	padding:0;
+	cursor:pointer;
+	background:url("@{imgPath}/sprite_commun.png")no-repeat 0 -27px;
+	width:20px;
+	height:20px;
+	display:inline-block;
+	opacity:0.7;
+}
+.recherche_criteres .information_plante span:hover,
+.recherche_plante .information_plante span:hover{
+	opacity:1;
+}
+.recherche_plante{
+	form{
+		clear:both;
+		font:12px/16px Arial, Helvetica, sans-serif;
+	}
+	ul{
+		list-style:none;
+		padding:0;
+		margin:0;
+	}
+	label{
+		padding:10px 0 0 0;
+		font:14px/15px Calibri, Arial, Helvetica, sans-serif;
+		cursor:pointer;
+	}
+	label:hover{
+		color:@color_base;
+	}
+	input[type="checkbox"],
+	input[type="radio"]{
+		width:15px;
+		height:15px;
+		margin:0 5px 0 0;
+		background:none;
+		border:none;
+		cursor:pointer;
+	}
+/*-------------------------------------- RECHERCHE PAR NOM ----------------------------------------------*/
+	input[type="text"]{
+		float:left;
+		height:30px;
+		width:580px;
+		padding:2px 4px;
+		.rounded(6px);
+		border:3px solid #EBEBEB;
+		.inner-shadow(1px, 1px, 3px, 0px, #999);
+		background:#fff;
+		font:14px/17px Arial, Helvetica, sans-serif;
+	}
+	input[type="text"] + .bt_noir{
+		height:34px;
+		margin:3px 0 0 20px;
+	}
+	.recherche_lettres{
+		padding:10px 0 0 0;
+		margin:0 0 40px 0;
+		color:#ccc;
+		font-size:16px;
+	}
+	.recherche_lettres a{
+		text-decoration:none;
+	}
+	.recherche_lettres a:hover{
+		text-decoration:underline;
+	}
+/*-------------------------------------- RECHERCHE PAR CRITERES ----------------------------------------------*/
+	.recherche_criteres > li{
+		padding:0 0 30px 0;
+	}
+	li > p{
+		margin: 0 0 10px;
+		font:bold 18px/20px Calibri, Arial, Helvetica, sans-serif;
+		color:#333;
+	}
+	li ul{
+		padding:0 0 0 10px;
+	}
+/*-------------------------------------- COULEUR FLEUR ET FEUILLE ---------------------------------------------------------*/
+	.couleur_feuille ul,
+	.couleur_fleur ul{
+		height:65px;
+		padding:0;
+	}
+	.couleur_feuille li,
+	.couleur_fleur li{
+		float:left;
+		clear:none;
+		position:relative;
+		text-align:center;
+		margin:0;
+	}
+	.couleur_feuille input,
+	.couleur_fleur input{
+		float:none;
+		margin:0;
+	}
+	.couleur_feuille span,
+	.couleur_fleur span{
+		display:none;
+	}
+	.couleur_feuille li:hover span,
+	.couleur_fleur li:hover span{
+		display:block;
+		position:absolute;
+		top:-10px;
+		left:20px;
+		min-width:100px;
+		padding:5px;
+		background-color:#fff;
+		border:3px solid #999;
+		.rounded(10px);
+		z-index:100;
+	}
+	.couleur_feuille label{
+		display:block;
+		height:15px;
+		width:27px;
+		margin:0 0 5px 0;
+		padding:36px 0 0 0;
+	}
+	.couleur_feuille label:hover{
+		color:#333;
+	}
+	.feuille_silver{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -5px -1px;
+	}
+	.feuille_golden{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -42px -1px;
+	}
+	.feuille_pale_green{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -79px -1px;
+	}
+	.feuille_variegated{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -298px -1px;
+	}
+	.feuille_dark_green{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -116px -1px;
+	}
+	.feuille_red{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -266px -1px;
+	}
+	.feuille_purple{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -228px -1px;
+	}
+	.feuille_black{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -190px -1px;
+	}
+	.feuille_blue{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -154px -1px;
+	}
+	.couleur_fleur label{
+		display:block;
+		height:15px;
+		width:27px;
+		margin:5px 0;
+		padding:23px 0 0 0;
+	}
+	.couleur_fleur label:hover{
+		color:#333;
+	}
+	.fleur_white{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -3px -51px transparent;
+	}
+	.fleur_grey{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -30px -51px transparent;
+	}
+	.fleur_yellow{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -57px -51px transparent;
+	}
+	.fleur_orange{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -83px -51px transparent;
+	}
+	.fleur_red{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -108px -51px transparent;
+	}
+	.fleur_pink{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -135px -51px transparent;
+	}
+	.fleur_violet_purple{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -161px -51px transparent;
+	}
+	.fleur_blue{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -187px -51px transparent;
+	}
+	.fleur_green{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -214px -51px transparent;
+	}
+	.fleur_black{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -240px -51px transparent;
+	}
+	.fleur_multicolor{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -266px -51px transparent;
+	}
+	/***************** GENERAL ***********************/
+	.liste_illustration{
+		li + li label{
+			padding-top: 6px;
+		}
+	}
+/*-------------------------------------- NIVEAUX ENTRETIEN, EAU, SOLEIL ---------------------------------------------------------*/
+	.niveau_soleil{
+		margin:0;
+	}
+	.recherche_3colonne input{
+		margin:1px 10px 0 0;
+	}
+	.recherche_3colonne span{
+		vertical-align:middle;
+	}
+	.recherche_4colonne{
+		width:165px;
+		position:relative;
+	}
+	.recherche_3colonne{
+		width:165px;
+		position:relative;
+		float: left;
+	}
+	.recherche_3colonne + .recherche_3colonne + .recherche_3colonne{
+		width: 330px;
+	}
+	.uniquement_plantes{
+		.niveau_entretien_easy,
+		.besoin_eau_low{
+			width: 15px;
+			margin-right: 3px;
+		}
+	}
+/*-------------------------------------- CRITERES COMPLEMENTAIRES ---------------------------------------------------------*/
+	.criteres_comp{
+		> li{
+			padding:20px 0 30px 0;
+			float:left;
+			border-top:1px dotted #ccc;
+			position:relative;
+		}
+		li li{
+			clear:both;
+		}
+		.couleur_feuille li{
+			clear: none;
+		}
+		.utilisation_plante,
+		.periodicite_plante,
+		.hauteur_maturite{
+			width:660px;
+		}
+		.utilisation_plante li,
+		.periodicite_plante li,
+		.hauteur_maturite li{
+			float:left;
+			clear:none;
+			width:162px;
+		}
+	}
+}
+/*-------------------------------------- TABLES PERIODICITE ----------------------------------------------*/
+.tableau_periodicite{
+	table{
+		float:left;
+		width:140px;
+		font:11px/15px Arial, Helvetica, sans-serif;
+		text-align:center;
+	}
+	td{
+		background-color:#ccc;
+		border: 1px solid #FFFFFF;
+	}
+	._selected1 {
+		background:@color_univers_sante;
+		color:#fff;
+	}
+	._selected2 {
+		background:@color_univers_maison;
+		color:#fff;
+	}
+	._selected3 {
+		background:@color_univers_conso;
+		color:#fff;
+	}
+	._selected4 {
+		background:@color_univers_business;
+		color:#fff;
+	}
+}
+.recherche_plante{
+	.criteres_comp .tableau_periodicite{
+		width:165px;
+		padding: 0 0 15px;
+	}
+	.tableau_periodicite td:hover{
+		cursor:pointer;
+		color:#fff;
+	}
+	#table-planting-period td:hover{
+		background:@color_univers_sante;
+	}
+	#table-flowering-period td:hover {
+		background:@color_univers_maison;
+	}
+	#table-harvest-period td:hover {
+		background:@color_univers_conso;
+	}
+	#table-cutting-period td:hover {
+		background:@color_univers_business;
+	}
+	.periodicite_plante ul {
+		padding:0;
+	}
+	.periodicite_plante .info_tableau{
+		clear:both;
+		margin:0;
+		padding:0;
+		font:11px/11px Arial, Helvetica, sans-serif;
+		color:#999;
+		text-align:center;
+	}
+}
+
+/******************************************** HP PLANTES *************************************************/
+#HpPlantes{
+	width:660px;
+	h1{
+		margin:0 0 20px 0;
+		font-size: 4rem;
+	}
+	.titreGris{
+		font-size: 2.5rem;
+		font-weight: 700;
+	}
+/*------------------------------------------- SLIDER --------------------------------------*/
+	.slider_HpPlantes{
+		width:640px;
+		height:200px;
+	}
+	.img_slider{
+		float:left;
+		margin: 0 20px 0 0;
+		overflow:hidden;
+		height:200px;
+		width:270px;
+	}
+	.img_slider img{
+		height:200px;
+	}
+	.description_plantes_slider{
+		float:left;
+		width:338px;
+		height:198px;
+	}
+	.description_plantes_slider > p{
+		display:block;
+		height:56px;
+		overflow:hidden;
+		clear:both;
+		padding:10px 0 5px 0;
+		margin:0;
+	}
+	.description_plantes_slider a:first-child{
+		height:18px;
+		overflow:hidden;
+		font:bold 14px/18px Arial, Helvetica, sans-serif;
+		text-decoration:none;
+		color:#333;
+		display:block;
+		margin:10px 0;
+	}
+	.nom_latin_plantes{
+		width:165px;
+		float:left;
+		margin:3px 0;
+		font:italic 12px/16px Arial, Helvetica, sans-serif;
+		display:block;
+		color:#666;
+		text-transform:capitalize;
+	}
+	.intro_plante_recherche{
+		font:11px/14px Arial, Helvetica, sans-serif;
+		color:#333;
+		margin:10px 0;
+		padding: 0 15px 0 0;
+	}
+	.element_plantes_slider{
+		width:165px;
+		float:left;
+		margin:3px 0;
+	}
+	.nom_latin_plantes + div + div{
+		clear:both;
+	}
+	.element_plantes_slider p{
+		display:inline-block;
+		margin: 0 5px 0 0;
+		color:#666;
+	}
+	.description_plantes_slider .exposition_soleil,
+	.description_plantes_slider .exposition_mi_ombre,
+	.description_plantes_slider .exposition_ombre{
+		width:22px;
+	}
+	.recherche_plante{
+		clear:both;
+		margin: 30px 0;
+	}
+	.sous_contenu_box{
+		clear:both;
+		margin: 30px 0;
+		overflow: auto;
+	}
+	.lien_voir{
+		height:20px;
+		background:@color_aplat;
+		color:#fff;
+		padding:0 5px 0 25px;
+		font:bold 11px/20px Arial, Helvetica, sans-serif;
+		cursor:pointer;
+		position:relative;
+		float:right;
+		-webkit-box-shadow:  0px 0px 3px 1px #aaa;
+		box-shadow:  0px 0px 3px 1px #aaa;
+	}
+	.lien_voir span{
+		position:absolute;
+		top:0;
+		left:0;
+		display:block;
+		width:20px;
+		height:20px;
+		background:url("@{imgPath}/sprite_commun.png") no-repeat scroll -156px -163px @color_base;
+	}
+	.lien_voir:hover{
+		background:@color_aplat + #111;
+	}
+	.lien_voir:hover span{
+		background:url("@{imgPath}/sprite_commun.png") no-repeat scroll -156px -163px @color_base + #222;
+	}
+	.bt_eBiblio{
+		height:14px;
+		line-height:14px;
+		padding:2px 7px 2px 2px;
+		float:right;
+	}
+	.tableau_periodicite table{
+		font-size: 14px;
+		font-family: Calibri, Arial, Helvetica, sans-serif;
+	}
+/*-------------------------------------- TOGGLE SUR LA HP ----------------------------------------------*/
+	.toggle_recherche{
+		position:relative;
+		width:130px;
+		float:right;
+		padding:30px 0 0 0;
+		border-bottom:1px solid #ccc;
+		top: -5px;
+	}
+	.toggle_recherche > span{
+		position:absolute;
+		top:22px;
+		right:0;
+		background:#fff;
+		padding:0 5px;
+		color:@color_base;
+		text-decoration:underline;
+		cursor:pointer;
+	}
+	.toggle_recherche > span:hover{
+		color:#333;
+	}
+	.toggle_recherche_bas{
+		position:relative;
+		float:none;
+		width:auto;
+		margin:30px 0 0 0;
+		border-top:1px solid #ccc;
+		border-bottom:none;
+	}
+	.toggle_recherche_bas > span{
+		top:-10px;
+		right:115px;
+		padding:0 20px;
+	}
+	.toggle_recherche .bt_noir{
+		float:right;
+		margin:0 0 0 20px;
+		position:absolute;
+		right:0;
+		top:-15px;
+	}
+/*-------------------------------------- TYPE D'ARBRES ----------------------------------------------*/
+	.menu_type{
+		div{
+			height:186px;
+		}
+		> div > div{
+			position:relative;
+			float:left;
+			margin:0 10px 0 0;
+		}
+		.menu_comestible{
+			margin:0;
+		}
+		> div > div > span{/*images des plantes*/
+			display:block;
+			width:124px;
+			height:155px;
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -2px -435px transparent;
+		}
+		.menu_arbuste > span{
+			background-position:-136px -435px;
+		}
+		.menu_plante > span{
+			background-position:-252px -438px;
+		}
+		.menu_fleur > span{
+			background-position:-246px -290px;
+		}
+		.menu_comestible > span{
+			background-position:-137px -285px;
+		}
+		div > div{
+			position:relative;
+		}
+		div > label{
+			display:block;
+			float:none;
+			height:23px;
+			width:102px;
+			padding:3px 15px 3px 5px;
+			border:1px solid #999;
+			font:12px/15px Calibri, Arial, Helvetica, sans-serif;
+			.inner-shadow( 1px, 2px, 2px, 0px, #ddd);
+		}
+		div > label:hover{
+			background-color:#eee;
+			color:#333;
+		}
+		.menu_comestible label{
+			line-height:11px;
+		}
+		.fleche_type{
+			display:block;
+			position: absolute;
+			right:1px;
+			top:1px;
+			height:29px;
+			width:12px;
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -206px -231px #999;
+			cursor:pointer;
+		}
+		.fleche_type:hover{
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -206px -231px #ccc;
+		}
+/*-------------------------------------- TYPE D'ARBRES MENU DEROULANT ----------------------------------------------*/
+		ul{
+			position:absolute;
+			z-index:200;
+			top:185px;
+			left:0;
+			width:104px;
+			padding:0 0 5px 18px;
+			background:#fff;
+			border:1px solid #999;
+			border-top:none;
+			.inner-shadow( 1px, -2px, 2px, 0px, #ddd);
+		}
+		ul li{
+			padding:2px 0;
+			overflow:auto;
+		}
+		ul label{
+			font:11px/13px Arial, Helvetica, sans-serif;
+			padding:2px 0 0 0;
+			max-width:80px;
+		}
+	}
+/*-------------------------------------- COULEUR FLEUR ET FEUILLE ---------------------------------------------------------*/
+	.couleur_feuille span,
+	.couleur_fleur span{
+		height:auto;
+	}
+	.couleur_feuille{
+		width: 660px;
+		li{
+			margin:0 13px;
+			clear: none;
+		}
+	}
+	.couleur_feuille li:first-child{
+		margin:0 13px 0 0;
+	}
+	.couleur_feuille label{
+		display:block;
+		height:15px;
+		width:27px;
+		margin:0 0 5px 0;
+		padding:50px 0 0 0;
+	}
+	.couleur_feuille ul li:first-child{
+		margin:0 13px 0 0;
+	}
+	.feuille_silver{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -1px -603px;
+	}
+	.feuille_golden{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -36px -603px;
+	}
+	.feuille_pale_green{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -71px -603px;
+	}
+	.feuille_variegated{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -106px -1129px;
+	}
+	.feuille_dark_green{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -106px -603px;
+	}
+	.feuille_red{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -247px -603px;
+	}
+	.feuille_purple{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -211px -603px;
+	}
+	.feuille_black{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -176px -603px;
+	}
+	.feuille_blue{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -141px -603px;
+	}
+	.couleur_fleur label{
+		display:block;
+		height:15px;
+		width:39px;
+		margin:0 0 5px 0;
+		padding:50px 0 0 0;
+	}
+	.couleur_fleur li{
+		margin:0 10px;
+	}
+	.couleur_fleur ul li:first-child{
+		margin:0 10px 0 0;
+	}
+	.fleur_white{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat 0px -671px transparent;
+	}
+	.fleur_grey{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -42px -671px transparent;
+	}
+	.fleur_yellow{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -83px -671px transparent;
+	}
+	.fleur_orange{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -127px -671px transparent;
+	}
+	.fleur_red{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -169px -671px transparent;
+	}
+	.fleur_pink{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -212px -671px transparent;
+	}
+	.fleur_violet_purple{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -254px -671px transparent;
+	}
+	.fleur_blue{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -296px -671px transparent;
+	}
+	.fleur_green{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -338px -671px transparent;
+	}
+	.fleur_black{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -290px -607px transparent;
+	}
+	.fleur_multicolor{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -335px -607px transparent;
+	}
+	li:hover .fleur_black span{ /*Pour éviter de sortir du cadre de la page*/
+		top:-10px;
+		left:-10px;
+	}
+	li:hover .fleur_multicolor span{
+		top:-30px;
+		left:-50px;
+	}
+/*-------------------------------------- CLIMAT ----------------------------------------------*/
+	.climat_plante{
+		width:660px;
+		position: relative;
+		li{
+			float:left;
+			clear:none;
+			width:107px;
+			span{
+				display:block;
+				margin: 0 auto;
+				&:hover{
+					cursor:pointer;
+					opacity:0.5;
+					/*filter:alpha(opacity=50);  For IE8 and earlier */
+				}
+			}
+		}
+		label{
+			font-size: 12px;
+		}
+	}
+	.oceanique_plantes,
+	.continental_plantes,
+	.mediterraneen_plantes,
+	.semi_oceanique_plantes,
+	.montagnard_plantes{
+		padding:0;
+	}
+/*-------------------------------------- FORME ------------------------------------------------*/
+	.criteres_comp .forme_plante li{
+		float:left;
+		clear:none;
+		width:130px;
+	}
+	.forme_plante{
+		width:660px;
+		label{
+			padding:103px 5px 0 0;
+			width:125px;
+		}
+		.forme_etale{
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat 22px -730px transparent;
+		}
+		.forme_buisson{
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -107px -730px transparent;
+		}
+		.forme_boule{
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -259px -730px transparent;
+		}
+		.forme_ouvert{
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat 10px -860px transparent;
+		}
+		.forme_conique{
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -149px -860px transparent;
+		}
+		.forme_elance{
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -290px -860px transparent;
+		}
+		.forme_palme{
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat 9px -983px transparent;
+		}
+		.forme_pleureur{
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -134px -983px transparent;
+		}
+		.forme_grimpant{
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat 41px -1091px transparent;
+		}
+		.forme_palisse{
+			background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -272px -983px transparent;
+		}
+
+	}
+	.recherche_4colonne + .recherche_4colonne + .recherche_4colonne + .recherche_4colonne .information_plante{ /*Décale l'info bulle sur la HP car elle dépasse*/
+		left:-100px;
+	}
+	.ad_540x350{
+		margin:50px 0;
+	}
+/*-------------------------------- INFORMATION BULLE EXPOSTION ---------------------------------------*/
+	.information_plante{
+		&.information_expo{
+			width: 310px;
+			padding: 3.5rem 1rem 0 1rem;
+			top: -40px;
+			left: 115px;
+			&::before{
+				content: " ";
+				position: absolute;
+				top: 5rem;
+				left: -1.1rem;
+				width: 1rem;
+				height: 1rem;
+				border: solid transparent;
+				border-color: #ccc transparent transparent #ccc;
+				border-width: 3px;
+				background: #fff;
+				.transform-origin (0, 0);
+				.rotate(-45deg);
+			}
+		}
+		.info_bulle{
+			overflow: hidden;
+			span{
+				top: 10px;
+			}	
+			li{ 
+				width: 100%;
+				margin-bottom: 1rem;
+				overflow: hidden;
+				clear: both;
+				&:last-of-type{
+					margin-bottom: 0;
+				}
+				aside{
+					overflow: hidden;
+					font-size: 1.1rem;	
+				}
+				&::before{
+					content: "";
+					display: block;
+					float: left;
+					width: 13rem;
+					height: 12.5rem;
+					margin-right: 2rem;
+					background:url("@{imgPath}/sprite_plantes.png") no-repeat transparent;
+				}
+				&.soleil::before{
+					background-position: -1857px -6px;
+				}
+				&.mi-ombre::before{
+					background-position: -2007px -6px;
+				}
+				&.ombre::before{
+					background-position: -2136px -6px;
+				}
+			}
+		}
+		a{
+			font-size: 1.4rem;
+			text-decoration: underline;
+		}
+	}
+}
+
+/******************************************** RESULTAT DE RECHERCHE *************************************************/
+h1.titre_plante{
+	font:24px/32px 'museo', Arial, Helvetica, sans-serif;
+	margin:0 0 15px 0;
+}
+/*----------------------------- RECHERCHE PLANTES SUR LA PAGE RESULTAT ---------------------------------------------*/
+#resultat_plante{
+	.titreGris{
+		font:bold 14px/18px Arial, Helvetica, sans-serif;
+		color:#333;
+	}
+	input[type="text"]{
+		width:165px;
+		height:20px;
+	}
+	input[type="text"] + .bt_noir{
+		width:35px;
+		height:25px;
+		float:right;
+	}
+	.recherche_lettres{
+		font-size:12px;
+		text-align:center;
+		margin:0 0 20px 0;
+	}
+	.recherche_criteres > li{
+		width:180px;
+		padding:10px 0;
+		border-top:none;
+		border-bottom:1px dotted #ccc;
+		position:relative;
+	}
+	.recherche_criteres .menu_type{
+		padding-top:0;
+	}
+	.recherche_plante li > p{
+		font:bold 11px/16px Arial, Helvetica, sans-serif;
+		text-transform:uppercase;
+		clear:both;
+		margin:0;
+		padding:0 0 0 15px;
+		background:url("@{imgPath}/sprite_commun.png")no-repeat -1px -467px;
+		cursor:pointer;
+		width:auto;
+	}
+	.recherche_plante li > p:hover{
+		color:@color_base;
+	}
+	li ul{
+		padding:0;
+	}
+	/*-------------------------------------- filtres --------------------------------------*/
+	.boite_criteres{
+		padding:10px 10px 1px 10px;
+		margin:0 0 20px 0;
+		background:#E7E7E7;
+	}
+	.boite_criteres li{
+		margin:0 0 5px 0;
+		cursor:pointer;
+	}
+	.effacer_filtre{
+		margin:20px 0 0 0;
+		color:@color_base;
+		text-align:right;
+		font-size:10px;
+		text-decoration:underline;
+	}
+	/*-------------------------------------- type d'arbre --------------------------------------*/
+	.menu_type label{
+		float:none;
+		display: block;
+		padding: 10px 0 0;
+	}
+	.menu_type ul{
+		padding:0 0 0 15px;
+		margin:5px 0 0 0;
+	}
+	.menu_type ul label{
+		padding:0;
+		margin:0 0 0 20px;
+		font-size:11px;
+	}
+	.menu_type ul li{
+		padding:5px 0 0 0;
+	}
+	/*-------------------------------------- feuilles et fleurs --------------------------------------*/
+	.couleur_feuille ul{
+		height:106px;
+		margin:10px 0 0 0;
+	}
+	.couleur_feuille span{
+		height:auto;
+	}
+	.couleur_fleur ul{
+		height:95px;
+		margin:10px 0 0 0;
+	}
+	.couleur_fleur span{
+		height:auto;
+	}
+
+	.recherche_criteres .periodicite_plante{
+		padding:0;
+		border:none;
+	}
+	.periodicite_plante li{
+		padding:10px 0;
+		border-bottom:1px dotted #ccc;
+	}
+	.tableau_periodicite table{
+		margin:10px 0 0 0;
+	}
+	.climat_plante a span{
+		display:none;
+	}
+}
+
+/*------------------------------------ LISTE DE RESULTAT ---------------------------------------------*/
+
+#resultat_plante{
+	.recherche_plante{
+		float:left;
+		width:180px;
+		margin:0 30px 375px 0; /*Pour permetre aux info bulles de s'afficher en bas*/
+	}
+	.resultat_plantes{
+		float:left;
+		width:457px;
+	}
+	.liste_plante{
+		position:relative;
+		padding:10px 0 20px 0;
+		margin:15px 0 40px 5px;
+		border-left: 1px solid #999;
+	}
+/*-------------------------------------- description + img --------------------------------------*/
+	.description_liste_plantes{
+		display: table;
+		border-bottom:1px dotted #999;
+		width:450px;
+		margin:20px 0 0 0;
+		position:relative;
+		z-index:2;
+		left:-8px;
+	}
+	.colGris_recherche_plante{
+		width:15px;
+		display:table-cell;
+		height:100%;
+		margin:5px 0 0 0;
+		background:#e7e7e7;
+		vertical-align: top;
+	}
+	.colGris_recherche_plante input{
+		margin:0 0 0 1px;
+		width:auto;
+		border:none;
+		background:none;
+	}
+	.colGris_recherche_plante input:hover{
+		cursor:pointer;
+	}
+	.colGris_recherche_plante span{
+		width:15px;
+		height:80px;
+		display:block;
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -6px -345px #e7e7e7;
+	}
+	.description_plante_recherche{
+		display: table-cell;
+		width:255px;
+		padding:0 15px 5px 15px;
+		vertical-align: top;
+	}
+	/* .description_plante_recherche div:first-child{faire disparaitre le texte quand le titre passe sur 2 lignes
+		margin:0 0 5px 0;
+	} */
+	.image_plante_recherche{
+		float: left;
+	}
+	.image_plante_recherche img{
+		float:right;
+		max-width:150px;
+		max-height:150px;
+		position:relative;
+		top:1px;
+	}
+	.titre_liste_plante{
+		display:block;
+		color:#333;
+		text-decoration:none;
+		font:bold 16px/20px Arial, Helvetica, sans-serif;
+		cursor:pointer;
+	}
+	.description_plante_recherche .titre_liste_plante:hover{
+		color:@color_base;
+	}
+	.intro_plante_recherche{
+		height:68px;
+		overflow:hidden;
+		font:11px/14px Arial, Helvetica, sans-serif;
+		color:#666;
+	}
+	.autre_nom_plante{
+		margin-top: 10px;
+		p{
+			font-size: 12px;
+			span{
+				font-weight: bold;
+			}
+		}
+	}
+/*-------------------------------------- lien --------------------------------------*/
+	.description_plante_recherche .voir_fiche_plante{
+		float:right;
+		font:11px/15px Arial, Helvetica, sans-serif;
+		padding:0 8px 0 15px;
+		background: url("@{imgPathTheme}/puce_tab.png") no-repeat 5px 1px;
+	}
+	.description_plante_recherche .telechargement_fiche_plante span{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat -2px -386px transparent;
+		display:inline-block;
+		width:15px;
+		height:12px;
+		vertical-align:-4px;
+	}
+	.description_plante_recherche .telechargement_fiche_plante{
+		padding:0 0 0 5px;
+		float:right;
+		font: 11px/11px Arial, Helvetica, sans-serif;
+		text-decoration:none;
+		border-left:1px solid #ccc;
+	}
+	.description_plante_recherche a:hover{
+		color:#333;
+	}
+	#pagination{
+		clear:both;
+	}
+/*-------------------------------------- comparaison --------------------------------------*/
+	.comparaison_plantes{
+		position:absolute;
+		top:-7px;
+	}
+	.comparaison_plantes span{
+		display:inline-block;
+		width:14px;
+		height:15px;
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat scroll -36px -383px transparent;
+	}
+	.comparaison_plantes.comparaison_bas_plantes{
+		top:auto;
+		bottom:-14px;
+	}
+	.comparaison_plantes div{
+		display:inline-block;
+		.gradient (#d7d7d7, #fff, #d7d7d7);
+		border: 1px solid #666666;
+		.rounded(3px);
+		font: bold 11px/15px arial;
+		padding:3px 5px 2px 5px;
+		text-transform: uppercase;
+		width:62px;
+		margin:0 0 0 5px;
+		cursor:pointer;
+	}
+	.comparaison_plantes div:hover{
+		.gradient (#ffffff, #d7d7d7, #ffffff);
+	}
+	.comparaison_plantes p{
+		font:10px/15px Arial, Helvetica, sans-serif;
+		color:#999;
+		display:inline-block;
+		margin:0 0 0 5px;
+		vertical-align:middle;
+	}
+	.ajout_plante_semaine{
+		clear: both;
+		float: left;
+		margin: 10px 0 30px;
+		width: 420px;
+	}
+	.ajout_plante_semaine p{
+		margin:10px 0;
+		text-align:center;
+		font:bold 14px/18px Arial, Helvetica, sans-serif;
+		color:@color_base;
+	}
+	.ajout_plante_semaine,
+/*-------------------------------------- aucun resultat --------------------------------------*/
+	.aucun_resultat_plantes{
+		background:#f3f3f3;
+		padding:10px 15px 5px 15px;
+		.rounded(5px);
+		.inner-shadow(0px, 1px, 4px, 0px, #999);
+	}
+	.aucun_resultat_plantes p{
+		margin: 5px 0;
+	}
+	.bordure_plantes{
+		border:none;
+	}
+}
+/********************************************** FICHES PLANTES ***************************************************/
+
+#fiches_plantes{
+	font:13px/130% Arial, Helvetica, sans-serif;
+	margin:0 10px 30px 0;
+	position:relative;
+	h1{
+		font:31px/140% 'museo', Arial, Helvetica, sans-serif;
+		margin:0 0 20px 0;
+	}
+	ul{
+		padding:0 10px 0.8em 10px;
+		margin:0;
+	}
+	li ul{
+		padding:5px 10px 0 10px;
+	}
+	li{
+		list-style:none;
+	}
+	ol{
+		margin: 0;
+		padding: 5px 0 5px 30px;
+	}
+	ol li{
+		margin: 0;
+		padding: 0 0 5px 0;
+		list-style-position: outside;
+		list-style-type: decimal;
+	}
+	em{
+		color: #333;
+		font-style:italic;
+	}
+	.bt_eBiblio{
+		position: absolute;
+		right: 0;
+		top:2px;
+	}
+	.bulle_info{
+		display:inline-block;
+		width:15px;
+		height:15px;
+		margin:0 0 0 3px;
+		vertical-align:-2px;
+		background:url("@{imgPathTheme}/i_info_publibox.png") no-repeat scroll 0px 0px transparent;
+	}
+/*-------------------------------------- img / img_selected --------------------------------------*/
+	.img_selected{
+		position:relative;
+		float:left;
+		margin:0 25px 25px 2px;
+		.box-shadow(0px, 0px, 2px, 1px, #ccc);
+	}
+	.img_selected img{
+		height: 300px;
+		max-width: 400px;
+		display:block;
+	}
+	.img_selected p{
+		position:absolute;
+		bottom:0;
+		left:0;
+		width:96%;
+		padding:5px 2% 5px 2%;
+		background-color: rgba(00, 00, 00, 0.7);
+		font:bold 14px/18px Arial, Helvetica, sans-serif;
+		color:#fff;
+	}
+	.img_selected em{
+		color: #fff;
+	}
+	.img_selected span{
+		background:url("@{imgPath}/sprite_commun.png") no-repeat 7px 6px #aaa;
+		position:absolute;
+		z-index:10;
+		display:inline-block;
+		height:28px;
+		width:28px;
+		bottom:0;
+		right:0;
+		cursor:pointer;
+	}
+/*-------------------------------------- carousel / carousel_img --------------------------------------*/
+	#container{
+		height:80px;
+		#carousel{
+			height:80px;
+		}
+		#carousel img{
+			float:left;
+			margin:0px 23px 5px 0;
+			cursor:pointer;
+		}
+	}
+/*-------------------------------------- intro courte/longue --------------------------------------*/
+	.intro_courte_plantes{
+		float:left;
+		max-width:240px;
+		margin:0 0 25px 0;
+	}
+	.intro_courte_plantes p{
+		display:inline;
+		height:300px;
+		line-height:300px;
+	}
+	.intro_courte_plantes span{
+		vertical-align:middle;
+		display:inline-block;
+		font: 18px/140% Arial, Helvetica, sans-serif;
+	}
+	.intro_longue_plantes{
+		font:13px/130% Arial, Helvetica, sans-serif;
+		margin:50px 0 0 0;
+		clear:both;
+	}
+	.intro_longue_plantes p{
+		padding-bottom:0.8em;
+	}
+	.intro_longue_plantes li{
+		padding:0 0 5px 20px;
+		background: url("@{imgPathTheme}/puce_tab.png") no-repeat 5px 4px;
+	}
+/*-------------------------------------- partie_sommaire et fiche identité --------------------------------------*/
+	.sommaire_plantes{
+		float:left;
+		width:250px;
+		margin:0 20px 0 2px;
+		background:#e7e7e7;
+		.box-shadow(0px, 0px, 3px, 1px, #ccc);
+		border:1px solid #fff;
+		font:14px/12px Arial, Helvetica, sans-serif;
+		padding:0 0 5px 0;
+	}
+	.sommaire_plantes .titre_sommaire_plantes{
+		background:#ccc;
+		border-bottom:1px solid #eee;
+		font:bold 14px/30px Arial, Helvetica, sans-serif;
+		margin: 0 0 5px 0;
+	}
+	.sommaire_plantes .titre_sommaire_plantes:hover{
+		background:#ccc;
+	}
+	.sommaire_plantes p{
+		padding:0 0 0 5px;
+	}
+	.sommaire_plantes p:hover{
+		background:#ddd;
+	}
+	.sommaire_plantes a{
+		text-decoration:none;
+		color:#333;
+		display:block;
+		line-height: 25px;
+	}
+	.fiche_identite_plantes{
+		float:left;
+		font:14px/18px Arial, Helvetica, sans-serif;
+		width:392px;
+	}
+	.fiche_identite_plantes p{
+		clear:both;
+	}
+	.titre_fiches_plantes{
+		font: 24px/26px 'museo', Arial, Helvetica, sans-serif;
+		margin:0 0 5px 0;
+	}
+	.fiche_identite_plantes .italique_plante{
+		font-style:italic;
+		color:#333;
+	}
+	.type_plante{
+		display:inline-block;
+		float:left;
+		padding:0;
+	}
+	#plant-types-list + p {
+		padding:0.3em 0;
+	}
+	.fiche_identite_plantes p span{
+		color:#999;
+	}
+/*-------------------------------------- colonne_sous_parties --------------------------------------*/
+	.parties_plantes{
+		clear:both;
+		overflow:auto;
+		margin:30px 0;
+		padding: 5px 0 5px 0;
+	}
+	.over_visible{
+		overflow:visible;
+	}
+	.sous_parties_plantes{
+		float:left;
+		width:210px;
+		margin:0 15px 0 0;
+	}
+	.bulle_info{
+		height:12px;
+		width:12px;
+		background:#f4f4f4;
+		.rounded(7px);
+		border:1px solid #999;
+		text-align:center;
+		vertical-align:0;
+		font: italic 10px/12px Georgia, "Times New Roman", Times, serif;
+	}
+	.bulle_info span{
+		right:auto;
+		top:11px;
+		left:-60px;
+		z-index:10000;
+	}
+	div .sous_parties_plantes:first-child .bulle_info span{
+		left:0px;
+	}
+	.bulle_info em{
+		font-style:normal;
+		font-weight:bold;
+	}
+	.sous_parties_plantes .titre_parties_plantes{
+		font:bold 14px/18px Arial, Helvetica, sans-serif;
+		color:#666;
+		width:auto;
+		margin:0 0 5px 0;
+	}
+	.sous_parties_plantes .couleur_feuille > p:first-child,
+	.sous_parties_plantes .couleur_fleur > p:first-child{
+		display:block;
+		width:100%;
+	}
+	.sous_parties_plantes li > p:first-child{
+		font:12px/16px Arial, Helvetica, sans-serif;
+		color:#999;
+		width:106px;
+		display:inline-block;
+		vertical-align:top;
+	}
+	.sous_parties_plantes + .sous_parties_plantes + .sous_parties_plantes{
+		margin:0;
+	}
+	.sous_parties_plantes p{
+		display:inline-block;
+		width:99px;
+		color:#333;
+		padding:0;
+	}
+	.sous_parties_plantes ul{
+		padding:0;
+	}
+	.sous_parties_plantes li{
+		border-bottom:1px dotted #999;
+		padding:5px 0;
+		clear:both;
+	}
+	.sous_parties_plantes span{
+		color:#999;
+	}
+/*-------------------------------------- tableau_periodicite_plantes --------------------------------------*/
+	.tableau_periodicite{
+		overflow:auto;
+		margin:40px 0;
+	}
+	.tableau_periodicite .titre_parties_plantes{
+		font:bold 14px/18px Arial, Helvetica, sans-serif;
+		color:#666;
+		width:auto;
+		margin:0 0 5px 0;
+	}
+	.tableau_periodicite ul{
+		padding:0;
+	}
+	.tableau_periodicite li{
+		float:left;
+		margin: 0 34px 0 0;
+	}
+	.tableau_periodicite li + li + li + li{
+		margin:0;
+	}
+/*-------------------------------------- tableau_varietes_plantes --------------------------------------*/
+	.intro_ss_espece h2{
+		font: 24px/26px 'museo',Arial,Helvetica,sans-serif;
+	}
+	.intro_ss_espece li{
+		padding:0 0 5px 20px;
+		background: url("@{imgPathTheme}/puce_tab.png") no-repeat 5px 4px;
+	}
+	.intro_ss_espece > table{
+		width:660px;
+		border:none;
+		margin:10px 0;
+	}
+	table tr{
+		border:none;
+	}
+	table td{
+		font:11px/14px Arial, Helvetica, sans-serif;
+		max-height:80px;
+		border-bottom:1px dotted #666;
+	}
+	table a{
+		color:@violet;
+		text-decoration:underline;
+	}
+	table .entete_principal{
+		.gradient(#999999, #999999, #666666);
+		font:bold 11px/14px Arial, Helvetica, sans-serif;
+		padding:5px;
+	}
+	table .entete_secondaire{
+		font:bold 11px/14px Arial, Helvetica, sans-serif;
+	}
+	table .colonne_grise_plantes{
+		background:#e7e7e7;
+	}
+	.colonne_photo{
+		padding:0;
+		height:80px;
+		width:80px;
+		background:url("@{imgPath}/plantes/plante_defaut.png")no-repeat 0 center #fff;
+	}
+	.photo_tableau_plantes{
+		position:relative;
+	}
+	.photo_tableau_plantes span{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat scroll -9px -304px transparent;
+		position:absolute;
+		display:inline-block;
+		height:45px;
+		width:45px;
+		top:20px;
+		left:20px;
+		cursor:pointer;
+	}
+	.photo_tableau_plantes img{
+		width:80px;
+		height:80px;
+	}
+/*-------------------------------------- partie html --------------------------------------*/
+	.texte_plantes{
+		font:13px/18px Arial, Helvetica, sans-serif;
+		padding-bottom:35px;
+		background:url("@{imgPath}/plantes/fond_fiches_plantes.png")repeat-x 1px bottom transparent;
+	}
+	.texte_plantes h2{
+		font: 24px/26px 'museo', Arial, Helvetica, sans-serif;
+		color:#333;
+		clear:both;
+	}
+	.texte_plantes h3{
+		font:bold 16px/22px Arial, Helvetica, sans-serif;
+		color:#666;
+		margin:10px 0;
+	}
+	.texte_plantes ul,
+	.texte_plantes ol{
+		margin:0 0 0 20px;
+	}
+	.texte_plantes li{
+		padding:0 0 5px 20px;
+		background: url("@{imgPathTheme}/puce_tab.png") no-repeat 5px 4px;
+	}
+	.texte_plantes #h2-conseils-ecologiques{
+		color:#339933;
+		padding:10px 0 0 30px;
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat scroll -10px -264px transparent;
+	}
+	.texte_plantes .image_article{
+		float:right;
+		margin:0 0 30px 30px;
+		position:relative;
+		img{
+			display:block;
+			margin:0 auto;
+		}
+		p{
+			text-align:center;
+			font:italic 11px/14px Arial, Helvetica, sans-serif;
+			color:#999;
+			margin:5px auto 10px auto;
+			max-width:200px;
+			word-wrap:break-word;
+			&::before{
+				content:"Crédit\00A0:";
+				display:inline-block;
+				margin-right:5px;
+			}
+		}
+	}
+	.texte_plantes p{
+		margin:0 0 0 30px;
+		padding-bottom: 0.8em;
+		line-height:130%;
+	}
+	.comment_immedia .commenter textarea{
+		max-width: 605px;
+		min-width: 605px;
+		width: 605px;
+	}
+/*-------------------------------------- Classes du sms --------------------------------------*/
+	.intro_longue_plantes ol li,
+	.intro_ss_espece ol li,
+	.texte_plantes ol li{
+		background:none;
+		padding: 0;
+	}
+	.note {
+		background:url('@{imgPathTheme}/i_info.png') 0 6px no-repeat;
+		font-style:italic;
+		overflow:hidden;
+		font-weight:normal;
+		color:@color_base;
+		padding:6px 0px 6px 20px;
+		margin-left:0px;
+		}
+	.note strong{
+		font-style:italic;
+		}
+	p.lien_fp,
+	p.liens_fp {
+		text-align:right;
+		margin:5px 0 0 30px;
+		width:auto;
+	}
+	p.lien_fp a,
+	p.liens_fp a {
+		padding:0 0 2px 20px;
+		color:@color_base;
+		font:bold 12px/150% Arial, Helvetica, sans-serif;
+		background:url('@{imgPathTheme}/img_icones-communes.png') -540px -601px no-repeat;
+		text-decoration: none;
+	}
+	p.lien_fp a:hover,
+	p.liens_fp a:hover {
+		color:@color_degradClair;
+	}
+	p.lien_fp a:before {
+		content:"Voir la fiche pratique\0000a0:\0000a0";
+		font-weight:normal;
+		color:#333;
+	}
+	p.liens_fp a:before {
+		content:"Voir les fiches pratiques\0000a0:\0000a0";
+		font-weight:normal;
+		color:#333;
+	}
+	p.lien_droit {
+		text-align:right;
+		margin:5px 0 0 30px;
+	}
+	p.lien_droit a {
+		color:@color_base;
+		font:bold 13px/140% Arial, Helvetica, sans-serif;
+		text-decoration:none;
+	}
+	p.lien_droit a:hover{
+		color:@color_degradClair;
+	}
+	p.lien_lct,
+	p.lien_astuce,
+	p.lien_telecharger,
+	p.lien_diapo,
+	p.lien_calculette,
+	p.lien_plante,
+	p.lien_video {
+		text-align:right;
+		width:auto;
+		margin:5px 0 0 30px;
+	}
+	p.lien_lct a,
+	p.lien_astuce a,
+	p.lien_telecharger a,
+	p.lien_diapo a,
+	p.lien_calculette a,
+	p.lien_plante a,
+	p.lien_video a{
+		color:@color_base;
+		font:bold 13px/140% Arial, Helvetica, sans-serif;
+		text-decoration:none;
+	}
+	p.lien_lct a:hover,
+	p.lien_astuce a:hover,
+	p.lien_telecharger a:hover,
+	p.lien_diapo a:hover,
+	p.lien_calculette a:hover,
+	p.lien_plante a:hover,
+	p.lien_video a:hover {
+		color:@color_degradClair;
+	}
+	p.lien_lct a:before,
+	p.lien_astuce a:before,
+	p.lien_telecharger a:before,
+	p.lien_diapo a:before,
+	p.lien_plante a:before,
+	p.lien_video a:before {
+		font-weight:normal;
+		color:#333;
+	}
+	p.lien_lct a {
+		padding:0 0 2px 20px;
+		background:url('@{imgPathTheme}/img_icones-communes.png') -540px -663px no-repeat;
+	}
+	p.lien_lct a:before {
+		content:"À télécharger\0000a0:\0000a0";
+	}
+	p.lien_astuce a {
+		padding:0 0 2px 20px;
+		background:url('@{imgPathTheme}/img_icones-communes.png') -541px -737px no-repeat;
+	}
+	p.lien_astuce a:before {
+		content:"Voir l'astuce\0000a0:\0000a0";
+	}
+	p.lien_telecharger a {
+		padding:0 0 2px 40px;
+		background:url('@{imgPathTheme}/img_icones-communes.png') -532px -868px no-repeat;
+	}
+	p.lien_telecharger a:before {
+		content:"Téléchargement gratuit\0000a0:\0000a0";
+	}
+	p.lien_diapo a {
+		padding:0 0 2px 30px;
+		background:url('@{imgPathTheme}/img_icones-communes.png') -532px -983px no-repeat;
+	}
+	p.lien_diapo a:before {
+		content:"Voir le diaporama\0000a0";
+	}
+	p.lien_calculette a {
+		padding:0 0 2px 30px;
+		background:url('@{imgPathTheme}/img_icones-communes.png') -532px -1050px no-repeat;
+	}
+	p.lien_plante a {
+		padding:3px 0 2px 30px;
+		background:url('@{imgPathTheme}/img_icones-communes.png') -532px -923px no-repeat;
+	}
+	p.lien_plante a:before {
+		content:"Voir la fiche plante\0000a0";
+	}
+	p.lien_video a {
+		padding:0 0 2px 23px;
+		background:url('@{imgPathTheme}/img_icones-communes.png') -541px -806px no-repeat;
+	}
+	p.lien_video a:before {
+		content:"Voir la vidéo\0000a0:\0000a0";
+	}
+	.note_tableau {
+		font-size:0.85em;
+		font-style:italic;
+		color:@color_base;
+	}
+}
+/*-------------------------------------- span_colonne_sous_parties --------------------------------------*/
+
+/****************************************************** COMPARATIF ***********************************************************/
+.comparatifPlantes{
+	background:#e7e7e7;
+	padding:10px 20px;
+	a{
+		text-decoration:none;
+		color:#333;
+	}
+	.titre_comparatif{
+		font:18px/25px Arial, Helvetica, sans-serif;
+		color:#333;
+		display:inline-block;
+		margin:10px 0 20px 0;
+	}
+	.bg_comparatif{
+		background:#fff;
+		.rounded(5px);
+		border: 1px solid #ccc;
+		padding: 5px;
+	}
+	.tableau_comparer_plante{
+		background:#fff;
+		border:1px solid #666;
+		width:100%;
+		border-collapse:collapse;
+	}
+/*-------------------------- colonne ------------------------------*/
+	._planteColonne5 td{
+		width:18%;
+	}
+	._planteColonne4 td{
+		width:23%;
+	}
+	._planteColonne3 td{
+		width:30%;
+	}
+	._planteColonne2 td{
+		width:45%;
+	}
+/*-------------------------- entete_tableau ----------------------------*/
+	.tableau_comparer_plante .entete_comparatif{
+		min-height: 275px;
+		padding:0;
+	}
+	.tableau_comparer_plante th.croisement_comparatif{
+		padding:0;
+		min-width: 190px;
+		vertical-align:top;
+	}
+	.entete_comparatif span{
+		display:inline-block;
+		width:25px;
+		height:25px;
+		background: url("@{imgPath}/sprite_commun.png") no-repeat scroll -155px -221px @color_base;
+		float:left;
+		cursor:pointer;
+	}
+	.entete_comparatif .retour_liste{
+		background:@color_aplat;
+		display:block;
+		padding:5px 5px 5px 30px;
+		color:#fff;
+		text-align:left;
+		font:normal 12px/15px Arial, Helvetica, sans-serif;
+	}
+	.entete_comparatif .retour_liste:hover{
+		text-decoration:underline;
+	}
+	.entete_comparatif input{
+		float:left;
+		margin:30px 0 0 25px;
+		width:auto;
+		border:none;
+	}
+	.entete_comparatif p{
+		width:120px;
+		float:left;
+		margin:28px 0 0 10px;
+		color:#333;
+	}
+	.entete_principale_plante{
+		background:#ccc;
+		min-width:200px;
+	}
+	.entete_principale_plante img{
+		max-height:190px;
+		max-width:190px;
+		margin:0 auto;
+		display:block;
+	}
+	.partie_img{
+		height:200px;
+		position:relative;
+		padding: 0 25px;
+	}
+	.sous_partie_img{
+		padding: 0 0 0 5px;
+	}
+/*-------------------------- th /td ----------------------------*/
+	.sous_titre_comparatif{
+		font:18px/25px Arial, Helvetica, sans-serif;
+		color:#666;
+	}
+	.nom_plante{
+		font:18px/25px Arial, Helvetica, sans-serif;
+		color:#333;
+		display:block;
+		margin:0 0 10px 0;
+		text-align:center;
+	}
+	.categorie_comparatif th{
+		padding:20px 0 0 5px;
+	}
+	td,
+	th{
+		border-bottom: 1px dotted #666;
+		border-left:2px solid #666;
+	}
+	.tableau_periodicite td{
+		border:1px solid #fff;
+	}
+	th{
+		font:12px/15px Arial, Helvetica, sans-serif;
+		color:#999;
+		text-align:left;
+		padding:0 0 0 5px;
+		background:#fff;
+		text-transform:none;
+	}
+	.tableau_comparer_plante table{
+		float: left;
+		text-align: center;
+		width: 140px;
+		border: 1px solid #ccc;
+		border-collapse: collapse;
+		padding: 0;
+	}
+	table td{
+		font: 12px/15px Arial,Helvetica,sans-serif;
+		padding:5px;
+	}
+	tr:hover,
+	tr:hover th{
+		background-color:@color_desat;
+	}
+/*-------------------------- lien ----------------------------*/
+	.fermeture_comparatif{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat scroll 2px -24px transparent;
+		float:right;
+		display:inline-block;
+		height: 24px;
+		width: 24px;
+		margin: 5px 0 0 0;
+		border:1px solid #e7e7e7;
+		cursor:pointer;
+	}
+	.fermeture_comparatif:hover{
+		background-color:#FF8282;
+		border:1px solid #c00;
+		.rounded(5px);
+	}
+	.supprimer_comparatif{
+		background: url("@{imgPath}/plantes/sprite_plantes.png") no-repeat scroll -8px -9px transparent;
+		display: inline-block;
+		height: 20px;
+		margin: 0;
+		position:absolute;
+		right:0;
+		width: 20px;
+		margin:1px;
+		cursor:pointer;
+	}
+	.supprimer_comparatif:hover{
+		background-color:#FFF;
+		border:1px solid #c00;
+		.rounded(5px);
+		margin:0;
+	}
+	.bt_eBiblio{
+		float: right;
+		height: 14px;
+		line-height: 14px;
+		padding: 2px 7px 2px 2px;
+	}
+	.bt_gris_clair{
+		.gradient(#d7d7d7, #fff, #d7d7d7);
+		border: 1px solid #999999;
+		border-radius: 3px 3px 3px 3px;
+		color: #333333;
+		display: block;
+		float: left;
+		font: 11px/140% Arial,Geneva,sans-serif;
+		height: 15px;
+		margin: 0 10px 0 0;
+		padding: 4px 7px 4px 2px;
+		position: relative;
+		text-decoration: none;
+		cursor:pointer;
+	}
+	.bt_gris_clair:hover{
+		.gradient(#fffff, #d7d7d7, #fffff);
+	}
+	.bt_eBiblio span{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat scroll 2px -331px transparent;
+	}
+	.bt_gris_clair span{
+		display: block;
+		float: left;
+		height: 16px;
+		margin: 0 5px 0 0;
+		width: 20px;
+	}
+	.voir_fiche_plante{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat scroll 0px -463px transparent;
+		float: left;
+		margin: 0 10px 0 0;
+		padding: 5px 0 0 15px;
+	}
+	.voir_fiche_plante:hover{
+		text-decoration:underline;
+	}
+	.entete_comparatif .imprimer_comparatif{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat scroll 2px -357px transparent;
+	}
+	.entete_comparatif .bt_gris_clair{
+		margin: 15px 0 0 23px;
+		clear:both;
+	}
+	.telecharger_comparatif .supprimer_comparatif{
+		float:right;
+		position:relative;
+	}
+}
+/*-------------------------- popin alerte comparatif ----------------------------*/
+.popin_plante{
+	clear:both;
+	overflow:auto;
+	background: none repeat scroll 0 0 #FFFFFF;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 0 0 2px 1px #BBBBBB;
+	margin: 5px 0 20px;
+	padding: 20px;
+	p{
+		font:bold 14px/20px Arial, Helvetica, sans-serif;
+	}
+	.bt_noir{
+		float:left;
+	}
+	a{
+		color:#fff;
+	}
+	.bt_noir span{
+		background:url("@{imgPath}/sprite_commun.png") no-repeat -160px -221px;
+	}
+	.bt_comparer{
+		margin:20px 0 10px 20px;
+		border: 1px solid @color_base;
+		background: @color_degradFonce; /* Old browsers */
+		background: -moz-linear-gradient(top,  @color_degradClair 60%, @color_degradFonce 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(60%,@color_degradClair), color-stop(100%,@color_degradFonce)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  @color_degradClair 60%,@color_degradFonce 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  @color_degradClair 60%,@color_degradFonce 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  @color_degradClair 60%,@color_degradFonce 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  @color_degradClair 60%,@color_degradFonce 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@color_degradClair, endColorstr=@color_degradFonce,GradientType=0 ); /* IE6-9 */
+	}
+	.bt_comparer:hover{
+		background: @color_degradClair; /* Old browsers */
+		background: -moz-linear-gradient(top,  @color_degradFonce 60%, @color_degradClair 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(60%,@color_degradFonce), color-stop(100%,@color_degradClair)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  @color_degradFonce 60%,@color_degradClair 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  @color_degradFonce 60%,@color_degradClair 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  @color_degradFonce 60%,@color_degradClair 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  @color_degradFonce 60%,@color_degradClair 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@color_degradFonce, endColorstr=@color_degradClair,GradientType=0 ); /* IE6-9 */
+	}
+	.bt_comparer span{
+		background:url("@{imgPath}/plantes/sprite_plantes.png") no-repeat -11px -36px;
+		-webkit-box-shadow:  1px 0px 0px 0px @color_aplat, inset -1px 0px 0px 0px @color_aplat;
+		box-shadow:  1px 0px 0px 0px @color_aplat, inset -1px 0px 0px 0px @color_aplat;
+		border-right: 1px solid @color_base;
+	}
+}
+/****************************************************** BOX RECHERCHE COLONNE DE DROITE ***********************************************************/
+div#droite .recherche_plante form label{
+	font:11px/15px Arial, Helvetica, sans-serif;
+	color:#333;
+}
+#droite{
+	.recherche_plante{
+		width:278px;
+		margin:30px 0;
+		padding:5px 10px 40px 10px;
+		border:1px solid @color_univers_sante;
+		.rounded(5px);
+		background:url("@{imgPath}/plantes/fond_fiches_plantes.png") repeat-x scroll 1px bottom;
+	}
+	.recherche_plante .titreFontFace{
+		font: 24px/120% 'museo',sans-serif;
+		color:@color_univers_sante;
+		padding:0 0 10px 0;
+	}
+	.recherche_plante .titreGris{
+		font:bold 14px/18px Arial, Helvetica, sans-serif;
+		color:#333;
+		margin-bottom: 5px;
+	}
+	.recherche_plante input[type="text"]{
+		float:left;
+		height:20px;
+		width:218px;
+		padding:2px 4px;
+		.rounded(6px);
+		border:3px solid #EBEBEB;
+		.inner-shadow(1px, 1px, 3px, 0px, #999);
+		background:#fff;
+	}
+	input[type="text"] + .bt_noir{
+		width:36px;
+		height:25px;
+		margin:7px 0 0 0;
+		padding:0 6px 3px;
+		float:right;
+		color:#fff;
+		border:1px solid #333;
+		font:bold 14px/20px Arial, Helvetica, sans-serif;
+	}
+	.recherche_plante ul{
+		list-style:none;
+		padding:0;
+	}
+	.recherche_criteres > li{
+		float:none;
+		padding:0 0 5px 0;
+		margin:0 0 10px 0;
+	}
+	.menu_type,
+	.couleur_feuille,
+	.couleur_fleur{
+		overflow:auto;
+	}
+	.recherche_criteres li > p{
+		display:inline-block;
+		position:relative;
+		top:5px;
+		font:bold 11px/16px Arial, Helvetica, sans-serif;
+		text-transform:uppercase;
+		clear:both;
+		margin:0;
+		padding:0 5px 0 15px;
+		background:url("@{imgPath}/sprite_commun.png")no-repeat -1px -445px #fff;
+		color:#666;
+		cursor:pointer;
+	}
+	.recherche_criteres ul,
+	.menu_type > div{
+		border-top:1px solid #999;
+		padding:10px 0 0 0;
+		height:auto;
+	}
+	.recherche_plante input[type="checkbox"],
+	.recherche_plante input[type="radio"]{
+		width:15px;
+		height:15px;
+		margin:0 5px 0 0;
+		background:none;
+		border:none;
+	}
+	.menu_type label{
+		width:90px;
+	}
+	.menu_comestible label{
+		width:120px;
+	}
+	.couleur_feuille li{
+		margin:0 2px;
+	}
+	.couleur_feuille label{
+		padding: 36px 0 0 0;
+		width: 26px;
+	}
+	.couleur_feuille label input[type="checkbox"]{
+		margin:0 0 0 6px;
+	}
+	.couleur_fleur span,
+	.couleur_feuille span{
+		top:-20px;
+		height:auto;
+	}
+	.feuille_purple span,
+	.feuille_black span,
+	.feuille_blue span,
+	.fleur_violet_purple span,
+	.fleur_blue span,
+	.fleur_green span,
+	.fleur_black span,
+	.fleur_multicolor span,
+	.feuille_variegated span{
+		left:auto;
+		right:10px;
+	}
+	.couleur_fleur li{
+		margin:0 1px;
+	}
+	.couleur_fleur label{
+		padding: 23px 0 0 0;
+		width: 23px;
+	}
+	.couleur_fleur label input[type="checkbox"]{
+		float:right;
+		margin:0;
+	}
+	.recherche_criteres .niveau_entretien,
+	.recherche_criteres .niveau_eau{
+		float:left;
+		width:134px;
+	}
+	.recherche_criteres .niveau_entretien{
+		margin:0 10px 0 0;
+	}
+	.recherche_plante .information_besoin{
+		left:-145px;
+	}
+	.recherche_plante .information_expo{
+		left:0px;
+	}
+	.niveau_entretien label,
+	.niveau_eau label{
+		width:134px;
+	}
+	.niveau_eau .bulle_info:hover span +span {
+		left:-140px;
+	}
+	.recherche_plante .niveau_soleil{
+		clear:both;
+		width:auto;
+	}
+	.niveau_soleil label{
+		width:auto;
+		margin:0 14px 0 0;
+	}
+	.exposition_soleil,
+	.exposition_mi_ombre,
+	.exposition_ombre{
+		width:22px;
+		vertical-align:middle;
+	}
+	.recherche_plante form > a {
+		float:left;
+		margin:20px 20px 0 0;
+	}
+	.recherche_plante button{
+		margin:15px 0 0 0;
+	}
+	.oceanique_plantes,
+	.continental_plantes,
+	.mediterraneen_plantes,
+	.semi_oceanique_plantes,
+	.montagnard_plantes{
+		display: none;
+	}
+	.climat_plante label{
+		width: 92px;
+	}
+	.climat_plante li:last-child label{
+		width: 110px;
+	}
+	.recherche_criteres .recherche_3colonne{
+		width: 135px;
+		float: left;
+		label{
+			padding: 10px 0 0 0;
+			width: 100%;
+		}
+	}
+	.recherche_criteres .recherche_3colonne.liste_illustration label{
+		padding: 7px 0 0 0;
+	}
+	.recherche_criteres .recherche_3colonne + .recherche_3colonne{
+		margin-left: 8px;
+	}
+	.recherche_3colonne + .recherche_3colonne + .recherche_3colonne{
+		width: 100%;
+		margin-left: 0;
+	}
+}
+.recherche_ou{
+	margin:20px 0 0 0;
+	border-top:1px solid #e5e5e5;
+}
+.recherche_ou span{
+	display:block;
+	position:relative;
+	top:-12px;
+	.rounded(5px);
+	background:#e5e5e5;
+	margin:0 auto;
+	padding:2px;
+	width:30px;
+	font:14px/20px Arial, Helvetica, sans-serif;
+	color:#999;
+	text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+	text-align:center;
+}
+/****************************************************** BOX RECHERCHE COLONNE DE GAUCHE ***********************************************************/
+.recherche_plante.recherche_gauche{
+	.recherche_lettres{
+		padding:5px 0 10px 0;
+	}
+	.climat_plante li{
+		clear: both;
+	}
+}
+/****************************************************** RECHERCHE EBIBLIOTHEQUE ***********************************************************/
+
+.h1_plante{	/*h1 dans les onglets du menu demandé par le référencement*/
+	font:bold 12px/12px Arial, Helvetica, sans-serif;
+	margin:0;
+	color:#333;
+}
+#plante_ebiblio{
+	margin:0 0 50px 0;
+	.titreGris{
+		font:bold 14px Arial, Helvetica, sans-serif;
+		color:#333;
+	}
+	input[type="text"] + .bt_noir{
+		float:left;
+		height: 34px;
+		margin: 3px 0 0 20px;
+	}
+	.recherche_lettres {
+		margin: 0 0 30px;
+	}
+	.recherche_criteres{
+		height:320px;
+		padding:30px 0 10px 0;
+		border-top:1px solid #ccc;
+		border-bottom:1px solid #ccc;
+	}
+	#plant-search-form-criteria .titreGris{
+		position:relative;
+		top:5px;
+		display:inline;
+		padding:0 10px 0 0;
+		background-color:#fff;
+	}
+	.recherche_criteres > li{
+		float:left;
+		width:209px;
+		margin:0 0 30px 20px;
+		padding:0;
+	}
+	.recherche_criteres> li:first-child,
+	.recherche_criteres> li:first-child + li + li + li{
+		clear:both;
+		margin:0 0 30px 0;
+	}
+	li > p:first-child{
+		font:bold 11px/18px Arial, Helvetica, sans-serif;
+		text-transform:uppercase;
+		color:#666;
+		margin:0;
+	}
+	li ul {
+		padding:0;
+	}
+	.menu_type label{
+		float:none;
+		display:block;
+	}
+	.couleur_feuille span,
+	.couleur_fleur span{
+		height:auto;
+	}
+	.couleur_feuille ul,
+	.couleur_fleur ul{
+		position:relative;
+		left:-6px;
+	}
+	.couleur_feuille li{
+		margin:3px 8px;
+	}
+	.couleur_feuille ul li:first-child,
+	.couleur_feuille ul li:first-child +li +li +li +li{
+		margin: 3px 8px 0 0;
+		clear:both;
+	}
+	.couleur_fleur li{
+		margin:0 4px;
+	}
+	.couleur_fleur ul li:first-child,
+	.couleur_fleur ul li:first-child +li +li +li +li +li +li {
+		margin: 0 4px 0 0;
+	}
+	.fleur_orange span,
+	.fleur_red span,
+	.fleur_pink span,
+	.fleur_black span,
+	.fleur_multicolor span{
+		left: auto;
+		right:20px;
+	}
+	.niveau_entretien label,
+	.niveau_eau label,
+	.niveau_soleil label{
+		width:190px;
+	}
+	.bt_noir_recherche{
+		float: right;
+		margin: 0 0 20px 0;
+		padding: 0 4px 3px;
+		position: relative;
+		top: -15px;
+		webkit-box-shadow:  -10px 0px 0px 0px #fff;
+		box-shadow:  -10px 0px 0px 0px #fff;
+	}
+}
+#e_biblio .niveau_soleil .bulle_info:hover span +span {
+	left:-60px;
+}
+#e_biblio #plante_ebiblio .bt_noir_recherche{
+	float: right;
+	margin: 0 0 20px 0;
+	padding: 0 4px 3px;
+	position: relative;
+	top: -15px;
+	webkit-box-shadow:  -10px 0px 0px 0px #fff;
+	box-shadow:  -10px 0px 0px 0px #fff;
+}
+#e_biblio .bt_noir.bt_back{
+	margin:0 0 20px 0;
+	float:left;
+}
+#e_biblio .box_criteres{
+	position:relative;
+	clear:both;
+	margin:20px 0;
+	padding:10px 10px 15px 10px;
+	background-color:#E7E7E7;
+	#plante_ebiblio{
+		margin:0;
+	}
+	.recap_recherche{
+		margin: 0 0 5px 0;
+		font:bold 14px/18px Arial, Helvetica, sans-serif;
+	}
+	.recap_recherche span{
+		color:#666;
+	}
+	.boite_criteres{
+		overflow:auto;
+	}
+	.boite_criteres li{
+		float:left;
+		padding:3px;
+		margin:0 10px 10px 0;
+		background-color:#fff;
+		cursor:pointer;
+	}
+	.boite_criteres li:hover{
+		background-color:#eee;
+	}
+	#_ebiblio-hide-filters,
+	#_ebiblio-show-filters{
+		position:absolute;
+		z-index:20;
+		right:10px;
+		bottom:10px;
+		padding:0 0 0 5px;
+		background-color:#e7e7e7;
+		cursor:pointer;
+		color:@color_base;
+		font:bold 12px/16px Arial, Helvetica, sans-serif;
+	}
+	#_ebiblio-hide-filters:hover,
+	#_ebiblio-show-filters:hover{
+		color:#333;
+	}
+	.recherche_criteres{
+		clear:both;
+		padding:20px 0 0 0;
+		margin:20px 0 0 0;
+		border-bottom:none;
+		border-top:1px solid #fff;
+	}
+	.recherche_criteres + .clean{
+		border-bottom:1px solid #fff;
+		visibility:visible;
+	}
+	.recherche_criteres > li{
+		width:205px;
+		margin:0 0 20px 20px;
+	}
+	.recherche_criteres > li:first-child,
+	.recherche_criteres > li:first-child + li + li + li{
+		margin:0 0 20px 0;
+	}
+	.couleur_feuille label{
+		padding:34px 0 0 0;
+	}
+	.couleur_fleur li{
+		margin:0 3px;
+	}
+}
+#e_biblio #plant-search-result{
+	.icones_plante span{
+		margin:5px 5px 0 0;
+	}
+	.niveau_entretien_easy,
+	.niveau_entretien_moderate,
+	.niveau_entretien_hard{
+		border-right:1px solid #ccc;
+		padding:0 5px 0 0;
+	}
+	.exposition_soleil,
+	.exposition_mi_ombre,
+	.exposition_ombre{
+		width:20px;
+	}
+	.aucun_resultat_plantes{
+		margin:0 0 30px 0;
+		background:#f3f3f3;
+		padding:10px 15px 5px 15px;
+		.rounded(5px);
+		.inner-shadow(0px, 1px, 4px, 0px, #999);
+	}
+	.aucun_resultat_plantes p{
+		margin: 5px 0;
+	}
+}

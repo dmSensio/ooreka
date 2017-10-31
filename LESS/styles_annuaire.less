@@ -1,0 +1,1924 @@
+/************************************* SOMMAIRE *********************************************/
+/*
+
+I. PAGE LISTE RECHERCHE
+II. PAGE UN PRO
+	Attention: BOUTONS EN AB TESTING
+III. HP ANNUAIRE + ANNONCES JAUNES SEO
+
+
+REPONSIVE DESIGN - MEDIA QUERIES
+
+*/
+/**********************************************************************************************/
+#annuaire {
+	padding:0 10px;
+	margin:20px 0 0 0;
+}
+#annuaire .gauche{
+	width:659px;
+	float:left;
+	margin:0 20px 0 0px;
+	overflow:hidden;
+}
+#annuaire #droite{
+	width:300px;
+	float:right;
+}
+
+/*************************************************************************************************************/
+/* ********************************************* PAGE LISTE RECHERCHE ************************************** */
+/*************************************************************************************************************/
+
+/* ---- Titre ---- */
+#annuaire #titre_annuaire {
+	font:normal 30px/130% 'museo', sans-serif;
+	color:#666;
+	margin:0 0 10px 0;
+}
+#annuaire #titre_annuaire span{
+	color:@color_base;
+}
+/* ---- FIL D'ARIANE ---- */
+#annuaire .filAriane {
+	margin:0px 0 15px 0;
+	padding:0;
+	font:normal 11px/140% Arial, Helvetica, sans-serif;
+	color:@color_base;
+}
+#annuaire .filAriane em {
+	color:#333;
+	font:normal 11px/140% Arial, Helvetica, sans-serif;
+}
+#annuaire .filAriane a {
+	color:#333;
+	text-decoration:none;
+}
+#annuaire .filAriane a:hover {
+	text-decoration:underline;
+}
+#annuaire h1,
+#annuaire h2 {
+	font:normal 16px/130% Arial, Helvetica, sans-serif;
+}
+
+/********************************************** Bloc de recherche *********************************************/
+#annuaire #annuaire_recherche {
+	position:relative;
+	margin:0 0 30px 0;
+	padding:28px 0 0 30px;
+	z-index:70;
+}
+/* Hack compris par tous les nav sauf IE */
+:root #annuaire #annuaire_recherche {
+	height:110px;
+}
+/* Hack compris que par IE8 et plus */
+html>/**/body #annuaire #annuaire_recherche {
+	height:110px;
+}
+#annuaire #annuaire_recherche.positionnement_devis {
+	margin-bottom:10px;
+}
+#annuaire #annuaire_recherche form{
+	width:816px;
+	height:66px;
+	position:relative;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	background:@color_jaune;
+	padding:15px 30px 25px 126px;
+	color:#fff;
+	float:right;
+}
+#annuaire #annuaire_recherche input[type="submit"]{
+	width:auto;
+	position:relative;
+	float:right;
+	background:@color_aplat;
+	border:none;
+	padding:5px 15px;
+	color:#fff;
+	font:normal 14px/130% 'museo', Arial, Helvetica, sans-serif;
+	cursor:pointer;
+	margin-top:33px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+#annuaire #annuaire_recherche input[type="submit"]:hover{
+	background:@color_base;
+}
+#annuaire #annuaire_recherche fieldset{
+	width:333px;
+	padding:0;
+	margin:0 20px 0 0;
+	float:left;
+}
+#annuaire #annuaire_recherche label{
+	font:normal 20px/140% Arial,Helvetica,sans-serif;
+	display:block;
+	overflow:hidden;
+	float:none;
+	padding:0 0 5px 0;
+	color:#333;
+}
+#annuaire #annuaire_recherche .logo_pj{
+	width:102px;
+	height:102px;
+	background:url('@{imgPathTheme}/sprite_annuaire.png') no-repeat -4px -6px;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:100;
+}
+#annuaire #annuaire_recherche .select{
+	width:310px;
+	height:29px;
+	position:relative;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	background-color:@color_aplat;
+	margin:0 20px 0 0;
+	font:normal 12px/140% Arial,Helvetica,sans-serif;
+	cursor:pointer;
+	padding:1px 0 0 0;
+}
+#annuaire #annuaire_recherche .select:hover{
+	background:@color_base;
+}
+#annuaire #annuaire_recherche .select p.selectionnez{
+	position:relative;
+	display:block;
+	margin:6px 10px 0 10px;
+}
+#annuaire #annuaire_recherche .select:after{
+	content:'';
+	display:block;
+	height:15px;
+	width:16px;
+	position:absolute;
+	right:8px;
+	top:3px;
+	background:url('@{imgPath}/sprite_commun.png') no-repeat -101px -547px;
+}
+#annuaire #annuaire_recherche .select p{
+	display:block;
+}
+#annuaire #annuaire_recherche #ou{
+	width:290px;
+	height:18px;
+	position:relative;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:none;
+	background:#fff;
+	padding:5px 10px;
+	font-size:12px;
+}
+#annuaire #annuaire_recherche #conteneur_check{
+	width:274px;
+	position:absolute;
+	-moz-border-radius:0 0 5px 5px;
+	-webkit-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px;
+	border:3px solid @color_aplat;
+	background:#fff;
+	z-index:200;
+	top:74px;
+	color:@color_base;
+	padding:15px;
+	display:none;
+}
+#annuaire #annuaire_recherche #conteneur_check input{
+	width:15px;
+	margin:3px 10px 0 0;
+	float:left;
+	border:none;
+}
+#annuaire #annuaire_recherche #conteneur_check label{
+	width:200px;
+	padding: 2px 0;
+	float:left;
+	font:normal 12px/140% Arial, Helvetica, sans-serif;
+	color: @color_base;
+	cursor:pointer;
+	bakground:transparent;
+}
+#annuaire #annuaire_recherche #conteneur_check label:hover{
+	color:#333;
+}
+#annuaire #annuaire_recherche #conteneur_check p{
+	overflow:hidden;
+	clear:both;
+	margin:0;
+	border-bottom:1px solid #eee;
+	padding:5px 0 4px 0;
+}
+#annuaire #annuaire_recherche #conteneur_check p.check:hover{
+	background:#eee;
+}
+#annuaire #annuaire_recherche #conteneur_check p.titre_check{
+	font:bold 12px/140% Arial, Helvetica, sans-serif;
+	color:#4b4b4b;
+	border:none;
+	padding:0;
+	margin:0;
+}
+#annuaire #annuaire_recherche #conteneur_check .ss_titre_check{
+	font:bold 11px/140% Arial, Helvetica, sans-serif;
+	color:#666;
+	border:none;
+	padding:0;
+	margin:20px 0 5px 0;
+}
+#annuaire .aucunResultat{
+	margin:50px 0 30px 0;
+	text-align:center;
+	font:16px/22px Arial, Helvetica, sans-serif;
+	color:@color_base;	
+}
+/* ********************************************* Publicite Pages jaunes ********************************************* */
+#annuaire .adpurl_style_table_101,
+#annuaire #adpurl_alternative_101{
+	margin:0 0 30px 0;
+}
+#annuaire .adpurl_style_table_101 tr {
+	border:none;
+}
+#annuaire .adpurl_style_table_101 td {
+	border:none;
+}
+/* ********************************************* Lien devis ********************************************* */
+#annuaire .devis {
+	width:600px;
+	font:normal 12px/130% Arial, Helvetica, sans-serif;
+	margin:0 auto 30px auto;
+	padding:0;
+	text-align:center;
+	overflow:hidden;
+	clear:both;
+}
+#annuaire .gauche p.devis a,
+#annuaire .gauche p.devis span,
+#annuaire .gauche p.devis strong{
+	display:block;
+	float:left;
+	margin-right:5px;
+	padding:5px 0;
+}
+#annuaire .gauche p.devis a,
+#annuaire  p.devis a{
+	background:url('@{imgPathTheme}/sprite_annuaire.png') no-repeat 2px -134px ;
+	padding:5px 30px;
+	margin:0;
+	font-weight:bold;
+	white-space:nowrap;
+	line-height:18px;
+}
+#annuaire .liste {
+	overflow:hidden;
+	clear:both;
+}
+#annuaire .liste .societe{
+	border:1px solid #ccc;
+	margin:0 0 30px 0;
+	overflow:hidden;
+	clear:both;
+}
+
+/********************************************** Une société **********************************************/
+	/* Infos gratuites */
+#annuaire .societe .infos_gratuites {
+	overflow:hidden;
+	clear:both;
+	margin-bottom:20px;
+	padding:10px 10px 0 10px;
+}
+#annuaire .societe .infos_gratuites .premiere_ligne{
+	overflow:hidden;
+	clear:both;
+	margin-bottom:10px;
+}
+#annuaire .societe .infos_gratuites .nom {
+	font:bold 18px/140% Arial, Helvetica, sans-serif;
+	display:block;
+	float:left;
+	margin:0 10px 0 0;
+	max-width:430px;
+}
+#annuaire .societe .infos_gratuites a.nom { /*Pour que ça s'applique que sur les pros cliquables*/
+	color:@color_base;
+	text-decoration:underline;
+}
+#annuaire .societe .infos_gratuites a.nom:hover {
+	color:#666;
+}
+#annuaire .societe .infos_gratuites .numerotation {
+	font-size:12px;
+	color:#333;
+	float:left;
+	position:relative;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	background:@color_jaune;
+	padding:3px 6px;
+	margin:1px 10px 0 0;
+	text-align:center;
+}
+#annuaire .societe .infos_gratuites .lien_details {
+	position:relative;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	behavior:url('/js/PIE.htc');
+	background:#ffffff; /* Old browsers */
+	background:-moz-linear-gradient(top, #ffffff 0%, #e7e7e7 100%); /* FF3.6+ */
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e7e7e7)); /* Chrome,Safari4+ */
+	background:-webkit-linear-gradient(top, #ffffff 0%,#e7e7e7 100%); /* Chrome10+,Safari5.1+ */
+	background:-o-linear-gradient(top, #ffffff 0%,#e7e7e7 100%); /* Opera 11.10+ */
+	background:-ms-linear-gradient(top, #ffffff 0%,#e7e7e7 100%); /* IE10+ */
+	background:linear-gradient(top, #ffffff 0%,#e7e7e7 100%); /* W3C */
+	-pie-background:linear-gradient(top, #ffffff 0%,#e7e7e7 100%); /* W3C */
+	border:1px solid #999999;
+/* 	background:#f3f3f3; */
+	color:#333;
+	float:left;
+	text-decoration:none;
+	font:bold 10px/140% Arial, Geneva, sans-serif;
+	padding:2px 5px;
+	margin:2px 0 0 0;
+}
+#annuaire .societe .infos_gratuites .lien_details:hover{
+	color:@color_base;
+	border:1px solid #ccc;
+}
+#annuaire .societe .infos_gratuites .eco_responsabilite {
+	float:left;
+	margin:6px 10px 0 0;
+}
+#annuaire .societe .infos_gratuites .activite {
+	margin:6px 10px 10px 30px;
+	color:#aaa;
+	font-size:12px;
+	float:none;
+	clear:both;
+	overflow:hidden;
+}
+#annuaire .societe .infos_gratuites .adresse{
+	clear:both;
+	overflow:hidden;
+	margin:0 0 5px 30px;
+	line-height:150%;
+	width:380px;
+	float:left;
+}
+#annuaire .societe .infos_gratuites .adresse p{
+	float:left;
+}
+#annuaire .societe .infos_gratuites .adresse p.label{
+	width:70px;
+}
+#annuaire .societe .infos_gratuites .adresse strong{
+	display:block;
+	margin-bottom:2px;
+}
+#annuaire .societe ul.plan{
+	padding:0 0 0 30px;
+	margin:0 0 10px 0;
+}
+#annuaire .societe ul.plan li{
+	list-style:none;
+	display:inline;
+	font-size:11px;
+	padding-right:10px;
+}
+#annuaire .societe ul.plan li a{
+	color:#aaa;
+}
+#annuaire .societe ul.plan li a:hover{
+	color:#333;
+}
+#annuaire .infos_droite{
+	float:right;
+	width:250px;
+	text-align:right;
+}
+#annuaire .logo{
+	width:80px;
+	display:block;
+	overflow:hidden;
+	padding:2px;
+	border:1px solid #999;
+	float:right;
+}
+#annuaire  .logo img{
+	display:block;
+	width:80px;
+	margin:0 auto;
+}
+/*********************************** BOUTONS EN AB TESTING *************************************/
+/*Par défaut :*/
+#annuaire .tel{
+	.bt_numero_LR{
+		cursor:pointer;
+		height:26px;
+		width:110px;
+		padding:0 0 0 28px;
+		float:right;
+		background:url('@{imgPathTheme}/bt_afficher_numero.png') no-repeat 0px 0px;
+		font: bold 11px/26px Arial, Helvetica, sans-serif;
+		color:#fff;
+		text-align: left;
+	}
+	.bt_numero_LR:hover{
+		background:url('@{imgPathTheme}/bt_afficher_numero.png') no-repeat 0px -26px;
+	}
+	.bt_numero_LR .picto_PJ{
+		display:none;
+	}
+}
+/*En AB testing :*/
+#annuaire .tel{
+	.bt_numero_LR_PJ{
+		position:relative;
+		cursor:pointer;
+		width: 62px;
+		height: 31px;
+		padding: 8px 14px 2px 30px;
+		border: 1px solid #CCC;
+		.rounded(5px);
+		.gradient(#D2D2D2, #fff, #D2D2D2);
+		color: #000;
+		font-weight: bold;
+		font-size:12px;
+		line-height: 14px;
+		text-align: left;
+	}
+	.bt_numero_LR_PJ:hover{
+		color:#5e5e5e;
+	}
+	.bt_numero_LR_PJ .picto_PJ{
+		position: absolute;
+		left: 1px;
+		top: 10px;
+		display: block;
+		height: 20px;
+		width: 20px;
+		background: url("@{imgPath}/bt_afficher_numero_PJ.png") no-repeat 0 0;
+	}
+	.bt_numero_LR_PJ:hover .picto_PJ{
+		background: url("@{imgPath}/bt_afficher_numero_PJ.png") no-repeat -24px 0;
+	}
+}
+/**********************************************************************************************/
+#annuaire .societe .tel{
+	float:right;
+	margin-bottom:2px;
+	text-align:right;
+}
+#annuaire .societe .tel a,
+#annuaire .societe .tel p{
+	text-align:right;
+	margin-bottom:3px;
+}
+#annuaire .societe .partager{
+	width:60px;
+	background:url('@{imgPathTheme}/sprite_annuaire.png') no-repeat 0 -202px;
+	color:#666;
+	float:right;
+	margin-top:2px;
+	padding-left:10px;
+	text-decoration:underline;
+	font-size:11px;
+}
+#annuaire  .societe .partager:hover{
+	color:#333;
+}
+#annuaire  .infos_droite a{
+	margin-bottom:5px;
+	display:block;
+	text-align:right;
+}
+	/* PVI */
+#annuaire .societe .infos_payantes{
+	background:#ececec;
+	padding:15px;
+	color:@color_contraste;
+	border-top:#ccc;
+}
+#annuaire .societe .infos_payantes .description{
+	margin-bottom:20px;
+}
+#annuaire .societe .infos_payantes .medias .savoir_plus{
+	border:none;
+	padding:0;
+}
+#annuaire .societe .infos_payantes .medias .savoir_plus a{
+	margin:0;
+}
+#annuaire .societe .infos_payantes .medias .savoir_plus.bordure{
+	border-left:4px solid @color_pale;
+	padding:2px 0 10px 10px;
+}
+#annuaire .societe .infos_payantes .medias .savoir_plus.bordure a{
+	margin-left: 10px;
+}
+#annuaire .societe .infos_payantes .medias .photos_videos{
+	width:auto;
+	background:#fff;
+	border-left:4px solid @color_pale;
+	padding:10px 0 15px 10px;
+	clear:both;
+	overflow:hidden;
+	margin-bottom:20px;
+}
+#annuaire .societe .infos_payantes .medias .photos_videos a.lien{
+	width:87px;
+	height:63px;
+	display:block;
+	text-decoration:none;
+	position:relative;
+	margin:10px 15px 10px 0;
+	float:left;
+}
+#annuaire .societe .infos_payantes .medias .photos_videos a.lien span{
+	padding:0 2px 2px 2px;
+	display:block;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	overflow:hidden;
+}
+#annuaire .societe .infos_payantes .medias.perso a.lien{
+	width:80px;
+	height:61px;
+	border:1px solid #ccc;
+	display:block;
+	padding:2px;
+	float:left;
+}
+#annuaire .societe .infos_payantes .medias.perso a.voir{
+	display:block;
+	bottom:0;
+	margin-top:60px;
+	background:url("@{imgPathTheme}/puce_fleche-liste.png") no-repeat 0 2px;
+	padding-left:12px;
+	overflow:hidden;
+	text-decoration:underline;
+}
+#annuaire .societe .infos_payantes .medias.perso a.lien img{
+	width:80px;
+	display:block;
+}
+#annuaire .societe .infos_payantes .medias .photos_videos a.lien span img{
+	width:80px;
+	display:block;
+}
+#annuaire .societe .infos_payantes .medias .photos_videos a.lien em{
+	width:87px;
+	height:51px;
+	display:block;
+	background:url('@{imgPathTheme}/sprite_annuaire.png') no-repeat 22px -414px;
+	position:absolute;
+	bottom:2px;
+	left:0;
+}
+#annuaire .societe .infos_payantes .medias .photos_videos ul{
+	width:auto;
+	float:left;
+	margin:0;
+	padding:0 0 0 15px;
+	margin-left:20px;
+	border-left:1px solid @color_desat - #111;
+}
+#annuaire .societe .infos_payantes .medias .photos_videos ul li{
+	list-style:none;
+	margin-bottom:4px;
+}
+#annuaire .societe .infos_payantes .medias .photos_videos ul li a{
+	color:@color_base;
+}
+#annuaire .societe .infos_payantes .medias .photos_videos ul li a:hover{
+	color:@color_aplat + #111;
+	text-decoration:underline;
+}
+#annuaire .societe .infos_payantes .medias .photos_videos a.lien em:hover{
+	background:url('@{imgPathTheme}/sprite_annuaire.png') no-repeat -76px -414px;
+}
+#annuaire .societe .infos_payantes .medias .photos_videos a.lien strong{
+	width:87px;
+	height:17px;
+	background:@color_contraste;
+	color:#fff;
+	display:block;
+	font:normal 11px/140% Arial, Geneva, sans-serif;
+	text-align:center;
+	padding-top:3px;
+	position:absolute;
+	top:-10px;
+}
+#annuaire .societe .infos_payantes .medias a{
+	color:@color_contraste;
+	margin-left:10px;
+}
+#annuaire .societe .infos_payantes .medias a:hover{
+	color:@color_contraste + #181818;
+}
+#annuaire .societe .description_pro{
+	margin: 10px 10px 30px 30px;
+}
+#annuaire .societe .description_pro a{
+	text-decoration:underline;
+}
+#annuaire .societe .description_pro a:hover{
+	color:#333;
+}
+#annuaire .societe .info_juridique{
+	width:270px;
+	display:block;
+	background:url('@{imgPathTheme}/pages_pro_PJ.png') no-repeat right top;
+	margin:10px;
+	padding:5px 78px 5px 0;
+	font:normal 11px/140% Arial, Geneva, sans-serif;
+	color:#333;
+}
+#annuaire  .societe .info_juridique:hover{
+	color:#084a79; /*Couleur pro pages jaunes idem sur tous les themes de couleur*/
+}
+#annuaire .infos_gauche{
+	float:left;
+	width:530px;
+}
+#annuaire .infos_gauche div{
+	clear:both;
+	overflow:hidden;
+}
+/* Plus de coordonnees */
+#annuaire  .plus_coordonnees{
+	clear:both;
+	overflow:hidden;
+}
+#annuaire  .plus_coordonnees .une_coordonnee{
+	border-left:4px solid #e4e4e4;
+	padding-left:10px;
+	margin:0 0 20px 30px;
+	overflow:hidden;
+	clear:both;
+}
+#annuaire .societe .infos_gratuites .plus_coordonnees .adresse{
+	margin:0;
+	float:left;
+	width:350px;
+}
+#annuaire .plus_coordonnees .tel{
+	margin:0;
+	float:right;
+}
+#annuaire .plus_coordonnees .titre{
+	color:#666;
+	font:12px/140% Arial,Helvetica,sans-serif;
+	padding:10px 0 10px 30px;
+}
+/* Puces */
+#annuaire .societe ul.liens_icones{
+	padding:10px;
+	margin:0;
+	overflow:hidden;
+}
+#annuaire .societe ul.liens_icones li{
+	list-style:none;
+	float:left;
+	padding:2px 0 2px 25px;
+	margin-bottom:5px;
+}
+#annuaire ul.liens_icones li a{
+	color: @color_contraste;
+	font-size:12px;
+}
+#annuaire ul.liens_icones li a:hover{
+	text-decoration:underline;
+}
+#annuaire  ul.liens_icones li.reserver{
+	background:url('@{imgPathTheme}/sprite_annuaire.png') no-repeat 0 -307px;
+}
+#annuaire  ul.liens_icones li.commander{
+	background:url('@{imgPathTheme}/sprite_annuaire.png') no-repeat 0 -278px;
+}
+#annuaire  ul.liens_icones li.rdv{
+	background:url('@{imgPathTheme}/sprite_annuaire.png') no-repeat 0 -332px;
+}
+#annuaire  ul.liens_icones li.demander_devis{
+	background:url('@{imgPathTheme}/sprite_annuaire.png') no-repeat 0 -358px;
+}
+
+
+/*************************************************************************************************************/
+/* ********************************************* PAGE UN PRO ********************************************* */
+/*************************************************************************************************************/
+
+#annuaire  .retour_resultats{
+	background:url('@{imgPathTheme}/sprite_annuaire.png') no-repeat -3px -549px;
+	padding:0 0 0 15px;
+	margin-bottom:30px;
+	font-size:11px;
+	overflow:hidden;
+	display:block;
+}
+#annuaire  .retour_resultats:hover{
+	color:#333;
+}
+#annuaire .un_pro{
+	overflow:hidden;
+}
+#annuaire .un_pro h1{
+	width:550px;
+	font:normal 30px/130% 'museo', sans-serif;
+	color:#333;
+	margin:0 0 30px 0;
+	float:left;
+}
+#annuaire .un_pro h1 span{
+	display:block;
+	font:bold 12px/130% Arial, Helvetica, sans-serif;
+	color:#999;
+}
+#annuaire .un_pro .une_coordonnee{
+	border-left:4px solid #e4e4e4;
+	padding:10px 0 0 10px;
+	margin:0 0 20px 0;
+	overflow:hidden;
+	clear:both;
+	line-height:18px;
+}
+#annuaire .un_pro .une_coordonnee .logo{
+	float:right;
+}
+#annuaire .un_pro .une_coordonnee .logo{
+	width:65px;
+	display:block;
+	overflow:hidden;
+	padding:2px;
+	border:1px solid #999;
+	float:right;
+}
+#annuaire .un_pro .description_un_pro{
+	clear:both;
+	margin: 0 0 20px 0;
+	padding: 10px 0 0 0;
+}
+#annuaire .un_pro .une_coordonnee .adresse p{
+	float:left;
+	width:65%;
+}
+#annuaire .un_pro .une_coordonnee .adresse strong{
+	display:block;
+}
+#annuaire .un_pro .une_coordonnee .adresse{
+	float:left;
+	margin-bottom: 10px;
+}
+#annuaire .un_pro .une_coordonnee .tel a,
+#annuaire .un_pro .une_coordonnee .tel{
+	float:right;
+}
+#annuaire .un_pro .une_coordonnee .tel div{
+	margin:0 0 5px 0;
+}
+#annuaire .un_pro .une_coordonnee p.label{
+	width:30%;
+	margin-right:5%;
+	color:#999;
+}
+#annuaire .un_pro .titre{
+	width:155px;
+	font-size:12px;
+	color:@color_base;
+	margin:0 0 10px 0;
+	padding:0;
+	background:url("@{imgPathTheme}/fleche_bas.png") no-repeat right 5px;
+	text-decoration:underline;
+	cursor:pointer;
+}
+#annuaire .horaires_pro{
+	border-left:4px solid #e4e4e4;
+	padding:10px 0 0 10px;
+	margin:0 0 20px 0;
+	overflow:hidden;
+	clear:both;
+	line-height:18px;
+}
+#annuaire .horaires_pro .label{
+	float:left;
+	width: 140px;
+	color: #999;
+}
+#annuaire .horaires_pro ul{
+	overflow:hidden;
+	width:505px;
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#annuaire .horaires_pro li{
+	float:left;
+	width:225px;
+	margin-bottom: 3px;
+}
+#annuaire .horaires_pro span{
+	display:inline-block;
+}
+#annuaire .horaires_jour{
+	width:80px;
+}
+#annuaire .horaires_matin{
+	width:140px;
+}
+#annuaire .horaires_aprem{
+	width:140px;
+	margin:0 0 0 84px;
+}
+#annuaire .un_pro .titre:hover{
+	color:#333;
+}
+#annuaire .un_pro .infos_droite p{
+	overflow:hidden;
+}
+#annuaire .un_pro .pvi{
+	border:1px solid #999;
+	padding:15px;
+}
+#annuaire .un_pro .separateur_savoir_plus{
+	overflow:hidden;
+	clear:both;
+	margin:20px 0 10px 0;
+}
+#annuaire .un_pro .separateur_savoir_plus span{
+	width:544px;
+	height:10px;
+	float:left;
+	display:block;
+	background:#ececec;
+	margin:3px 0 0 0;
+}
+#annuaire .un_pro .separateur_savoir_plus p{
+	width:115px;
+	float:left;
+	text-transform:uppercase;
+	font-size:10px;
+	color:#7a7a7a;
+}
+#annuaire .un_pro .savoir_plus{
+	position:relative;
+	padding-bottom:10px;
+}
+#annuaire .un_pro .savoir_plus .pvi_complet{
+	background:@color_desat;
+	padding:15px 15px 0 15px;
+	margin:0 0 15px 0; 
+	overflow:hidden;
+}
+#annuaire .un_pro .savoir_plus .pvi_complet ul{
+	margin:0 0 15px 0;
+	padding:0;
+	overflow:hidden;
+}
+#annuaire .un_pro .savoir_plus .pvi_complet ul li{
+	width:230px;
+	height:12px;
+	list-style:none;
+	line-height:150%;
+	background:url('@{imgPathTheme}/sprite_annuaire.png') no-repeat 0 -513px;
+	padding:1px 0 7px 10px;
+	margin:0 5px 2px 0;
+	float:left;
+	overflow:hidden;
+}
+#annuaire .un_pro .savoir_plus .pvi_complet ul li a{
+	text-decoration:none;
+	display:block;
+}
+#annuaire .un_pro .savoir_plus .pvi_complet ul li:hover{
+	background-color:@color_pale;
+}
+#annuaire .un_pro .savoir_plus .lien_site{
+	color:@color_contraste;
+	display:block;
+	margin-bottom:15px;
+}
+#annuaire .un_pro .savoir_plus .lien_site a{
+	color:@color_base;
+}
+#annuaire .un_pro .savoir_plus span.lien_site{
+	color:#333;
+}
+#annuaire .un_pro .savoir_plus span.lien_site:hover{
+	color:#333;
+}
+#annuaire .un_pro .savoir_plus .lien_site:hover,
+#annuaire .un_pro .savoir_plus .lien_site a:hover{
+	color:#333;
+}
+#annuaire .un_pro .savoir_plus .photos_videos{
+	width:124px;
+	float:right;
+	top:15px;
+	right:15px;
+	text-align:right;
+	font-size:12px;
+}
+#annuaire .un_pro .savoir_plus .photos_videos a{
+	width:80px;
+	display:block;
+	border:1px solid #ccc;
+	padding:3px;
+	float:right;
+	margin-bottom:5px;
+	color:#666;
+	background:#fff;
+}
+#annuaire .un_pro .savoir_plus .photos_videos a img{
+	width:80px;
+	display:block;
+}
+#annuaire .un_pro .savoir_plus .photos_videos a.lien{
+	width:100px;
+	display:inline;
+	border:none;
+	padding:0 0 0 10px;
+	background:url('@{imgPathTheme}/puce_tab.png') no-repeat 0 2px transparent;
+}
+#annuaire .un_pro{
+	.video_annuaire{
+		position:relative;
+		margin:10px 0 0 0;
+	}
+	.video_annuaire:before{
+		content:'';
+		display:block;
+		height:51px;
+		width:87px;
+		overflow:hidden;
+		position:absolute;
+		bottom:2px;
+		left:0;
+		background:url("@{imgPathTheme}/sprite_annuaire.png") no-repeat 22px -414px;
+	}
+	.video_annuaire:hover:before{
+		background:url("@{imgPathTheme}/sprite_annuaire.png") no-repeat -76px -414px;
+	}
+}
+#annuaire .un_pro .savoir_plus .perso_complet{
+	background:#ececec;
+	overflow:hidden;
+	padding:15px 15px 0 15px;
+	margin-bottom:10px;
+}
+#annuaire .un_pro .info_juridique {
+	border-bottom:1px solid #ccc;
+	padding-bottom:10px;
+	overflow:hidden;
+	clear:both;
+}
+#annuaire .un_pro .info_juridique a{
+	width:270px;
+	display:block;
+	background:url('@{imgPathTheme}/pages_pro_PJ.png') no-repeat right top;
+	padding:5px 78px 5px 0;
+	font:normal 11px/140% Arial, Geneva, sans-serif;
+	color:#333;
+}
+#annuaire .un_pro .info_juridique a:hover{
+	color:#084a79; /*Couleur pro pages jaunes idem sur tous les themes de couleur*/
+}
+#annuaire .un_pro .fdVideoPlayer{
+	width:440px;
+	margin:0 0 15px 0;
+	float:left;
+}
+#annuaire .un_pro ul.liens_icones.avec_video{
+	float:left;
+}
+#annuaire .un_pro ul.liens_icones{
+	margin:0 0 15px 0;
+	padding:0;
+	overflow:hidden;
+}
+#annuaire .un_pro ul.liens_icones li{
+	width:150px;
+	list-style:none;
+	padding:2px 0 2px 25px;
+	margin-bottom:5px;
+	display:block;
+}
+#annuaire #mymap{
+	border:2px solid #999;
+	position:relative;
+	behavior:url('/js/PIE.htc');
+	margin:0 0 30px 0;
+	.leaflet-control-container div{
+		margin: 0;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		a{
+			padding: 1px;
+		}
+	}
+	.leaflet-control-container .mappy-control-layers{
+		border-top: 1px solid #838383;
+	}
+}
+#annuaire.page_detaille .pub1{
+	overflow:hidden;
+	margin:20px 0;
+}
+/********************************* AFFICHER NUMERO PJ ************************************/
+#annuaire .proPJ_numero{
+	background:@color_degradFonce;
+	color:#fff;
+	padding:3px 5px;
+	display:inline-block;
+	cursor:pointer;
+}
+#annuaire .proPJ_numero:hover{
+	background:@color_degradClair;
+}
+.noir #annuaire .proPJ_numero{
+	background:@color_contraste;
+}
+.noir #annuaire .proPJ_numero:hover{
+	background:@color_aplatC;
+}
+/********************************* AFFICHER PHOTO & VIDEO ************************************/
+.affichage_photo_video{
+	margin-top: 3rem;
+	p{
+		font-size:24px;
+		font-family: "Museo", Calibri, Arial, Helvetica, sans-serif;
+		margin: 2rem 0;
+		border-bottom: 1px solid #ccc;
+		span{
+			padding-right: 1rem;
+			background-color: #fff;
+			position: relative;
+			top: 1rem;	
+		}
+	}
+	div{
+		a{
+			margin-top: 2rem;
+			float: left;
+			width: 30%;
+			max-height: 100px;
+			border: 1px solid #999;
+			box-sizing: border-box;
+			overflow: hidden;
+		}
+		a:nth-of-type(3n+2){
+			margin-left: 5%; 
+			margin-right: 5%; 
+		}
+		a:nth-of-type(-n+3){
+			margin-top: 0;
+		}
+		img{
+			min-width: 100%;
+			min-height: 100%;
+			display: block;
+		}
+	}
+}
+/*********************************************************************************************************************/
+/************************************** HP ANNUAIRE + ANNONCES JAUNES SEO ********************************************/
+/*********************************************************************************************************************/
+#annuaire{
+	.cadre{
+		position:relative;
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		border-radius:5px;
+		border:7px solid #e6e6e6;
+		padding:15px 15px 15px 20px;
+		overflow:hidden;
+		margin-bottom:25px;
+	}
+	.colonne_annuaire{
+		-moz-column-count: 3;
+		-moz-column-gap: 10px;
+		-webkit-column-count: 3;
+		-webkit-column-gap: 10px;
+		column-count: 3;
+		column-gap: 10px;
+	}
+	.colonne_annuaire li{
+		break-inside: avoid-column;
+		-o-column-break-inside: avoid;
+		-webkit-column-break-inside: avoid;
+		page-break-inside: avoid;
+	}
+	.cadre li{
+		list-style:none;
+		line-height: 135%;
+		margin:0 0 5px 0;
+		padding:0;
+		display:block;
+	}
+	.cadre a{
+		display:block;
+		text-decoration:none;
+		color:#333;
+	}
+	.cadre li strong{
+		margin:0 0 5px 0;
+		display:block;
+	}
+	.cadre li ul{
+		margin:0 0 10px 0;
+		padding:5px 0;
+	}
+/*--------------------------- CADRE GRIS ------------------------------------*/
+	.cadre.gris ul{
+		padding:15px 15px 0 15px;
+		overflow:hidden;
+	}
+	.cadre.gris p{
+		text-align:right;
+		padding:10px 5px 5px 10px;
+		overflow:hidden;
+	}
+	.cadre.gris p a{
+		text-decoration:none;
+		color:#333;
+		background:url('@{imgPathTheme}/puce_tab.png') no-repeat 0 2px;
+		padding-left:15px;
+	}
+	.cadre.gris p a:hover{
+		color:@color_base;
+	}
+	.cadre.gris li{
+		margin:0 0 8px 0;
+	}
+	.cadre.gris a{
+		text-decoration:none;
+		color:#333;
+		background:url('@{imgPathTheme}/puce_tab.png') no-repeat 0 10px;
+		padding:6px 0 6px 15px;
+	}
+	.cadre.gris a:hover{
+		color:@color_base;
+		background-color:#eee;
+	}
+/*------------------------------- CADRE TOP ------------------------------*/
+	.titreTop{
+		font-size:16px;
+		margin-bottom:10px;
+	}
+	.cadre.top{
+		padding:10px 10px 5px 20px;
+	}
+	.cadre.top a{
+		background:url('@{imgPathTheme}/puce_tab.png') no-repeat 0 10px;
+		padding:6px 0 6px 15px;
+	}
+	.cadre.top a:hover{
+		background-color:#eee;
+		color:@color_base;
+	}
+}
+#annuaire.liste_reponses .titreTop{
+	margin-top:30px;
+}
+.titre_listing_plus{
+	display: none;
+}
+/*************************************** Page département **************************************/
+#annuaire{
+	.cadre {
+		float:none;
+		padding:10px;
+	}
+	.cadre li{
+		margin: 0 0 5px 2px;
+		padding:0;
+		background:none;
+	}
+	.cadre.bleu {
+		border:7px solid #e6e6e6;
+	}
+	.cadre.bleu a{
+		padding:5px 0 3px 15px;
+		background: url("@{imgPathTheme}/puce_tab.png") no-repeat 0 9px;
+		color:@color_base;
+		transition:all 0.3s ease;
+	}
+	.cadre.bleu a:hover{
+		color:@color_base;
+	}
+	.cadre.bleu span{
+		display:block;
+		padding:5px 0 3px 15px;
+		background: url("@{imgPathTheme}/puce_tab.png") no-repeat 0 9px;
+
+	}
+	.cadre.bleu li ul{
+		margin:0;
+		padding:0 0 10px 10px;
+	}
+	.cadre.bleu li ul li{
+		background: url("@{imgPathTheme}/i_ss_liste.png") no-repeat 2px 6px;
+	}
+	.cadre.bleu ul li a{
+		color:#333;
+		background:#fff;
+		border:none;
+		padding: 0 0 0 10px;
+	}
+}
+/*---------------------------------------------------------------------------------*/
+#annuaire.departement div.extraits p.titreGris{
+	font:normal 14px/140% Arial, Helvetica, sans-serif;
+}
+#annuaire div.publicite{
+	margin-bottom:30px;
+	overflow:hidden;
+}
+#annuaire .google-afc-ad{
+	border:1px solid #CCC;
+	margin:10px 0 20px;
+}
+#annuaire .google-afc-title a{
+	color:@color_base;
+	font:bold 18px/140% Arial,Helvetica,sans-serif;
+	text-decoration:underline;
+	padding:10px 0 10px 10px;
+	display:block;
+}
+#annuaire .google-afc-title a:hover{
+	color:#666;
+	background:none;
+}
+#annuaire .google-afc-text{
+	margin:0 0 5px 10px;
+	color:#666;
+}
+#annuaire .google-afc-link a{
+	display:block;
+	background: none;
+	border-top: 1px solid #ccc;
+	color: @color_contraste;
+	padding: 10px;
+}
+#annuaire .google-afc-link a:hover{
+	background:#ececec;
+}
+#annuaire div.ad_300x250{
+	overflow:hidden;
+}
+
+/****************************************** QUELQUES EXTRAITS DE GUIDE ***********************************/
+#annuaire div.extraits {
+	padding:10px 10px 0 10px;
+	margin:0 0 25px 0;
+	overflow:hidden;
+}
+#annuaire p.titreTopExtrait {
+	font:normal 16px/140% Arial, Helvetica, sans-serif;
+	margin:40px 0 15px;
+	padding:0;
+}
+#annuaire div.extraits p.titreExtrait {
+	font:bold 14px/140% Arial, Helvetica, sans-serif;
+	margin:0 0 5px 0;
+	padding:0;
+}
+#annuaire div.extraits p {
+	margin:0 0 15px 0;
+	padding:0;
+}
+#annuaire .extraits .plus .voletPlus a {
+    background: url("@{imgPathTheme}/img_icones-communes.png") no-repeat scroll 37px -1108px transparent;
+    cursor: pointer;
+    padding-right: 15px;
+}
+#annuaire .extraits .plus .voletMoins a {
+    background: url("@{imgPathTheme}/img_icones-communes.png") no-repeat scroll 46px -1108px transparent;
+    cursor: pointer;
+    padding-right: 15px;
+}
+/****************************************** STYLES MAPPY ***********************************/
+.leaflet-tooltip-container {
+	z-index: 4;
+}
+.leaflet-tooltip {
+	z-index: 10;
+	display: none;
+	border: 1px solid #bbb;
+	border-radius: 1px;
+	background-color: #fff;
+	box-shadow: 0 1px 7px rgba(0, 0, 0, .4);
+	opacity: 0;
+	cursor: default;
+	-webkit-transition: opacity 150ms linear;
+	-moz-transition: opacity 150ms linear;
+	-o-transition: opacity 150ms linear;
+	transition: opacity 150ms linear;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+.leaflet-tooltip p {
+	margin: 0;
+}
+.leaflet-tooltip.leaflet-tooltip-fade {
+	opacity: 1;
+}
+.mappy-control,
+.mappy-tooltip {
+	border: 1px solid #838383;
+	border-radius: 3px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+}
+.leaflet-control-container > div {
+	clear: both;
+}
+.mappy-control {
+	margin: 10px;
+	background: #8C8C8C;
+	background: rgba(102, 102, 102, .6);
+}
+.mappy-button {
+	display: block;
+	width: 38px;
+	height: 36px;
+	border-top: solid 1px #838383;
+}
+.mappy-button:first-child {
+	border-top-color: transparent;
+}
+.mappy-button span {
+	display: block;
+	margin: 6px 7px;
+	width: 24px;
+	height: 24px;
+	background: url("@{imgPathTheme}/mappy/tools.png")no-repeat 0 0;
+	color: #FFF;
+	text-align: center;
+	font-size: 0;
+	line-height: 24px;
+}
+.mappy-button-traffic span {
+	background-position: -24px 0;
+}
+.mappy-button-transport span {
+	background-position: 0 0;
+}
+.mappy-button-aerial span {
+	background-position: -48px 0;
+}
+.mappy-button-zoom-in span {
+	background-position: -72px 0;
+}
+.mappy-button-zoom-out span {
+	background-position: -96px 0;
+}
+.mappy-button-active.mappy-button-traffic span,
+.mappy-button-traffic:hover span {
+	background-position: -24px -24px;
+}
+.mappy-button-active.mappy-button-transport span,
+.mappy-button-transport:hover span {
+	background-position: 0 -24px;
+}
+.mappy-button-active.mappy-button-aerial span,
+.mappy-button-aerial:hover span {
+	background-position: -48px -24px;
+}
+.mappy-button-active.mappy-button-zoom-in span,
+.mappy-button-zoom-in:hover span {
+	background-position: -72px -24px;
+}
+.mappy-button-active.mappy-button-zoom-out span,
+.mappy-button-zoom-out:hover span {
+	background-position: -96px -24px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+	.mappy-button span {
+		background: url("@{imgPathTheme}/mappy/tools-2x.png")no-repeat 0 0;
+		background-size: 120px 48px;
+	}
+}
+.mappy-button-active,
+.mappy-button:hover {
+	background: #666;
+	text-decoration: none;
+}
+.mappy-button-active span,
+.mappy-button:hover span {
+	color: #68d419;
+}
+.mappy-button-zoom-in,
+.mappy-button-zoom-out {
+	overflow: hidden;
+	padding: 4px 0;
+	height: 28px;
+}
+.mappy-button-zoom-in span,
+.mappy-button-zoom-out span {
+	display: block;
+	margin: 6px 11px;
+	width: 16px;
+	height: 16px;
+}
+.mappy-button-zoom-full {
+	padding: 0;
+}
+.mappy-button-zoom-full.mappy-button-zoom-out {
+	border-top:none;
+}
+.mappy-button-zoom-in:hover,
+.mappy-button-zoom-out:hover {
+	background: 0 0;
+}
+.mappy-slider-wrap {
+	margin: 0 auto;
+	width: 6px;
+	background-color: #666;
+}
+.mappy-slider-body {
+	border: 2px solid #AAA;
+	cursor: pointer;
+}
+.mappy-slider-knob {
+	position: relative;
+	margin-left: -3px;
+	width: 9px;
+	height: 9px;
+	border-top: solid 1px #777;
+	border-radius: 10px;
+	background-color: #FFF;
+	cursor: pointer;
+}
+.mappy-tooltip {
+	position: absolute;
+	right: 50px;
+	padding: 8px 12px;
+	background: #666;
+	color: #FFF;
+	white-space: nowrap;
+}
+.leaflet-left .mappy-tooltip {
+	right: auto;
+	left: 50px;
+}
+.mappy-tooltip span {
+	display: block;
+}
+.mappy-tooltip input {
+	margin-right: 5px;
+}
+.mappy-tooltip:after,
+.mappy-tooltip:before {
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	width: 0;
+	height: 0;
+	border: solid transparent;
+	content: "";
+	pointer-events: none;
+}
+.leaflet-left .mappy-tooltip:after,
+.leaflet-left .mappy-tooltip:before {
+	right: 100%;
+	left: auto;
+}
+.mappy-tooltip:after {
+	margin-top: -6px;
+	border-width: 6px;
+	border-color: transparent transparent transparent #666;
+}
+.mappy-tooltip:before {
+	margin-top: -7px;
+	border-width: 7px;
+	border-color: transparent transparent transparent #838383;
+}
+.mappy-tooltip input,
+.mappy-tooltip label {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.leaflet-left .mappy-tooltip:after {
+	border-right-color: #666;
+	border-left-color: transparent;
+}
+.leaflet-left .mappy-tooltip:before {
+	border-right-color: #838383;
+	border-left-color: transparent;
+}
+.mappy-traffic-legend {
+	padding: 5px 10px;
+	border: none;
+	border-radius: 0;
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, .8);
+	box-shadow: none;
+	color: #000;
+	font-size: 12px;
+}
+p.mappy-traffic-legend-title {
+	font-weight: 700;
+	font-size: 12px;
+}
+.mappy-traffic-legend table {
+	margin: 5px 0;
+}
+.mappy-traffic-legend td {
+	width: 40px;
+	height: 7px;
+}
+.mappy-traffic-legend .orange {
+	background-color: orange;
+}
+.mappy-traffic-legend .red {
+	background-color: red;
+}
+.mappy-traffic-legend .darkred {
+	background-color: #b20000;
+}
+.mappy-traffic-legend .black {
+	background-color: #443434;
+}
+.mappy-traffic-legend * {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	border: 0;
+}
+.mappy-traffic-legend {
+	clear: both;
+}
+.mappy-traffic-legend p.left {
+	float: left;
+}
+.mappy-traffic-legend p.right {
+	float: right;
+}
+.leaflet-control.leaflet-control-attribution,
+.leaflet-control.leaflet-control-scale {
+	float: left;
+	clear: none;
+	margin: 0 10px 10px;
+	padding: 5px;
+	height: 15px;
+	background: #FFF;
+	background: rgba(255, 255, 255, .5);
+}
+.leaflet-control.leaflet-control-scale {
+	margin-right: 0;
+}
+.leaflet-control.leaflet-control-scale+.leaflet-control-attribution {
+	margin-left: 0;
+	padding-right: 10px;
+}
+.leaflet-control-scale-line {
+	padding: 0 0 2px 2px;
+	border-width: 1px;
+	border-color: #666;
+	background: 0 0;
+}
+.leaflet-control-attribution a {
+	color: #333;
+	font-size: 11px;
+}
+.mappy-tooltip-transport {
+	padding: 5px;
+}
+.mappy-tooltip-transport p {
+	margin: 5px 0;
+}
+.mappy-tooltip-transport span {
+	display: inline-block;
+	margin-bottom: 5px;
+	color: #333;
+	font-weight: 700;
+	font-size: 16px;
+}
+.mappy-tooltip-transport img {
+	margin: 0 2px;
+}
+/****************************************************************************
+REPONSIVE DESIGN - MEDIA QUERIES
+/****************************************************************************/
+@media only screen and (max-width: 1060px) {
+	#annuaire{
+		.numerocache{
+			display:none;
+		}
+	}
+}
+@media only screen and (max-width: 1000px) { 
+	#annuaire{
+		#annuaire_recherche{
+			height: auto !important;
+			padding: 0;
+			&.positionnement_devis{
+				height: auto;
+			}
+			.logo_pj{
+				left: 10px;
+			}
+			form{
+				width: 100%;
+				float: none;
+				height: auto;
+				margin-top: 30px;
+				padding: 20px;
+				padding-left: 130px;
+				box-sizing: border-box;
+			}
+			fieldset:after,
+			form:after{
+				clear: both;
+				content: "";
+				display: table;
+			}
+			fieldset{
+				width: 40%;
+				margin-right: 2.5%;
+				.select,
+				#ou{
+					width: 100%;
+					height: 30px;
+					box-sizing: border-box;
+				}
+				.select .selectionnez{
+					height: 30px;
+					margin: 0;
+					padding: 5px;
+					padding-right: 30px;
+					box-sizing: border-box;
+					line-height: 20px;
+					overflow: hidden;
+				}
+			}
+		}
+		.gauche{
+			width:100%;
+			ul{
+				margin-top: 0;
+			}                
+		}
+		#droite{
+			clear: both;
+			float: none;
+			width: 100%;
+		}
+		.un_pro{
+			h1{
+				width: 70%;
+				margin-bottom: 20px;
+			}
+			.logo{
+				margin-bottom: 10px;
+			}
+			.horaires_pro ul{
+				width: 100%;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 800px) {
+	#annuaire{
+		.un_pro{
+			.une_coordonnee .tel{
+				clear: both;
+				text-align: right;
+				margin-left: 0;
+			}
+		}
+	}
+	.box_lien_rapide{
+		.liste_4col{
+			-webkit-columns: 3;
+			-moz-columns: 3;
+			columns: 3;
+		}
+	}
+}
+@media only screen and (max-width: 780px) {
+	#annuaire{
+		#annuaire_recherche{
+			fieldset{
+				width: 47.5%;
+				margin-right: 0;
+				.select,
+				#ou{
+					height: 30px;
+					box-sizing: border-box;
+				}
+			}
+			fieldset + fieldset{
+				margin-left: 5%;
+			}
+			input[type="submit"]{
+				margin-top: 30px;
+		        }
+		}
+		.colonne_annuaire{
+			-webkit-column-count: 2;
+			-webkit-column-gap: 20px;
+			-moz-column-count: 2;
+			-moz-column-gap: 20px;
+			-o-column-count: 2;
+			-o-column-gap: 20px;
+			column-count: 2;
+			column-gap: 20px;
+			&.gris li{
+				margin: 0;
+				font-size: 15px;
+			}
+		}
+		.devis{
+			width: 100%;
+		}
+		.societe{
+			padding: 10px;
+			.logo{
+				float: left;
+			}
+			.description_pro{
+				margin: 20px 0 0 0;
+			}
+			.infos_gauche{
+				width: 100%;
+				.activite{
+					margin-left: 0;
+				}
+			}
+			.infos_gratuites{
+				padding: 0;
+				margin-bottom: 0;
+				.adresse{
+					margin-left: 0;
+				}
+			}
+			.plus_coordonnees{
+				.titre{
+					padding-left: 0;
+				}
+				.une_coordonnee{
+					margin-left: 0;
+				}
+			}
+		}
+		.une_coordonnee .w_1_3{
+			width: 100%;
+		}
+	}
+}
+@media only screen and (max-width: 600px) {
+	.affichage_photo_video{
+		margin-top: 3rem;
+		p{
+			font-size:24px;
+			font-family: "Museo", Calibri, Arial, Helvetica, sans-serif;
+			margin: 2rem 0;
+			border-bottom: 1px solid #ccc;
+			span{
+				padding-right: 1rem;
+				background-color: #fff;
+				position: relative;
+				top: 1rem;	
+			}
+		}
+		div{
+			a{
+				float: left;
+				width: 47.5%;
+			}
+			a:nth-of-type(3n+2){
+				margin-left: 0; 
+				margin-right: 0; 
+			}
+			a:nth-of-type(2n+2){
+				margin-left: 5%;
+			}
+			a:nth-of-type(n+3){
+				margin-top: 2rem;
+			}
+			a:nth-of-type(-n+2){
+				margin-top: 0;
+			}
+			img{
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 540px) {
+	#annuaire{
+		#annuaire_recherche{
+			.logo_pj{
+				background-size:100px;
+				width:76px;
+				height: 78px;
+				left: auto;
+				right: 20px;
+			}
+			form{
+				padding-left:20px;
+				padding-top: 40px;
+			}
+			fieldset{
+				width: 100%;
+				margin: 0;
+			}
+			fieldset + fieldset{
+				margin-left: 0;
+				margin-top: 15px;
+				input{
+					margin: 0;
+				}
+			}
+			#conteneur_check{
+				top: 100px;
+				width: 225px;
+			}
+		}
+		.txtbttest5{
+			margin: 25px 0;
+		}
+		.colonne_annuaire{
+			-webkit-column-count: 1;
+			-webkit-column-gap: 0;
+			-moz-column-count: 1;
+			-moz-column-gap: 0;
+			-o-column-count: 1;
+			-o-column-gap: 0;
+			column-count: 1;
+			column-gap: 0;
+		}
+		.gauche .noprint{
+			width: 100% !important;
+		}
+	}
+	.box_lien_rapide{
+		.liste_connexe + p,
+		.liste_encore{
+			display: none;
+		}
+		.liste_connexe .w_1_4{
+			margin: 0;
+		}
+		.liste_encore a{
+			padding: 3px 0;
+		}
+		.titre_listing_plus{
+			display: block;
+			color: @violet;
+			cursor: pointer;
+			&.icon-plus::after{
+				content:"\e617";
+				font-family: 'icomoon';
+				margin-left: 1rem;
+				padding: 5px;
+				background-color: @violet;
+				color: #fff;
+				.rounded(15px);
+			}
+			&.actif.icon-plus::after{
+				content:"\e629";
+			}
+			&.icon-plus::before{
+				display: none;
+			}
+		}
+		.liste_4col{
+			-webkit-columns: 2;
+			-moz-columns: 2;
+			columns: 2;
+		}
+		article{
+			> p{
+				font-size: 2rem;
+			}
+
+			li.w_1_4:nth-of-type(n){
+				width: 45%;
+				margin-top: 0;
+			}
+			li.w_1_4:nth-of-type(2n+2){
+				margin-left: 5%;
+			}
+		}
+	}
+}

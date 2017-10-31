@@ -1,0 +1,512 @@
+.fil_ariane{
+	p{
+		@include font(1.4rem);
+		text-transform: uppercase;
+	}
+	.titre{
+		@include font(2.2rem, $museo);
+		font-weight: bold;
+		text-transform: initial;
+
+	}
+}
+///// FP
+.article_fp{
+	> article{
+		> *{
+			+ *{
+				margin-top: 5rem;
+			}
+		}
+		.telecharger_fp{
+			align-items: flex-start;
+			figure{
+				@include flex-b(110px);
+				@include flex-g(0);
+				figcaption{
+					bottom: auto;
+					top: 100px;
+					margin-top: 1rem;
+				}
+			}
+			> div [class*='bt_']{
+				display: inline-block;
+				margin-top: 1rem;
+			}
+		}
+		.info_fp{
+			background-color: $grey;
+			margin-bottom: 2rem;
+			> span{
+				padding: 2rem;
+				@include font(1.2rem);
+				text-align: center;
+				+ span{
+					border-left: 1px solid #ccc;
+				}
+				&::before{
+					content: '';
+					display: table;
+					width: 3rem;
+					height: 1.8rem;
+					margin: 0 auto 1rem auto;
+				}
+			}
+			.niveau::before{
+				background: url('#{$media-url}/icon-level-2-source.svg') center right no-repeat;
+			}
+			.icon-horloge::before{
+				background: url('#{$media-url}/icon-time-2-source.svg') center right no-repeat;
+			}
+			.icon-personne::before{
+				background: url('#{$media-url}/icon-person-2-source.svg') center right no-repeat;
+			}
+		}
+		.etape_fp{
+			h2{
+				@include d-flex();
+				margin-bottom: 2rem;
+				span{
+					margin-right: .5rem;
+					color: $purple;
+				}
+			}
+		}
+		.img_etape{
+			display: table;
+			margin: 2rem auto;
+			position: relative;
+			max-width: 30rem;
+			@extend .icon-search;
+			cursor: pointer;
+			&::before{
+				transition: all .3s ease-in-out 0s;
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				background-color: $grey;
+				padding: .5rem 1rem;
+			}
+			&:hover::before{
+				background-color: $orange;
+				color: #fff;
+			}
+		}
+		.materiel{
+			h2{
+				@include font(2rem, $museo);
+				color: #333;
+				margin-bottom: 0;
+			}
+			> a{
+				display: block;
+				margin: 2rem 0;
+				text-align: right;
+				@include font(1.2rem);
+				color: $red;
+				&:before{
+					@include font(1.6rem, FontAwesome);
+					margin-right: .5rem;
+				}
+			}
+			.col_2{
+				margin-top: $gutter;
+				&:nth-of-type(4n + 1){
+					margin-left: 0;
+				}
+				&:nth-of-type(-n + 4){
+					margin-top: 0;
+				}
+				img{
+					border: 1px solid $grey;
+				}
+				> div{
+					margin-top: 1rem;
+				}
+				p{
+					text-align: center;
+					+ p{
+						margin-top: .5rem;
+						@include font(1.4rem);
+					}
+				}
+			}
+		}
+	}
+}
+main article{
+	.visuels{
+		margin: 0 0 2rem 0;
+		> div > p{
+			text-align: center;
+			@include font(1.2rem);
+			margin-top: .5rem;
+		}
+	}
+	* + .visuels{
+		margin-top: 2rem;
+	}
+	.presentation_img_intro{
+		height: 30rem;
+		overflow: hidden;
+		margin-bottom: 2rem;
+		img{
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			&.top{
+				top: 0;
+				transform: translateY(0);
+			}
+			&.bottom{
+				top: auto;
+				bottom: 0;
+				transform: translateY(0);
+			}
+		}
+	}
+	.h2{
+		color: $purple;
+	}
+	.sstitre{
+		@extend h4;
+	}
+	table{
+		width: 100%;
+		margin-top: 2rem;
+		table-layout: fixed;
+		overflow: hidden;
+		th,
+		td{
+			@include font(1.4rem);
+			border: 1px solid darken($grey, 5%);
+		}
+		tbody{
+			display: block;
+			overflow-x: scroll;
+		}
+		.croisement{
+			border: none;
+		}
+		th,
+		.entete_principal{
+			background-color: darken($grey, 10%);
+		}
+		.entete_secondaire{
+			background-color: $grey;
+		}
+		ul{
+			margin-top: 0;
+			li::before{
+				top: 0;
+			}
+		}
+	}
+	.note_tableau{
+		margin-top: 0;
+		padding: 1rem;
+		background-color: $greyLight;
+	}
+	ol,
+	ul{
+		overflow: hidden;
+		li::before{
+			color: #333;
+		}
+		ul{
+			padding-left: 1rem;
+			li::before{
+				content:'-';
+				top: 0;
+			}
+		}
+	}
+	ul li::before{
+		content: "•";
+	}
+	.img_centre{
+		display: table;
+		margin: 2rem auto;
+	}
+	.img_droite{
+		float: right;
+		margin: 0 0 1rem 1rem;
+	}
+	.img_gauche{
+		float: left;
+		margin: 0 1rem 1rem 0;
+	}
+	* + .img_gauche,
+	* + .img_droite{
+		margin-top: 1rem;
+	}
+	.bloc_telechargement{
+		margin-top: 5rem;
+	}
+	.bloc_pj{
+		margin-top: 5rem;
+		.separator_top{
+			padding-top: 4rem;
+		}
+		.box_pro .info_pro{
+			width: 100%;
+			margin-top: 2rem;
+			margin-left: 0;
+			padding: 0;
+			background-color: #fff;
+		}
+	}
+	.module_edito{
+		display: block;
+		margin: 2rem 0;
+		figure{
+			float: right;
+			margin-left: 1.5rem;
+			img{
+				width: 15rem;
+				height: auto;
+			}
+		}
+		> div{
+			overflow: hidden;
+			h3 + p{
+				@include font(1.5rem);
+			}
+			.txt_apres_bt,
+			.partenariat{
+				clear: both;
+				margin: 0;
+			}
+			.txt_apres_bt{
+				@include font(1.2rem);
+				text-align: right;
+			}
+			.partenariat{
+				@include font(1.4rem);
+				color: #999;
+			}
+			.bt_rouge{
+				float: right;
+				margin: 1rem 0;
+				padding: 1rem 1.5rem;
+				display: inline-block;
+				border: 1px solid $orange;
+				border-radius: .3rem;
+				text-transform: uppercase;
+				cursor: pointer;
+				background-color: $orange;
+				color : #fff;
+				box-shadow: 0 2px 10px -1px #ccc;
+				transition: all .1s ease-in-out 0s;
+				@include font(1.2rem, $museo);
+				&:hover{
+					text-decoration: none;
+					background-color: #fff;
+					color: $orange;
+				}
+			}
+		}
+	}
+}
+///// Pagination de contenu
+.pagination_content{
+	justify-content: space-between;
+	> div{
+		span{
+			display: inline-block;
+			width: 2.5rem;
+			height: 2.5rem;
+			border: 2px solid $purple;
+			border-radius: 50%;
+			@include font(1.4rem, $museo, 2.1rem);
+			color: $purple;
+			text-align: center;
+		}
+		.icon-home::before{
+			@include font(1.6rem, FontAwesome, 2.1rem);
+		}
+	}
+	.previous, .next{
+		@include d-flex();
+		align-items: center;
+		position: relative;
+		p{
+			position: absolute;
+			bottom: 100%;
+			font-family: $museo;
+		}
+		a:hover{
+			color: $orange;
+			span{
+				border-color: $orange;
+				background-color: $orange;
+				color: #fff;
+			}
+		}
+	}
+	.focus{
+		padding: 1rem;
+		background-color: $grey;
+		border-top: 5px solid $orange;
+		font-family: $museo;
+		text-align: center;
+		color: $green;
+		span{
+			display: table;
+			margin: 0 auto .5rem auto;
+			border-color: $green;
+			background-color: $green;
+			color: #fff;
+		}
+	}
+	.previous{
+		span{
+			margin-right: .5rem;
+		}
+	}
+	.next{
+		justify-content: flex-end;
+		span{
+			margin-left: .5rem;
+		}
+	}
+}
+.pagination_focus_content{
+	margin-top: 0;
+	padding: 2.5rem 0;
+	background-color: $grey;
+	> p {
+		@include font(1.8rem, $museo);
+		padding: 0 2.5rem;
+	}
+	ul{
+		padding: 0;
+		margin: 2rem 0;
+		li{
+			padding-right: .5rem;
+			&:nth-of-type(3n+1){
+				padding-left: 3rem;
+				&::before{
+					left: 2rem;
+				}
+			}
+			&::before{
+				top: 0;
+			}
+			a{
+				@include font(1.4rem);
+				display: block;
+			}
+		}
+	}
+	.bt_small{
+		display: table;
+		margin: 0 auto;
+	}
+}
+///// PROJETS LIES
+$colorProject : #333;
+.projet_lie{
+	margin-top: 0;
+	padding: 5rem 0;
+	background-color: $colorProject;
+	> * {
+		background-color: $colorProject;
+	}
+	.h2{
+		color: text-color($colorProject);
+	}
+	.titre{
+		position: relative;
+		margin-top: 1rem;
+		padding-left: 1.5rem;
+		@extend .icon-chevron;
+		color: text-color($colorProject);
+		@include font(1.6rem, $roboto, 100%);
+		&::before{
+			position: absolute;
+			top: -.2rem;
+			left: 0;
+		}
+		a{
+			color: text-color($colorProject);
+		}
+	}
+	article{
+		&:hover{
+			cursor: pointer;
+			.titre{
+				color: $orange;
+			}
+		}
+	}
+}
+@include device($tab-device){
+	.pagination_content.grid{
+		margin-bottom: 2rem;
+		justify-content: space-between;
+		> *{
+			@include flex-g(0);
+			@include flex-s(0);
+			@include flex-b(45%);
+			margin-top: 0;
+		}
+		.focus{
+			display: none;
+		}
+		.previous, .next{
+			@include flex-d(column);
+			p{
+				position: static;
+				margin-bottom: 1rem;
+				@include font(1.4rem, $museo);
+			}
+			a{
+				display: inline-flex;
+				align-items: center;
+				@include font(1.4rem, $roboto, 110%);
+				span{
+					@include flex-g(1);
+					@include flex-s(0);
+					@include flex-b(auto);
+				}
+			}
+		}
+		.previous{
+			align-items: flex-start;
+			a span{
+				margin-right: 1rem;
+			}
+		}
+		.next{
+			align-items: flex-end;
+			a{
+				text-align: right;
+				span{
+					margin-left: 1rem;
+				}
+			}
+		}
+	}
+	.pagination_focus_content{
+		ul li{
+			padding-left: 3rem;
+			&::before{
+				left: 2rem;
+			}
+
+		}
+	}
+	.projet_lie{
+		[class*='grid']{
+			article{
+				@include d-flex();
+				align-items: center;
+				figure{
+					@include flex-b($columnValue*2);
+					margin-right: $gutter;
+				}
+			}
+		}
+	}
+}

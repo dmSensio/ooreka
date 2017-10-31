@@ -1,0 +1,2188 @@
+/**************************************************************** SOMMAIRE ****************************************************************
+
+*	Demande de devis en étapes
+*	Responsive Design
+
+/**************************************************************** SOMMAIRE ****************************************************************
+I 	Variable
+
+/************************************* Variable *************************************/
+.radius(@radius: 5px) {
+	-webkit-border-radius: @radius;
+		border-radius: @radius;
+}
+.gradient(@color: #F5F5F5, @start: #EEEEE, @stop: #FFFFF) {
+	background: @color;
+	background: -moz-linear-gradient(top,  @start 0%, @stop 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@stop));
+	background: -webkit-linear-gradient(top,  @start 0%,@stop 100%);
+	background: -o-linear-gradient(top,  @start 0%,@stop 100%);
+	background: -ms-linear-gradient(top,  @start 0%,@stop 100%);
+	background: linear-gradient(to bottom,  @start 0%,@stop 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@start, endColorstr=@stop,GradientType=0 );
+}
+.box-shadow(@horizontal:-1px, @vertical:1px, @blur:2px, @spread:1px, @colorshad:#CCC) {
+	-webkit-box-shadow: @horizontal @vertical @blur @spread @colorshad;
+ 		box-shadow: @horizontal @vertical @blur @spread @colorshad;
+}
+.inset-shadow(@horizontal:-1px, @vertical:1px, @blur:2px, @spread:1px, @colorinset:#CCC) {
+	-webkit-box-shadow: inset @horizontal @vertical @blur @spread @colorinset;
+		box-shadow: inset @horizontal @vertical @blur @spread @colorinset;
+}
+.transition (@propriete:all, @duree:1s, @fonction:ease-in-out, @delay:0s) {
+	-webkit-transition: @propriete @duree @fonctiont @delay;
+	-moz-transition: @propriete @duree @fonction @delay;
+	-o-transition: @propriete @duree @fonction @delay;
+	transition: @propriete @duree @fonction @delay;
+}
+.transform-origin (@x-origin, @y-origin) {
+	-webkit-transform-origin : @x-origin @y-origin;
+	-moz-transform-origin : @x-origin @y-origin;
+	-ms-transform-origin : @x-origin @y-origin;
+	-o-transform-origin : @x-origin @y-origin;
+	transform-origin : @x-origin @y-origin;
+}
+.rotate (@degres) {
+	-moz-transform: rotate(@degres);
+	-webkit-transform: rotate(@degres);
+	-o-transform: rotate(@degres);
+	-ms-transform: rotate(@degres);
+	transform: rotate(@degres);
+}
+.scale(@scale){
+	-moz-transform: scale(@scale);
+	-webkit-transform: scale(@scale);
+	-o-transform: scale(@scale);
+	-ms-transform: scale(@scale);
+	transform: scale(@scale);
+}
+.scale-rotate(@scale, @degres){
+	-moz-transform: scale(@scale) rotate(@degres);
+	-webkit-transform: scale(@scale) rotate(@degres);
+	-o-transform: scale(@scale) rotate(@degres);
+	-ms-transform: scale(@scale) rotate(@degres);
+	transform: scale(@scale) rotate(@degres);
+}
+.translateX(@translateX){
+	-webkit-transform: translateX(@translateX);
+	-moz-transform: translateX(@translateX);
+	-ms-transform: translateX(@translateX);
+	-o-transform: translateX(@translateX);
+	transform: translateX(@translateX);
+}
+.translateY(@translateY){
+	-webkit-transform: translateY(@translateY);
+	-moz-transform: translateY(@translateY);
+	-ms-transform: translateY(@translateY);
+	-o-transform: translateY(@translateY);
+	transform: translateY(@translateY);
+}
+.animation (@propriete:all, @duree:1s, @fonction:ease-in-out, @delay:0s) {
+	-webkit-animation: @propriete @duree @fonctiont @delay;
+	-moz-animation: @propriete @duree @fonction @delay;
+	-o-animation: @propriete @duree @fonction @delay;
+	animation: @propriete @duree @fonction @delay;
+}
+/* Explication display flex */
+/* http://jonibologna.com/flexbox-cheatsheet/ */
+.flex-display(@display: flex) {
+	display: ~"-webkit-@{display}";
+	display: ~"-moz-@{display}";
+	display: ~"-ms-@{display}box"; // IE10 uses -ms-flexbox
+	display: ~"-ms-@{display}"; // IE11
+	display: @display;
+}
+.flex(@columns: initial) {
+	-webkit-flex: @columns;
+	-moz-flex: @columns;
+	-ms-flex: @columns;
+	flex: @columns;
+}
+.flex-dimension(@columns: initial,@width) {
+	-webkit-flex: @columns @width;
+	-moz-flex: @columns @width;
+	-ms-flex: @columns @width;
+	flex: @columns @width;
+}
+.flex-direction(@direction: row) {
+	-webkit-flex-direction: @direction;
+	-moz-flex-direction: @direction;
+	-ms-flex-direction: @direction;
+	flex-direction: @direction;
+}
+.flex-wrap(@wrap: nowrap) {
+	-webkit-flex-wrap: @wrap;
+	-moz-flex-wrap: @wrap;
+	-ms-flex-wrap: @wrap;
+	flex-wrap: @wrap;
+}
+.flex-order(@order: 0) {
+	-webkit-order: @order;
+	-moz-order: @order;
+	-ms-order: @order;
+	order: @order;
+}
+.flex-grow(@grow: 0) {
+	-webkit-flex-grow: @grow;
+	-moz-flex-grow: @grow;
+	-ms-flex-grow: @grow;
+	flex-grow: @grow;
+}
+.align-items(@align: stretch) {
+	-webkit-align-items: @align;
+	-moz-align-items: @align;
+	-ms-align-items: @align;
+	align-items: @align;
+}
+.align-content(@align: stretch) {
+	-webkit-align-content: @align;
+	-moz-align-content: @align;
+	-ms-align-content: @align;
+	align-content: @align;
+}
+.align-self(@align: auto) {
+	-webkit-align-self: @align;
+	-moz-align-self: @align;
+	-ms-align-self: @align;
+	align-self: @align;
+}
+.justify-content(@justify: flex-start) {
+	-webkit-justify-content: @justify;
+	-moz-justify-content: @justify;
+	-ms-justify-content: @justify;
+	justify-content: @justify;
+}
+
+/************************************* Variable couleur *************************************/
+@violet: #4b4182;
+@violet-typo: #62579e;
+@rouge: #fa3c3c;
+@orange: #fa6414;
+@vert: #93c01f;
+@vert-typo: #84AF16;
+@jaune: #fac800;
+/************************************* Variable Texte ****************************************/
+@museo: "museo", Calibri, Arial, Helvetica, sans-serif;
+@museo900: "museo900", Calibri, Arial, Helvetica, sans-serif;
+@calibri: Calibri, Arial, Helvetica, sans-serif;
+/********************************** Demande de devis **********************************/
+.form_devis{
+	padding-top: 2rem;
+	.w1000.retour_site{
+		box-sizing: border-box;
+		padding: 0;
+	}
+}
+.devis_responsive{
+	&.tunnel_devis{
+		position: relative;
+		margin-top: 2rem;
+		background-color: #fff;
+		box-sizing: border-box;
+		h1,
+		.titre_devis{
+			color: inherit;
+			font-size: 2.4rem;
+			font-family: @museo;
+			margin-top: 2rem;
+			margin-bottom: 3rem;
+		}
+		.sousTitre_devis{
+			margin: 0 0 10px 0;
+			color: #999;
+			em{
+				color: @rouge;
+				font-style: normal;
+			}
+		}
+		select{
+			min-height: inherit;
+		}
+		input{
+			min-height: 2.5rem;
+		}
+		.projetDevis input[type="checkbox"],
+		.infosDevis input[type="checkbox"]{
+			min-height: inherit;
+		}
+		h2::after{
+			display: none;
+		}
+		.devis_etapes{
+			position: relative;
+			padding: 1rem;
+			border: 3px #ccc solid;
+			background: url("@{imgPath}/devis_responsive/trame_devis.gif") repeat;
+			font-size: 1.6rem;
+			.etape_prev,
+			.etape_next{
+				position:absolute;
+				top:10px;
+				left:0;
+				width:40px;
+				height:40px;
+				background: url("@{imgPath}/sprite_commun.png") no-repeat -149px 8px #ccc;
+				cursor:pointer;
+				&:hover{
+					background-color:#999;
+					border:none;
+				}
+			}
+			.etape_next{
+				background-position: -146px -29px;
+				left:auto;
+				right:0;
+			}
+			/**************************************** GENERAL ****************************************/
+			.etape_question{
+				min-height:400px;
+			}
+			label{	/* Questions */
+				width:100%;
+				display:block;
+				font-size:1.8rem;
+				text-align:center;
+				padding:20px 45px;
+			}
+			.etape_question{
+				/* Cases */
+				> span{
+					float: left;
+					padding:5px;
+					border:3px solid #ddd;
+					background:#fff;
+					font-size:1.8rem;
+					text-align:center;
+					color:#333;
+					cursor:pointer;
+					position:relative;
+				}
+				> span:hover,
+				.selected{
+					border:3px solid @violet;
+					color:@violet;
+				}
+				span span{
+					position: absolute;
+				}
+			}
+			input,
+			textarea{
+				padding:5px;
+				margin: 0;
+				border: 3px solid #ddd;
+				background: #fff;
+				font-size: 1.4rem;
+			}
+			input,
+			textarea{
+				&:focus{
+					border:3px solid @violet;
+					outline:none;
+				}
+			}
+			input[type="radio"]{
+				width:15px;
+				height:15px;
+				margin:5px 5px 5px 0;
+				padding:0;
+				border:none;
+				background:none;
+			}
+			.erreur{
+				clear: both;
+				padding:5px;
+				background:#e9e9e9;
+				font-size: 1.4rem;
+				font-weight: bold;
+				color: @rouge;
+			}
+			.bouton_etape{
+				position:absolute;
+				bottom: 0;
+				right: 0;
+				border:3px solid #fff;
+				.radius(10px);
+				.gradient (@rouge, @orange, @rouge);
+				text-align:center;
+				button,
+				input{
+					padding:15px;
+					margin:0;
+					background:none;
+					border:none;
+					.radius(10px);
+					color:#fff;
+					text-align:center;
+					font-size:2.4rem;
+					cursor:pointer;
+				}
+				&:hover{
+					.gradient (@orange, @rouge, @orange);
+				}
+			}
+			/**************************************** MISES EN PAGE ****************************************/
+			.par2,
+			.par3{
+				span span{
+					top:-20px;
+					left: 50%;
+					height:110px;
+					width:200px;
+					margin-left: -100px;
+				}
+				.autre span{
+					background: url("@{imgPath}/devis_responsive/autre_saispas.png") no-repeat 64px 7px !important;
+				}
+				.sais_pas span{
+					background: url("@{imgPath}/devis_responsive/autre_saispas.png") no-repeat 31px -112px !important;
+				}
+			}
+			/*---------- 2 CASES PAR LIGNES ----------*/
+			.par2{
+				.etape_question{
+					> span{
+						width: 47.5%;
+						margin: 2rem 0;
+						padding-top: 100px;
+						&:nth-of-type(2n+2){
+							margin-left: 5%;
+						}
+						&:nth-of-type(2n+1){
+							clear: both;
+						}
+					}
+				}
+				&.ligne_seule{
+					.etape_question > span{
+						margin-top: 10rem;
+					}
+				}
+			}
+			/*---------- 3 CASES PAR LIGNES ----------*/
+			.par3{
+				.etape_question{
+					> span{
+						width:30%;
+						margin: 2rem 0;
+						padding-top: 100px;
+						&:nth-of-type(3n+2){
+							margin-left: 5%;
+							margin-right: 5%;
+						}
+						&:nth-of-type(3n+1){
+							clear: both;
+						}
+					}
+				}
+				&.ligne_seule .etape_question > span{
+					margin-top: 10rem;
+				}
+			}
+			/*---------- Input et erreur ----------*/
+			.naissance,
+			.societe,
+			.horaire_input,
+			.construction_annee,
+			.combien,
+			.mesure,
+			.lieu.lieu_CP{
+				input{
+					display: block;
+					margin: 12rem auto 0 auto;
+					width: 50%;
+				}
+				.erreur{
+					clear:both;
+					width: 50%;
+					margin:auto;
+				}
+			}
+			/*---------- Etape Oui Non ----------*/
+			.etape_oui_non {
+				.etape_question > span{
+					margin-top:12rem;
+				}
+				span span{
+					top: -80px;
+					height:170px;
+				}
+				.sais_pas span{
+					background:url("@{imgPath}/devis_responsive/autre_saispas.png") no-repeat 41px -238px !important;
+				}
+			}
+			/*---------- Objectifs ----------*/
+			.objectifs{
+				small{
+					font-size:1.4rem;
+				}
+				span span{
+					background:url("@{imgPath}/devis_responsive/objectif.png") no-repeat 0 0;
+				}
+				.patrimoine span{
+					background-position: -200px 0;
+				}
+				.retraite span{
+					background-position: -400px 0;
+				}
+				.deces span{
+					background-position: -600px 0;
+				}
+			}
+			/*---------- Fournisseurs ----------*/
+			.fournisseurs{
+				span span{
+					background:url("@{imgPath}/devis_responsive/fournisseur.png") no-repeat 0 0;
+				}
+				.alarme_telesurveillance span{
+					background-position: -200px 0;
+				}
+				.couts_telephonie span{
+					background-position: -400px 0;
+				}
+				.titre_restaurant span{
+					background-position: -600px 0;
+				}
+				.voiture_societe span{
+					background-position: -1200px 0;
+				}
+				.fontaine_eau span{
+					background-position: -1400px 0;
+				}
+			}
+			/*---------- CheckBox Objectifs et Fournisseurs ----------*/
+			.objectifs,
+			.fournisseurs,
+			.fournisseurs_machine_affranchir{
+				span .checkbox{
+					position:absolute;
+					top:5px;
+					left:5px;
+					height:22px;
+					width:22px;
+					background:url("@{imgPath}/devis_responsive/choix.png") no-repeat -2px -6px;
+				}
+				.selected .checkbox{
+					top:0;
+					left: 3px;
+					height:27px;
+					width:27px;
+					background:url("@{imgPath}/devis_responsive/choix.png") no-repeat -30px -1px;
+				}
+				.bouton_etape{
+					position: static;
+					float: right;
+				}
+				.erreur{
+					clear:both;
+					margin-bottom: 1rem;
+				}
+			}
+			/*---------- Matériaux ----------*/
+			.materiaux{
+				span span{
+					background:url("@{imgPath}/devis_responsive/fenetre.png") no-repeat -1600px 0;
+				}
+				.bois_pvc span{
+					background-position: -1800px 0;
+				}
+				.alu span{
+					background-position: -2000px 0;
+				}
+			}
+			.materiau_6options{
+				span span{
+					background:url("@{imgPath}/devis_responsive/volet.png") no-repeat -800px 0;
+				}
+				.pvc span{
+					background-position: -1000px 0;
+				}
+				.alu span{
+					background-position: -1200px 0;
+				}
+				.metal span{
+					background-position: -1400px 0;
+				}
+			}
+			/*---------- Who ----------*/
+			.who{
+				span span{
+					background:url("@{imgPath}/devis_responsive/who.png") no-repeat 0 0;
+				}
+				.who_friend span{
+					background-position: -200px 0;
+				}
+				.who_family span{
+					background-position: -400px 0;
+				}
+			}
+			/*---------- Attente ----------*/
+			.attente{
+				span span{
+					background:url("@{imgPath}/devis_responsive/attente.png") no-repeat 0 0;
+				}
+				.attente_choose span{
+					background-position: -200px 0;
+				}
+				.attente_renew span{
+					background-position: -400px 0;
+				}
+			}
+			/*---------- Chiffre affaires et Revenus ----------*/
+			.chiffre_affaire,
+			.revenus_foyer{
+				background:url("@{imgPath}/devis_responsive/chiffre_affaire.png") no-repeat;
+				background-position: left center;
+				.etape_question > span{
+					width:15%;
+					margin-left: 2%;
+					font-size: 1.4rem;
+					font-weight: bold;
+					&:first-of-type{
+						margin-left: 0;
+					}
+					&::before{
+						content: "";
+						position: absolute;
+						top: -23px;
+						left:-3px;
+						right: -3px;
+						height: 15px;
+					}
+				}
+				.revenu_moins,
+				.moins-100{
+					margin-top: 250px;
+					&::before{
+						background-color: @rouge;
+					}
+				}
+				.revenu_1000,
+				.revenu-100{
+					margin-top: 215px;
+					&::before{
+						background-color: @orange;
+					}
+				}
+				.revenu_2000,
+				.revenu-500{
+					margin-top: 180px;
+					&::before{
+						background-color: @jaune;
+					}
+				}
+				.revenu_3000,
+				.revenu-1000{
+					margin-top: 145px;
+					&::before{
+						background-color: @violet;
+					}
+				}
+				.revenu_5000,
+				.revenu-5000{
+					margin-top: 110px;
+					&::before{
+						background-color: @rouge;
+					}
+				}
+				.revenu_plus,
+				.plus-15{
+					margin-top: 75px;
+					&::before{
+						background-color: @orange;
+					}
+				}
+			}
+			/*---------- Nombre ----------*/
+			.nombre{
+				span{
+					background:url("@{imgPath}/devis_responsive/nombres.png") no-repeat center 0;
+				}
+				.deux{
+					background-position: center -110px;
+				}
+				.trois{
+					background-position: center -220px;
+				}
+				.quatre{
+					background-position: center -330px;
+				}
+				.plus_cinq{
+					background-position: center -440px;
+				}
+			}
+			/*---------- Situation ----------*/
+			.situation{
+				span span{
+					background:url("@{imgPath}/devis_responsive/situation.png") no-repeat 0 0;
+				}
+				.concubinage span{
+					background-position: -200px 0;
+				}
+				.marie span{
+					background-position: -400px 0;
+				}
+				.divorce span{
+					background-position: -600px 0;
+				}
+				.veuf span{
+					background-position: -800px 0;
+				}
+			}
+			/*---------- Naissance ----------*/
+			.naissance{
+				background:url("@{imgPath}/devis_responsive/naissance.png") no-repeat;
+				background-position: center center;
+				.etape_question{
+					min-height: 400px;
+				}
+			}
+			/*---------- Vous êtes ----------*/
+			.vous_etes{
+				span span{
+					background:url("@{imgPath}/devis_responsive/vous_etes.png") no-repeat 0 0;
+				}
+				.administration span{
+					background-position: -200px 0;
+				}
+				.association span{
+					background-position: -400px 0;
+				}
+				.particulier span{
+					background-position: -600px 0;
+				}
+				.artisan span{
+					background-position: -800px 0;
+				}
+			}
+			/*---------- Société ----------*/
+			.societe{
+				background:url("@{imgPath}/devis_responsive/nom_entite_fd.png") no-repeat;
+				background-position: center 85px;
+			}
+			/*---------- Salariés ----------*/
+			.salaries{
+				span span{
+					background:url("@{imgPath}/devis_responsive/salarie.png") no-repeat 0 0;
+				}
+				.dix_19 span{
+					background-position: -200px 0;
+				}
+				.vingt_49 span{
+					background-position: -400px 0;
+				}
+				.cinquante_99 span{
+					background-position: -600px 0;
+				}
+				.plus_100 span{
+					background-position: -800px 0;
+				}
+			}
+			/*---------- Poste ----------*/
+			.poste{
+				span span{
+					background:url("@{imgPath}/devis_responsive/poste.png") no-repeat 0 0;
+				}
+				.pdg span{
+					background-position:-200px 0;
+				}
+				.responsable span{
+					background-position:-400px 0;
+				}
+				.cadre span{
+					background-position:-600px 0;
+				}
+				.employe span{
+					background-position:-800px 0;
+				}
+				.prof_liberale span{
+					background-position:-1000px 0;
+				}
+			}
+			/*---------- Type surface ----------*/
+			.type_surface{
+				span span{
+					background:url("@{imgPath}/devis_responsive/humidite.png") no-repeat -200px 0;
+				}
+				.type_sol span{
+					background-position: -400px 0;
+				}
+				.type_soussol span{
+					background-position: -600px 0;
+				}
+				.type_combles span{
+					background-position: -800px 0;
+				}
+			}
+			/*---------- Horaire et construction ----------*/
+			.horaire_input{
+				background: url("@{imgPath}/devis_responsive/horaire.png") no-repeat;
+				background-position: left bottom;
+			}
+			.construction_annee{
+				background: url("@{imgPath}/devis_responsive/construction.png") no-repeat;
+				background-position: left center;
+			}
+			.horaire_input,
+			.construction_annee{
+				input,
+				.erreur{
+					float: right;
+				}
+			}
+			/*---------- Horaire ----------*/
+			.horaire{
+				background:url("@{imgPath}/devis_responsive/horaire.png") no-repeat;
+				background-position: right bottom;
+				.etape_question{
+					span{
+						padding: 50px 5px;
+						width: 23.75%;
+					}
+				}
+			}
+			/*---------- Pro Part ----------*/
+			.pro_part{
+				span span{
+					background:url("@{imgPath}/devis_responsive/personnage.png") no-repeat 0 0;
+				}
+				.professionnel span{
+					background-position: -200px 0;
+				}
+			}
+			/*---------- Proprio Locataire ----------*/
+			.prop_loc{
+				span span{
+					background:url("@{imgPath}/devis_responsive/personnage.png") no-repeat -400px 0;
+				}
+				.locataire span{
+					background-position: -600px 0;
+				}
+			}
+			/*---------- Nom ----------*/
+			.nom{
+				padding-bottom: 6rem;
+				.etape_question{
+					min-height: inherit;
+				}
+				span span{
+					background:url("@{imgPath}/devis_responsive/personnage.png") no-repeat -800px 0;
+				}
+				.madame span{
+					background-position: -1000px 0;
+				}
+				.mademoiselle span{
+					background-position:-1200px 0;
+				}
+			}
+			/*---------- Batiment ----------*/
+			.batiment{
+				span span{
+					background:url("@{imgPath}/devis_responsive/batiment.png") no-repeat 0 0;
+				}
+				.appartement span{
+					background-position:-200px 0;
+				}
+				.immeuble span{
+					background-position:-400px 0;
+				}
+				.bureaux span{
+					background-position:-600px 0;
+				}
+				.local_com span{
+					background-position:-800px 0;
+				}
+				.local_indu span{
+					background-position:-1000px 0;
+				}
+			}
+			.batiment_3options{
+				span span{
+					background:url("@{imgPath}/devis_responsive/batiment.png") no-repeat 0 0;
+				}
+				.appartement span{
+					background-position: -200px 0;
+				}
+			}
+			/*---------- Etat ----------*/
+			.etat{
+				span span{
+					background:url("@{imgPath}/devis_responsive/batiment.png") no-repeat -1200px 0;
+				}
+				.neuf span{
+					background-position:-1400px 0;
+				}
+				.en_construction span{
+					background-position:-1600px 0;
+				}
+			}
+			/*---------- Délai ----------*/
+			.delais{
+				span span{
+					background:url("@{imgPath}/devis_responsive/delai.png") no-repeat 0 0;
+				}
+				.calendrier span{
+					background-position: -600px 0;
+				}
+				.mois span{
+					background-position: -400px 0;
+				}
+				.mois_3 span{
+					background-position: -600px 0;
+				}
+			}
+			/*---------- Quand ----------*/
+			.quand{
+				span span{
+					background:url("@{imgPath}/devis_responsive/delai.png") no-repeat -200px 0;
+				}
+				.delai_nextweek span{
+					background-position: -400px 0;
+				}
+				.delai_fewweeks span{
+					background-position: -600px 0;
+				}
+			}
+			/*---------- Combien ----------*/
+			.combien{
+				background:url("@{imgPath}/devis_responsive/combien.png") no-repeat;
+				background-position: center bottom;
+			}
+			/*---------- Mesure ----------*/
+			.mesure{
+				background:url("@{imgPath}/devis_responsive/mesure.png") no-repeat;
+				background-position: center center;
+			}
+			/*---------- Description ----------*/
+			.description{
+				background:url("@{imgPath}/devis_responsive/description.png") no-repeat;
+				background-position: center center;
+				textarea{
+					width:100%;
+					max-width:100%;
+					margin-top: 10rem;
+					margin-bottom: 0;
+					float: left;
+				}
+				.erreur{
+					width:100%;
+					clear: both;
+				}
+			}
+			/*---------- AntiSpam ----------*/
+			.antiSPAM_devis{
+				position:absolute;
+				bottom:0;
+				padding:0;
+				width:500px;
+				font-size: 12px;
+				color: #666;
+				line-height: 100%;
+			}
+			/*---------- Lieu ----------*/
+			.lieu{
+				background:url("@{imgPath}/devis_responsive/lieu.png") no-repeat;
+				background-position: center center;
+				min-height: 400px;
+				.etape_champs{
+					label{
+						margin-top: 10rem;
+					}
+				}
+			}
+			.lieu_defisc{
+				.bouton_etape_defisc{
+					position: static;
+					float: right;
+					input{
+						width: 100%;
+					}
+					.bt_envoyer_defiscalisation{
+						height: 50px !important;
+					}
+				}
+			}
+			.etape_champs{
+				label{
+					float: left;
+					width:47.5%;
+					margin: 0 0 1rem 5%;
+					padding: 0;
+					background-color: none;
+					&:nth-of-type(2n+1){
+						clear: both;
+						margin-left:0;
+					}
+					input{
+						width: 100%;
+					}
+				}
+				> div{
+					clear: both;
+					margin-top: 10px;
+					p{
+						float: left;
+						margin-right: 10px;
+					}
+					label:nth-of-type(n){
+						width: auto;
+						clear: none;
+						input{
+							margin: 0 5px 0 0;
+							width: inherit;
+						}
+						+ label{
+							margin-left: 15px;
+						}
+					}
+					.offre_part{
+						float: none;
+						margin-bottom: 5px;
+						margin: 0;
+					}
+				}
+			}
+			.bt_terminer{
+				.flex-display(flex);
+				.align-items(center);
+				.flex-wrap(wrap);
+				.justify-content(flex-end);
+				width: 100%;
+				p{
+					// .flex(1 0 auto);
+					text-align: right;
+					margin-bottom: 0;
+				}
+				input{
+					position: static;
+					color: #fff;
+					font-size: 20px;
+					font-weight: bold;
+					padding: 10px;
+					margin-left: 10px;
+					bottom: 0;
+					width: auto;
+				}
+			}
+			.cnil_information{
+				float: left;
+				width: 100%;
+				clear: none;
+				margin-top: 20px;
+				font-size: 11px;
+				background-color: rgba(255,255,255,0);
+				&.cnil_defisc{
+					padding-top: 10px;
+					background-color: rgba(255,255,255,.8);
+				}
+			}
+			/*---------- Etape_fin ----------*/
+			.etape_fin{
+				min-height:400px;
+				> label{
+					margin-bottom: 7rem;
+				}
+				.etape_radio{
+					label{
+						margin: 0;
+						padding: 0;
+						text-align: left;
+						+ label{
+							margin: 1rem 0;
+						}
+					}
+					.erreur{
+						clear:both;
+						display: block;
+					}
+					.radio{
+						float: left;
+						width:auto;
+						cursor:pointer;
+						+ .radio{
+							margin-left: 15px;
+						}
+					}
+					input[type="radio"]{
+						margin: 0 1rem 0 0;
+						vertical-align: -6px;
+					}
+					.inscription_cgu{
+						a:hover{
+							color: @rouge;
+						}
+					}
+				}
+				.bouton_etape{
+					position: static;
+					float: right;
+					margin-top: 1rem;
+					background: rgba(0,0,0,0);
+					.flex-display(flex);
+					> p{
+						margin-right: 1rem;
+						color: #666;
+						font-size: 1.5rem;
+						.align-self(flex-end);
+					}
+					input{
+						.flex(1 0 0);
+						.gradient(@rouge, @orange, @rouge);
+					}
+				}
+			}
+			/**************************************** PROJETS *************************************************/
+			/*---------- PROJET FENETRE ----------*/
+			.projet_fenetre{
+				span span{
+					background:url("@{imgPath}/devis_responsive/fenetre.png") no-repeat 0 0;
+				}
+				.porte_blindee span{
+					background-position:-200px 0;
+				}
+				.porte_interieur span{
+					background-position:-400px 0;
+				}
+				.porte_fenetre span{
+					background-position:-600px 0;
+				}
+				.fenetre span{
+					background-position:-800px 0;
+				}
+				.baie_vitree span{
+					background-position:-1000px 0;
+				}
+				.fenetres_volets span{
+					background-position:-1200px 0;
+				}
+				.volets span{
+					background-position:-1400px 0;
+				}
+			}
+			/*---------- PROJET ASSAINISSEMENT  ----------*/
+			.projet_assainissement .etape_question .assainissement_fosse_septique {
+				span{
+					background:url("@{imgPath}/devis_responsive/assainissement.png") no-repeat 0 0;
+				}
+			}
+			/*---------- PROJET ABRI-PISCINE ----------*/
+			.projet_abri-de-piscine{
+				span span{
+					background:url("@{imgPath}/devis_responsive/abri_piscine.png") no-repeat 0 0;
+				}
+				.abri_bas span{
+					background-position:-200px 0;
+				}
+			}
+			.piscine_existant{
+				span span{
+					background:url("@{imgPath}/devis_responsive/abri_piscine.png") no-repeat -400px 0;
+				}
+				.enterree span{
+					background-position: -600px 0;
+				}
+				.semienterree span{
+					background-position: -800px 0;
+				}
+			}
+			/*---------- PROJET HUMIDITE ----------*/
+			.projet_humidite .traitement_anti_humidite{
+				span{
+					background:url("@{imgPath}/devis_responsive/humidite.png") no-repeat 0 0;
+				}
+			}
+			/*---------- PROJET VOLET ----------*/
+			.projet_volet{
+				span span{
+					background:url("@{imgPath}/devis_responsive/volet.png") no-repeat 0 0;
+				}
+				.fenetres_volets span{
+					background-position: -200px 0;
+				}
+			}
+			.volet_type{
+				span span{
+					background:url("@{imgPath}/devis_responsive/volet.png") no-repeat -400px 0;
+				}
+				.roulant span{
+					background-position: -600px 0;
+				}
+			}
+			/*---------- PROJET MONTE ESCALIER & ASCENSEUR PARTICULIER ----------*/
+			.projet_monteEscalier{
+				span span{
+					background:url("@{imgPath}/devis_responsive/monte_escalier.png") no-repeat 0 0;
+				}
+				.mini_ascenseur span{
+					background-position: -200px 0;
+				}
+				.plateforme_fauteuil_roulant span{
+					background-position: -400px 0;
+				}
+			}
+			/*---------- PROJET BAIGNOIRE A PORTE ----------*/
+			.projet_baignoire_porte{
+				.etape_question{
+					.baignoire_porte span{
+						background:url("@{imgPath}/devis_responsive/baignoire_porte.png") no-repeat 0 0;
+					}
+				}
+			}
+			/*---------- PROJET ALARME ----------*/
+			.projet_alarme .etape_question{
+				span span{
+					background:url("@{imgPath}/devis_responsive/alarme.png") no-repeat 0 0;
+				}
+				.telesurveillance span{
+					background-position:-200px 0;
+				}
+				.videosurveillance span{
+					background-position:-400px 0;
+				}
+				.alarme_incendie span{
+					background-position:-600px 0;
+				}
+				.alarme_piscine span{
+					background-position:-800px 0;
+				}
+				.teleassistance span{
+					background-position:-1000px 0;
+				}
+			}
+			/*---------- PROJET VERANDA ----------*/
+			.projet_veranda{
+				span span{
+					background:url("@{imgPath}/devis_responsive/veranda.png") no-repeat 0 0;
+				}
+				.sas_entree span{
+					background-position: -200px 0;
+				}
+				.pergola span{
+					background-position: -400px 0;
+				}
+				.loggia span{
+					background-position: -600px 0;
+				}
+			}
+			/*---------- PROJET COMBLES ----------*/
+			.projet_combles{
+				span span{
+					background:url("@{imgPath}/devis_responsive/combles.png") no-repeat 0 0;
+				}
+				.isolation_combles span{
+					background-position: -200px 0;
+				}
+				.isolation_combles_amenageables span{
+					background-position: -400px 0;
+				}
+				.fenetre_toit span{
+					background-position: -600px 0;
+				}
+				.surelevation span{
+					height:112px;
+					background-position: -800px 0;
+				}
+			}
+			.charpente_existant{
+				span span{
+					background:url("@{imgPath}/devis_responsive/combles.png") no-repeat -1000px 0;
+				}
+				.americaine span{
+					background-position: -1200px 0;
+				}
+				.metallique span{
+					background-position: -1400px 0;
+				}
+			}
+			.plancher_type{
+				span span{
+					background:url("@{imgPath}/devis_responsive/combles.png") no-repeat  -1600px 0;
+				}
+				.plancher span{
+					background-position: -1800px 0;
+				}
+				.beton span{
+					background-position: -2000px 0;
+				}
+			}
+			/*---------- PROJET POELE ET CHEMINEE ----------*/
+			.projet_poele-cheminee{
+				span span{
+					background:url("@{imgPath}/devis_responsive/poele_cheminee.png") no-repeat 0 0;
+				}
+				.ramonage span{
+					background-position: -200px 0;
+				}
+				.autre_poele span{
+					background-position: -400px 0;
+				}
+				.poele_granules span{
+					background-position: -600px 0;
+				}
+				.poele_bois span{
+					background-position: -800px 0;
+				}
+			}
+			/*---------- PROJET CHAUDIERE ----------*/
+			.projet_chaudiere{
+				span span{
+					background:url("@{imgPath}/devis_responsive/chaudiere.png") no-repeat 0 0;
+				}
+				.installation_chaudiere_fioul span{
+					background-position: -200px 0;
+				}
+				.installation_chaudiere_bois span{
+					background-position: -400px 0;
+				}
+				.installation_chaudiere_mixte span{
+					background-position: -600px 0;
+				}
+				.chauffage_central_installation span{
+					background-position: -800px 0;
+				}
+				.chaudiere_entretien span{
+					background-position: -1000px 0;
+				}
+				.chaudiere_depannage span{
+					background-position: -1200px 0;
+				}
+			}
+			.existant_chaudiere{
+				span span{
+					background:url("@{imgPath}/devis_responsive/chaudiere.png") no-repeat -1400px 0;
+				}
+				.chaudiere_fioul span{
+					background-position: -1600px 0;
+				}
+				.chaudiere_bois span{
+					background-position: -1800px 0;
+				}
+				.chaudiere_aucune span{
+					background-position: -2000px 0;
+				}
+
+			}
+			/*---------- PROJET ISOLATION ----------*/
+			.projet_isolation{
+				span span{
+					background:url("@{imgPath}/devis_responsive/isolation.png") no-repeat 0 0;
+				}
+				.isolation_combles_amenageables span{
+					background-position: -200px 0;
+				}
+				.isolation_exterieur span{
+					background-position: -400px 0;
+				}
+				.isolation_interieur span{
+					background-position: -600px 0;
+				}
+				.isolation_insufflation span{
+					background-position: -800px 0;
+				}
+				.fenetre_volet span{
+					background-position: -1000px 0;
+				}
+				.traitement_anti_humidite span{
+					background-position: -1200px 0;
+				}
+			}
+			.existant_isolation{
+				span span{
+					background:url("@{imgPath}/devis_responsive/isolation.png") no-repeat -1400px 0;
+				}
+				.isolation_laine_roche span{
+					background-position: -1600px 0;
+				}
+				.isolation_cellulose span{
+					background-position: -1800px 0;
+				}
+				.isolation_insufflation span{
+					background-position: -2000px 0;
+				}
+
+			}
+			.souhait_isolation{
+				span span{
+					background:url("@{imgPath}/devis_responsive/isolation.png") no-repeat -2200px 0;
+				}
+				.souhait_laine_roche span{
+					background-position: -2400px 0;
+				}
+				.souhait_cellulose span{
+					background-position: -2600px 0;
+				}
+				.souhait_insufflation span{
+					background-position: -2800px 0;
+				}
+			}
+			/*---------- PROJET POMPE A CHALEUR ----------*/
+			.projet_pompe-a-chaleur{
+				span span{
+					background:url("@{imgPath}/devis_responsive/pac.png") no-repeat 0 0;
+				}
+
+				.pompe-a-chaleur_air-eau span{
+					background-position: -200px 0;
+				}
+				.pompe-a-chaleur_eau-eau span{
+					background-position: -400px 0;
+				}
+				.pompe-a-chaleur_geothermie span{
+					background-position: -600px 0;
+				}
+			}
+			.existant_pac .etape_question{
+				.pac_gaz span{
+					background:url("@{imgPath}/devis_responsive/pac.png") no-repeat -800px 0;
+				}
+				.pac_fioul span{
+					background:url("@{imgPath}/devis_responsive/pac.png") no-repeat -1000px 0;
+				}
+
+			}
+			/*---------- PROJET PLANCHER CHAUFFANT ----------*/
+			.projet_plancher-chauffant{
+				span span{
+					background:url("@{imgPath}/devis_responsive/plancher_chauffant.png") no-repeat 0 0;
+				}
+				.plancher_chauffant_eau_chaude span{
+					background-position: -200px 0;
+				}
+				.plancher_chauffant_definir span{
+					background-position: -400px 0;
+				}
+				.radiateurs_electriques span{
+					background-position: -600px 0;
+				}
+				.pompe_a_chaleur_plancher_chauffant span{
+					background-position: -800px 0;
+				}
+			}
+			/*---------- PROJET RADIATEUR ----------*/
+			.projet_radiateur{
+				span span{
+					background:url("@{imgPath}/devis_responsive/radiateur.png") no-repeat 0 0;
+				}
+				.radiateurs_a_eau span{
+					background-position: -200px 0;
+				}
+				.seche_serviette span{
+					background-position: -400px 0;
+				}
+				.chauffage_electrique_installation span{
+					background-position: -600px 0;
+				}
+				.chauffage_electrique_reparation span{
+					background-position: -800px 0;
+				}
+				.plancher_chauffant span{
+					background-position: -1000px 0;
+				}
+			}
+			/*---------- PROJET CHAUFFAGE ----------*/
+			.projet_chauffage{
+				span span{
+					background:url("@{imgPath}/devis_responsive/chauffage.png") no-repeat 0 0;
+				}
+				.chauffage_central_installation span{
+					background-position: -200px 0;
+				}
+				.poele_cheminee span{
+					background-position: -400px 0;
+				}
+				.radiateur span{
+					background-position: -600px 0;
+				}
+				.pac span{
+					background-position: -800px 0;
+				}
+				.plancher_chauffant span{
+					background-position: -1000px 0;
+				}
+				.chauffage_solaire span{
+					background-position: -1200px 0;
+				}
+			}
+			/*---------- PROJET CHAUFFE-EAU ----------*/
+			.projet_chauffe-eau{
+				span span{
+					background:url("@{imgPath}/devis_responsive/chauffe_eau.png") no-repeat 0 0;
+				}
+				.CE_solaire span{
+					background-position: -200px 0;
+				}
+				.depannage_CE span{
+					background-position: -400px 0;
+				}
+				.CE_chaudiere span{
+					background-position: -600px 0;
+				}
+			}
+			/*---------- PROJET SAUNA ----------*/
+			.projet_sauna{
+				span span{
+					background:url("@{imgPath}/devis_responsive/sauna.png") no-repeat 0 0 ;
+				}
+				.spa_jacuzzi span{
+					background-position: -200px 0;
+				}
+				.hammam span{
+					background-position: -400px 0;
+				}
+			}
+			/*---------- PROJET RCPRO ----------*/
+			.projet_rcpro{
+				span span{
+					background:url("@{imgPath}/devis_responsive/assurance.png") no-repeat 0 0;
+				}
+				.assurance_chomage span{
+					background-position:-200px 0;
+				}
+				.sante_mutuelle span{
+					background-position: -400px 0;
+				}
+				.deces-invalidite span{
+					background-position: -600px 0;
+				}
+				.assurance_homme_cle-mandataire span{
+					background-position: -800px 0;
+				}
+				.epargne_entreprise span{
+					background-position: -1000px 0;
+				}
+				.retraite span{
+					background-position: -1200px 0;
+				}
+			}
+			.domaine_activite{
+				span span{
+					background:url("@{imgPath}/devis_responsive/domaine.png") no-repeat 0 0;
+				}
+				.artisan span{
+					background-position:-200px 0;
+				}
+				.profession_liberale span{
+					background-position:-400px 0;
+				}
+				.deces-invalidite span{
+					background-position:-600px 0;
+				}
+				.profession_reglementee span{
+					background-position:-800px 0;
+				}
+			}
+			/*---------- PROJET MACHINE AFFRANCHIR ----------*/
+			.projet_machine-affranchir{
+				span span{
+					background:url("@{imgPath}/devis_responsive/machine_affranchir.png") no-repeat 0 0;
+				}
+			}
+			.volume{
+				span span{
+					background:url("@{imgPath}/devis_responsive/machine_affranchir.png") no-repeat -200px 0;
+				}
+				.volume_150 span{
+					background-position: -400px 0;
+				}
+				.volume_250 span{
+					background-position: -600px 0;
+				}
+				.volume_500 span{
+					background-position: -800px 0;
+				}
+			}
+			.existant_machine_affranchir{
+				span span{
+					background:url("@{imgPath}/devis_responsive/machine_affranchir.png") no-repeat -1000px 0;
+				}
+				.non span{
+					background-position: -1200px 0;
+				}
+			}
+			.service{
+				span span{
+					background:url("@{imgPath}/devis_responsive/machine_affranchir.png") no-repeat -1400px 0;
+				}
+				.non span{
+					background-position: -1200px 0;
+				}
+			}
+			/* A FAIRE */
+			.fournisseurs_machine_affranchir{
+				span span{
+					background:url("@{imgPath}/devis_responsive/fournisseur.png") no-repeat -1000px 0;
+				}
+				.couts_telephonie span{
+					background-position: -400px 0;
+				}
+				.titre_restaurant span{
+					background-position: -600px 0;
+				}
+			}
+			/*---------- PROJET STANDARD TELEPHONIQUE ----------*/
+			.projet_standard-telephonique{
+				span span{
+					background:url("@{imgPath}/devis_responsive/standard_tel.png") no-repeat 0 0;
+				}
+				.evoluer span{
+					background-position: -200px 0;
+				}
+				.installer span{
+					background-position: -400px 0;
+				}
+				.etape_question .img_standard_tel{
+					position:absolute;
+					left:0;
+					bottom:0;
+					width:100%;
+					height:150px;
+					background:url("@{imgPath}/devis_responsive/standardiste.png") no-repeat;
+					background-position: center center;
+				}
+			}
+			.preference{
+				span span{
+					background:url("@{imgPath}/devis_responsive/standard_tel.png") no-repeat -600px 0;
+				}
+				.louer span{
+					background-position: -800px 0;
+				}
+			}
+			.existant_standard_telephonique{
+				span span{
+					background:url("@{imgPath}/devis_responsive/standard_tel.png") no-repeat -1000px 0;
+				}
+				.locataire span{
+					background-position: -1200px 0;
+				}
+				.non span{
+					background-position: -1400px 0;
+				}
+			}
+			.nombre_tel{
+				span span{
+					background:url("@{imgPath}/devis_responsive/standard_tel.png") no-repeat -1600px 0;
+				}
+				.nombre_tel-2_4 span{
+					background-position: -1800px 0;
+				}
+				.nombre_tel-5_6 span{
+					background-position: -2000px 0;
+				}
+				.nombre_tel-7_9 span{
+					background-position: -2200px 0;
+				}
+				.nombre_tel-10_14 span{
+					background-position: -2400px 0;
+				}
+				.nombre_tel-15_19 span{
+					background-position: -2600px 0;
+				}
+				.nombre_tel-20_49 span{
+					background-position: -2800px 0;
+				}
+				.nombre_tel-plus_50 span{
+					background-position: -3000px 0;
+				}
+			}
+			.internet,
+			.operateur_fixe{
+				span span{
+					background:url("@{imgPath}/devis_responsive/standard_tel.png") no-repeat -3200px 0;
+				}
+				.bouygues span{
+					background-position: -3400px 0;
+				}
+				.sfr span{
+					background-position: -3600px 0;
+				}
+				.free span{
+					background-position: -3800px 0;
+				}
+				.aucun span{
+					background-position: -1400px 0;
+				}
+				.etape_question .fd_operateur{
+					position: absolute;
+					bottom:-20px;
+					right:0;
+					width:180px;
+					height:180px;
+				}
+			}
+		}
+		/*---------- Reassurance à droite ----------*/
+		#droite_etapes{
+			float: left;
+			height:370px;
+			background:url("@{imgPath}/devis_responsive/reassurance.png") no-repeat;
+			p{
+				width:16rem;
+				margin:40px 0 0 35px;
+				font-size:1.8rem;
+				text-align:center;
+			}
+		}
+	}
+	/*---------- Page Fin ---------- EN ATTENTE POUR LE MOMENT */
+	&.merci_devis{
+		.merci,
+		.merci + p{
+			background:#eee;
+			text-align:center;
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+		.merci{
+			padding-top: 2rem;
+			.radius(10px 10px 0 0);
+			+ p{
+				margin-top: 0;
+				padding-top: 1rem;
+				padding-bottom: 2rem;
+				.radius(0 0 10px 10px);
+			}
+		}
+		.autresProjets{
+			margin-top: 5rem;
+			position:relative;
+			img{
+				display:none;
+			}
+			p{
+				padding-bottom: 1rem;
+				border-bottom:5px solid #999;
+				font-family: @museo;
+				font-size: 2.4rem;
+			}
+		}
+		h3{
+			font-size: 2rem;
+		}
+		.colonne3{
+			float:left;
+			width:30%;
+			margin:0 0 20px 0;
+			&:nth-of-type(3n+2){
+				margin-left: 5%;
+				margin-right: 5%;
+			}
+			&:nth-of-type(3n+1){
+				clear: both;
+			}
+		}
+		.colonne2{
+			float: left;
+			width:47.5%;
+			margin:0 0 20px 0;
+			&:nth-of-type(2n+2){
+				margin-left: 5%;
+			}
+			&:nth-of-type(2n+1){
+				clear: both;
+			}
+		}
+		.colonnes{
+			overflow:hidden;
+			clear:both;
+			li{
+				position: relative;
+				padding-left: 2rem;
+				&::before{
+					content: "\e603"; /* icon icon-content*/
+					.scale-rotate(.6, 180deg);
+					position: absolute;
+					top: 8px;
+					left: 0;
+					display:inline-block;
+					font-size: 18px;
+					font-family: 'icomoon';
+					color:#666;
+					vertical-align:-3px;
+					font-weight: normal;
+				}
+				a{
+					display: block;
+					padding: .5rem 0;
+				}
+			}
+		}
+		.menu{
+			clear:both;
+			text-align: right;
+		}
+	}
+}
+@media only screen and (max-width: 800px) {
+	.devis_responsive,
+	.devis_responsive.tunnel_devis{
+		.defisc_devis{
+			.devis_etapes{
+				.nom{
+					.etape_question > span{
+						width: 30%;
+						&:nth-of-type(3){
+							clear:none;
+						}
+					}
+					.etape_champs input{
+						min-height: inherit;
+					}
+				}
+				.bt_terminer{
+					.bouton_etape{
+						margin: inherit;
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 500px) {
+	.devis_responsive,
+	.devis_responsive.tunnel_devis{
+		.defisc_devis{
+			.devis_etapes{
+				background: #fff;
+				border: 1px solid #ccc;
+				/** Styles communs */
+				.etape_next{
+					right:0;
+					left: auto;
+				}
+				> label{
+					font-size: 1.5rem;
+				}
+				input{
+					border:1px solid #ccc;
+					&:focus{
+						border: 1px solid @violet;
+					}
+				}
+				.objectifs,
+				.fournisseurs,
+				.fournisseurs_machine_affranchir{
+					span .checkbox{
+						top: 50%;
+						margin-top: -11px;
+						.scale(.7);
+					}
+					.selected{
+						.checkbox{
+							margin-top: -14px;
+						}
+					}
+				}
+				.bouton_etape{
+					margin-top: 1rem;
+					width: 100%;
+					.radius(0);
+					border:none;
+					button,
+					input{
+						padding: 1rem;
+						font-size: 1.6rem;
+						width: 100%;
+						border:none;
+					}
+				}
+				/** Etape 1 **/
+				.par2.objectifs{
+					.etape_question > span{
+						padding: 10px 10px 10px 40px;
+						text-align: left;
+					}
+				}
+				.par3.nombre{
+					.etape_question > span{
+						background: none;
+						&:nth-of-type(1)::before{
+							content: "1";
+						}
+						&:nth-of-type(2)::before{
+							content: "2";
+						}
+						&:nth-of-type(3)::before{
+							content: "3";
+						}
+						&:nth-of-type(4)::before{
+							content: "4";
+						}
+						&:nth-of-type(5)::before{
+							content: "5+";
+						}
+						&:nth-of-type(2n+1){
+							clear: none;
+						}
+					}
+				}
+				.revenus_foyer,
+				.par2,
+				.par3{
+					.etape_question > span{
+						padding: 8px 0;
+						margin: 0;
+						font-size: 1.6rem;
+						font-weight: normal;
+						border: 1px solid #ccc;
+						width: 100%;
+						span{
+							display: none;
+						}
+						&.selected{
+							border: 1px solid @violet;
+						}
+						&:nth-of-type(n+2){
+							margin-top: 1rem;
+						}
+					}
+				}
+				.nom{
+					.etape_question{
+						.flex-display(flex);
+						.flex-wrap(wrap);
+						.align-items(flex-end);
+						.justify-content(space-around);
+						span{
+							width: auto;
+							padding: 5px;
+						}
+					}
+					.etape_champs{
+						padding: 0;
+						margin: 1rem 0 0 0;
+					}
+					input{
+						border:1px solid #ccc;
+					}
+					.radio{
+						margin-top: 5px;
+						margin-bottom: 0;
+						+ .radio{
+							margin-left: 10px;
+						}
+					}
+				}
+				.etape_fin{
+					padding-top: 3rem;
+					.etape_radio{
+						margin-top: 0;
+						label{
+							font-size: 1.6rem;
+						}
+						+ .etape_radio{
+							margin-top: 2rem;
+						}
+					}
+					> label{
+						margin-bottom: 2rem;
+					}
+					.hide{
+						display: none;
+					}
+				}
+				.lieu{
+					padding-top: 3rem;
+				}
+				.bt_terminer{
+					.flex-display(flex);
+					.align-content(flex-end);
+					.flex-wrap(nowrap);
+					padding-top: 15px;
+					.bouton_etape{
+						padding: 10px;
+						.radius(0);
+						border:none;
+						font-size: 1.6rem;
+						margin-top: 0;
+						width: auto;
+					}
+					p{
+						text-align: right;
+					}
+				}
+			}
+		}
+	}
+}
+/************************************* Responsive Design *************************************/
+@media only screen and (max-width: 1050px) {
+	.devis_responsive{
+		&.tunnel_devis{
+			.w_2_3{
+				float: none;
+				margin: 0 auto 5rem auto;
+			}
+			#droite_etapes{
+				clear: both;
+				float: none;
+				margin: auto;
+				p{
+					float: left;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 1030px) {
+	.form_devis{
+		.w1000.retour_site{
+			padding-left: 1rem;
+		}
+	}
+	.devis_responsive.tunnel_devis{
+		#droite_etapes{
+			width: 300px;
+		}
+	}
+}
+@media only screen and (max-width: 900px) {
+	.devis_responsive{
+		&.tunnel_devis{
+			.w_2_3{
+				width: 100%;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 700px) {
+	.devis_responsive{
+		&.tunnel_devis{
+			.devis_etapes{
+				.par2{
+					&.etape_oui_non .etape_question > span{
+						margin-top: 8rem;
+						&:nth-of-type(2){
+							margin-top: 8rem;
+						}
+					}
+
+				}
+				.par3{
+					&.etape_oui_non .etape_question > span{
+						margin-top: 8rem;
+						&:nth-of-type(2){
+							margin-top: 8rem;
+						}
+					}
+					.etape_question > span{
+						width: 47.5%;
+						&:nth-of-type(3n+2){
+							margin-left: 0;
+							margin-right: 0;
+						}
+						&:nth-of-type(2n+1){
+							clear: both;
+						}
+						&:nth-of-type(2n+2){
+							margin-left: 5%;
+							margin-right: 0;
+						}
+						&:nth-of-type(3n+1){
+							clear: none;
+						}
+					}
+					&.ligne_seule{
+						.etape_question > span{
+							margin-top: 2rem;
+						}
+					}
+				}
+				.bouton_etape{
+					clear: both;
+					position: static;
+					display: table;
+					margin: 2rem auto 0 auto;
+				}
+				.antiSPAM_devis{
+					position: static;
+					width: 100%;
+					margin-top: 2rem;
+				}
+				.lieu .antiSPAM_devis{
+					margin-top: 6rem;
+				}
+				.nom{
+					padding-bottom: 0;
+				}
+				.naissance,
+				.societe,
+				.horaire_input,
+				.construction_annee,
+				.combien,
+				.mesure,
+				.description,
+				.lieu.lieu_CP{
+					.etape_question{
+						min-height: 300px;
+					}
+				}
+				.chiffre_affaire,
+				.revenus_foyer{
+					background: none;
+					.etape_question > span{
+						width: 47.5%;
+						margin-top: 3rem;
+						margin-left: 5%;
+						&::before{
+							content: none;
+						}
+						&:nth-of-type(2n+1){
+							margin-left: 0;
+						}
+					}
+				}
+				.projet_standard-telephonique{
+					.etape_question .img_standard_tel{
+						display: none;
+					}
+				}
+			}
+		}
+		&.merci_devis{
+			.colonne3{
+				width: 100%;
+				&:nth-of-type(3n+2){
+					margin-left: 0;
+					margin-right: 0;
+				}
+			}
+			.colonne2{
+				width: 100%;
+				&:nth-of-type(2n+2){
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 500px) {
+	.devis_responsive{
+		&.tunnel_devis{
+			.devis_etapes{
+				label{
+					padding: 10px 0;
+				}
+				.etape_prev,
+				.etape_next{
+					top: -10px;
+					left: -10px;
+				}
+				.etape_next{
+					left: auto;
+					right: -10px;
+				}
+				.etape_question{
+					min-height: inherit;
+					padding-top: 3rem;
+				}
+				.par2{
+					.etape_question > span{
+						width: 100%;
+						&:nth-of-type(2n+2){
+							margin-left: 0;
+							margin-top: 2rem;
+						}
+					}
+					&.ligne_seule{
+						.etape_question > span{
+							margin-top: 2rem;
+						}
+					}
+				}
+				.par3{
+					.etape_question > span{
+						width: 100%;
+						&:nth-of-type(2n+2){
+							margin-left: 0;
+						}
+					}
+				}
+				.naissance,
+				.societe,
+				.horaire_input,
+				.construction_annee,
+				.combien,
+				.mesure,
+				.description,
+				.lieu.lieu_CP{
+					background: none;
+					.etape_question{
+						min-height: inherit;
+					}
+					input{
+						margin-top: 2rem;
+						width: 100%;
+					}
+					.erreur{
+						width: 100%;
+					}
+				}
+				.description{
+					textarea{
+						margin-top: 2rem;
+					}
+				}
+				.lieu{
+					min-height: inherit;
+					background: none;
+					.etape_champs{
+						label{
+							width: 100%;
+							margin-top: 0;
+							margin-left: 0;
+						}
+					}
+					.antiSPAM_devis{
+						margin-top: 0;
+					}
+				}
+				.nom{
+					.etape_question > span{
+						position: relative;
+						padding-top: 5px;
+						span{
+							position: absolute;
+							top: -5rem;
+							left: 0;
+							margin-left: -7rem;
+							.scale(.7);
+						}
+					}
+					> label{
+						padding-top: 3rem;
+					}
+					padding-bottom: 0;
+					.etape_champs label{
+						width: 100%;
+						&:nth-of-type(2n+2){
+							margin-left: 0;
+						}
+					}
+				}
+				.bt_terminer p{
+					font-size: 14px;
+					text-align: center;
+				}
+				.etape_fin{
+					> label{
+						margin-bottom: 3rem;
+					}
+					.bouton_etape{
+						display: block;
+						p{
+							width: 100%;
+							margin-bottom: 1rem;
+							margin-right: 0;
+						}
+						> input {
+							.flex(inherit);
+							float: right
+						}
+					}
+				}
+			}
+
+		}
+	}
+}

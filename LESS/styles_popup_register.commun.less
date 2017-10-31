@@ -1,0 +1,264 @@
+/* *************************************************************************************************************************** *
+ * *  ATTENTION, ce fichier LESS est lié symboliquement.					                               *
+ * *  Fichier LESS original : 	finecommon/themes/comprendrechoisir/common_files/css/styles_popup_register.less *
+ * *  Fichier(s) lié(s) : 	www.comprendrechoisir.com/www/css/styles_popup_register.less                    *
+ * *************************************************************************************************************************** */
+ 
+ /********************** SOMMAIRE **************************/
+ /*
+1. POP UP STYLES GENERAUX
+ 
+2.CONNEXION INSCRIPTION / POPUP LIER VOS COMPTES
+	
+6. POPUP ENVOYER A UN AMI
+
+ */
+ 
+/***************************************************** POP UP STYLES GENERAUX ***********************************************************/
+.ui-widget-overlay {
+    background: none repeat scroll 50% 50% #333;
+    opacity: 0.5;
+}
+.ui-dialog{
+	display:block;
+	background:#fff;
+	border:none;
+	-webkit-box-shadow:  0px 0px 0px 5px rgba(0, 0, 0, 0.3);
+        box-shadow:  0px 0px 0px 5px rgba(0, 0, 0, 0.3);
+	padding:0;
+	.rounded(5px);
+	.ui-corner-all {
+		.rounded(0px);
+	}
+	.ui-button-text-only .ui-button-text {
+		padding:0;
+	}
+	.ui-dialog-titlebar{
+		padding:15px 0 15px 20px;
+		border:0;
+		background:#fff;
+		-webkit-border-radius: 5px 5px 0px 0px;
+		border-radius: 5px 5px 0px 0px;
+	}
+	.ui-dialog-title{
+		color:#333;
+		font: 20px/24px Arial, Helvetica, sans-serif;
+	}
+	.ui-dialog-content{
+		padding:0 20px;
+		font: 12px/18px Arial, Helvetica, sans-serif;
+	}
+	.ui-dialog-buttonpane{
+		padding:15px;
+		margin:0;
+		overflow:hidden;
+		border:0;
+		background:#fff;
+	}
+	h3{
+		margin:0 0 10px 0;
+	}
+	p{
+		padding:0;
+		margin:0 0 10px 0;
+	}
+	fieldset{
+		border:none;
+	}
+	input,
+	select,
+	label,
+	textarea,
+	button{
+		font: 12px/18px Arial, Helvetica, sans-serif;
+	}
+	input[type="email"],
+	input[type="password"],
+	input[type="text"],
+	input[type="tel"]{
+		margin:3px;
+		padding:4px 8px;
+		border:1px solid #ccc;
+		.inner-shadow(-3px, 3px, 5px, -3px, #ccc);
+		background:none;
+		color:#333;
+	}
+	textarea {
+		margin:10px 3px;
+		padding:4px;
+		height:129px;
+		border:1px solid #ccc;
+		.inner-shadow(-3px, 3px, 5px, -3px, #ccc);
+		background:none;
+		color:#333;
+		width:455px;
+		min-width:455px;
+		max-width:455px;
+	}
+	input:focus,
+	textarea:focus{
+		border:1px solid #b1cc31;
+		box-shadow: inset -3px 3px 5px -3px #ccc,  0 0 3px 0 #b1cc31;
+	}
+	input[type="radio"]:focus,
+	input[type="checkbox"]:focus{
+		border:none;
+		box-shadow: none;
+	}
+	/*------------------- boutton fermer popup ---------------*/
+	.ui-dialog-titlebar-close{
+		top:10px;
+		right:10px;
+		height:24px;
+		width:24px;
+		margin:0;
+	}
+	.ui-dialog-titlebar-close.ui-state-hover,
+	.ui-dialog-titlebar-close:hover{
+		background:#FF8282;
+		border:1px solid #c00;
+		height:24px;
+		width:24px;
+		.rounded(5px);
+	}
+	.ui-dialog-titlebar-close .ui-icon{
+		background:url("@{imgPath}/sprite_commun.png") 1px -25px no-repeat;
+		border:none;
+		height:24px;
+		width:24px;
+		display:block;
+	}
+	/*---------------------------------------------------------------*/
+	.ui-dialog-buttonset{
+		float:right;
+	}
+	button.ui-button{
+		display:inline-block;
+		border:none;
+		height:30px;
+		padding:5px 10px;
+		margin:0 0 0 15px;
+		.rounded(4px);
+		background: #595959; /* Old browsers */
+		background: -moz-linear-gradient(top,  #666 60%, #333 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(60%,#666), color-stop(100%,#3333)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #666 60%,#333 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #666 60%,#333 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #666 60%,#333 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #666 60%,#333 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666666', endColorstr='#333333',GradientType=0 ); /* IE6-9 */
+		color:#FFF;
+		font:bold 14px/20px Arial, Helvetica, sans-serif;
+		text-align:center;
+		cursor:pointer;	
+	}
+	button.ui-button:hover{
+		background: #2b2b2b; /* Old browsers */
+		background: -moz-linear-gradient(top,  #2b2b2b 0%, #595959 40%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2b2b2b), color-stop(40%,#595959)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #2b2b2b 0%,#595959 40%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #2b2b2b 0%,#595959 40%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #2b2b2b 0%,#595959 40%); /* IE10+ */
+		background: linear-gradient(to bottom,  #2b2b2b 0%,#595959 40%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b2b2b', endColorstr='#595959',GradientType=0 ); /* IE6-9 */
+	}
+	a{
+		color:@color_base;
+	}
+	a:hover{
+		color:@color_contraste;
+	}
+	.error span{
+		background:url("@{imgPath}/sprite_commun.png") 0px -57px no-repeat;
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		margin: 0 5px 0 0;
+		vertical-align: text-bottom;
+	}
+	.bt_noir{
+		font:bold 14px/20px Arial,Helvetica,sans-serif;
+	}
+}
+/*POPUP JQUERY issue de compte marque*/
+
+.ui-dialog table, .ui-dialog tr, .ui-dialog td {
+	border:none;
+}
+.ui-dialog td{
+	padding: 7px 0 7px 7px;
+}
+.ui-dialog table {
+	clear: both;
+	margin: 10px 0 10px;
+	padding: 0;
+	width: 505px;
+}
+.ui-state-error,
+.ui-widget-content .ui-state-error,
+.ui-widget-header .ui-state-error{
+	background:none;
+	border:none;
+	color:#C00;
+	font:12px/18px Arial, Helvetica, sans-serif;
+}
+
+/*************************************************************** CONNEXION INSCRIPTION **************************************************************************/
+
+
+/*---------------------------------------------- POPUP LIER VOS COMPTES --------------------------------------------------*/
+.lier_connect{
+	strong{
+		color:#390;
+		font-size:14px;
+	}
+	p > span{
+		font:14px/18px Arial, Helvetica, sans-serif;
+	}
+	.lier_connect_bt{
+		text-align:center;
+	}
+	.bt_noir {
+		color:#fff;
+		display:inline-block;
+		margin:10px;
+	}
+	.bt_noir span{
+		background:url("@{imgPath}/sprite_commun.png") -1px -169px no-repeat;
+	}
+	/*Lien non merci*/
+	a.bt_noir + a{
+		color:@color_base@color_argent;
+		text-decoration:underline;
+		margin:0 0 0 10px;
+	}
+	a.bt_noir + a:hover{
+		text-decoration:none;
+	}
+}
+
+/************************************************************ POPUP ENVOYER A UN AMI ***************************************************************/
+.ui-widget .popup_envoyer p{
+	overflow:hidden;
+	height:100%;
+	line-height:130%;
+}
+.ui-widget .popup_envoyer input{
+	width:281px;
+	float:left;
+}
+.ui-widget .popup_envoyer label{
+	padding:13px 0 0 0;
+	width:180px;
+	float:left;
+}
+.ui-widget .popup_envoyer textarea{
+	margin:10px 0 0 0;
+	max-width: 473px;
+	min-width: 473px;
+	width: 473px;
+}
+.ui-widget .popup_envoyer .error{
+	font-size:12px;
+	clear:both;
+}

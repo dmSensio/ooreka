@@ -1,0 +1,823 @@
+
+/* **************************************************** SOMMAIRE ************************************************************** */
+
+/*	 I. SOUS_CONTENU
+	 	1. PARTAGE
+		2. BOUTON DE VOTE
+		3. LISTES
+		4. AUTRES FICHES
+		5. AUTRES AVIS DE PROS
+		6. BOX QR REAGIR A CE CONTENU
+		6. INSCRIPTION CONNEXION
+		7. BOX QR REAGIR A CE CONTENU DANS GUIDE PRATIQUE (différences de largeur)
+		8. BOX SUR LE MEME THEME (Pour aller plus loin)
+		9. Hack theme noir
+		10. BOX FICHES PLANTES
+		11. BOX DE PARTAGE ACTUS ---------> sous les actus
+		
+	II. BOX MINI ARTICLES (sur astuce, article et pushdiapo)
+	
+	III. PUBLIBOX (sendQuestionBox_large) ---> la mini publibox de la HP est dans styles_V5
+		1. Contenu
+		2. Onglets Publibox
+		3. Label & Input
+		4. Suggestions de questions
+		5. Bouton_Valider
+		
+	IV. OPTINE FACEBOOK
+	
+	V. Lettres et contrats-types
+*/
+/* ********************************************************************************************************** */
+
+/* ******************************************** SOUS_CONTENU ************************************************ */
+
+.sous_contenu{/*------------------Section avec la barre à gauche----------------------*/
+	border-left:5px solid #CCC;
+	padding:0 0 0 10px;
+	margin: 0 0px 20px 0;
+	clear:both;
+	.sous_contenu_box{
+		border-bottom:1px dotted #999;
+		padding:0px 0px 15px 5px;
+		margin: 0 0 15px;
+		background:none;
+	}
+	.titreGris,
+	.titre_box{
+		font: bold 16px/25px Arial, Helvetica, sans-serif;
+		color:#666;
+		margin: 0 0 10px;
+		padding: 0;
+	}
+	.sous_contenu_box.derniere_box{
+		border-bottom:none;
+		margin:0;
+		padding:0 0 0 5px;
+	}
+	/*---------------------- PARTAGE ----------------------*/
+	#box_partage,
+	.partager_diapo{
+		overflow:hidden;
+	}
+	.envoi_ami{
+		margin:0 10px 0 0;
+	}
+	.recommander_fb{
+		float:left;
+		margin:0 10px 0 0;
+		padding:1px 0 0 0;
+	}
+	.recommander_g {
+		float:left;
+		margin:0 10px 0 0;
+	}
+	.bt_eBiblio{
+		float:left;
+		margin:0 10px 0 0;
+	}
+	/*---------------------- BOUTON DE VOTE ----------------------*/
+	.vote_contenu{
+		float:left;
+		margin:0 15px 0 0;
+		position:relative;
+	}
+	.nbVote{
+		position:absolute;
+		left:0;
+		top:0;
+		height:25px;
+		min-width:35px;
+		background:@color_aplat;
+		.rounded(3px 0 0 3px);
+		color:#fff;
+		font:bold 12px/25px Arial, Helvetica, sans-serif;
+		text-align:center;
+	}
+	.mark_vote_contenu{
+		display:block;
+		min-width:40px;
+		height:23px;
+		padding:0 0 0 35px;
+		.gradient(#ffffff, #ffffff, #dddddd);
+		border: 1px solid #999;
+		.rounded(3px);
+		cursor:pointer;
+		font:11px/26px Arial, Helvetica, sans-serif;
+		text-align: center;
+	}
+	.mark_vote_contenu:hover{
+		.gradient(#dddddd, #dddddd, #ffffff);
+	}
+	.mark-voted{
+		background:@color_aplat;
+		color:#fff;
+		display:block;
+		height:25px;
+		min-width:40px;
+		border:none;
+		cursor:default;
+		text-align:left;
+	}
+	.mark_vote_contenu.mark-voted:hover{
+		background:@color_aplat;
+	}
+	/*---------------------------- LISTES ----------------------------*/
+	ul{
+		padding:0 0 0 5px;
+		list-style:none;
+	}
+	li a{
+		color:@color_base;
+	}
+	.all_autres{
+		display: block;
+		text-align:right;
+		font:12px/15px Arial, Helvetica, sans-serif;
+	}
+	.all_autres span{
+		display:inline-block;
+		vertical-align:middle;
+		height:16px;
+		width:16px;
+		margin:0 2px 0 0;
+		background:url("@{imgPath}/sprite_commun.png") no-repeat scroll 0px -406px;
+	}
+	.all_autres:hover{
+		color:#333;
+	}
+	/*---------------------------- AUTRES FICHES ----------------------------*/
+	.autres_fiches li{
+		margin:0 0 5px 0;
+	}
+	.autres_fiches a{
+		padding:0 0 0 15px;
+		background:url("@{imgPathTheme}/puce_tab.png") no-repeat scroll 0px 3px;
+		text-decoration:none;
+		font:14px/18px Arial, Helvetica, sans-serif;
+	}
+	.autres_fiches a:hover{
+		text-decoration:underline;
+	}
+	/*---------------------- AUTRES AVIS DE PROS ----------------------*/
+	.autres_avis {
+		margin-bottom:20px;
+		clear:both;
+		overflow:hidden;
+		font: 12px/130% Arial, Helvetica, sans-serif;
+	}
+	.autres_avis .titreGris{
+		text-decoration:none;
+		display:block;
+		margin-bottom:15px;
+	}
+	.autres_avis .titreGris:hover{
+		text-decoration:underline;
+	}
+	.autres_avis li{
+		background: url("@{imgPathTheme}/puce_tab.png") no-repeat scroll 0 3px transparent;
+		margin: 0 0 10px 0;
+		padding: 0 0 4px 13px;
+	}
+	.autres_avis li a{
+		text-decoration:none;
+		font-size:14px;
+	}
+	.autres_avis li em{
+		font-style:normal;
+	}
+	.autres_avis li a:hover em,
+	.autres_avis a:hover .pseudo_pro{
+		text-decoration:underline;
+	}
+	.autres_avis li p{
+		color:#666;
+	}
+	/*----------------------------- AUTRES VIDEOS ----------------------------*/
+	#liste_videos .bloc_vignette{
+		width:200px;
+		margin:0 15px 20px 0;
+	}
+	#liste_videos .bloc_vignette span{
+		width:200px;
+	}
+	#liste_videos .bloc_vignette img{
+		max-width:200px;
+	}
+	/*---------------------- BOX QR REAGIR A CE CONTENU ----------------------*/
+	#answers .answer_id:first-child{
+		margin-top:10px;
+	}
+	.commenter{
+		overflow:auto;
+		margin:0 0 30px 0;
+		width:647px;
+	}
+	.commenter textarea{ /* Boite de réation */
+		width:100%;
+		min-width:100%;
+		max-width:100%;
+		box-sizing: border-box;
+	}
+	.commenter .error{
+		margin: 10px 0;
+	}
+	.comment_immedia .commenter{ /* Boite de réation cachée*/
+		padding:20px 20px 0;
+	}
+	.comment_immedia textarea{
+		width:585px;
+		min-width:585px;
+		max-width:585px;
+		margin:5px 0 0 0;
+	}
+	.comment_immedia .error{
+		padding:10px 0;
+	}
+	.compteur_caractere .erreur{
+		border:1px solid #fff !important;
+		color: @rouge;
+	}
+	.compteur_caractere .erreur,
+	.compteur_caractere + .erreur{
+		box-shadow: none;
+	}
+	/*---------------------------------- INSCRIPTION CONNEXION ---------------------------*/
+	.bloc_inco{
+		margin:20px 0 10px 0;
+	}
+	.form_inco{
+		border:1px solid #ccc;
+	}
+	.header_inco .selected{
+		border:1px solid #ccc;
+		border-bottom:none;
+	}
+	.commenter .checkbox_facebook + .bt_noir {
+		margin:0;
+	}
+}
+/*----------------- BOX QR REAGIR A CE CONTENU DANS GUIDE PRATIQUE (différences de largeur)---------------------*/
+#article .sous_contenu{
+	.commenter textarea{ 		/* Boite de réation */
+		width:498px;
+		min-width:498px;
+		max-width:498px;
+	}
+	.comment_immedia textarea{ 	/* Boite de réation cachée */
+		width:448px;
+		min-width:448px;
+		max-width:448px;
+	}
+	.comment_immedia .radio_qr_complementaire input[type="radio"]{
+		margin:0 0 0 5px;
+	}
+	.comment_immedia .radio_qr_complementaire input[type="radio"] + label,
+	.comment_immedia .radio_qr_complementaire .bulle_info{
+		margin:0;
+	}
+	.commenter_rep{		/* Boite de commentaire */
+		width:415px;
+	}
+	.commenter_rep textarea{
+		width:403px;
+		min-width:403px;
+		max-width:403px;
+	}
+	.answer-comments .comment{	/* Boite de commentaire */
+		width:430px;
+	}
+}
+.texte_reponse .suite_reponse{
+	.icon-chevron::before{
+		display: none;
+	}
+}
+.ensemble_reponse{
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	.suite_reponse{
+		margin-top: 10px;
+	}
+	.le_commentaire .info_commentaire{
+		margin-top: 10px;
+		padding-top: 5px;
+		border-top: 1px solid #ddd;
+		position: relative;
+	}
+}
+.partie_commentaire .une_erreur{
+	color: @rouge;
+	clear: both;
+}
+/*--------------------------- BOX SUR LE MEME THEME (Pour aller plus loin) -------------------------*/
+#sameTheme{
+	ul{
+		padding:0 0 0 5px;
+		margin:0;
+	}
+	li {
+		display: block;
+		line-height: 170%;
+		list-style: none outside none;
+		margin: 0 0 2px;
+		overflow: hidden;
+		padding: 0 0 4px;
+	}
+	li > span{
+		line-height:140%;
+		vertical-align:middle;
+	}
+	.sameTheme_puce{
+		display:inline-block;
+		height:13px;
+		width:13px;
+		background:url("@{imgPath}/sprite_commun.png")no-repeat 0px -469px;
+		cursor:pointer;
+	}
+	.sameTheme_puce_down{
+		display:inline-block;
+		height:13px;
+		width:13px;
+		background:url("@{imgPath}/sprite_commun.png")no-repeat 0px -448px ;
+		cursor:pointer;
+	}
+	a{
+		color:@color_base;
+		text-decoration:none;
+		font:normal 14px/140% Arial, Helvetica, sans-serif;
+		width:630px;
+	}
+	a:hover span:first-child{
+		text-decoration:underline;
+	}
+	.type_contenu {
+		margin:0 0 0 4px;
+		color: #999999;
+		font-size: 10px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	li p{
+		padding:0 10px 5px 15px;
+		overflow:hidden;
+		clear:both;
+		font: 12px/140% Arial, Helvetica, sans-serif;
+		color:#666;
+	}
+}
+/*----------------------------------- BOX FICHES PLANTES -------------------------------*/
+#sameTypePlant{
+	overflow:hidden;
+	ul{
+		padding:0;
+	}
+	.sous_parties_box{
+		width:200px;
+		float:left;
+		margin:0 0 0 20px;
+		list-style:none;
+	}
+	.titreGris + .sous_parties_box{
+		margin: 0;
+	}
+	.sous_parties_box img{
+		width:200px;
+		margin: 0 0 20px 0;
+	}
+	.sous_parties_box p{
+		display:inline-block;
+		color:#666;
+		font:12px/16px Arial, Helvetica, sans-serif;
+		width:120px;
+		height:9px;
+		border-bottom:1px solid #ccc;
+	}
+	.sous_parties_box li{
+		padding:0 0 5px 0;
+	}
+	.sous_parties_box a{
+		font:bold 14px/20px Arial, Helvetica, sans-serif;
+		color:#333;
+		text-decoration:none;
+	}
+	.exposition_soleil,
+	.exposition_mi_ombre,
+	.exposition_ombre{
+		width:23px;
+	}
+	.separator{
+		background:#fff;
+		height:19px;
+		padding:0 5px 0 0;
+		position:absolute;
+		width:auto;
+	}
+}
+#techniquesPlantes,
+#dernieresPlantes{
+	margin: 30px 0;
+	ul{
+		padding:0;
+	}
+	li{
+		display: inline-block;
+		overflow: hidden;
+		padding: 0 0 0px 19px;
+		width: 300px;
+		font:12px/15px Arial, Helvetica, sans-serif;
+		background: url("@{imgPathTheme}/puce_tab.png") no-repeat 5px 2px;
+	}
+	a{
+		color:@color_base;
+		text-decoration:none;
+		font-size:14px;
+	}
+	a:hover{
+		text-decoration:underline;
+	}
+}
+#dernieresPlantes li{
+	width:198px;
+}
+/*--------------------------- BOX DE PARTAGE ACTUS ---------------------------------------*/
+.partage_bulles{
+	overflow:hidden;
+	.recommander_fb{
+		float:left;
+		width:61px;
+		height: 61px;
+		padding:2px 0 0 0;
+		margin:0 10px 0 0;
+	}
+	.recommander_g {
+		float:left;
+		height:60px;
+		width:50px;
+		padding:2px 0 0 0;
+		margin:0 10px 0 0;
+	}
+	.recommander_t{
+		float:left;
+		width:55px;
+		height: 60px;
+		margin:0 10px 0 0;
+	}
+	.vote_bulle{
+		position:relative;
+		float:left;
+		width:55px;
+		height: 62px;
+		margin:0 10px 0 0;
+	}
+	.compte_bulle{
+		position:relative;
+		display:block;
+		padding:7px 10px;
+		border:1px solid #ccc;
+		.rounded(3px);
+		text-align:center;
+		font: 14px/18px Arial, Helvetica, sans-serif;
+	}
+	.voter_bulle{
+		display:block;
+		cursor:pointer;
+		height:18px;
+		margin:8px 0 0 0;
+		.gradient(@color_degradClairC, @color_degradClairC, @color_degradFonceC);
+		.inner-shadow(0px, 1px, 1px, 0px, rgba(255,255,255,0.5));
+		.rounded(3px);
+		border:1px solid @color_degradFonceC;
+		color:#fff;
+		font: bold 12px/18px Arial, Helvetica, sans-serif;
+		text-align:center;
+	}
+	.voter_bulle:hover{
+		.gradient(@color_degradFonceC, @color_degradFonceC, @color_degradClairC);
+	}
+	.voter_bulle span{
+		display:inline-block;
+		height:13px;
+		width:10px;
+		margin:2px 3px 0 0;
+		vertical-align:-2px;
+		background:url("@{imgPath}/sprite_commun.png") no-repeat -2px -621px;
+	}
+	.voter_bulle.mark-voted{
+		.gradient(#cccccc, #ffffff, #cccccc);
+		border:1px solid #aaa;
+		color:#666;
+	}
+	.envoi_bulle{
+		position:relative;
+		display:block;
+		float:left;
+		cursor:pointer;
+		height:18px;
+		width:55px;
+		margin:42px 0 0 0;
+		.gradient(#cccccc, #ffffff, #cccccc);
+		.rounded(3px);
+		border:1px solid #aaa;
+		font: 12px/18px Arial, Helvetica, sans-serif;
+		color:#333;
+		text-align:center;
+		text-decoration:none;
+	}
+	.envoi_bulle span{
+		position:absolute;
+		bottom:27px;
+		left:-1px;
+		display:block;
+		width:55px;
+		height:32px;
+		border:1px solid #ccc;
+		.rounded(3px);
+		background:url("@{imgPath}/sprite_commun.png") no-repeat 16px -591px;
+	}
+	.envoi_bulle:hover{
+		.gradient(#e7e7e7, #cccccc, #ffffff);
+	}
+	span.chevron{
+		position:absolute;
+		bottom:-5px;
+		left:23px;
+		display:block;
+		width:10px;
+		height:5px;
+		background:url("@{imgPath}/sprite_commun.png") no-repeat -1px -643px;
+		border:none;
+		z-index:10;
+	}
+	.vote_bulle span.chevron{
+		bottom:24px;
+	}
+}
+/************************************************* BOX MINI ARTICLES *************************************************/
+.mini_article{
+	.titre_mini_article{
+		border-bottom:5px solid #ccc;
+		font: bold 14px/20px Arial, Helvetica, sans-serif;
+	}
+	.titre_mini_article a{
+		float:right;
+		font:12px/24px Arial, Helvetica, sans-serif;
+		color:@color_base;
+		text-decoration:none;
+	}
+	.titre_mini_article a:hover{
+		text-decoration:underline;
+	}
+	.titre_mini_article span{
+		display:inline-block;
+		height: 13px;
+		margin: 0 5px;
+		width: 13px;
+		position: relative;
+		top: 1px;
+		background:url("@{imgPath}/sprite_commun.png") no-repeat -1px -406px;
+	}
+	.article_sous_contenu{
+		margin:15px 0;
+	}
+	.article_sous_contenu img{
+		min-width:212px;
+		height:160px;
+	}
+	.article_sous_contenu p{
+		width:auto;
+		margin:10px 0 0 0;
+	}
+	.article_sous_contenu .article_mini_last,
+	.article_sous_contenu .article_mini{
+		background:none;
+		overflow:hidden;
+		width:212px;
+	}
+	.article_mini_last a,
+	.article_mini a{
+		font:20px/24px"museo", Arial, Helvetica, sans-serif;
+		color:#333;
+	}
+}
+.article_sous_contenu{
+	margin:25px 0;
+	overflow:auto;
+	.article_mini,
+	.article_mini_last{
+		width:210px;
+		float:left;
+		background:#efefef;
+		margin-right:20px;
+	}
+	.article_mini_last{
+		margin:0px;
+	}
+	img{
+		float:left;
+		border:1px solid #FFF;
+	}
+	p{
+		width:100px;
+		float:left;
+		margin:10px;
+	}
+	a{
+		font:12px/14px Arial, Helvetica, sans-serif;
+		text-decoration:none;
+	}
+	a:hover{
+		text-decoration:underline;
+	}	
+}
+
+/* ************************************************ PUBLIBOX **************************************************** */
+
+/* ------------------------ Contenu Publibox ------------------------- */
+.publicationBox{
+	margin:30px 0;
+	.contenu{
+		margin:0 4px 24px 0;
+		padding:15px 15px 20px 15px;
+		background:@color_aplat;
+		.rounded(0px 5px 5px 5px);
+		clear:both;
+		text-align:right;/*Pour aligner le bouton à droite*/
+	}
+/* ------------------------ Onglets PubliBox ------------------------ */
+	.onglet_publibox_question,
+	.onglet_publibox_avis{
+		float:left;
+		.rounded(5px 5px 0 0);
+		height: 44px;
+		margin: 0 10px 0 0;
+		cursor:pointer;
+		background-color:#fff;
+		border:1px solid #e7e7e7;
+		border-bottom:none;
+	}
+	.onglet_publibox_question.selected,
+	.onglet_publibox_avis.selected{
+		background-color: @color_aplat;
+		border:1px solid @color_aplat;
+		border-bottom:none;
+		cursor:default;
+	}
+	.onglet_publibox_question:hover,
+	.onglet_publibox_avis:hover{
+		background-color:#e7e7e7;
+	}
+	.onglet_publibox_question.selected:hover,
+	.onglet_publibox_avis.selected:hover{
+		background-color:@color_aplat;
+	}
+	.onglet_publibox_question span,
+	.onglet_publibox_avis span{
+		display:block;
+		height: 19px;
+		margin: 15px 17px;
+		background: url("@{imgPath}/sprite_commun.png") no-repeat 0px -148px ;
+		width: 148px;
+	}
+	.onglet_publibox_avis span{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat -37px -173px;
+		width:84px;
+	}
+	.onglet_publibox_question.selected span{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat 0px -269px;
+	}
+	.onglet_publibox_avis.selected span{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat 0px -295px;
+	}
+/* ------------------------ Label & Input ------------------------ */
+	label{
+		margin:0 0 5px 0;
+		padding:0;
+		font:bold 14px/18px Arial, Helvetica, sans-serif;
+		color:#fff;
+	}
+	input{
+		float:none;
+		width:97%;
+		padding:7px;
+		margin:0;
+		.rounded(3px);
+		border:1px solid #ccc;
+		.inner-shadow(-3px, 3px, 5px, -3px, #ccc);
+		background:#fff;
+		color:#333;
+		font:12px/16px Arial, Helvetica, sans-serif;
+	}
+/* ------------------------ Suggestions de questions ------------------------ */
+	.related_qr{
+		margin:20px 0 0 0;
+		text-align:left;
+		background-color:#ececec;
+		.rounded(5px);
+		p{
+			color:#333;
+		}
+		> a{
+		font-size: 12px;
+		}
+	}
+/* ------------------------ Bouton_Valider ------------------------ */
+	.bt_noir{
+		margin:20px 0 0 0;
+		display:inline-block;
+	}
+	.error{
+		float:left;
+		margin:0;
+	}
+}
+#article a.bt_noir:hover{
+	color:#fff;
+}
+
+
+ /* ********************************************** OPTINE FACEBOOK ******************************************************* */
+.checkbox_facebook{
+	clear:both;
+	display:block;
+	font:normal 12px/18px Arial, Helvetica, sans-serif;
+	cursor:pointer;
+}
+.checkbox_facebook input[type="checkbox"]{
+	width:15px;
+	height:15px;
+	margin:0 5px 0 0;
+	vertical-align: text-bottom;
+	background:none;
+	border:none;
+}
+.checkbox_facebook span{
+	background: url("@{imgPath}/sprite_commun.png") no-repeat scroll 0px -241px transparent;
+	display: inline-block;
+	height: 16px;
+	margin: 0 4px 0 0;
+	width: 16px;
+}
+
+/*********************************************** Autres lettres et contrats-types ***********************************************/
+#e_biblio .autres_lettres{
+	border-left:5px solid #ccc;
+	padding:0 0 0 15px;
+	overflow:hidden;
+	margin: 0 0 20px 0;
+	font:14px/18px Arial, Helvetica, sans-serif;
+}
+#e_biblio .titreGris{
+	color: #666;
+	font: bold 16px/25px Arial,Helvetica,sans-serif;
+	margin: 0 0 10px;
+	padding: 0;
+}
+#e_biblio .autres_lettres ul{
+	padding:0;
+}
+#e_biblio .autres_lettres li{
+	background: url("/img/cc/0.1.0/sprite_commun.png") no-repeat scroll 0 -461px transparent;
+	list-style: none outside none;
+	padding: 0 0 5px 15px;
+	position: relative;
+}
+#e_biblio .autres_lettres a:hover{
+	text-decoration:underline;
+}
+#e_biblio .autres_lettres li span{
+	background: none repeat scroll 0 0 #fff;
+	margin: 0 30px 0 0;
+	padding: 0 5px 0 0;
+	position: relative;
+	top: 5px;
+}
+#e_biblio .autres_lettres a{
+	border-bottom: 1px dotted #CCCCCC;
+	display: block;
+	position: relative;
+	text-decoration: none;
+}
+#e_biblio .autres_lettres .toutes_lettres{
+	float:right;
+	margin:5px 0 0 0;
+	font:12px/15px Arial, Helvetica, sans-serif;
+}
+#e_biblio .autres_lettres .toutes_lettres a{
+	border:none;
+	display:inline-block;
+}
+
+#e_biblio .autres_lettres .telecharger_autre_lettre{
+	background: url("/img/cc/0.1.0/sprite_commun.png") no-repeat scroll 5px -380px #fff;
+	bottom: -1px;
+	display: block;
+	height: 17px;
+	margin: 0;
+	padding: 0 0 0 10px;
+	position: absolute;
+	right: 0;
+	top: auto;
+	width: 10px;
+}

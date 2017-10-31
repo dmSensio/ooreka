@@ -1,0 +1,4033 @@
+/*///////////////////////////////////////// SOMMAIRE /////////////////////////////////////////*
+
+* 	Styles contenu
+		** Contenu comprendre
+		** Fiches Pratiques
+		** Tips
+		** BOX PRO PJ
+		** Fiche Plante
+		** PLAN MAISON
+* 	Styles article
+		** Détail Box Pro
+		** Bouton Devis
+		** Liens crosslinking
+		** Images
+		** Tableaux
+		** Listes
+			*** Listes ordonnées
+			*** Listes non ordonnées
+		** PUB Produits
+*	Responsive
+
+/*********************************** Styles contenu ***********************************/
+*::-moz-selection{
+	background-color: dodgerblue;
+	color:#fff;
+	text-shadow: none;
+}
+*::selection{
+	color:#fff;
+	background-color: dodgerblue;
+	text-shadow: none;
+}
+.pub_right{
+	float: right;
+	position: relative;
+	z-index: 2;
+	max-width: 30rem;
+	padding:0 0 3rem 5rem;
+	// background-color: #fff;
+	box-sizing: content-box;
+	&.w_1_3{
+		padding: 0;
+	}
+}
+p.gde_remontee_colD{
+	font-size: 1.6rem;
+	margin-top: 1rem;
+	a{
+		text-decoration: underline;
+	}
+	span{
+		display: block;
+	}
+}
+.presentation_img_intro{
+	width: 100%;
+	height: 30rem;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 2rem;
+	&.copyright{
+		margin-bottom: .5rem;
+	}
+	.img_intro{
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		.translateY(-50%);
+		&.top{
+			top: 0;
+			.translateY(0);
+		}
+		&.bottom{
+			top: auto;
+			bottom: 0;
+			.translateY(0);
+		}
+	}
+}
+.hp .img_intro{
+	margin-bottom: 2rem;
+}
+.bt_flex_droit{
+	.flex-display(flex);
+	.justify-content(flex-end);
+	margin: 2rem 0;
+	p{
+		.flex(0 0 45%);
+		.align-self(center);
+		padding-right: 1.5rem;
+		text-align: right;
+		font-size: 1.4rem;
+		color: #333;
+	}
+	.icon::after,
+	.icon::before{
+		display: inline;
+	}
+}
+/*---- Contenu comprendre ----*/
+.contenu_comprendre{
+	.telecharger_guide{
+		margin-bottom: 1rem;
+		text-align: right;
+	}
+	.box_medicament_contenu{
+		margin-top: 2rem;
+	}
+	br.clean,
+	br.clear{
+		display: none;
+	}
+	a.autre_dossier,
+	a.expert_auteurs,
+	.icon-stylo::before{
+		color:@rouge;
+	}
+	.w_1_6{
+		.telecharger_guide{
+			border-top: 1px solid #ccc;
+			text-align: left;
+			margin-top: 1rem;
+			.icon-telecharger{
+				display: block;
+				font-size: 1.5rem;
+				padding: 1rem .5rem 1rem 3rem;
+				color: @rouge;
+				&::before{
+					.transition(all, .5s, ease-in-out, 0s);
+					position: absolute;
+					top: 50%;
+					left: 0;
+					margin-top: -13px;
+					color: @rouge;
+					font-size: 25px;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}
+/*---- Fiches Pratiques ----*/
+.fiche_voir{
+	.telecharger_fp{
+		margin-bottom: 2rem;
+		figure{
+			width: 110px;
+			margin: 0 2rem 0 0;
+			float: left;
+		}
+		> div{
+			overflow: hidden;
+			font-size: 1.6rem;
+			ul{
+				margin-top: 1rem;
+			}
+		}
+	}
+	.info_fp{
+		margin-bottom: 2rem;
+	}
+	.sommaire{
+		margin-bottom: 2rem;
+		.flex-display(flex);
+		.flex-direction(column);
+		> p {
+			font-family: @museo;
+			font-weight: 700;
+			margin-bottom: 1rem;
+		}
+		ul{
+			margin: 0;
+			display: initial;
+		}
+		li{
+			margin-left: .5rem;
+			border-left: 1px solid @violet;
+			padding: 0;
+			&::before{
+				display: none;
+			}
+			a{
+				position: relative;
+				display: block;
+				padding: 1rem 1.5rem;
+				background: none;
+				line-height: 100%;
+				&::before{
+					content: "";
+					display: inline-block;
+					position: absolute;
+					top: 19px;
+					left: -4.5px;
+					width: 8px;
+					height: 8px;
+					background-color: @violet;
+					.radius(5px);
+					.transition(all, .3s, ease-in-out, 0s);
+				}
+				&:hover{
+					background: #eee;
+					color: #333;
+					&::before{
+						background-color: @rouge;
+						.scale(1.4);
+					}
+				}
+			}
+		}
+	}
+	.etape_fp{
+		margin-top: 2rem;
+		.img_etape{
+			position: relative;
+			display: table-cell;
+			float: right;
+			margin: 0 0 3rem 3rem;
+			max-width: 30rem;
+			z-index: 1;
+			> a{
+				position: relative;
+				display: block;
+				&::before{
+					position: absolute;
+					bottom: 1.5rem;
+					right: 1.5rem;
+					margin: 0;
+					background: rgba(0,0,0,.4);
+					color: #fff;
+					z-index: 1;
+					cursor:pointer;
+					.scale(2.5);
+				}
+				&:hover::before{
+					background: rgba(0,0,0,.5);
+				}
+			}
+			&.taille_panorama{
+				float: none;
+				margin: 0;
+				max-width: 100%;
+			}
+			img{
+				display: block;
+				max-width: 100%;
+				height: auto;
+				cursor:pointer;
+			}
+		}
+		h2{
+			padding-left: 40px;
+			overflow: hidden;
+			&::after{
+				width:100%;
+				right: 0;
+				left: 40px;
+			}
+		}
+	}
+	.cercle_etape{
+		position:absolute;
+		top: 2px;
+		left: 0;
+		display: inline-table;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		background-color: @jaune;
+		.radius(15px);
+		font-size: 2rem;
+		text-align: center;
+		text-shadow:none;
+		color: #333;
+		&::before{
+			vertical-align: 0;
+			margin: 0;
+			font-size: 23px;
+			color: #333;
+		}
+		&.icon-lumiere,
+		&.icon-pince{
+			&::before{
+				position: absolute;
+			}
+		}
+		&.icon-lumiere::before{
+			left: 20%;
+		}
+		&.icon-pince::before{
+			left: 12%;
+		}
+	}
+	.materiel{
+		margin: 2rem 0;
+		padding: 2rem 0;
+		border-bottom: 1px solid #666;
+		> h2{
+			position: relative;
+			margin-bottom: 1rem;
+			padding-left: 40px;
+			font-family: @museo;
+			font-weight: 700;
+			+ a{
+				display: block;
+				margin-left: 1rem;
+				margin-bottom: 2rem;
+				text-align: right;
+				&.icon-feuille::before{
+					.scale(.9);
+					color: @rouge;
+				}
+			}
+		}
+		.w_1_3{
+			img{
+				float: left;
+				width: 100px;
+				margin-right: 1rem;
+			}
+			> div{
+				overflow: hidden;
+				padding-top: 3rem;
+				p{
+					margin: 0;
+					font-size: 1.8rem;
+					line-height: 100%;
+					+ p{
+						margin-top: .5rem;
+					}
+				}
+			}
+		}
+	}
+	.etape_fin{
+		margin-top: 4rem;
+		> p{
+			font-size: 2.4rem;
+			font-family: @museo;
+			font-weight: 700;
+			text-align: center;
+		}
+		.lien_etape_fin{
+			margin: 3rem 0;
+			text-align: center;
+			a + a{
+				margin-left: 2rem;
+			}
+		}
+		.video_fp{
+			> h2{
+				margin-bottom: 2rem;
+				font-size: 3rem;
+				font-family: @museo;
+				font-weight: 700;
+				text-align: center;
+				&::after{
+					display: none;
+				}
+			}
+			object{
+				display: block;
+				margin: auto;
+			}
+		}
+	}
+}
+/*------- Tips ------- */
+.tips{
+        .presentation_img_intro {
+                background: #b4aed0;
+                .lazy {
+                        display: none;
+                }
+        }
+	.article{
+		clear: both;
+		+ .article{
+			margin-top: 5rem;
+		}
+	}
+	.img_tips{
+		float: left;
+		margin-right: 4rem;
+		width: 40rem;
+		margin-bottom: 2rem;
+		.presentation_img_intro{
+			margin-bottom: 0;
+		}
+		img{
+			display: block;
+			margin: auto;
+		}
+	}
+	.txt_article{
+		overflow: hidden;
+	}
+	.entete_tips{
+		margin-bottom: 5rem;
+		.img_tips{
+			width: 100%;
+			img{
+				width: 100%;
+				height: auto;
+			}
+			.presentation_img_intro{
+				.img_intro{
+					position: absolute;
+					top: 50%;
+					.translateY(-50%);
+					&.top{
+						top: 0;
+						.translateY(0);
+					}
+					&.bottom{
+						top: auto;
+						bottom: 0;
+						.translateY(0);
+					}
+				}
+			}
+		}
+	}
+	.img_tips_etape{
+		height: 40rem;
+		.presentation_img_intro{
+			height: 40rem;
+		}
+	}
+	.commentaires{
+		margin-top: 5rem;
+		.ensemble_reponse{
+			padding-top: 0;
+		}
+		.box_reponse_question{
+			.ensemble_reponse{
+				border-top: none;
+			}
+			.une_reponse{
+				margin-top: 0;
+			}
+			.suite_reponse{
+				margin-top: .5rem;
+				.signaler_reponse{
+					line-height: 100%;
+				}
+			}
+		}
+		.comm_tips{
+			position: relative;
+			display: inline-block;
+			font-size: 1.8rem;
+			color: #666;
+			.info_membre_blacklist{
+				left: 0;
+			}
+		}
+		.texte_reponse > p{
+			font-size: 1.8rem;
+			font-style: italic;
+		}
+		.form_comm_tips{
+			fieldset{
+				margin-top: 1rem;
+			}
+			.bt_gris{
+				background-color: #999;
+				color: #fff;
+				cursor: default;
+			}
+		}
+		.bulle_0comm{
+			position: relative;
+			margin-top: 3.5rem;
+			padding: 4rem 2.5rem;
+			background-color: @jaune;
+			.radius(20px);
+			text-align: center;
+			&::before{
+				position: absolute;
+				top: 100%;
+				left: 2rem;
+				color: @jaune;
+				.scale(2);
+			}
+			p{
+				font-size: 3.6rem;
+				font-family: @museo;
+				font-weight: 700;
+			}
+		}
+		.ancre_box_commentaire{
+			display: none;
+			margin: 3rem auto 0 auto;
+		}
+		/* Class ajouter dans le js pour fixer le lien commenter*/
+		.lienFixe{
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			left: 0;
+			.radius(0);
+			margin: 0;
+			padding: 1rem;
+			text-align: center;
+		}
+	}
+}
+.question_juridique{
+	margin-top: 3rem;
+	img{
+		display: inline-block;
+		height: 1.5rem;
+		width: auto;
+		vertical-align: middle;
+	}
+	.bloc{
+		display: flex;
+		flex-wrap: wrap;
+		margin: 2rem 0;
+		.w_1_3{
+			background-color: #eee;
+			text-align: center;
+			padding: 2rem;
+			span{
+				width: 9.2rem;
+				height: 9.2rem;
+				display: inline-block;
+				margin: 0 auto 1rem auto;
+				background-image: url('https://www.april-protection-juridique.fr/images/welcome/sprite_welcome.png');
+				background-position: -92px 0;
+				background-repeat: no-repeat;
+			}
+			&:nth-of-type(2) span{
+				background-position: -184px 0;
+			}
+			&:nth-of-type(3) span{
+				background-position: 0 0;
+			}
+		}
+	}
+	.bt_rouge{
+		display: table;
+		margin: auto;
+	}
+}
+/*------- BOX PRO PJ ------- */
+.pros_PJ_edito{
+	position: relative;
+	margin-bottom: 2rem;
+	.partenariat_boxPJ{
+		position: inherit;
+		clear:both;
+		padding:0;
+		text-align: right;
+	}
+}
+.edito_boxPJ{
+	position: relative;
+	margin-top: 4rem;
+	> form{
+		position: absolute;
+		top: .5rem;
+		right:0;
+		z-index: 1;
+		fieldset{
+			width: 250px;
+			margin:0;
+			input{
+				float: left;
+				width: 150px;
+				min-height: 3.3rem;
+				margin: 0;
+			}
+			a{
+				float: right;
+				margin:0;
+			}
+		}
+	}
+}
+/***************************************** Fiche Plante ********************************************
+
+/*------------------------------------------ niveau entretien --------------------------------------*/
+.niveau_entretien_easy,
+.niveau_entretien_moderate,
+.niveau_entretien_hard{
+	float: left;
+	display: inline-block;
+	width: 7rem;
+	height: 2.5rem;
+	background-image: url("@{imgPath}/plantes/sprite-multiples.png");
+	background-size: 77rem;
+	background-repeat: no-repeat;
+	vertical-align: bottom;
+}
+.niveau_entretien_easy{
+	background-position: -5px -165px;
+}
+.niveau_entretien_moderate{
+	background-position: -75px -165px;
+}
+.niveau_entretien_hard{
+	background-position: -145px -165px;
+}
+/*------------------------------------------ besoin en eau --------------------------------------*/
+.besoin_eau_low,
+.besoin_eau_medium,
+.besoin_eau_large{
+	float: left;
+	display: inline-block;
+	width: 6rem;
+	height: 2.5rem;
+	background-image: url("@{imgPath}/plantes/sprite-multiples.png");
+	background-size: 77rem;
+	background-repeat: no-repeat;
+	vertical-align: bottom;
+}
+.besoin_eau_low{
+	background-position: -10px -140px;
+}
+.besoin_eau_medium{
+	background-position: -80px -140px;
+}
+.besoin_eau_large{
+	background-position: -150px -140px;
+}
+/*------------------------------------------ exposition --------------------------------------*/
+.exposition_soleil,
+.exposition_mi_ombre,
+.exposition_ombre{
+	float: left;
+	display: inline-block;
+	width: 2.5rem;
+	height: 2.5rem;
+	background-image: url("@{imgPath}/plantes/sprite-multiples.png");
+	background-size: 77rem;
+	background-repeat: no-repeat;
+	vertical-align: bottom;
+}
+.exposition_soleil{
+	background-position: -50px -215px;
+}
+.exposition_mi_ombre{
+	background-position: -25px -215px;
+}
+.exposition_ombre{
+	background-position: 0 -215px;
+}
+.info_expo_soleil,
+.info_expo_mi_ombre,
+.info_expo_ombre{
+	p{
+		padding-top: 1rem;
+		overflow:hidden;
+	}
+	&::before{
+		content:"";
+		float: left;
+		display: block;
+		margin-right: 2rem;
+		width: 10rem;
+		height: 10rem;
+		background-image: url("@{imgPath}/plantes/sprite-multiples.png");
+		background-size: 77rem;
+		background-repeat: no-repeat;
+	}
+}
+.info_expo_soleil::before{
+	background-position: -200px -242px;
+}
+.info_expo_mi_ombre::before{
+	background-position: -100px -242px;
+}
+.info_expo_ombre::before{
+	background-position: 0 -242px;
+}
+/*------------------------------------------ resistance --------------------------------------*/
+.resistance_rustique,
+.resistance_proteger,
+.resistance_fragile{
+	float: left;
+	display: inline-block;
+	width: 7rem;
+	height: 2.5rem;
+	background-image: url("@{imgPath}/plantes/sprite-multiples.png");
+	background-size: 77rem;
+	background-repeat: no-repeat;
+	vertical-align: bottom;
+}
+.resistance_rustique{
+	background-position: -145px -190px;
+}
+.resistance_proteger{
+	background-position: -75px -190px;
+}
+.resistance_fragile{
+	background-position: -5px -190px;
+}
+/*-------------------------------------- CLIMAT ------------------------------------------------*/
+.interieur_plantes{
+	display: inline-block;
+	width: 9rem;
+	height: 9rem;
+	background-image: url("@{imgPath}/sprite_plantes.png");
+	background-repeat: no-repeat;
+	vertical-align: text-top;
+	color: #666;
+}
+.oceanique_plantes,
+.continental_plantes,
+.mediterraneen_plantes,
+.semi_oceanique_plantes,
+.montagnard_plantes{
+	display: inline-block;
+	width: 9rem;
+	height: 9rem;
+	background-image: url("@{imgPath}/plantes/climat-france.png");
+	background-size: 44.5rem;
+	background-repeat: no-repeat;
+	vertical-align: text-top;
+	color: #666;
+}
+.mediterraneen_plantes{
+	background-position: 0 0;
+}
+.montagnard_plantes{
+	background-position: -90px 0;
+}
+.semi_oceanique_plantes{
+	background-position: -180px 0;
+}
+.oceanique_plantes{
+	background-position: -270px 0;
+}
+.continental_plantes{
+	background-position: -360px 0;
+}
+.interieur_plantes{
+	background-position: -1760px -10px;
+}
+
+/*-------------------------------------- FORME  ------------------------------------------------*/
+.forme_etale,
+.forme_buisson,
+.forme_boule,
+.forme_ouvert,
+.forme_conique,
+.forme_elance,
+.forme_palme,
+.forme_pleureur,
+.forme_grimpant,
+.forme_palisse{
+	display: table;
+	background-image: url("@{imgPath}/sprite_plantes.png");
+	background-repeat: no-repeat;
+	vertical-align: text-top;
+	width: 6.5rem;
+}
+.forme_etale{
+	height: 2rem;
+	background-position: -1090px -63px;
+}
+.forme_buisson{
+	height: 4rem;
+	background-position: -1145px -49px;
+}
+.forme_boule{
+	height: 6rem;
+	background-position: -1212px -32px;
+}
+.forme_ouvert{
+	height: 7rem;
+	background-position: -1294px -23px ;
+}
+.forme_conique{
+	height: 6rem;
+	background-position: -1376px -23px;
+}
+.forme_elance{
+	height: 5rem;
+	background-position: -1422px -32px;
+}
+.forme_palme{
+	height: 5rem;
+	background-position: -1483px -33px;
+}
+.forme_pleureur{
+	height: 5rem;
+	background-position: -1545px -34px;
+}
+.forme_grimpant{
+	height: 5rem;
+	background-position: -1605px -35px;
+}
+.forme_palisse{
+	height: 4rem;
+	background-position: -1660px -42px;
+}
+
+
+/*-------------------------------------- CULTIVABLE INTERIEUR ------------------------------------------------*/
+.cultivable_interieur{
+	display: inline-block;
+	width: 25px;
+	height: 20px;
+	background: url("@{imgPath}/sprite_plantes.png")no-repeat -24px -270px transparent;
+	vertical-align: bottom;
+}
+
+/*------------------------------------------ feuilles --------------------------------------*/
+.couleur_feuille span{
+	display: inline-block;
+	position: relative;
+	width: 2.5rem;
+	height: 2.5rem;
+	background-image: url("@{imgPath}/plantes/sprite-multiples.png");
+	background-size: 275px;
+	background-repeat: no-repeat;
+}
+.feuille_silver{
+	background-position: 0 -25px;
+}
+.feuille_golden{
+	background-position: -25px -25px;
+}
+.feuille_pale_green{
+	background-position: -50px -25px;
+}
+.feuille_variegated{
+	background-position: -75px -25px;
+}
+.feuille_dark_green{
+	background-position: -100px -25px;
+}
+.feuille_blue{
+	background-position: -125px -25px;
+}
+.feuille_black{
+	background-position: -150px -25px;
+}
+.feuille_purple{
+	background-position: -175px -25px;
+}
+.feuille_red{
+	background-position: -200px -25px;
+}
+/*------------------------------------------ fleurs --------------------------------------*/
+.couleur_fleur span{
+	display: inline-block;
+	position: relative;
+	background-image: url("@{imgPath}/plantes/sprite-multiples.png");
+	background-size: 275px;
+	background-repeat: no-repeat;
+}
+.fleur_white{
+	background-position: 0 0;
+}
+.fleur_grey{
+	background-position: -25px 0;
+}
+.fleur_yellow{
+	background-position: -50px 0;
+}
+.fleur_orange{
+	background-position: -75px 0;
+}
+.fleur_red{
+	background-position: -100px 0;
+}
+.fleur_pink{
+	background-position: -125px 0;
+}
+.fleur_violet_purple{
+	background-position: -150px 0;
+}
+.fleur_blue{
+	background-position: -175px 0;
+}
+.fleur_green{
+	background-position: -200px 0;
+}
+.fleur_black{
+	background-position: -225px 0;
+}
+.fleur_multicolor{
+	background-position: -250px 0;
+}
+//////// ICON INSECTES
+.insecte_moustique,
+.insecte_puceron,
+.insecte_limace,
+.insecte_doryphore,
+.insecte_mouche{
+	display: block;
+	margin-right:1rem;
+	width: 6rem;
+	height: 6rem;
+	background-image: url("@{imgPath}/plantes/sprite-insectes.png");
+	background-size: 30rem;
+	background-repeat: no-repeat;
+}
+.insecte_limace{
+	background-position: 0 0;
+}
+.insecte_doryphore{
+	background-position: -60px 0;
+}
+.insecte_moustique{
+	background-position: -120px 0;
+}
+.insecte_mouche{
+	background-position: -180px 0;
+}
+.insecte_puceron{
+	background-position: -240px 0;
+}
+/*fin span commun */
+.recommander_fb{
+	width: 10.3rem;
+	height: 2.5rem;
+	overflow: hidden;
+	border: none;
+}
+.fiches_plantes{
+	.interet_contenu{
+		.icon-telecharger::before{
+			margin-right: 0;
+			color: @violet-typo;
+		}
+	}
+	h2{
+		margin-top: 4rem;
+	}
+	p.lien_droit{
+		float: right;
+	}
+	.w_1_6{
+		> div > p{
+			font-size: 1.8rem;
+		}
+		.trouver_plante{
+			display: block;
+			position: relative;
+			margin-top: 1rem;
+			padding: 1rem 0 0 2.5rem;
+			color: @violet-typo;
+			font-size: 1.6rem;
+			font-weight: bold;
+			border-top: 1px dotted #ccc;
+			&::before{
+				position: absolute;
+				top: 1rem;
+				left: 0;
+				height: 2rem;
+				font-size: 2rem;
+				font-weight: bold;
+				color: @violet-typo;
+			}
+		}
+	}
+	.w_5_6{
+		.nav_responsive{
+			display: none;
+			+ div{
+				margin-top: 0;
+			}
+		}
+		.pub_right{
+			margin-top: 0;
+		}
+		> div + div {
+			clear: both;
+			float: left;
+			width: 100%;
+			margin-top: 3rem;
+		}
+	}
+	.image_plte{
+		display: table;
+	}
+	.img_selected{
+		width: 100%;
+		margin-bottom: 1.5rem;
+		> div{
+			.flex-display(flex);
+			.flex-direction(row);
+			p{
+				.flex(1 0 0);
+			}
+		}
+		.presentation_img_intro{
+			display: block;
+			margin-bottom: 1rem;
+		}
+		p{
+			margin-right: 2rem;
+			padding-left: .5rem;
+			font-size: 1.1rem;
+			color: #333;
+		}
+		.lien_fort{
+			margin-top: 0;
+		}
+		.img_remontee{
+			display: block;
+			width: 100%;
+			height: 30rem;
+			background-size: cover;
+			background-position: center center;
+		}
+	}
+	#container{
+		position: relative;
+		> div{
+			height: 80px;
+			// padding: 0 3.5rem;
+			overflow: hidden;
+			text-align: center;
+			a{
+				display: inline-block;
+				margin-right: .5rem;
+				margin-bottom: 1rem;
+				img{
+					display: block;
+				}
+			}
+		}
+		// Carrousel à créer pour la FancyBox.
+		// > a{
+		// 	position: absolute;
+		// 	top: 50%;
+		// 	height: 34px;
+		// 	margin-top: -17px;
+		// 	&::before{
+		// 		color: #ccc;
+		// 	}
+		// 	&.prev{
+		// 		left: 10px;
+		// 		&::before{
+		// 			.scale-rotate(2, 0deg);
+		// 		}
+		// 	}
+		// 	&.next{
+		// 		right: 10px;
+		// 		&::before{
+		// 			.scale-rotate(2, 180deg);
+		// 		}
+		// 	}
+		// }
+	}
+	.resume_plante{
+		clear: both;
+		> p{
+			font-size: 3rem;
+			font-family: @museo;
+			font-weight: bold;
+			margin-bottom: 3rem;
+		}
+	}
+	.parties_plantes{
+		+ .parties_plantes{
+			margin-top: 4rem;
+		}
+		&:nth-of-type(-n+2){
+			margin-top: 0;
+		}
+		> p{
+			margin-bottom: 1.5rem;
+			font-family: @museo;
+			font-weight: bold;
+		}
+		li{
+			position: relative;
+			padding: 1rem 0;
+			> p:first-of-type{
+				float: left;
+				width: 19rem;
+				color: #666;
+				font-weight: bold;
+				+ div,
+				+ p{
+					overflow: hidden;
+				}
+				+ p {
+					width: auto;
+					margin-top: 0;
+					color: #333;
+				}
+			}
+			&.climat > p{
+				float: none;
+			}
+			&.couleur_feuille{
+				.bulle_info2{
+					top:-5px;
+				}
+			}
+			&.couleur_fleur,
+			&.couleur_feuille{
+				.flex-display(flex);
+				overflow: visible;
+				> p:first-of-type + div{
+					overflow:visible;
+					width: 50%;
+				}
+				span{
+					width: 2.5rem;
+					height: 2.5rem;
+				}
+				.bulle_info2 .span_bulle_info2{
+					top: 3rem;
+					left: -2.5rem;
+				}
+			}
+			&.formes,
+			&.anti_insectes{
+				p{
+					float: none;
+					margin-bottom: 1rem;
+				}
+				> div{
+					.flex-display(flex);
+					.flex-wrap(wrap);
+				}
+				.forme,
+				.insecte{
+					.flex-display(flex);
+					.flex(0 0 49.5%);
+					.align-items(center);
+					padding: .5rem 0;
+					font-size: 1.8rem;
+					clear: both;
+					+ .forme,
+					+ .insecte{
+						margin-top: 0;
+					}
+					.nom_forme{
+						width: 100%;
+					}
+				}
+			}
+			+ li{
+				border-top: 1px solid #ddd;
+			}
+		}
+		.bulle_info{
+			position: relative;
+			display: inline-block;
+			width: 2rem;
+			height: 2rem;
+			background-image: url("@{imgPath}/plantes/sprite-multiples.png");
+			background-position: -125px -218px;
+			background-repeat: no-repeat;
+			background-size: 77rem;
+			cursor: help;
+			vertical-align: middle;
+			span{
+				position: absolute;
+				top: 120%;
+				right: 0;
+				left: 0;
+				width: 20rem;
+				padding:.5rem 1rem;
+				.box-shadow(0, 0, 6px, 0, #ccc);
+				background-color: #fff;
+				border: 1px solid #ccc;
+				.radius(5px);
+				font-size: 1.4rem;
+				z-index: 1;
+				font-weight: normal;
+			}
+			.icon.icon-croix{
+				display: block;
+				margin-top: .5rem;
+				margin-bottom: 1rem;
+				text-align: right;
+				font-style: normal;
+				&::before{
+					cursor: pointer;
+				}
+			}
+		}
+		.bulle_info2{
+			cursor: help;
+			.span_bulle_info2{
+				position: absolute;
+				top: 0;
+				left: 3rem;
+				max-width: 15rem;
+				display: block;
+				padding:.5rem 1rem;
+				.box-shadow(0, 0, 6px, 0, #ccc);
+				background-color: #fff;
+				border: 1px solid #ccc;
+				.radius(5px);
+				font-size: 1.4rem;
+				z-index: 1;
+			}
+			+ .bulle_info2{
+				margin-top: 5px;
+				border-left: 1px solid #ccc;
+				padding-left: .5rem;
+			}
+		}
+		.separation + .separation{
+			margin-top: 5px;
+			border-left: 1px solid #ccc;
+			padding-left: .5rem;
+		}
+		.couleur_feuille,
+		.couleur_fleur{
+			.bulle_info2{
+				border-left: none;
+			}
+		}
+		.icone_et_texte{
+			p{
+				overflow: hidden;
+			}
+			+ .icone_et_texte{
+				clear: both;
+			}
+		}
+		.forme,
+		.icone_et_texte{
+			&.bulle_info2{
+				border-left: none;
+				padding-left: 0;
+				float: left;
+			}
+		}
+		.climat{
+			.bulle_info2{
+				border-left: none;
+				float: left;
+				margin-top: 0;
+				&:hover .span_bulle_info2{
+					left: 0;
+					top: 0;
+				}
+			}
+		}
+	}
+	.tableau_periodicite{
+		.w_1_4{
+			> p{
+				display: inline-block;
+				line-height: 100%;
+				vertical-align: -2rem;
+				margin-bottom: 1.5rem;
+				font-family: @museo;
+				font-weight: bold;
+			}
+			td{
+				max-width: 20px;
+				padding: .8rem 0.1rem;
+				background-color: #eee;
+				border: .2rem solid #fff;
+				font-size: 1.2rem;
+				text-align: center;
+			}
+			.selectionne{
+				background-color: @jaune;
+			}
+		}
+	}
+	.intro_ss_espece{
+		a{
+			position: relative;
+			i{
+				display: none;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 5rem;
+				height: 5rem;
+				margin-top: -2.5rem;
+				margin-left: -2.5rem;
+				background: url("@{imgPath}/sprite_plantes.png") no-repeat -1713px -36px transparent;
+			}
+			&:hover i {
+				display: block;
+			}
+		}
+		img{
+			float: left;
+			width: 110px;
+			height: auto;
+		}
+		.type_variete{
+			clear: both;
+			float: left;
+			width: 100%;
+			font-family: @museo;
+			font-size: 2.4rem;
+			font-weight: 700;
+			margin-top: 3rem;
+			margin-bottom: 1rem;
+		}
+		.espece_variete{
+			float: left;
+			width: 100%;
+			+ .espece_variete{
+				margin-top: 3rem;
+			}
+			> p{
+				margin-bottom: 1rem;
+				font-size: 2.4rem;
+				color: #999;
+			}
+			ul{
+				overflow: hidden;
+				padding-left: 3rem;
+				li{
+					position: relative;
+					padding-left: 1.5rem;
+					line-height: 110%;
+					&::before{
+						content: "";
+						position: absolute;
+						top: 10px;
+						left: 0;
+						display: inline-block;
+						width: 5px;
+						height: 5px;
+						.radius(4px);
+						background-color: @violet;
+					}
+					+ li{
+						margin-top: 5px;
+					}
+				}
+			}
+		}
+	}
+	dfn{
+		border-bottom: 1px dotted #333;
+		cursor: help;
+		font-style: normal;
+	}
+	.plante_meme_type{
+		> p{
+			margin-bottom: 3rem;
+			font-size: 3rem;
+			font-family: @museo;
+			font-weight: bold;
+		}
+		.une_gde_remontee{
+			float: left;
+			width: 11rem;
+			margin-bottom: 3rem;
+			margin-top: 0;
+			margin-right: 5rem;
+			.img_remontee{
+				width: 100%;
+				height: 11rem;
+			}
+			.contenu_img_remontee{
+				width: 11rem;
+				height: 11rem;
+			}
+			&:last-of-type(){
+				margin-right: 0;
+			}
+		}
+		a{
+			display: block;
+			font-size: 1.6rem;
+			&:hover{
+				color: @rouge;
+			}
+			img{
+				width: 100%;
+			}
+		}
+	}
+	.texte_plantes{
+		h2,
+		h3{
+			position: relative;
+			z-index: 1;
+		}
+		.image_article{
+			float: right;
+			margin-left: 3rem;
+			margin-bottom: 3rem;
+		}
+		.right{
+			margin-left: 3rem;
+			margin-bottom: 2rem;
+			position: relative;
+			z-index: 1;
+		}
+	}
+	.association_idee{
+		img{
+			float: left;
+			width: 110px;
+			margin-right: 1.5rem;
+			+ div{
+				overflow: hidden;
+				> a{
+					font-family: @museo;
+					&:hover{
+						color: @rouge;
+					}
+				}
+			}
+		}
+		.w_1_2:nth-of-type(2n+3){
+			margin-top: 6rem;
+		}
+	}
+}
+/********************* Commun Fiche plante + Plan maison + Dictionnaire ***************************/
+.fiches_plantes,
+.plans_maisons{
+	h2{
+		text-shadow: none;
+		&::after{
+			border: none;
+		}
+	}
+}
+.plans_maisons,
+.dictionnaire_chien{
+	.contenu_nav_gauche{
+		.w_1_6{
+			._menu_fixed,
+			._menu_fixed_bottom{
+				.nav_menu + .icon-telecharger{
+					padding: 1rem 0 1rem 2.5rem;
+					&::before{
+						top: 50%;
+						margin-top: -1rem;
+						font-size: 2rem;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+}
+.fiches_plantes,
+.plans_maisons,
+.dictionnaire_chien{
+	.interet_contenu{
+		.icon-telecharger::before{
+			margin-right: 0;
+			color: @violet-typo;
+		}
+	}
+	.w_5_6{
+		.intro_courte_plantes,
+		.intro_courte_plan,
+		.intro_courte{
+			margin-bottom: 3rem;
+			font-size: 2.2rem;
+			font-weight: bold;
+			font-style: italic;
+		}
+	}
+	.w_1_6{
+		.trouver_generic::before{
+			position: absolute;
+			left: 0;
+			top: 50%;
+			margin-top: -1rem;
+			font-size: 2rem;
+			font-weight: bold;
+			color: @violet;
+		}
+		.trouver_generic{
+			display: block;
+			position: relative;
+			padding: 1rem 0 1rem 2.5rem;
+			font-size: 1.6rem;
+			border-top: 1px solid #ccc;
+		}
+		.nav_menu + .icon-telecharger{
+			display: none;
+		}
+		._menu_fixed,
+		._menu_fixed_bottom{
+			.nav_menu + .icon-telecharger{
+				display: block;
+				padding-left: 2.5rem;
+				color: @rouge;
+				&::before{
+					position: absolute;
+					left: 0;
+				}
+			}
+		}
+	}
+	.lire_suite{
+		display: none;
+	}
+	// .lire_suite{
+	// 	position: relative;
+	// 	margin-top: 1rem;
+	// 	&::before{
+	// 		content: "";
+	// 		position: absolute;
+	// 		bottom: 2.5rem;
+	// 		display: block;
+	// 		width: 100%;
+	// 		height: 8rem;
+	// 		.gradient(#fff, rgba(255,255,255,0), rgba(255,255,255,1));
+	// 	}
+	// 	a{
+	// 		position: relative;
+	// 		display: table;
+	// 		margin:auto;
+	// 		padding: 0 2rem 0 1rem;
+	// 		background-color: #fff;
+	// 		font-size: 1.3rem;
+	// 		font-weight: bold;
+	// 		z-index: 1;
+	// 		&::before{
+	// 			position: absolute;
+	// 			right: 2px;
+	// 			color: @violet;
+	// 			.scale-rotate(.5, -90deg);
+	// 		}
+	// 	}
+	// 	hr{
+	// 		position: absolute;
+	// 		top: 50%;
+	// 		width: 100%;
+	// 		border-bottom: none;
+	// 		border-right: none;
+	// 		border-left: none;
+	// 		border-color: @violet;
+	// 	}
+	// 	&.voir_suite{
+	// 		&::before{
+	// 			content: none;
+	// 		}
+	// 		a::before{
+	// 			.scale-rotate(.5, 90deg);
+	// 		}
+	// 	}
+	// }
+}
+/*********************************** PLAN MAISON ***********************************/
+//////// Picto Plan /////
+.picto_garage,
+.picto_terrasse,
+.picto_piscine,
+.picto_veranda,
+.picto_mezzanine,
+.picto_combles,
+.picto_bureau,
+.picto_cuisine_ouverte,
+.picto_cuisine_ferme,
+.picto_loft,
+.picto_wc,
+.picto_cheminee,
+.picto_toitplat,
+.picto_bois,
+.picto_maison_bois,
+.picto_ecoconstruction,
+.picto_pente,
+.picto_handicape,
+.picto_surface,
+.picto_nb_piece,
+.picto_chambre,
+.picto_douche{
+	display: inline-block;
+	min-width: 3rem;
+	height: 3rem;
+	background-image: url("@{imgPath}/sprite_plans_maisons.png");
+	background-repeat: no-repeat;
+}
+.picto_garage{
+	background-position: 0 0;
+}
+.picto_terrasse{
+	background-position: -3rem 0;
+}
+.picto_piscine{
+	background-position: -6rem 0;
+}
+.picto_veranda{
+	background-position: -9rem 0;
+}
+.picto_mezzanine{
+	background-position: -12rem 0;
+}
+.picto_combles{
+	background-position: -15rem 0;
+}
+.picto_bureau{
+	background-position: -18rem 0;
+}
+.picto_cuisine_ouverte{
+	background-position: -21rem 0;
+}
+.picto_cuisine_ferme{
+	background-position: -24rem 0;
+}
+.picto_loft{
+	background-position: -27rem 0;
+}
+.picto_wc{
+	background-position: -30rem 0;
+}
+.picto_cheminee{
+	background-position: -33rem 0;
+}
+.picto_toitplat{
+	background-position: -36rem 0;
+}
+.picto_bois{
+	background-position: -39rem 0;
+}
+.picto_maison_bois{
+	background-position: -42rem 0;
+}
+.picto_ecoconstruction{
+	background-position: -45rem 0;
+}
+.picto_pente{
+	background-position: -48rem 0;
+}
+.picto_handicape{
+	background-position: -51rem 0;
+}
+.picto_surface{
+	background-position: -54rem 0;
+}
+.picto_nb_piece{
+	background-position: -57rem 0;
+}
+.picto_chambre{
+	background-position: -60rem 0;
+}
+.picto_douche{
+	background-position: -63rem 0;
+}
+// Styles Plan de maison
+.plans_maisons{
+	.w_5_6{
+		> div + div{
+			margin-top: 3rem;
+		}
+		.image_plan{
+			display: table;
+			figure{
+				margin:0;
+				border: 1px solid #333;
+			}
+			img{
+				width: 100%;
+			}
+			aside{
+				.flex-display(flex);
+				padding: .1rem .2rem .2rem ;
+				color: #fff;
+				background-color: #333;
+				p{
+					.flex-grow(1);
+					padding: .5rem;
+				}
+				a{
+					position: relative;
+					display: block;
+					width: 12rem;
+					min-height: 8rem;
+					-webkit-flex-shrink: 0;
+					flex-shrink: 0;
+					overflow: hidden;
+					img{
+						position: absolute;
+						top: 50%;
+						.translateY(-50%);
+					}
+					+ a{
+						margin-left: .2rem;
+					}
+				}
+			}
+			.credit{
+				text-align: left;
+				padding-left: 0;
+			}
+		}
+		.info_plan{
+			.flex-display(flex);
+			margin: 2rem 0;
+			text-align: center;
+			font-size: 1.6rem;
+			> div{
+				.flex-display(flex);
+				.flex-direction(column);
+				.flex(1 0 25%);
+				.align-items(center);
+				.justify-content(center);
+				padding: .5rem;
+				+ div{
+					border-left: 1px solid #ccc;
+				}
+			}
+		}
+		.title{
+			font-size: 3rem;
+			font-weight: 700;
+			font-family: @museo;
+			margin-bottom: 2rem;
+		}
+		.nav_responsive{
+			display: none;
+		}
+		.caracteristique_plan{
+			.resumer_plan{
+				> p{
+					font-family: @museo;
+					margin-bottom: 1rem;
+				}
+				li{
+					.flex-display(flex);
+					> p{
+						margin: 0;
+						padding: 1rem 0;
+						&:first-of-type{
+							min-width: 16.5rem;
+							color: #666;
+						}
+						&:last-of-type span{
+							display:block;
+						}
+						+ p{
+							color: #999;
+						}
+					}
+					div {
+						padding: 1rem 0;
+						p{
+							.flex-display(flex);
+							.align-items(flex-start);
+							span{
+								margin-right: 1rem;
+							}
+						}
+					}
+					+li{
+						border-top: 1px solid #ccc;
+					}
+				}
+			}
+		}
+		.autres_plans{
+			.trouver_plan{
+				p{
+					font-size: 1.8rem;
+					margin-top: 0;
+				}
+				a{
+					display: inline-block;
+					float: right;
+					font-size: 1.4rem;
+					padding-right: 2.3rem;
+					&:before{
+						position: absolute;
+						right: 0;
+						top: 50%;
+						margin-top: -1.25rem;
+						font-size: 2.5rem;
+						.scale-rotate(.5,180deg);
+					}
+					&:hover{
+						color: #fff;
+					}
+				}
+			}
+		}
+		.plan_sol,
+		.plan_situation{
+			figure{
+				margin: 0 0 2rem 0;
+				img{
+					width: 100%;
+				}
+				div{
+					position: relative;
+					margin-bottom: .5rem;
+					border: 1px solid #ccc;
+					.bt_max{
+						color: @rouge;
+						background-color: #fff;
+						&::before{
+							font-size: 2.5rem; //Icon télécharger
+						}
+					}
+					span{
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						right: 0;
+						left: 0;
+						.flex-display(flex);
+						.align-items(center);
+						.justify-content(center);
+						opacity: 0;
+						background-color: rgba(0, 0, 0, 0.5);
+						.transition(all, .6s, ease, 0s);
+					}
+					&:hover span{
+						opacity: 1;
+						a{
+							.animation(fadeInUp, .6s, ease, 0s);
+						}
+					}
+				}
+				figcaption{
+					.flex-display(flex);
+					.align-items(center);
+					.justify-content(space-between);
+				}
+			}
+		}
+	}
+}
+/*********************************** DICTIONNAIRE CHIEN ***********************************/
+//////// Pelage Chien /////
+.pelage_blanc,
+.pelage_jaune,
+.pelage_fauve,
+.pelage_marron,
+.pelage_noir,
+.pelage_gris,
+.pelage_bicolore,
+.pelage_tricolore,
+.pelage_panache{
+	position: relative;
+	display: inline-block;
+	min-width: 4.4rem;
+	height: 4.4rem;
+	background-image: url("@{imgPath}/sprite_pelage_x2.png");
+	background-size: 39.6rem;
+	background-repeat: no-repeat;
+	&::before{
+		display: none;
+		position: absolute;
+		top: -3.5rem;
+		left: 0;
+		padding: .25rem 1rem;
+		border: 1px solid @violet;
+		background: #fff;
+		.radius(.3rem);
+		z-index: 1;
+	}
+	&:hover::before{
+		display: block;
+		.animation(fadeIn, .6s, ease, 0s);
+	}
+}
+.pelage_blanc{
+	background-position: 0 0;
+	&::before{
+		content: "Blanc";
+	}
+}
+.pelage_jaune{
+	background-position: -4.4rem 0;
+	&::before{
+		content: "Jaune";
+	}
+}
+.pelage_fauve{
+	background-position: -8.8rem 0;
+	&::before{
+		content: "Fauve";
+	}
+}
+.pelage_marron{
+	background-position: -13.2rem 0;
+	&::before{
+		content: "Marron";
+	}
+}
+.pelage_noir{
+	background-position: -17.6rem 0;
+	&::before{
+		content: "Noir";
+	}
+}
+.pelage_bicolore{
+	background-position: -22rem 0;
+	&::before{
+		content: "Bicolore";
+	}
+}
+.pelage_tricolore{
+	background-position: -26.4rem 0;
+	&::before{
+		content: "Tricolore";
+	}
+}
+.pelage_gris{
+	background-position: -30.8rem 0;
+	&::before{
+		content: "Gris";
+	}
+}
+.pelage_panache{
+	background-position: -35.2rem 0;
+	&::before{
+		content: "Panaché";
+	}
+}
+//// Sprite Chien ////
+.picto_male,
+.picto_femelle,
+.picto_info,
+.picto_velo,
+.coeur_faible,
+.coeur_moyen,
+.coeur_fort,
+.chaleur_faible,
+.chaleur_moyen,
+.chaleur_fort,
+.level_fort,
+.level_moyen,
+.level_faible,
+.picto_plus,
+.picto_moins{
+	display: inline-block;
+	background-image: url("@{imgPath}/sprite_chien_x2.png");
+	background-size: 30rem;
+	background-repeat: no-repeat;
+}
+.picto_male{
+	min-width: 1.5rem;
+	height: 1.5rem;
+	margin-right: 1rem;
+	background-position: -17.9rem -2.7rem;
+}
+.picto_femelle{
+	min-width: 1.4rem;
+	height: 2rem;
+	margin-right: 1rem;
+	background-position: -17.9rem -.1rem;
+}
+.picto_info{
+	width: 1.7rem;
+	height: 1.8rem;
+	margin-left: 1rem;
+	background-position: -17.7rem -4.9rem;
+	vertical-align: middle;
+}
+.picto_velo{
+	width: 3.7rem;
+	height: 2.4rem;
+	margin-right: 1rem;
+	background-position: -25.5rem 0;
+	vertical-align: middle;
+}
+.coeur_faible,
+.coeur_moyen,
+.coeur_fort{
+	width: 6.7rem;
+	height: 1.6rem;
+}
+.coeur_faible{
+	background-position: -.3rem -.4rem;
+}
+.coeur_moyen{
+	background-position: -.3rem -2.7rem;
+}
+.coeur_fort{
+	background-position: -.3rem -5rem;
+}
+.chaleur_faible,
+.chaleur_moyen,
+.chaleur_fort{
+	width: 7.5rem;
+	height: 2rem;
+	margin-right: 1rem;
+}
+.chaleur_faible{
+	background-position: -8.8rem -.2rem;
+}
+.chaleur_moyen{
+	background-position: -8.8rem -2.5rem;
+}
+.chaleur_fort{
+	background-position: -8.8rem -4.7rem;
+}
+.level_fort,
+.level_moyen,
+.level_faible{
+	width: 3.8rem;
+	height: 1.1rem;
+	margin-right: 1rem;
+}
+.level_faible{
+	background-position: -21rem -3.3rem;
+}
+.level_moyen{
+	background-position: -21rem -1.8rem;
+}
+.level_fort{
+	background-position: -21rem -.3rem;
+}
+.picto_plus,
+.picto_moins{
+	width: 2.3rem;
+	height: 2.3rem;
+	margin-left: .2rem;
+	vertical-align: middle;
+}
+.picto_plus{
+	background-position: -26.2rem -2.3rem;
+}
+.picto_moins{
+	background-position: -26.2rem -4.6rem;
+}
+///////// Carousel //////
+#flexCarousel{
+	position: relative;
+	/// Navigation
+	.navPrev,
+	.navNext{
+		position: absolute;
+		top: 50%;
+		margin-top: -1.75rem;
+		z-index: 3;
+		visibility: hidden;
+		&::before{
+			// Icon Chevron
+			content: "\e603";
+			font-size: 3.5rem;
+			font-family: 'icomoon';
+			color: @violet;
+			visibility: visible;
+		}
+		&:hover,
+		&:active{
+			&::before{
+				color: @rouge;
+			}
+		}
+	}
+	.navPrev{
+		left: 0rem;
+		.animation(fadeIn, 0.6s, ease, 0s);
+	}
+	.navNext{
+		.animation(fadeIn, 0.6s, ease, 0s);
+		right: 0rem;
+		.rotate(180deg);
+	}
+	/// Conteneur
+	div{
+		.flex-display(flex);
+		.flex-wrap(wrap);
+		.justify-content(center);
+		width: 100%;
+		height: 8rem;
+		margin: 0 auto;
+		padding: 0 3rem;
+		overflow: hidden;
+		a{
+			padding: 0 .5rem;
+		}
+	}
+}
+///////// STYLE DICO CHIEN /////////
+.dictionnaire_chien{
+	.w_5_6{
+		> div + div{
+			margin-top: 3rem;
+		}
+		.img_chien{
+			.flex-display(flex);
+			.flex-direction(column);
+			a{
+				display: inline-block;
+			}
+			figure{
+				margin: 0 0 2rem 0;
+				img{
+					width: 100%;
+				}
+			}
+			figcaption{
+				.flex-display(flex);
+				.justify-content(space-between);
+			}
+			aside{
+				margin-bottom: 2rem;
+			}
+		}
+		.right{
+			margin-left: 3rem;
+			margin-bottom: 2rem;
+		}
+		.resumer_race{
+			> p{
+				+ p{
+					margin-top: 0;
+				}
+				span{
+					color: #666;
+				}
+			}
+			.detail_resumer{
+				margin-top: 2rem;
+				h3{
+					margin-top: 0;
+				}
+			}
+			.caracteristique{
+				ul li{
+					.flex-display(flex);
+					padding: 1rem 0;
+					border-bottom: 1px solid #ccc;
+					> p:first-of-type,
+					> a{
+						min-width: 18.5rem;
+					}
+					a:hover .picto_info{
+						background-position: -19.5rem -4.9rem;
+					}
+					> p{
+						margin: 0;
+						&:first-of-type{
+							color: #666;
+						}
+					}
+					div{
+						p{
+							.flex-display(flex);
+							.align-items(center);
+						}
+					}
+					// PopUp Info
+					aside{
+						.flex-display(flex);
+						.justify-content(center);
+						.align-items(center);
+						position: fixed;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100vh;
+						background-color: rgba(0,0,0,.5);
+						z-index: 10000;
+						.animation(fadeIn, .3s, ease, 0s);
+						> div{
+							position: relative;
+							max-width: 60rem;
+							max-height: 90vh;
+							margin: 0 2rem;
+							padding: 3rem;
+							background: #fff;
+							overflow: auto;
+							.icon-croix{
+								position: absolute;
+								top: .1rem;
+								right: .1rem;
+								background: @violet;
+								padding:.5rem .5rem;
+								cursor: pointer;
+								&::before{
+									margin-right: 0;
+									color: #fff;
+									vertical-align: -1px;
+								}
+							}
+							.title{
+								font-size: 2.4rem;
+								font-family: @museo;
+								font-weight: 700;
+							}
+							p{
+								.align-items(flex-start);
+								font-size: 1.6rem;
+								span:first-of-type{
+									.flex(0 0 auto);
+									margin-top: .5rem;
+									margin-right: 1.5rem;
+								}
+							}
+							.note_info{
+								font-size: 1.4rem;
+								color: #666;
+							}
+						}
+					}
+					&.resistance,
+					&.compatibilite{
+						.flex-direction(column);
+						div{
+							margin-top: 1rem;
+						}
+					}
+					&.resistance{
+						div{
+							.flex-display(flex);
+							.flex-direction(row);
+							.justify-content(space-between);
+						}
+						p{
+							margin: 0;
+						}
+					}
+					&.compatibilite{
+						p + p{
+							margin-top: .5rem;
+						}
+					}
+					&.chien_sport p{
+						color: #333;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+		.autres_races{
+			> div{
+				.flex-display(flex);
+				.flex-wrap(wrap);
+			}
+			p{
+				text-align: right;
+				a{
+					margin-left: 1rem;
+				}
+			}
+			.une_gde_remontee{
+				margin-top: 0;
+				margin-bottom: 2rem;
+				margin-right: 5rem;
+				width: 11rem;
+				a{
+					display: block;
+					text-align: center;
+					font-size: 1.6rem;
+				}
+				.contenu_img_remontee{
+					width: 11rem;
+					height: 11rem;
+				}
+				.img_remontee{
+					height: 11rem;
+				}
+			}
+		}
+		// .lire_suite{
+		// 	display: none;
+		// }
+	}
+}
+/***************************************** Dictionnaire médicament ******************************/
+// PopUp Info
+.popup_info{
+	.flex-display(flex);
+	.justify-content(center);
+	.align-items(center);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0,0,0,.5);
+	z-index: 10000;
+	.animation(fadeIn, .3s, ease, 0s);
+	> div{
+		position: relative;
+		max-width: 80rem;
+		max-height: 90vh;
+		margin: 0 2rem;
+		padding: 3rem;
+		background: #fff;
+		overflow: auto;
+		color: #333;
+		.icon-croix{
+			position: absolute;
+			top: .1rem;
+			right: .1rem;
+			background: @violet;
+			padding:.5rem .5rem;
+			cursor: pointer;
+			&::before{
+				margin-right: 0;
+				color: #fff;
+				vertical-align: -1px;
+			}
+		}
+		.title{
+			font-size: 2.4rem;
+			font-family: @museo;
+			font-weight: 700;
+		}
+		.big_title{
+			font-size: 3rem;
+			margin-bottom: 2rem;
+			font-family: @museo;
+			text-align: center;
+		}
+		p{
+			.align-items(flex-start);
+			span:first-of-type{
+				.flex(0 0 auto);
+				margin-top: .5rem;
+				margin-right: 1.5rem;
+			}
+		}
+		.note_info{
+			font-size: 1.4rem;
+			color: #666;
+		}
+	}
+	.alert_recherche_plante{
+		text-align: center;
+		padding: 3rem 5rem;
+		.big_title{
+			font-weight: bold;
+			margin-bottom: 0;
+		}
+		.title{
+			font-size: 2rem;
+			font-weight: 500;
+			margin-bottom: 3rem;
+		}
+		img{
+			width: 25rem;
+		}
+		.nb_critere{
+			margin: 0;
+		}
+		a{
+			&:first-of-type{
+				text-decoration: underline;
+			}
+			+ a{
+				margin-left: 2rem;
+			}
+		}
+	}
+}
+.dico_medicament{
+	.minuscules{
+		text-transform: lowercase;
+		&:first-letter{
+			text-transform: uppercase;
+		}
+	}
+	.fiche_medicament{
+		h2{
+			margin:4rem 0 2rem 0;
+			text-shadow: none;
+			&::after{
+				border: none;
+			}
+		}
+		h4,
+		.ss_titre{
+			margin-top: 0;
+			margin-bottom: 1rem;
+		}
+		.ss_titre{
+			font-size: 2.4rem;
+			font-style: italic;
+			font-weight: bold;
+		}
+		svg{
+			width: 4.5rem;
+			height: 4.5rem;
+			vertical-align: middle;
+			&.icon-info-bulle{
+				width: 1.8rem;
+				height: 1.8rem;
+				margin-left: .5rem;
+				cursor: pointer;
+			}
+		}
+		.nsfp{
+			position: fixed;
+			font-family: @museo;
+			font-size: 6rem;
+			font-weight: 700;
+			opacity: .1;
+			z-index: -1;
+		}
+		.menu{
+			background-color: #fff;
+			ul{
+				display: none;
+				padding: 1rem 0 2rem 1rem;
+				font-size: 1.4rem;
+				a{
+					display: block;
+					padding-right: 2rem;
+				}
+				li + li{
+					margin-top: 1rem;
+				}
+			}
+			div{
+				> a{
+					position: relative;
+					display: block;
+					padding: 1rem 4.5rem 1rem 0;
+					font-size: 1.8rem;
+					&:hover{
+						color: @rouge;
+						&::before{
+							color: @rouge;
+						}
+					}
+				}
+				+ div{
+					border-top: 1px solid #ccc;
+				}
+				.icon-chevron{
+					&::before{
+						position: absolute;
+						right: 1rem;
+						top: 50%;
+						margin-top: -1.75rem;
+						font-size: 3.5rem;
+						color: @violet;
+						.scale-rotate(.5,-90deg);
+					}
+					&.open::before{
+						.scale-rotate(.5,90deg);
+					}
+				}
+			}
+		}
+		.resumer_fiche{
+			ul{
+				margin-top: 1rem;
+			}
+			li{
+				padding-bottom: 0;
+			}
+			.presentation_fiche p{
+				margin: 2rem 0 1rem 0;
+				font-size: 2.5rem;
+				font-family: @museo;
+				font-weight: 700;
+			}
+		}
+		.service_medical{
+			div{
+				.flex-display(flex);
+				a{
+					.flex-display(flex);
+					.align-items(center);
+					.justify-content(center);
+					.flex(1 1 0);
+					padding: 2rem .5rem;
+					color: #333;
+					font-size: 1.8rem;
+					opacity: .3;
+					&.selected{
+						opacity: 1;
+					}
+				}
+				.non_precise{
+					background-color: @rouge;
+				}
+				.insuffisant{
+					background-color: @orange;
+				}
+				.faible{
+					background-color: #fab03c;
+				}
+				.modere{
+					background-color: #fad83c;
+				}
+				.important{
+					background-color: @vert;
+				}
+				.majeur{
+					background-color: #41c01f;
+				}
+			}
+		}
+		.composition{
+			h3{
+				margin-top: 0;
+			}
+		}
+		.autres_formes{
+			a{
+				background: none;
+				&:hover{
+					background: none;
+				}
+			}
+		}
+		.generiques{
+			div{
+				.flex-display(flex);
+				.justify-content(space-between);
+				padding: 1rem 0;
+				&:nth-of-type(2n+1){
+					background: #f7f5ff;
+				}
+			}
+			p{
+				&:first-of-type{
+					width: 50%;
+				}
+				.align-self(center);
+				margin:0;
+				padding: 0 1rem;
+			}
+		}
+		.posologies{
+			div + div{
+				margin-top: 2rem;
+			}
+		}
+		.liste_meg{
+			svg{
+				width: 2.3rem;
+				height: 2.3rem;
+				vertical-align: bottom;
+			}
+			ul{
+				margin-top: 0;
+				margin-bottom: 1rem;
+			}
+		}
+		.precaution_particulieres{
+			svg{
+				width: 3rem;
+				height: 3rem;
+				margin-right: .5rem;
+				float: left;
+			}
+			div{
+				.flex-display(flex);
+				.align-items(center);
+				padding: 2rem 0;
+				> p:first-of-type{
+					max-width: 15rem;
+					min-width: 15rem;
+				}
+				+ div{
+					border-top: 1px dotted #ccc;
+				}
+				p{
+					margin: 0;
+				}
+				span{
+					display:block;
+				}
+			}
+		}
+		.liste_reco{
+			li{
+				&::before{
+					content:"+";
+					color: #fff;
+					z-index: 1;
+					cursor: pointer;
+				}
+				&::after{
+					content:"";
+					position: absolute;
+					top: .3rem;
+					left: -.4rem;
+					width: 2rem;
+					height: 2rem;
+					background: @violet;
+					.radius(2rem);
+					cursor: pointer;
+				}
+			}
+			p{
+				margin: 0 0 1rem 0;
+			}
+		}
+		.classe_atc,
+		.liaison_atc{
+			a:hover{
+				color: @rouge;
+			}
+		}
+		.classe_atc{
+			.atc_niveau0,
+			.atc_niveau1,
+			.atc_niveau2,
+			.atc_niveau3{
+				padding: 0 0 .7rem 2rem;
+				position: relative;
+				&::before{
+					content:"•";
+					position: absolute;
+					color: @violet;
+					left: 0;
+				}
+			}
+			.atc_niveau1{
+				margin-left: 2rem;
+				&::before{
+					color:#333;
+				}
+			}
+			.atc_niveau2{
+				margin-left: 4rem;
+				&::before{
+					color:#666;
+				}
+			}
+			.atc_niveau3{
+				margin-left: 6rem;
+				&::before{
+					color:#999;
+				}
+			}
+		}
+		.liaison_atc{
+			margin-top: 3rem;
+			p{
+				padding-bottom: 1rem;
+			}
+			a{
+				display: block;
+			}
+		}
+	}
+	.fiche_atc{
+		h2{
+			margin-top: 4rem;
+			text-shadow: none;
+			&::after{
+				border:none;
+			}
+		}
+		a{
+			display: block;
+			font-weight: bold;
+		}
+	}
+}
+.box_recherche_med{
+	padding: 3rem;
+	.radius(.5rem);
+	background: @violet;
+	.form_recherche.gde_recherche{
+		width: initial;
+	}
+	.titre{
+		max-width: 35rem;
+		padding-left: 4rem;
+		margin-right: 2rem;
+		text-align: center;
+		font-size: 2.4rem;
+		color: #fff;
+		font-family: @museo;
+		&.icon-medicament::before{
+			position: absolute;
+			top: 50%;
+			left: 0;
+			margin-top: -3rem;
+			font-size: 6rem;
+			color: #fff;
+		}
+	}
+	form{
+		.flex-display(flex);
+		.align-items(center);
+	}
+	fieldset{
+		position: relative;
+		margin-top: 0;
+		text-align: center;
+		.flex(1 0 auto);
+		a{
+			display: block;
+			margin-top: 1rem;
+			font-size: 1.4rem;
+			text-decoration: underline;
+			color: #fff;
+		}
+	}
+}
+/*********************************** Styles article ***********************************/
+.article{
+	h1{
+		clear:none;
+		overflow: hidden;
+		word-wrap: break-word;
+	}
+	h2,
+	h4{
+		margin:2rem 0;
+	}
+	h4{
+		font-size: 2.4rem;
+		font-style: italic;
+	}
+	> p,
+	ul,
+	ol{
+		a{
+			padding:1px 2px;
+			background:linear-gradient(@violet-typo,@violet-typo) no-repeat scroll center bottom rgba(0, 0, 0, 0);
+			background-size: 100% 1px;
+			.transition(all, .5s, ease-in-out, 0s);
+		}
+		a:hover{
+			background:linear-gradient(@rouge,@rouge) no-repeat scroll center bottom rgba(0, 0, 0, 0);
+			background-size: 100% 1px;
+		}
+	}
+	ul::after{
+		content:none;
+	}
+	.interet_contenu{
+		margin:1.7rem 0;
+	}
+	.sstitre{
+		line-height: 1;
+		margin:3rem 0 1rem 0;
+		font-style:italic;
+		font-weight:bold;
+		font-size:2.2rem;
+	}
+	code{
+		display: block;
+		margin-top: .5rem;
+		padding: 2rem;
+		text-align: center;
+	}
+	/*--------- Liens Crosslinking ---------*/
+	.lien_droit,
+	.lien_fp,
+	.liens_fp,
+	.lien_fiche,
+	.liens_fiche,
+	.lien_plante,
+	.liens_plante,
+	.lien_astuce,
+	.lien_lct,
+	.lien_video,
+	.liens_video,
+	.lien_telecharger,
+	.lien_hp,
+	.lien_hp_ext,
+	.lien_hp_ext_mult,
+	.lien_telecharger.lien_droit,
+	.lien_plante.lien_droit,
+	.lien_diapo.lien_droit{
+		.flex-display(flex);
+		.align-items(flex-end);
+		.justify-content(flex-end);
+		max-width: 100%;
+		margin: 1rem 0;
+		text-align: right;
+		span{
+			.flex(1 0 0);
+			a{
+				&::after{
+					content:"]";
+					display: inline-block;
+					width: 0;
+					margin-left: 0;
+					opacity: 0 ;
+					.transition(all, ease-in-out, .2s);
+				}
+				&::before{
+					content: "[";
+					display: inline-block;
+					width: 0;
+					margin-right: 2px;
+					opacity: 0 ;
+					.transition(all, ease-in-out, .2s);
+				}
+				&:hover{
+					color: @rouge;
+					text-decoration: none;
+					&::before{
+						content: "[";
+						opacity: 1;
+						margin: 0 7px;
+					}
+					&::after{
+						content:"]";
+						opacity: 1;
+						margin: 0 2px;
+					}
+				}
+			}
+		}
+		img{
+			.align-self(flex-start);
+			border: 1px solid @violet;
+			margin-left:1rem;
+		}
+	}
+	.liens_video.icon,
+	.lien_video.icon{
+		position: relative;
+		&::before{
+			position: absolute;
+			top: 1rem;
+			right: 2rem;
+			font-size: 3rem;
+			color: #fff;
+
+		}
+	}
+	.lien_telecharger.icon{
+		position: relative;
+		padding-right: 6rem;
+		&::before{
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 0;
+			width: 5rem;
+			height: 5rem;
+			font-size: 5rem;
+
+		}
+	}
+	.lien_droit,
+	.lien_fp,
+	.liens_fp,
+	.lien_fiche,
+	.liens_fiche,
+	.lien_plante,
+	.liens_plante,
+	.lien_astuce,
+	.lien_lct,
+	.lien_video,
+	.liens_video,
+	.lien_telecharger,
+	.lien_hp,
+	.lien_hp_ext,
+	.lien_hp_ext_mult,
+	.lien_telecharger.lien_droit,
+	.lien_plante.lien_droit,
+	.lien_diapo.lien_droit{
+		span::before{
+			display: block;
+		}
+	}
+	.lien_droit span::before{
+		content : "En savoir plus";
+	}
+	.lien_hp span::before{
+		content : "En savoir plus";
+	}
+	.lien_hp_ext span::before{
+		content : "Voir notre thématique";
+	}
+	.lien_hp_ext_mult span::before{
+		content : "Voir nos thématiques";
+	}
+	.lien_telecharger span::before{
+		content : "Télécharger gratuitement";
+	}
+	.lien_fiche span::before{
+		content : "Lire la fiche";
+	}
+	.liens_fiche span::before{
+		content : "Lire les fiches";
+	}
+	.lien_video span::before{
+		content : "Voir la vidéo";
+	}
+	.liens_video span::before{
+		content : "Voir les vidéos";
+	}
+	.lien_fp span::before{
+		content: "Voir la fiche pratique";
+	}
+	.liens_fp span::before{
+		content: "Voir les fiches pratiques";
+	}
+	.lien_plante span::before{
+		content: "Lire la fiche";
+	}
+	.liens_plante span::before{
+		content: "Lire les fiches";
+	}
+	.lien_lct span::before{
+		content: "À télécharger";
+	}
+	.lien_astuce span::before{
+		content: "Voir l'astuce";
+	}
+	.lien_telecharger.lien_droit span::before{
+		content: "Téléchargement gratuit";
+	}
+	.lien_plante.lien_droit span::before{
+		content: "Lire la fiche";
+	}
+	.lien_diapo.lien_droit span::before{
+		content: "Voir le diaporama";
+	}
+	p.lien_france,
+	p.lien_pro,
+	p.lien_devis{
+		margin:1rem 0;
+		text-align: right;
+		a{
+			position: relative;
+			background: none;
+			text-decoration: none;
+			&::before{
+				content : "\e611";
+				position: relative;
+				left: 0;
+				top: .2rem;
+				margin-right: .5rem;
+				font-family: 'icomoon';
+				color: @violet-typo;
+				.transition(all, ease-in-out, .1s);
+			}
+			&:hover{
+				background: none;
+				&::before{
+					left: -.3rem;
+					color: @rouge;
+				}
+			}
+		}
+	}
+	a.lien_france,
+	a.lien_pro,
+	a.lien_devis{
+		position: relative;
+		display: block;
+		margin:1rem 0;
+		background: none;
+		text-decoration: none;
+		text-align: right;
+		&::before{
+			content : "\e611";
+			position: absolute;
+			bottom: .2rem;
+			margin-left: -3rem;
+			font-family: 'icomoon';
+			color: @violet-typo;
+			.transition(all, ease-in-out, .1s);
+		}
+		&:hover{
+			background: none;
+			&::before{
+				margin-left: -2.7rem;
+				color: @rouge;
+			}
+		}
+	}
+	/*------- Détail Box Pro -------*/
+	.site_localisation{
+		margin:2rem 0;
+		font-size: 2.4rem;
+		font-style: italic;
+		font-weight: bold;
+	}
+	/*--------- Bouton Devis -------*/
+	.txtbt{
+		display: table;
+		margin: 2rem auto;
+		padding: 2rem 2rem 1rem 2rem;
+		text-align: center;
+		background: -moz-linear-gradient(top,  rgba(237,237,237,1) 0%, rgba(255,255,255,0) 99%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(237,237,237,1)), color-stop(99%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,0) 99%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,0) 99%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(237,237,237,1) 0%,rgba(255,255,255,0) 99%,rgba(255,255,255,0) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(237,237,237,1) 0%,rgba(255,255,255,0) 99%,rgba(255,255,255,0) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+	}
+	a.bt_devis,
+	a.btDevis,
+	a.btEtude{
+		position:relative;
+		top:0;
+		left:0;
+		&:active{
+			top:.2rem;
+			left:.2rem;
+			box-shadow:none;
+			text-decoration:none;
+		}
+	}
+	a.bt_devis{
+		display:block;
+		margin:1rem auto;
+		padding:.5rem 1rem;
+		.radius(.3rem);
+		font-size:1.6rem;
+		font-family: @museo;
+		font-weight: normal;
+		.box-shadow(.2rem, .2rem, 0, 0, #951e1e);
+		.gradient(@rouge, @orange, @rouge);
+		color:#fff;
+		cursor:pointer;
+	}
+	a.btDevis,
+	a.btEtude{
+		display:table;
+		width: 220px;
+		margin:2rem auto;
+		padding:.5rem 2rem;
+		.radius(.3rem);
+		font-size:1.6rem;
+		font-family: @museo;
+		.box-shadow(.2rem, .2rem, 0, 0, #951e1e);
+		.gradient(@rouge, @orange, @rouge);
+		color:#fff;
+		cursor:pointer;
+	}
+	a.btDevis.icon-euros::before{
+		color:#fff;
+	}
+	.ad_test1,
+	.ad_test2{
+		display: table;
+		margin: 2rem auto 0 auto;
+		clear:both;
+	}
+	.btHook{
+		text-align: center;
+		a,
+		a:hover{
+			background: none;
+		}
+	}
+	/*--------- Images ---------*/
+	.imgcentrer,
+	.imgdroite,
+	.visuels_2,
+	.visuels_3,
+	.visuels_4{
+		display: table;
+		margin: 2rem auto;
+		text-align: center;
+		img{
+			width: 100%;
+			height: auto;
+		}
+		.description_img{
+			display: block;
+			padding: .5rem;
+			font-size: 1.4rem;
+			border-bottom: 1px dotted #999;
+		}
+	}
+	.imgdroite{
+		float: right;
+		display: block;
+		margin:1rem 0 0 1rem;
+		box-shadow: 0 0 0 8px #fff;
+	}
+	.imggauche{
+		float: left;
+		display: block;
+		margin:1rem 1rem 0 0;
+		box-shadow: 0 8px 0 0 #fff;
+	}
+	.visuels_2{
+		> div{
+			float: left;
+			width:47.5%;
+			margin: 2rem 0 0 5%;
+		}
+		> div:nth-of-type(2n+1){
+			clear: both;
+			margin-left: 0;
+		}
+	}
+	.visuels_3{
+		> div{
+			float: left;
+			width:30%;
+			margin:2rem 0 0 5%;
+		}
+		> div:nth-of-type(3n+1){
+			clear: both;
+			margin-left:0;
+		}
+	}
+	.visuels_4{
+		> div{
+			float: left;
+			width:21.25%;
+			margin:2rem 0 0 5%;
+		}
+		> div:nth-of-type(4n+1){
+			clear:both;
+			margin-left:0;
+		}
+	}
+	.ajuster_video{
+		display: table;
+		margin: 2rem auto;
+	}
+	/*--------- Tableaux ---------*/
+	table{
+		margin: 2rem 0;
+		border:none;
+		border-right: 1px solid #ccc;
+		th,
+		td{
+			padding: .5rem;
+			border-collapse: collapse;
+			border: 1px solid lighten(@violet-typo, 10%);
+			word-wrap: break-word;
+		}
+		th{
+			background: fade(@violet, 80%);
+			font-size: 1.8rem;
+			color: #fff;
+		}
+		td{
+			font-size: 1.6rem;
+			ul,
+			ol{
+				margin: 1rem 0 0 1.5rem;
+				li{
+					margin: 0 0 .5rem 0;
+					padding-left:1rem;
+					&::before{
+						left: -.5rem;
+					}
+					ul,
+					ol{
+						margin: .5rem 0 0 0;
+					}
+				}
+			}
+		}
+		th.entete_principal,
+		th.entete_principal_minuscule{
+			color:#fff;
+			.gradient(@violet, @violet-typo, @violet);
+			border:1px solid lighten(@violet-typo, 10%);
+			a{
+				color:#fff;
+			}
+		}
+		th.entete_secondaire,
+		th.entete_secondaire_minuscule{
+			background-color:fade(@violet, 90%);
+			text-align: left;
+			a{
+				color:#fff;
+			}
+		}
+		th a{
+			color: #fff;
+			text-decoration: underline;
+		}
+		.croisement{
+			background-color: #fff;
+			border:none;
+		}
+		caption{
+			font-style:italic;
+			margin:1rem 0;
+		}
+	}
+	.note_tableau{
+		padding-left:1rem;
+		border-left: 4px solid @violet-typo;
+		font-size: 1.6rem;
+		font-style: italic;
+
+	}
+	/*--------- Listes ---------*/
+	ul, ol{
+		margin: 2rem 0 0 1rem;
+		li{
+			position: relative;
+			padding: 0 0 .7rem 2rem;
+			&::before{
+				position: absolute;
+				font-family: @museo;
+				color: @violet;
+			}
+			ul, ol{
+				margin: 1rem 0 0 1rem;
+			}
+		}
+	}
+	/*-- Listes non ordonnées --*/
+	ul li{
+		&::before{
+			content:"•";
+			left: 0;
+		}
+		/*-- Sous-listes UL niveau 1 --*/
+		ul li{
+			&::before{
+				color: #333;
+			}
+			/*-- Sous-listes UL niveau 2 --*/
+			ul li{
+				&::before{
+					color:#666;
+				}
+				/*-- Sous-listes UL niveau 3 --*/
+				ul li::before{
+					color:#999;
+				}
+			}
+			/*-- Sous-listes OL niveau 2 --*/
+			ol{
+				counter-reset: puces;
+				li{
+					list-style: lower-alpha;
+					padding-left: .5rem;
+					&::before{
+						content:"";
+						font-family: Calibri, Arial, helvetica, sans-serif;
+					}
+				}
+			}
+		}
+		/*-- Sous-listes OL niveau 1 --*/
+		ol{
+			counter-reset: puces;
+			li{
+				counter-increment: puces;
+				&::before{
+					content:counter(puces)".";
+					line-height: 2.6rem;
+					font-size: 1.6rem;
+					font-weight: bold;
+					font-family: Calibri, Arial, helvetica, sans-serif;
+				}
+				/*-- Sous-listes OL niveau 2 --*/
+				ol{
+					counter-reset: puces;
+					li{
+						list-style: lower-alpha;
+						padding-left: .5rem;
+						&::before{
+							content:"";
+							font-family: Calibri, Arial, helvetica, sans-serif;
+						}
+						/*-- Sous-listes OL niveau 3 --*/
+						ol li{
+							list-style: lower-roman;
+							padding-left: .5rem;
+						}
+					}
+				}
+			}
+		}
+	}
+	/*-- Listes ordonnées --*/
+	ol{
+		counter-reset: puces;
+		li{
+			counter-increment: puces;
+			&::before{
+				left: 0;
+				content:counter(puces)".";
+				font-weight: bold;
+			}
+			/*-- Sous-listes OL niveau 1 --*/
+			ol{
+				counter-reset: puces;
+				li{
+					counter-increment: puces;
+					&::before{
+						line-height: 2.6rem;
+						font-size: 1.6rem;
+						font-weight: bold;
+						font-family: Calibri, Arial, helvetica, sans-serif;
+					}
+					/*-- Sous-listes OL niveau 2 --*/
+					ol{
+						counter-reset: puces;
+						li{
+							list-style: lower-alpha;
+							padding-left: .5rem;
+							&::before{
+								content:"";
+								font-family: Calibri, Arial, helvetica, sans-serif;
+							}
+						}
+					}
+				}
+			}
+			/*-- Sous-listes UL niveau 1 --*/
+			ul{
+				counter-reset: puces;
+				li{
+					&::before{
+						content:"•";
+					}
+					/*-- Sous-listes OL niveau 2 --*/
+					ol{
+						counter-reset: puces;
+						li{
+							list-style: lower-alpha;
+							padding-left: .5rem;
+							&::before{
+								content:"";
+								font-family: Calibri, Arial, helvetica, sans-serif;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.module_edito{
+	display: block;
+	margin: 2rem 0;
+	cursor: pointer;
+	figure{
+		float: right;
+		margin: 0 0 0 1.5rem;
+		img{
+			width: 15rem;
+			height: auto;
+		}
+	}
+	> div{
+		overflow: hidden;
+		h3{
+			margin-top: 0;
+			+ p{
+				font-size: 1.8rem;
+			}
+		}
+		.txt_apres_bt,
+		.partenariat{
+			clear: both;
+			margin: 0;
+		}
+		.txt_apres_bt{
+			font-size: 1.2rem;
+			text-align: right;
+		}
+		.partenariat{
+			font-size: 1.4rem;
+			color: #999;
+		}
+		.bt_rouge{
+			float: right;
+			margin-right: .5rem;
+		}
+	}
+}
+/*--------- PUB Produits ---------*/
+.ad_produits{
+	position: relative;
+	overflow: hidden;
+	iframe{
+		width: 100%;
+	}
+}
+._fixedElementParent{
+	.flex-display(flex);
+	.w_1_6,
+	.w_1_4,
+	.w_1_3{
+		position: relative;
+	}
+}
+/************************************ RESPONSIVE ************************************/
+@media only screen and (max-width:1000px) {
+	.edito_boxPJ{
+		> form{
+			position: initial;
+			text-align: center;
+			fieldset{
+				width: 100%;
+				input{
+					display: inline-block;
+					width: 60%;
+					float: none;
+				}
+				a{
+					float: none;
+				}
+			}
+		}
+	}
+	.tips{
+		.entete_tips{
+			width: 100%;
+			margin: 0;
+			+ .w_1_3{
+				display: none;
+			}
+		}
+		.commentaires{
+			&_box{
+				.flex-display(flex);
+				.flex-direction(column);
+				> .w_2_3{
+					.flex-order(2);
+					margin-top: 3rem;
+					width: 100%;
+					padding-right: 0;
+				}
+				> .w_1_3{
+					.flex-order(1);
+					width: 100%;
+				}
+			}
+			.bulle_0comm{
+				margin-top: 0;
+				padding: 2rem;
+				&::before{
+					.scale(1.5);
+				}
+			}
+			.ancre_box_commentaire{
+				display: table;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 900px) {
+	.fiche_voir{
+		.presentation_fp .img_fp{
+			width: 150px;
+		}
+		.w_1_6.info_une_fp{
+			width:100%;
+			margin-right: 0;
+			> div > div{
+				> a,
+				> div{
+					width: 47.5%;
+					float: left;
+				}
+				> a:nth-of-type(2n+1){
+					margin-right: 5%;
+				}
+			}
+			.revenir_haut{
+				display: none;
+			}
+		}
+		.w1000 > .w_5_6{
+			width: 100%;
+		}
+		.video_fp object{
+			width: 100%;
+		}
+	}
+	.contenu_nav_gauche,
+	.contenu_comprendre{
+		.w_1_6{
+			display: none;
+		}
+		.w_1_6 + .w_5_6{
+			padding-left: 0;
+		}
+		table{
+			overflow: hidden;
+			table-layout: fixed;
+		}
+		tbody{
+			display: block;
+			overflow-x: scroll;
+		}
+	}
+	.pros_PJ_edito{
+		.w_1_2{
+			clear: none;
+			width: 47.5%;
+		}
+		.w_1_2:nth-of-type(-n+2){
+			margin-top: 0;
+		}
+		.w_1_2:nth-of-type(2n+1){
+			clear: both;
+		}
+		.w_1_2:nth-of-type(2n+2){
+			margin-left: 5%;
+		}
+	}
+	.fiches_plantes,
+	.plans_maisons,
+	.article,
+	.dictionnaire_chien{
+		.pub_right{
+			display: none;
+
+		}
+	}
+	.fiches_plantes,
+	.plans_maisons,
+	.dictionnaire_chien{
+		.w_5_6 .nav_responsive{
+			display: block;
+			width: 100%;
+			border-right: none;
+			.nav_menu{
+				padding: 1rem 0;
+				border-top: 1px solid #ccc;
+				+ .icon-telecharger{
+					display: block;
+					color: @rouge;
+					font-size: 1.4rem;
+					border-top: 1px solid #ccc;
+				}
+				li{
+					font-size: 1.4rem;
+					&:hover,
+					&.selectionne{
+						background-color:#eee;
+						a,
+						span{
+							color:#333;
+						}
+					}
+					a{
+						cursor:pointer;
+					}
+					a,
+					span{
+						display:block;
+						padding:0.5rem;
+					}
+				}
+			}
+		}
+
+	}
+	.fiches_plantes{
+		.nav_desktop{
+			display: none;
+		}
+		.w_5_6 .nav_responsive{
+			margin-bottom: 3rem;
+			.nav_menu + .icon-telecharger{
+				padding: 1rem 0;
+			}
+			.intro_courte_plantes{
+				margin-top: 2rem;
+			}
+			.trouver_plante{
+				display: block;
+				position: relative;
+				padding: 1rem 0 0 2.5rem;
+				color: @violet-typo;
+				font-size: 1.6rem;
+				font-weight: bold;
+				border-top: 1px dotted #ccc;
+				&::before{
+					position: absolute;
+					top: 1rem;
+					left: 0;
+					height: 2rem;
+					font-size: 2rem;
+					font-weight: bold;
+					color: @violet;
+				}
+			}
+		}
+		.image_plte{
+			margin:auto;
+		}
+		.tableau_periodicite tbody{
+			display: table-row-group;
+		}
+	}
+	.plans_maisons,
+	.dictionnaire_chien{
+		.w_5_6 .nav_responsive{
+			display: block;
+			margin-top: 0;
+			.icon:before{
+				position: absolute;
+				left: 0;
+				top: 50%;
+				margin-top: -1rem;
+				font-size: 2rem;
+				font-weight: bold;
+			}
+			.icon-loupe::before{
+				color: @violet;
+			}
+			.icon-telecharger,
+			.trouver_generic{
+				padding: 1rem 0 1rem 2.5rem;
+			}
+			.trouver_generic{
+				display: block;
+				position: relative;
+				font-size: 1.6rem;
+				border-top: 1px solid #ccc;
+			}
+		}
+	}
+	// .dictionnaire_chien{
+	// 	.w_5_6 .lire_suite{
+	// 		display: block;
+	// 	}
+	// }
+	.dico_medicament{
+		.fiche_medicament{
+			.menu{
+				margin: 2rem 0 0;
+			}
+			> .w_1_4{
+				display: block;
+				width: 100%;
+				margin-left: 0;
+				border: none;
+				+ .w_3_4{
+					padding-left: 0;
+				}
+			}
+		}
+	}
+	.sommaire_filAriane.medicament{
+		.title{
+			color: #333;
+			font-family: @calibri;
+			font-size: 1.8rem;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+		a{
+			font-size: 1.8rem;
+		}
+		div + div{
+			margin-top: .5rem;
+		}
+		ul{
+			margin-left: 2rem;
+			a{
+				font-size: 1.4rem;
+			}
+		}
+	}
+	._fixedElementParent{
+		.flex-direction(column);
+	}
+}
+@media only screen and (max-width: 800px) {
+	.fiches_plantes{
+		.parties_plantes:nth-of-type(n+2){
+			margin-top: 4rem;
+		}
+		.association_idee .w_1_2:nth-of-type(2n+3){
+			margin-top: 2rem;
+		}
+	}
+	.tips{
+		.img_tips_etape{
+			float: none;
+			margin: 0 auto 2rem auto;
+			width: 30rem;
+			height: 30rem;
+			.presentation_img_intro{
+				height: 30rem;
+			}
+		}
+		.txt_article{
+			width: 100%;
+		}
+	}
+}
+@media only screen and (max-width: 740px) {
+	.article{
+		.imgdroite{
+			float: none;
+			margin: 1rem auto;
+		}
+	}
+}
+@media only screen and (max-width: 700px){
+	.plans_maisons{
+		.w_5_6 .autres_plans{
+			.fd_blanc{
+				position: relative;
+				float: none;
+				width: 100%;
+				height: 15rem;
+				margin-bottom: 1rem;
+				img{
+					position: absolute;
+					top: 50%;
+					max-height: initial;
+					.translateY(-50%);
+				}
+			}
+		}
+	}
+	.dico_medicament{
+		.fiche_medicament{
+			.service_medical div{
+				.flex-direction(column-reverse);
+			}
+		}
+		.box_recherche_med{
+			.titre{
+				font-size: 2rem;
+				&.icon-medicament::before{
+					margin-top: -2rem;
+					font-size: 4rem;
+				}
+			}
+			form{
+				.flex-direction(column);
+			}
+			fieldset{
+				width: 100%;
+				margin-top: 2rem;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 600px) {
+	.fiche_voir{
+		.presentation_fp{
+			.img_fp{
+				display: none;
+			}
+			.img_fp_responsive{
+				float: left;
+				display: inline-block;
+				width: 150px;
+				margin-right: 5%;
+			}
+			.info_fp{
+				overflow: hidden;
+				aside{
+					display: block;
+					+ aside{
+						margin-top: 1.5rem;
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+	.tips .commentaires{
+		> .w_1_3{
+			margin-top: 0;
+		}
+		.bulle_0comm{
+			padding: 1.5rem;
+			p{
+				font-size: 1.8rem;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 500px) {
+	.tips .img_tips_etape .presentation_img_intro,
+	.presentation_img_intro{
+		height: 20rem;
+	}
+	.bt_flex_droit{
+		display: block;
+		float: none;
+		width: 100%;
+		.flex-direction(column);
+		margin: 3rem auto;
+		text-align: center;
+		p{
+			text-align: center;
+			padding-right: 0;
+		}
+	}
+	.article{
+		h2::after{
+			content:none;
+		}
+		h4,
+		.sstitre{
+			font-size: 2rem;
+		}
+		.visuels_2,
+		.visuels_3,
+		.visuels_4{
+			> div{
+				width:100%;
+				margin:2rem 0 0 0;
+				img{
+					width: 60%;
+				}
+			}
+		}
+		.ajuster_video{
+			width: 100% !important;
+		}
+		.interet_contenu{
+			font-size: 1.4rem
+		}
+		.tout_partage{
+			left: 0;
+		}
+		.pros_PJ_edito{
+			.w_1_2{
+				width: 100%;
+				margin:1rem 0 0 0;
+			}
+			.w_1_2:nth-of-type(-n+1){
+				margin-top:0;
+			}
+			.partenariat_boxPJ{
+				margin-top: 1rem;
+				text-align: center;
+			}
+		}
+		.lien_fort{
+			float:none;
+			padding-bottom: 1.5rem;
+			text-align: center;
+			font-size: 1.8rem;
+		}
+	}
+	.fiche_voir{
+		.presentation_fp .img_fp_responsive{
+			width: 110px;
+		}
+		.etape_fp{
+			h2{
+				overflow: initial;
+			}
+			.img_etape{
+				float: none;
+				display: inline-block;
+				margin: 0;
+				max-width: 100%;
+			}
+		}
+		.materiel{
+			.w_1_3 + .w_1_3{
+				border-top: 1px dotted #ccc;
+				padding-top: 2rem;
+			}
+		}
+		.etape_fin{
+			> p{
+				font-size: 1.8rem;
+			}
+			.lien_etape_fin{
+				margin: 1rem 0 2rem 0;
+				a{
+					margin-bottom: 0;
+				}
+				a + a{
+					margin-left: 0;
+					clear: both;
+				}
+			}
+			.video_fp > p{
+				font-size: 2.4rem;
+			}
+		}
+	}
+	/* image dans le carrousel a reduire pour le mobile*/
+	.fiches_plantes{
+		.texte_plantes{
+			.image_article{
+				float: none;
+				margin: 0;
+				img{
+					display: block;
+					margin: auto;
+				}
+			}
+			.right{
+				float: none;
+				margin-left: 0;
+				text-align: center;
+			}
+		}
+		.parties_plantes{
+			li.formes .forme{
+				.flex-basis(100%);
+			}
+			li.climat > p:first-of-type{
+				width: inherit;
+				margin-right: 2rem;
+			}
+			li > p:first-of-type{
+				width: 50%;
+			}
+		}
+	}
+	//////////// Plan maison //////////
+	.plans_maisons{
+		.w_5_6{
+			> div + div{
+				margin-top: 2rem;
+			}
+			.intro_courte_plan{
+				font-size: 1.8rem;
+				margin-bottom: 1rem;
+			}
+			.title{
+				font-size: 2.2rem;
+			}
+			.image_plan{
+				aside{
+					.flex-wrap(wrap);
+					a{
+						.flex(1 0 49.5%);
+					}
+					p{
+						.flex-order(2);
+					}
+				}
+			}
+			.info_plan{
+				.flex-wrap(wrap);
+				> div{
+					.flex(1 0 50%);
+					.flex-direction(row);
+					.justify-content(flex-start);
+					span:first-of-type{
+						margin-right: .5rem;
+					}
+				}
+				> div:nth-of-type(n+3){
+					border-top: 1px solid #ccc;
+				}
+				> div:nth-of-type(3){
+					border-left: 0;
+				}
+			}
+			.caracteristique_plan{
+				.resumer_plan li{
+					> p:first-of-type{
+						min-width: 12.5rem;
+					}
+				}
+			}
+			.plan_sol,
+			.plan_situation{
+				figcaption{
+					.flex-direction(column);
+					p{
+						.flex-order(1);
+					}
+				}
+			}
+			.plan_situation{
+				figure div{
+					.bt_max{
+						font-size: 1.6rem;
+						&::before{
+							font-size: 2rem; //Icon télécharger
+						}
+					}
+				}
+			}
+		}
+	}
+	.dictionnaire_chien{
+		.w_5_6{
+			.img_chien {
+				figure{
+					margin-bottom: 0;
+				}
+				aside{
+					display: none;
+				}
+			}
+			.autres_races{
+				> div{
+					.justify-content(space-around);
+				}
+				.une_gde_remontee{
+					margin: 0 2rem 2rem 2rem;
+				}
+			}
+			.right{
+				float: none;
+				margin-left: 0;
+				text-align: center;
+			}
+			.article h2::after{
+				content: "";
+			}
+		}
+	}
+	.dico_medicament{
+		.fiche_medicament{
+			h2{
+				margin: 2rem 0 2rem 0;
+			}
+			.nsfp{
+				bottom: 50%;
+				font-size: 3.5rem;
+			}
+			.ss_titre{
+				font-size: 2rem;
+			}
+			.resumer_fiche .presentation_fiche p{
+				font-size: 2.2rem;
+			}
+		}
+		.liaison_atc{
+			.column_2{
+				-webkit-columns: 1;
+				-moz-columns: 1;
+				columns: 1;
+			}
+		}
+	}
+	.tips .img_tips{
+		height: 20rem;
+		width: 100%;
+		+ div{
+			float: left;
+			margin-top: 1rem;
+		}
+	}
+}
+@media only screen and (max-width: 400px) {
+	.fiches_plantes .plante_meme_type{
+		.une_gde_remontee{
+			margin-left: 5rem;
+			margin-right: 0;
+			&:nth-of-type(2n+1){
+				margin-left: 0;
+			}
+		}
+	}
+}

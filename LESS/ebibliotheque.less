@@ -1,0 +1,980 @@
+/*///////////////////////////////////////// SOMMAIRE /////////////////////////////////////////*
+
+*	Télécharger un document
+		** Listes
+		** Tableaux
+		** Autres documents
+		** Colonne de droite
+		** Box recherche plante colonne de droite
+*	Responsive Design
+
+/******************************* Télécharger un document ******************************/
+.ebiblio_voir {
+	h1,
+	h2{
+		span{
+			color: #999;
+		}
+	}
+	h3{
+		margin: 2rem 0;
+	}
+	.h4{
+		font-size: 2.4rem;
+		font-style: italic;
+		font-weight: bold;
+		line-height: 1.1;
+	}
+	.h5{
+		font-size: 2rem;
+		font-weight: bold;
+	}
+	.h6{
+		font-style: italic;
+	}
+	p,
+	li{
+		a{
+			background:linear-gradient(@violet-typo, @violet-typo) no-repeat scroll center bottom rgba(0, 0, 0, 0);
+			padding:0 2px;
+			.transition(all, .1s, ease-in-out, 0);
+			background-size: 100% 1px;
+			&:hover{
+				background:linear-gradient(@rouge, @rouge) no-repeat scroll center bottom rgba(0, 0, 0, 0);
+				background-size: 100% 1px;
+			}
+		}
+	}
+	ul{
+		text-decoration: none;
+	}
+	.surligne{
+		padding: 0 .5rem;
+		background-color:@jaune;
+	}
+	.w_1_6{
+		margin-right: 3%;
+		+ .w_5_6{
+			width: 82%;
+		}
+	}
+	.nav_info_doc{
+		.interet_contenu{
+			> a{
+				display: table;
+				margin: auto;
+				margin-top: .8rem;
+			}
+		}
+		.info_doc{
+			max-width: 135px;
+			margin: 0 auto;
+			text-align: center;
+			img{
+				display: block;
+				margin: 0 auto;
+				max-width: 100%;
+				border: 1px solid #eee;
+			}
+			p{
+				font-size: 1.6rem;
+				font-family: Calibri, Arial, Helvetica, sans-serif;
+			}
+			.zoom{
+				display: block;
+				color: #fff;
+				font-size: 1.6rem;
+				background-color: #bbb;
+				padding: .5rem;
+				&::before{
+					color: #fff;
+				}
+			}
+			.icon-big::before{
+				display: block;
+				margin: 0;
+				font-size: 12rem;
+			}
+		}
+		.revenir_haut{
+			margin-top: .8rem;
+			margin-bottom: 1rem;
+			padding: .5rem 1rem;
+			background-color: #ccc;
+			text-align: center;
+			font-size: 1.4rem;
+			font-family: @museo;
+			color: #333;
+			&::before{
+				position: relative;
+				left: -5px;
+				color: #333;
+				.scale-rotate(1, 90deg);
+			}
+			&:hover{
+				background-color: #ddd;
+			}
+		}
+	}
+	.explication_doc{
+		width: 100%;
+		margin-bottom: 3rem;
+		overflow: hidden;
+		.description_doc + h2{
+			margin-top: 2rem;
+		}
+		h2{
+			margin-top: 3rem;
+		}
+		.content_resume + h2{
+			font-size: 2rem;
+			font-family: Calibri, Arial, Helvetica, sans-serif;
+			font-weight: bold;
+			margin: 0;
+			&::after{
+				content:none;
+			}
+		}
+		div.icon{
+			position: relative;
+			padding-left: 10rem;
+			margin-top: 4rem;
+			&::before{
+				position: absolute;
+				top: 0;
+				left: 2.5rem;
+				margin: 0;
+				font-size: 6.5rem;
+				color: @orange;
+			}
+			> h3{
+				margin: 0;
+			}
+			p{
+				margin-top: .5rem;
+			}
+			&.icon-modele-contrat::before{
+				left: 0;
+			}
+			&.icon-formulaire::before{
+				left: .8rem;
+			}
+		}
+		.icon-livre{
+			padding-left: 4rem;
+			font-size: 1.6rem;
+			color: #666;
+			&::before{
+				position: absolute;
+				left: 0;
+				top: 50%;
+				margin-top: -1.4rem;
+				font-size: 3rem;
+			}
+		}
+		img{
+			width: 100%;
+		}
+		ul::after{
+			clear:none;
+		}
+		.exemple_lct{
+			position: relative;
+			margin-top: 4rem;
+			span{
+				position: absolute;
+				top:-7px;
+				right: 2px;
+				left:auto;
+				padding-left: 1rem;
+				background:#fff;
+			}
+		}
+		.bt_flex_droit{
+			.bt_rouge{
+				left: -.2rem;
+			}
+		}
+		.adsense_med_h60{
+			margin: 3rem 0;
+		}
+	}
+	.txt_modifiable{
+		color:@rouge;
+	}
+	/*--------------------- Listes ---------------------*/
+	ul,
+	ol{
+		margin: 2rem 0 0 3rem;
+		li{
+			position: relative;
+			padding: 0 0 1rem;
+			&::before{
+				position: absolute;
+				font-family: @museo;
+				color:@violet;
+			}
+		}
+	}
+	ul li::before{
+		content:"•";
+		left:-2rem;
+	}
+	ul li ul li::before{
+		color: #333;
+	}
+	ol{
+		counter-reset: puces;
+		li{
+			counter-increment: puces;
+			&::before{
+				left:-2.8rem;
+				content:counter(puces)".";
+				font-weight: bold;
+			}
+		}
+	}
+	/*--------------------- Tableaux ---------------------*/
+	table{
+		margin: 2rem 0;
+		th,
+		td{
+			font-size: 1.6rem;
+			word-wrap: break-word;
+		}
+		td{
+			ul,
+			ol{
+				margin: 1rem 0 0 2rem;
+			}
+		}
+	}
+}
+/*---------------------------- Autres documents -------------------------*/
+.autre_doc{
+	clear: both;
+	margin-top: 5rem;
+	padding-left: 1.5rem;
+	border-left: 5px solid #ccc;
+	font-size: 1.6rem;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	.titre_autre_doc{
+		font-size: 3rem;
+		font-family: @museo;
+		font-weight: 700;
+	}
+	ul{
+		margin-top: 1.5rem;
+		margin-left: 0;
+		padding-bottom: 2rem;
+	}
+	li{
+		position: relative;
+		padding-left: 2rem;
+		padding-bottom: 1rem;
+		.icon-telecharger{
+			position: relative;
+			display: block;
+			padding-right: 3rem;
+			border-bottom: 1px dotted #ccc;
+			span{
+				background: #fff;
+				margin: 0 3rem 0 0;
+				padding: 0 1.2rem 0 0;
+				position: relative;
+				top: .5rem;
+			}
+			&::before{
+				position: absolute;
+				top: auto;
+				right: 0;
+				bottom: -.2rem;
+				margin: 0;
+				padding: 0 0 0 1rem;
+				background-color: #fff;
+			}
+		}
+	}
+	.bt_violet{
+		float: right;
+		margin-top: 0;
+	}
+}
+/*--------------------------- Colonne de droite ----------------------------*/
+#col_droite_ebiblio{
+	position:relative;
+	padding: 1rem;
+	margin: 5px 0 30px 0;
+	border: 1px solid #ccc;
+	background: #eee;
+	font-size: 1.6rem;
+	&::before{
+		content: "";
+		position: absolute;
+		top: -5px;
+		right: -5px;
+		width:80px;
+		height:80px;
+		background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -11px -215px;
+	}
+	.titre_ebiblio{
+		font-size: 2rem;
+		font-family: @museo;
+	}
+	.ss_titre_ebiblio{
+		margin-bottom:1rem;
+		font-size: 1.8rem;
+		font-family: @museo;
+		color: #666;
+		span{
+			color: @rouge;
+		}
+	}
+	.consulter{
+		margin:.5rem 1rem 0 1rem;
+	}
+	.categorie{
+		+ .categorie{
+			border-top:1px solid #ccc;
+		}
+		a{
+			display: block;
+		}
+		.plus{
+			position: relative;
+			padding: 1rem 0 1rem 2rem;
+			&::before{
+				content: "";
+				position: absolute;
+				top: 1.5rem;
+				left: 0;
+				display: block;
+				width: 10px;
+				height: 10px;
+				background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -20px -355px;
+			}
+		}
+		ul{
+			margin-bottom: 1rem;
+		}
+		li{
+			position: relative;
+			margin-left: 2rem;
+			font-size: 1.3rem;
+			a{
+				padding: .5rem 0 .5rem 2rem;
+				&::before{
+					content: "";
+					position: absolute;
+					top: 1rem;
+					left: 0;
+					display: block;
+					width: 10px;
+					height: 10px;
+					background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -21px -314px;
+				}
+			}
+		}
+	}
+}
+/******************************************** Box recherche plante colonne de droite *************************************************/
+.recherche_criteres,
+.recherche_plante{
+	.information_plante{
+		width:100%;
+		padding:2.5rem 1rem .5rem 1rem;
+		text-transform:none;
+		color:#333;
+		font-size:1.1rem;
+		font-family: Calibri, Arial, Helvetica, sans-serif;
+		display:none;
+		position:absolute;
+		.radius(.5rem);
+		background:#fff;
+		z-index:1;
+		border:3px solid #ccc;
+		top:30px;
+		left:0px;
+		a{
+			float:right;
+			margin:.5rem 0 0 0;
+			display:inline-block;
+		}
+		em{
+			margin:.7rem 0 0 0;
+			display:inline-block;
+			font-weight:bold;
+			font-size: 11px;
+			font-family: Calibri, Arial, Helvetica, sans-serif;
+			color:#333;
+		}
+		span{
+			position:absolute;
+			top:5px;
+			right:5px;
+			padding:0;
+			cursor:pointer;
+			background:url("@{imgPath}/sprite_commun.png")no-repeat 0 -27px;
+			width:2rem;
+			height:2rem;
+			display:inline-block;
+			opacity:0.7;
+			&:hover{
+				opacity:1;
+			}
+		}
+	}
+	.bulle_info{
+		display:inline-block;
+		height:1.4rem;
+		width:1.4rem;
+		margin:0 0 0 5px;
+		padding:0;
+		background:url("@{imgPath}/sprite_commun.png")no-repeat 0 -511px;
+		border:none;
+		cursor:pointer;
+		vertical-align: middle;
+		&:hover{
+			opacity:0.6;
+		}
+	}
+}
+.recherche_criteres{
+	> li{
+		float:none;
+		padding:0 0 .5rem 0;
+		margin:0 0 1rem 0;
+	}
+	.recherche_3colonne{
+		width: 13.5rem;
+		float: left;
+		&.liste_illustration label{
+			padding: .7rem 0 0 0;
+		}
+		label{
+			padding: 1rem 0 0 0;
+			width: 100%;
+		}
+	}
+	.niveau_entretien,
+	.niveau_eau{
+		float:left;
+		width:13.4rem;
+	}
+	.niveau_entretien{
+		margin:0 1rem 0 0;
+	}
+}
+.recherche_plante{
+	margin:3rem 0;
+	padding:.5rem 1rem 4rem 1rem;
+	border:1px solid @violet;
+	.radius(.5rem);
+	background:url("@{imgPath}/plantes/fond_fiches_plantes.png") repeat-x scroll 1px bottom;
+	form{
+		clear:both;
+		font-size:1.2rem;
+		font-family: Calibri, Arial, Helvetica, sans-serif;
+	}
+	ul{
+		list-style:none;
+		padding:0;
+		margin:0;
+	}
+	label{
+		padding:1rem 0 0 0;
+		cursor:pointer;
+		float: left;
+		font-size:1.1rem;
+		font-family: Arial, Helvetica, sans-serif;
+		color:#333;
+	}
+/*-------------------------------------- RECHERCHE PAR NOM ----------------------------------------------*/
+	input[type="text"]{
+		height:3rem;
+		width:80%;
+		margin: .5rem 0 0 0;
+		padding:.2rem .4rem;
+		.radius(.6rem);
+		border:.3rem solid #EBEBEB;
+		.inset-shadow(1px, 1px, 3px, 0px, #999);
+		background:#fff;
+		font-size:14px;
+		font-family: Calibri, Arial, Helvetica, sans-serif;
+	}
+	input[type="text"] + .bt_noir{
+		width:3.6rem;
+		padding:0 .6rem .3rem;
+		margin-top: .8rem;
+		float:right;
+		.radius(.5rem);
+		color:#fff;
+		background-color: @violet;
+		border:1px solid #333;
+		font-weight:bold;
+		font-size: 1.4rem;
+		font-family: Calibri, Arial, Helvetica, sans-serif;
+	}
+	input[type="checkbox"],
+	input[type="radio"]{
+		float: left;
+		width:1.5rem;
+		height:1.5rem;
+		margin:0 5px 0 0;
+		background:none;
+		border:none;
+	}
+	.recherche_lettres{
+		padding:1rem 0 0 0;
+		margin:0 0 4rem 0;
+		color:#ccc;
+		font-size:1.6rem;
+	}
+	.recherche_lettres a{
+		text-decoration:none;
+	}
+	.recherche_lettres a:hover{
+		text-decoration:underline;
+	}
+	.information_besoin{
+		left:-145px;
+	}
+	.information_expo{
+		left:0px;
+	}
+/*-------------------------------------- RECHERCHE PAR CRITERES ----------------------------------------------*/
+	li > p{
+		margin: 0 0 1rem;
+		font-weight:bold;
+		font-size:1.4rem;
+		font-family: Calibri, Arial, Helvetica, sans-serif;
+		color:#666;
+	}
+	li ul{
+		padding:1.5rem 0 0 0;
+	}
+/*-------------------------------------- COULEUR FLEUR ET FEUILLE ---------------------------------------------------------*/
+	.couleur_feuille,
+	.couleur_fleur{
+		ul{
+			height:auto;
+			padding:1rem 0;
+		}
+		li{
+			clear:none;
+			position:relative;
+			text-align:center;
+			margin:0;
+		}
+		label{
+			display:block;
+			margin:.5rem 0;
+		}
+		label:hover{
+			color:#333;
+		}
+		input{
+			margin:0;
+		}
+		span{
+			display:none;
+			top:-20px;
+			height:auto;
+		}
+		li:hover span{
+			display:block;
+			position:absolute;
+			top:-2rem;
+			min-width:10rem;
+			padding:.5rem;
+			background-color:#fff;
+			border:3px solid #999;
+			.radius(1rem);
+			z-index:100;
+		}
+	}
+	.couleur_feuille{
+		label{
+			padding:3.6rem 0 0 0;
+			width:2.6rem;
+		}
+		li{
+			margin:0 2px;
+		}
+	}
+	.couleur_fleur{
+		li{
+			margin:0 1px;
+		}
+		label{
+			padding:2.3rem 0 0 0;
+			width: 2.3rem;
+			input[type="checkbox"]{
+				float:right;
+				margin:0;
+			}
+		}
+	}/*
+	.feuille_silver{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -5px -1px;
+	}
+	.feuille_golden{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -42px -1px;
+	}
+	.feuille_pale_green{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -79px -1px;
+	}
+	.feuille_variegated{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -298px -1px;
+	}
+	.feuille_dark_green{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -116px -1px;
+	}
+	.feuille_red{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -266px -1px;
+	}
+	.feuille_purple{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -228px -1px;
+	}
+	.feuille_black{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -190px -1px;
+	}
+	.feuille_blue{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -154px -1px;
+	}
+	.fleur_white{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -3px -51px transparent;
+	}
+	.fleur_grey{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -30px -51px transparent;
+	}
+	.fleur_yellow{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -57px -51px transparent;
+	}
+	.fleur_orange{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -83px -51px transparent;
+	}
+	.fleur_red{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -108px -51px transparent;
+	}
+	.fleur_pink{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -135px -51px transparent;
+	}
+	.fleur_violet_purple{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -161px -51px transparent;
+	}
+	.fleur_blue{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -187px -51px transparent;
+	}
+	.fleur_green{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -214px -51px transparent;
+	}
+	.fleur_black{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -240px -51px transparent;
+	}
+	.fleur_multicolor{
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -266px -51px transparent;
+	}*/
+	.feuille_purple,
+	.feuille_black,
+	.feuille_blue,
+	.fleur_violet_purple,
+	.fleur_blue,
+	.fleur_green,
+	.fleur_black,
+	.fleur_multicolor,
+	.feuille_variegated{
+		span{
+			left:auto;
+			right:1rem;
+		}
+	}
+	/***************** GENERAL ***********************/
+	.liste_illustration{
+		li + li label{
+			padding-top: .6rem;
+		}
+	}
+	/*-------- ICONE PLUS / MOINS -------*/
+	.icone_plus{
+		display:inline-block;
+		height:1.2rem;
+		width:1.2rem;
+		margin:0 .5rem 0 0;
+		background:url("@{imgPath}/sprite_commun.png") -1px -407px no-repeat;
+		vertical-align: -2px;
+	}
+	/*------- Bouton Rechercher --------*/
+	.bt_noir_recherche span:first-child{
+		background:url("@{imgPath}/sprite_commun.png") no-repeat 2px 3px;
+		left: -.1rem;
+		position: relative;
+		width: 1.7rem;
+	}
+	.bt_noir_recherche{
+		padding:0 .4rem .3rem .4rem;
+	}
+	a.bt_noir{
+		padding: 0 .6rem;
+		height:2.4rem;
+		line-height:2.3rem;
+	}
+	.bt_noir{
+		display:inline-block;
+		height:2.6rem;
+		line-height: 2.2rem;
+		margin:2rem auto 1rem auto;
+		padding:0 .6rem .3rem .6rem;
+		.radius(3px);
+		border: 1px solid @violet;
+		color:#fff;
+		font-size: 1.4rem;
+		font-family: @museo;
+		.inner-shadow(0px, 0px, 0px, 0px, #999);
+		background: @violet; /* Old browsers */
+		cursor:pointer;
+	}
+	.bt_noir span:first-child{
+		display:inline-block;
+		width:2rem;
+		height:2.4rem;
+		margin:0 .6rem 0 0;
+	}
+	.climat_plante{
+		li,
+		label{
+			float: left;
+			width: 9.2rem;
+		}
+		li:last-child label{
+			width: 11rem;
+		}
+	}
+/*-------------------------------------- NIVEAUX ENTRETIEN, EAU, SOLEIL ---------------------------------------------------------*/
+	.niveau_soleil{
+		clear:both;
+		width:auto;
+		margin:0;
+		label{
+			width:auto;
+			margin:0 1.4rem 0 0;
+		}
+	}
+	.recherche_3colonne input{
+		margin:.1rem 1rem 0 0;
+	}
+	.recherche_3colonne span{
+		vertical-align:middle;
+	}
+	.recherche_4colonne{
+		width:16.5rem;
+		position:relative;
+	}
+	.recherche_3colonne{
+		position:relative;
+		float: left;
+	}
+/*-------------------------------------- CRITERES COMPLEMENTAIRES ---------------------------------------------------------*/
+	.criteres_comp{
+		> li{
+			padding:2rem 0 3rem 0;
+			float:left;
+			border-top:1px dotted #ccc;
+			position:relative;
+		}
+		li li{
+			clear:both;
+		}
+		.utilisation_plante,
+		.periodicite_plante,
+		.hauteur_maturite{
+			width:66rem;
+		}
+		.utilisation_plante li,
+		.periodicite_plante li,
+		.hauteur_maturite li{
+			float:left;
+			clear:none;
+			width:16.2rem;
+		}
+	}
+	.titreFontFace{
+		font-size: 2.4rem;
+		font-family: @museo;
+		padding:0 0 1rem 0;
+	}
+	.titreGris{
+		font-size:1.4rem;
+		font-weight: bold;
+		color: #333;
+		margin-bottom: .5rem;
+	}
+}
+.criteres_comp .information_plante{
+	top: 50px;
+}
+#resultat_plante .recherche_plante .information_expo{
+	left:0;
+}
+
+/****************************************************** BOX RECHERCHE COLONNE DE DROITE AUTRES ***********************************************************/
+.recherche_criteres li > p{
+	display:inline-block;
+	position:relative;
+	top:.5rem;
+	font-size: 1.1rem;
+	font-weight: bold;
+	text-transform:uppercase;
+	clear:both;
+	margin:0;
+	padding:0 .5rem 0 1.5rem;
+	background:url("@{imgPath}/sprite_commun.png")no-repeat -1px -445px #fff;
+	color:#666;
+	cursor:pointer;
+}
+.recherche_criteres ul,
+.menu_type > div{
+	border-top:1px solid #999;
+	padding:1rem 0 0 0;
+	height:auto;
+}
+.menu_type div > div{
+	float: left;
+	width: 9rem;
+}
+.menu_type div > div.menu_comestible div{
+	width: 12rem;
+}
+.couleur_feuille label input[type="checkbox"]{
+	margin:0 0 0 .6rem;
+}
+.niveau_entretien label,
+.niveau_eau label{
+	width:13.4rem;
+}
+.niveau_eau .bulle_info:hover span + span {
+	left:-140px;
+}
+.recherche_plante form > a {
+	float:left;
+	margin:2.5rem 2rem 0 0;
+}
+.recherche_criteres .recherche_3colonne + .recherche_3colonne{
+	margin-left: .8rem;
+}
+.recherche_3colonne + .recherche_3colonne + .recherche_3colonne{
+	width: 100%;
+	margin-left: 0;
+}
+.recherche_plante .recherche_ou{
+	margin:2rem 0 0 0;
+	border-top:1px solid #e5e5e5;
+}
+.recherche_ou span{
+	display:block;
+	position:relative;
+	top:-12px;
+	.radius(.5rem);
+	background:#e5e5e5;
+	margin:0 auto;
+	padding:.2rem;
+	width:3rem;
+	font-size:14px;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	color:#999;
+	text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+	text-align:center;
+}
+
+/******************************* Responsive Design *******************************/
+@media only screen and (max-width: 1030px) {
+	.autre_telechargement{
+		.ad_300x250 img{
+			width: 100%;
+			height: auto;
+		}
+	}
+	#col_droite_ebiblio .titre_ebiblio{
+		padding-right: 4rem;
+	}
+}
+@media only screen and (max-width: 900px) {
+	.ebiblio_voir{
+		.w_1_6{
+			width: 100%;
+			margin-right: 0;
+		}
+		.w_1_6 + .w_5_6{
+			width: 100%;
+			padding: 0;
+		}
+		.nav_info_doc{
+			display: block;
+			.info_doc .zoom{
+				display: none;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 800px) {
+	.explication_doc .pub_right{
+		display: none;
+	}
+	.autre_telechargement{
+		display: none;
+	}
+}
+@media only screen and (max-width: 700px) {
+	.ebiblio_voir{
+		table{
+			overflow: hidden;
+			border:none;
+		}
+		tbody{
+			display: block;
+			overflow-x: scroll;
+		}
+	}
+
+}
+@media only screen and (max-width: 500px) {
+	.ebiblio_voir{
+		h1{
+			font-size: 3rem;
+		}
+		h2{
+			font-size: 2.5rem;
+		}
+		h3{
+			font-size: 2.2rem;
+		}
+		.h4{
+			font-size: 2rem;
+		}
+		.h5,
+		p{
+			font-size: 1.8rem;
+		}
+		.description_doc{
+			clear: both;
+			margin-top: 1rem;
+		}
+		+ .autre_doc{
+			border-left: none;
+			padding-left: 0;
+		}
+		.exemple_lct span{
+			position: inherit;
+			padding-left: 0;
+		}
+		.explication_doc{
+			div.icon{
+				padding-left: 7rem;
+				&::before{
+					font-size: 4.5rem;
+					left: 1rem;
+				}
+			}
+		}
+	}
+}

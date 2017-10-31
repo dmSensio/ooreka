@@ -1,0 +1,467 @@
+/*///////////////////////////////////////// SOMMAIRE /////////////////////////////////////////*
+
+*	Push - Styles Commun
+*	Push Téléchargement
+*	Push Inscription Revisiteurs
+*	Responsive
+
+/*----------------- Push - Styles Commun ----------------*/
+.push{
+	position: fixed;
+	z-index: 100000;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,.5);
+	.transition(transform, .5s, ease-in-out, 0s);
+	.flex-display(flex);
+	.align-items(center);
+	> div{
+		position: relative;
+		background-color: #fff;
+		margin: 0 auto;
+		padding: 4rem;
+		width: 820px;
+		.bandeau_gratuit{
+			left: auto;
+			right: 5rem;
+		}
+		.icon-croix{
+			position: absolute;
+			right: 1rem;
+			top: 1rem;
+			cursor: pointer;
+			&:hover{
+				&::before{
+					color: @rouge;
+				}
+			}
+		}
+		figure{
+			margin: 0;
+		}
+		.image{
+			float: left;
+			img{
+				display: block;
+			}
+			+ div,
+			+ p{
+				overflow: hidden;
+				padding-left: 3rem;
+			}
+		}
+		.titre_push{
+			font-size: 3rem;
+			font-family: @museo;
+			font-weight: 700;
+			margin-bottom: 1rem;
+		}
+		p{
+			font-size: 2.4rem;
+		}
+		.bt_fort{
+			margin-top: 2rem;
+		}
+	}
+	> div{
+		&.doc_telechargeable,
+		&.doc_ebiblio,
+		&.popin_projet{
+			padding-top: 7rem;
+		}
+		&.doc_telechargeable{
+			width: 620px;
+		}
+	}
+}
+/*----------------- Push Téléchargement ----------------*/
+.push_telechargement{
+	> div{
+		&.doc_ebiblio{
+			padding-top: 4rem;
+			padding-bottom: 1rem;
+			.image{
+				+ div{
+					margin-top: 2rem;
+				}
+			}
+		}
+	}
+}
+/*----------------- Push Inscription Revisiteurs ----------------*/
+.push_inscription_revisiteur{
+	> div{
+		padding: 4rem 6rem;
+		p{
+			font-size: 2rem;
+		}
+		> div{
+			+ div{
+				margin-top: 3rem;
+			}
+		}
+		.bandeau_gratuit{
+			right: 2rem;
+		}
+	}
+	.dernier_article{
+		&.article_2,
+		&.article_3{
+			text-align: center;
+			.une_gde_remontee{
+				max-width: 30%;
+				margin-top: 0;
+				.contenu_img_remontee{
+					&:hover + a{
+						color: @rouge;
+					}
+					+ a{
+						display: block;
+						text-align: left;
+						font-family: inherit;
+						font-weight: bold;
+					}
+				}
+				+ .une_gde_remontee{
+					margin-left: 5%;
+				}
+			}
+		}
+		&.article_2 .une_gde_remontee{
+			display: inline-block;
+		}
+		&.article_3 .une_gde_remontee{
+			float: left;
+		}
+		&.article_1{
+			.titre_article{
+				display: block;
+				margin-bottom: 2rem;
+				font-size: 2.4rem;
+				font-family: @museo;
+			}
+		}
+
+	}
+	.box_telechargement{
+		position: relative;
+		float: left;
+		clear: both;
+		width: 100%;
+		border-top: 1px solid #ccc;
+		padding-top: 3rem;
+		padding-right: 15rem;
+		img{
+			width: auto;
+			max-height: 20rem;
+		}
+		div div p{
+			margin-bottom: 1rem;
+		}
+	}
+}
+/*----------------- Push Inscription ----------------*/
+.push_inscription{
+	> div{
+		&.popin_membre{
+			text-align: center;
+			p{
+				font-size: 2rem;
+				+ p{
+					margin-top: 0;
+				}
+			}
+			.titre_push{
+				font-size: 3rem;
+			}
+			.info_inscription{
+				margin-top: 2rem;
+				font-size: 2.4rem;
+			}
+		}
+		&.popin_projet{
+			.bt_max{
+				clear: both;
+				display: table;
+				margin: 2rem auto;
+			}
+			.nb_membre{
+				margin-top: 3rem;
+				padding-top: 3rem;
+				border-top: 1px solid #333;
+				text-align: center;
+			}
+		}
+		&.popin_univers{
+			padding: 0;
+			.image{
+				img{
+					max-height: 100%;
+				}
+				+ div{
+					padding: 7rem 4rem 2rem 4rem;
+				}
+			}
+		}
+	}
+}
+/*----------------- Responsive ----------------*/
+@media only screen and (max-width: 900px) {
+	.push,
+	.push_telechargement{
+		> div,
+		> div.doc_telechargeable{
+			width: 90%;
+		}
+	}
+	.push_inscription{
+		.fadeIn,
+		&.animated .fadeIn{
+			-webkit-animation-fill-mode: none;
+			animation-fill-mode: none;
+		}
+		> div{
+			&.popin_univers{
+				width: 375px;
+				overflow: auto;
+				.image + div{
+					padding: 3rem;
+				}
+			}
+			.icon-croix{
+				position: fixed;
+				top: 5px;
+				right: 5px;
+				background-color: #fff;
+				.radius(50%);
+				width: 30px;
+				height: 30px;
+				&::before{
+					color: @rouge;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					margin-top: -5px;
+					margin-left: -5px;
+					font-size: 10px;
+				}
+			}
+			.bandeau_gratuit{
+				right: 1rem;
+				background-position: 0 -8px;
+				height: 50px;
+				font-size: 1.4rem;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 800px) {
+	.push{
+		.fadeIn,
+		&.animated .fadeIn{
+			-webkit-animation-fill-mode: none;
+			animation-fill-mode: none;
+		}
+		> div{
+			max-height: 90vh;
+			overflow: auto;
+			padding: 5rem 2rem 2rem 2rem;
+			.icon-croix{
+				position: fixed;
+				top: 5px;
+				right: 5px;
+				background-color: #fff;
+				.radius(50%);
+				width: 30px;
+				height: 30px;
+				&::before{
+					color: @rouge;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					margin-top: -5px;
+					margin-left: -5px;
+					font-size: 10px;
+				}
+			}
+			.bandeau_gratuit{
+				right: 1rem;
+				background-position: 0 -8px;
+				height: 50px;
+				font-size: 1.4rem;
+			}
+			.image + div p{
+				margin-bottom: 0;
+			}
+			.titre_push{
+				font-size: 2.5rem;
+				margin-bottom: 2rem;
+			}
+			p{
+				font-size: 1.8rem;
+				margin-bottom: 0;
+			}
+			img{
+				width: auto;
+				max-height: 150px;
+			}
+		}
+	}
+	.push_telechargement{
+		> div{
+			&.doc_ebiblio{
+				.image{
+					+ div{
+						margin-top: 0;
+					}
+				}
+			}
+		}
+	}
+	.push_inscription_revisiteur{
+		> div{
+			padding: 2rem;
+		}
+		// variable hauteur image
+		@heightImg: 80px;
+		.dernier_article{
+			&.article_2,
+			&.article_3{
+				.une_gde_remontee{
+					min-width: 100%;
+					text-align: initial;
+					.contenu_img_remontee{
+						float: left;
+						width: @heightImg;
+						height: @heightImg;
+						margin-right: 2rem;
+						margin-bottom: 0;
+						.img_remontee{
+							height: @heightImg;
+							width: auto;
+						}
+					}
+					+ .une_gde_remontee{
+						margin-left: 0;
+						margin-top: 2rem;
+					}
+				}
+			}
+		}
+		.box_telechargement{
+			padding-top: 5rem;
+			padding-right: 0;
+		}
+	}
+	.push_inscription{
+		> div{
+			&.popin_membre{
+				padding: 2rem;
+				figure{
+					margin-bottom: 1rem;
+				}
+				.titre_push{
+					font-size: 2.4rem;
+				}
+				p{
+					font-size: 1.8rem;
+				}
+				.info_inscription{
+					font-size: 2rem;
+				}
+			}
+			&.popin_projet{
+				.nb_membre{
+					padding-top: 2rem;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 550px) {
+	.push{
+		> div{
+			.titre_push{
+				font-size: 1.8rem;
+			}
+			p{
+				font-size: 1.6rem;
+				text-align: center;
+				margin-bottom: 0;
+			}
+		}
+	}
+	.push_telechargement{
+		> div {
+			&.doc_ebiblio{
+				.image{
+					float: none;
+					display: table;
+					margin: 0 auto;
+					+ div{
+						clear: both;
+						float: left;
+						width: 100%;
+						padding-top: 2rem;
+						padding-left: 0;
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+	.push_inscription{
+		> div{
+			&.popin_membre{
+				.titre_push{
+					font-size: 1.8rem;
+				}
+				p{
+					font-size: 1.6rem;
+				}
+				.info_inscription{
+					font-size: 1.8rem;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 400px) {
+	.push{
+		> div {
+			.image{
+				float: none;
+				display: table;
+				margin: 0 auto;
+				+ div{
+					clear: both;
+					float: left;
+					width: 100%;
+					padding-top: 2rem;
+					padding-left: 0;
+					text-align: center;
+				}
+			}
+		}
+	}
+	.push_inscription{
+		> div{
+			&.popin_projet{
+				.image + div{
+					margin-bottom: 2rem;
+				}
+			}
+			&.popin_univers{
+				width: 90%;
+				.image{
+					display: none;
+					+ div{
+						padding-top: 6rem;
+					}
+				}
+			}
+		}
+	}
+}

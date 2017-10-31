@@ -1,0 +1,995 @@
+
+/*********************************************** SOMMAIRE *********************************************/
+/*
+
+1. MENU HORIZONTAL
+2. MISE EN AVANT (liste et voir)
+3. PAGE LISTE
+	a. MISE EN AVANT
+	b. FILTRE
+4. VOIR UN DOCUMENT
+	a. BOITE AUSSI TELECHARGE
+	b. AUTRES LCT
+
+/******************************************* MENU HORIZONTAL *********************************************/
+.fond_menu{
+	clear: both;
+	display: inline-block;
+	height: 100px;
+	padding: 0;
+	width: 100%;
+	margin: 0 0 40px 0;
+	text-align:center;
+	background-color: #f5f5f5;
+	border-bottom: 3px solid #CCC;
+}
+#menu_ebiblio{
+	background-color: #ECECEC;
+	margin:0 auto;
+	padding:0;
+	text-align:center;
+	display:inline-block;
+	height:100px;
+	border-bottom: 3px solid #CCC;
+	font-size : 0;
+	li{
+		display:inline-block;
+		width:128px;
+		border-bottom:3px solid #ccc;
+	}
+	li:hover{
+		border-bottom:3px solid @color_aplat;
+	}
+	li:first-child a{
+		border-left:none;
+	}
+	li:last-child a{
+		border-right:none;
+	}
+	a{	
+		height:80px;
+		display:block;
+		color:#666;
+		padding:0;
+		font:bold 9px/20px Arial, Helvetica, sans-serif;
+		text-transform:uppercase;
+		margin:10px 0;
+		border-right:1px solid #ccc;
+		border-left:1px solid #fff;
+		text-decoration:none;
+	}
+	.selected{
+		border-bottom:3px solid #777;
+		position:relative;
+	}
+	.selected:hover{
+		border-bottom:3px solid #777;
+		
+	}
+	.menu_select{
+		background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -130px -1445px;
+		bottom: -3px;
+		display: block;
+		height: 15px;
+		left: 44%;
+		position: absolute;
+		width: 20px;
+	}
+	span{
+		display:inline-block;
+		width:45px;
+		height:50px;
+		margin:7px 0 0 0;
+	}
+	.menuUne span{
+		background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -1px -1429px;
+	}
+	.menuGuides span{
+		background:url("@{imgPathTheme}/sprite_e-biblio.png") no-repeat -1px -1484px;
+	}
+	.menuFP span{
+		background:url("@{imgPathTheme}/sprite_e-biblio.png") no-repeat -1px -1541px;
+	}
+	.menuLCT span{
+		background:url("@{imgPathTheme}/sprite_e-biblio.png") no-repeat -1px -1598px;
+	}
+	.menuLB span{
+		background:url("@{imgPathTheme}/sprite_e-biblio.png") no-repeat -1px -1655px;
+	}
+	.menuUne .icone_select{
+		background:url("@{imgPathTheme}/sprite_e-biblio.png") no-repeat -61px -1429px;
+	}
+	.menuGuides .icone_select{
+		background:url("@{imgPathTheme}/sprite_e-biblio.png") no-repeat -61px -1484px;
+	}
+	.menuFP .icone_select{
+		background:url("@{imgPathTheme}/sprite_e-biblio.png") no-repeat -61px -1541px;
+	}
+	.menuLCT .icone_select{
+		background:url("@{imgPathTheme}/sprite_e-biblio.png") no-repeat -61px -1598px;
+	}
+	.menuLB .icone_select{
+		background:url("@{imgPathTheme}/sprite_e-biblio.png") no-repeat -61px -1655px;
+	}
+}
+
+/********************************************** MISE EN AVANT (liste et voir) ********************************************* */
+#e_biblio .mise_avant{
+	text-decoration:none;
+	overflow:hidden;
+	font:13px/17px Arial, Helvetica, sans-serif;
+}
+#e_biblio .mise_avant.top_liste{
+	position:relative;
+}
+#e_biblio .mise_avant.voir{
+	border-bottom:0;
+	padding-bottom:0px;
+}
+#e_biblio .mise_avant.voir img.lettre_defaut{
+	display:block;
+	margin:45px auto 0 auto;
+}
+#e_biblio .mise_avant h1{
+	font:normal 24px/30px 'museo', Arial, Helvetica, sans-serif;
+	padding:0;
+	margin:0 0 10px 0;
+}
+#e_biblio .mise_avant h1 a{
+	text-decoration:none;
+}
+#e_biblio .mise_avant h1 a:hover{
+	color:@color_contraste;
+}
+#e_biblio .description_avant{
+	float:left;
+	max-width:480px;
+}
+#e_biblio .telecharger_avant{
+	position:relative;
+}
+#e_biblio .description_avant > p{
+	color:#666;
+}
+#e_biblio .description_avant ul{
+	color:#333;
+	margin:0;
+	padding:0 0 0 20px;
+}
+#e_biblio .description_avant li{
+	list-style:none;
+	padding:0 0 5px 0;
+}
+#e_biblio .description_avant li span{
+	display:inline-block;
+	height: 5px;
+	margin: 0 5px 0 0;
+	vertical-align: 2px;
+	width: 5px;
+	.rounded(3px);
+	background:#666;
+}
+#e_biblio .mise_avant .img_avant{
+	float:left;
+	margin-right:20px;
+	overflow:hidden;
+}
+#e_biblio .mise_avant .img_avant img{
+	display:block;
+	margin:0 auto;
+}
+#e_biblio .detail_avant{
+	clear:both;
+}
+#e_biblio .mise_avant .bt_noir{
+	width:120px;
+	margin:0 0 10px 0;
+}
+#e_biblio .mise_avant span.vertical img{
+	max-height:217px;
+}
+#e_biblio .mise_avant span.horizontal img{
+	max-height:180px;
+}
+#e_biblio .auteur{
+	font:italic bold 11px/200% Georgia, serif;
+	margin-bottom:10px;
+	padding:0;
+}
+#e_biblio .auteur span{
+	color:#666;
+}
+#e_biblio .description{
+	margin-bottom:10px;
+}
+.type_ebiblio{
+	display:inline-block;
+	height:15px;
+	padding:0 0 0 15px;
+	font:bold 11px/16px Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+}
+.type_ebiblio.pdf,
+.type_pdf{
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -21px -105px;
+	color:#DD2E33;
+}
+.type_ebiblio.texte,
+.type_texte{
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -344px -105px;
+	color:#999;
+}
+.type_ebiblio.doc,
+.type_doc{
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -182px -104px;
+	color:#06C;
+}
+.type_ebiblio.epub,
+.type_epub{
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -571px -105px;
+	color:#85B916;
+}
+.type_ebiblio.xls,
+.type_xls{
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -461px -107px;
+	color:#417F2E;
+}
+.type_ebiblio.zip,
+.type_zip{
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -572px -126px;
+	color:#666;
+	padding: 0 0 0 17px;
+}
+#e_biblio .gratuit{
+	text-align:right;
+	text-transform: uppercase;
+	font: normal 11px/120% Arial, Helvetica, sans-serif;
+	margin-bottom:5px;
+	color:#666;
+}
+#e_biblio .mise_avant .infos_gauche .gratuit{
+	margin-top:40px;
+}
+#e_biblio .mise_avant.top_liste .gratuit{
+	left: 135px;
+	position: absolute;
+	text-align: left;
+	top: 7px;
+	width: 150px;
+}
+#e_biblio .actions{
+	height:20px;
+	margin:5px 15px 0 0;
+}
+#e_biblio .mise_avant .actions{
+	height:20px;
+	margin:5px 0 15px 10px;
+}
+#e_biblio .mise_avant .infos_gauche .actions{
+	margin:5px 0 0 62px;
+	float:none;
+}
+#e_biblio .selection{
+	height:20px;
+	padding-left:15px;
+	display:block;
+	font:normal 11px/120% Arial;
+	color:#333;
+}
+#e_biblio .selection.dl{
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -14px -799px;
+}
+#e_biblio .mise_avant .infos_gauche p.telecharger{
+	margin:30px 0 0 50px;
+	float:left;
+}
+#e_biblio .mise_avant.top_liste p.telecharger{
+	position:absolute;
+	bottom:30px;
+	left:250px;
+}
+#e_biblio p.telecharger{
+	width:122px;
+	height:20px;
+	position:relative;
+	display:block;
+	.gradient(#d7d7d7, #fff, #d7d7d7);
+	border:1px solid #999;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	behavior:url('/js/PIE.htc');
+}
+#e_biblio p.telecharger:hover{
+	.gradient(#d7d7d7, #d7d7d7, #fff);
+	border:1px solid #333;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	behavior:url('/js/PIE.htc');
+}
+#e_biblio p.telecharger a{
+	display:block;
+	background:url('@{imgPath}/sprite_commun.png') no-repeat -1px -331px;
+	padding:0 0 5px 20px;
+	text-decoration:none;
+	margin:4px 0 0 6px;
+	text-transform:uppercase;
+	font:normal bold 12px/130% Arial, Helvetica, sans-serif;
+	color:#333;
+}
+
+/********************************************** PAGE LISTE ***********************************************************/
+#e_biblio{
+	overflow:hidden;
+	width:660px;
+}
+#e_biblio #entete{
+	height:auto;
+	font:24px/150% 'museo',sans-serif;
+	margin-bottom:20px;
+	overflow:hidden;
+	padding:0;
+}
+#e_biblio #entete .titre_page{
+	margin:0 0 5px 0;
+}
+#e_biblio #entete .intro{
+	font:14px/130% Arial, Helvetica, sans-serif;
+	color:#666;
+	margin:0;
+	padding:0;
+}
+#e_biblio #entete .intro strong{
+	color:@color_base;
+}
+#e_biblio .barre_recherche{
+	margin: 10px auto 30px;
+}
+.liste_ebiblio{
+	clear:both;
+	margin:0 0 20px 0;
+	padding:0;
+	overflow:auto;
+	li{
+		clear:both;
+		float:left;
+		max-height:150px;
+		width:100%;
+		list-style:none;
+		border-top:1px dotted #999;
+	}
+	.col_img{
+		float: left;
+		height: 130px;
+		margin: 10px 10px 10px 0;
+		width: 130px;
+		background: url("@{imgPathTheme}/sprite_e-biblio.png") no-repeat 28px -471px #eee;
+	}
+	.col_description{
+		margin: 10px 0 0 0;
+		max-height: 130px;
+		overflow: hidden;
+		position: relative;
+	}
+	.col_description > p{
+		font-style:italic;
+	}
+	.col_description  p{
+		color: #666;
+	}
+	.titre_liste_ebiblio{
+		font:18px/20px 'museo', Arial, Helvetica, sans-serif;
+		display:inline-block;
+		max-width:380px;
+		margin:0;
+		padding:0;
+		text-decoration:none;
+		color:@color_base;
+		text-decoration:none;
+	}
+	.titre_liste_ebiblio a{
+		text-decoration:none;
+	}
+	.titre_liste_ebiblio a:hover,
+	a.titre_liste_ebiblio:hover{
+		color:@color_contraste;
+	}
+	p{
+		padding:5px 0;
+	}
+	p.description_type{
+		font:normal 12px/15px Arial, Helvetica, sans-serif;
+		padding:10px 0 6px 0;
+	}
+	a{
+		padding:0;
+		text-decoration:none;
+	}
+	img{
+		margin:5px auto;
+		display:block;
+		max-height:119px;
+		max-width: 130px;
+		text-decoration:none;
+		text-align: center;
+		font:9px/11px Arial, Helvetica, sans-serif;
+		color:#aaa;
+		background-color:#eee;
+	}
+	.bt_telecharger{
+		color:@color_contraste;
+		font:12px/15px Arial, Helvetica, sans-serif;
+		position:absolute;
+		right:0;
+		top:3px;
+		margin:0 0px 0 5px;
+		text-decoration:none;
+	}
+	.bt_telecharger:hover{
+		text-decoration:underline;
+	}
+	.bt_telecharger span{
+		display:inline-block;
+		width:15px;
+		height:15px;
+		background:url("@{imgPath}/sprite_commun.png") no-repeat -2px -382px;
+		vertical-align:bottom;
+		margin:0 0 0 5px;
+	}
+}
+#contenu .liste_ebiblio .col_img {
+	background:url("@{imgPath}/img_ebiblio_defaut.png") no-repeat 30px 26px #eee; /*--Pour www--*/
+}
+/****************************************************************************************************/
+.intro_label{
+	margin:15px 10px 5px 12px;
+	color:#666;
+	font:bold 12px Arial, Helvetica, sans-serif;
+}
+/*----------------------------- FILTRE ------------------------------------*/
+.labels_ebiblio{
+	clear:both;
+	border-top:1px solid #ccc;
+	.titre_gris{
+		float:left;
+		position:relative;
+		top:-18px;
+		padding:0 10px 0 0;
+		background-color:#fff;
+		color:#999;
+		font:bold 18px/22px Arial, Helvetica, sans-serif;
+	}
+	.toggle_filtre{
+		float:right;
+		position:relative;
+		top:-14px;
+		padding:0 0 0 10px;
+		background-color:#fff;
+	}
+	.toggle_filtre a{
+		text-decoration:underline;
+	}
+	.toggle_filtre a:hover{
+		color:#333;
+	}
+	ul{
+		clear:both;
+		overflow:hidden;
+		padding:0;
+		border:none;
+	}
+	ul li{
+		width:202px;
+		float:left;
+		list-style:none;
+		font: 12px/20px Arial, Helvetica, sans-serif;
+		border:none;
+		background:url('@{imgPathTheme}/sprite_qr.png') -310px -355px no-repeat;
+		padding:2px 2px 3px 16px;
+	}
+	li a {
+		text-decoration:none;
+		color:#666;
+	}
+	ul li a:hover{
+		text-decoration:underline;
+		color:#333;
+	}
+	.selected {
+		background:url('@{imgPathTheme}/sprite_qr.png') -310px -37px no-repeat;
+		padding:2px 3px 3px 15px;
+		font-weight:bold;
+		color:#333;
+	}
+}
+/*--------------------------------------- Image Liste ------------------------------------*/
+#e_biblio .liste .img_avant{
+	width:120px;
+	height:170px;
+	float:left;
+	margin-right:15px;
+	overflow:hidden;
+	border:1px solid #ededed;
+}
+#e_biblio .liste .img_avant a{
+	display:block;
+	width:120px;
+	height:170px;
+	text-align:center;
+	font: 14px/18px Arial, Helvetica, sans-serif;
+	color:#bbb;
+	text-decoration:none;
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat 22px -421px #f5f5f5;
+}
+#e_biblio .liste .img_avant img{
+	display:block;
+	margin:0 auto;
+}
+#e_biblio .liste .img_avant.vertical img{
+	height:170px;
+}
+#e_biblio .liste .img_avant.horizontal img{
+	width:130px;
+	padding:30px 0 0 0;
+}
+#e_biblio .liste .img_avant .lettre_type_img{
+	margin:20px 0 0 6px;
+}
+/*-------------------------------------- La pagination -----------------------------------------------*/
+#e_biblio #pagination {
+	overflow:hidden;
+	clear:both;
+	background:url('@{imgPathTheme}/ombre_avispro_bas.jpg') no-repeat top center;
+	padding-top:25px;
+	font-size:11px;
+	margin-top:20px;
+	overflow:hidden;
+}
+#e_biblio #pagination .precedent,
+#e_biblio #pagination .suivant {
+	top:25px;
+}
+#e_biblio #pagination .precedent{
+	float:left;
+}
+#e_biblio #pagination a.precedent{
+	background:url("@{imgPathTheme}/fleche_rond_precedant.png") no-repeat left top;
+	padding:2px 0 2px 26px;
+	display:block;
+	text-decoration:none;
+	width:60px;
+}
+#e_biblio #pagination .suivant{
+	float:right;
+}
+#e_biblio #pagination a.suivant{
+	background:url("@{imgPathTheme}/fleche_rond_suivant.png") no-repeat right top;
+	padding:2px 26px 2px 0;
+	display:block;
+	text-decoration:none;
+	width:45px;
+}
+#e_biblio #pagination a.suivant:hover,
+#e_biblio #pagination a.precedent:hover{
+	text-decoration:underline;
+}
+/****************************************************** VOIR UN DOCUMENT ******************************************************/
+.ebiblio_voir{
+	width:660px;
+	float:left;
+	margin:0px 30px 0 0px;
+	font:12px/16px Arial, Helvetica, sans-serif;
+	ul{
+		padding:0;
+		margin:0;
+	}
+	ol{
+		padding:0;
+		margin:0;
+	}
+	ul li{
+		list-style:none;
+	}
+	a{
+		text-decoration:none;
+	}
+	h1{
+		font: 31px/35px 'museo',Arial,Helvetica,sans-serif;
+		color:#333;
+	}
+	h1 span{
+		color:#666;
+	}
+	.retour_ebiblio{
+		background:#e7e7e7;
+		color:@color_base;
+		padding:5px 10px 5px 36px;
+		position:relative;
+		text-decoration:none;
+		display:inline-block;
+	}
+	.retour_ebiblio:hover{
+		background:@color_aplat;
+		color:#fff;
+	}
+	.retour_ebiblio span{
+		display:inline-block;
+		height: 26px;
+		width: 26px;
+		background:url("@{imgPath}/sprite_commun.png") no-repeat -155px -219px @color_base;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	.bt_telecharger{
+		width:125px;
+		font-weight:normal;
+	}
+}
+.ebiblio_infodoc{
+	width:230px;
+	margin:0 30px 20px 0;
+	float:left;
+	position:relative;
+	#zoom{
+		background:#ccc; 
+		text-align:center;
+		font:10px/22px Arial, Helvetica, sans-serif;
+		color:#333;
+		display:block;
+		text-transform:uppercase;
+		padding:0;
+		text-decoration:none;
+	}
+	#zoom:hover{
+		background:#bbb;
+	}
+	#zoom span{
+		display:inline-block;
+		width:20px;
+		height:20px;
+		vertical-align:-5px;
+		margin: 0 3px 0 0;
+		background:url('@{imgPath}/sprite_commun.png') no-repeat 1px -649px transparent;
+	}
+	.btn_telecharger_ebiblio{
+		display:inline-block;
+		padding:3px 10px 3px 5px;
+		margin:10px 0 0px 54px;
+		text-transform:uppercase;
+		text-decoration:none;
+		.rounded(5px);
+		font-weight: bold;
+		line-height:20px;
+		color:#fff;
+	}
+	.btn_telecharger_ebiblio span{
+		display:block;
+		float:left;
+		width:15px;
+		height:11px;
+		padding:5px;
+		background: url("@{imgPath}/sprite_portail.png") no-repeat -219px -236px;
+	}
+	.btn_telecharger_ebiblio + p{
+		clear: both;
+		float:right;
+		color: #333333;
+		font-size: 11px;
+		margin: 15px 0 0;
+		text-align: center;
+	}
+	p{
+		float:right;
+		font:12px/16px Arial, Helvetica, sans-serif;
+		color:#666;
+		margin-top:2rem;
+	}
+	#box_partage{
+		padding:10px;
+		margin:25px 0;
+		overflow:hidden;
+		width:210px;
+		.envoi_ami{
+			margin:0 0 10px 0;
+			padding:4px 7px 4px 2px;
+			height: 15px;
+			line-height: 15px;
+		}
+		.envoi_ami span{
+			background:url("@{imgPath}/sprite_commun.png") no-repeat 3px -599px;
+			width:25px;
+		}
+		.recommander_fb{
+			float:left;
+			margin:1px 5px 0 0;
+		}
+		.recommander_g{
+			float:left;
+			width:70px;
+		}
+	}
+}
+#conteneur .ebiblio_voir #box_partage{
+	background:url("@{imgPath}/trame_rayure.png") repeat #fafafa;
+}
+#contenu .ebiblio_voir #box_partage{
+	background:url("@{imgPath}/rayure_mag.png") repeat #fafafa;
+}
+#viewerPopin{
+	padding:0 20px 20px 20px;
+}
+.ebiblio_img{
+	height:230px;
+	width:230px;
+	overflow:hidden;
+	background-color: #f2f2f2;
+	text-align:center;
+	img{
+		height:220px;
+		margin:5px auto;
+	}
+	.horizontal img{
+		height:auto;
+		margin:28px 0;
+	}
+}
+.ebiblio_img span{
+	display:block;
+	background:url("@{imgPathTheme}/sprite_e-biblio.png") no-repeat 67px -413px;
+	height:180px;
+	width:220px;
+	margin:auto;
+	font:16px/140% Arial, Helvetica, sans-serif;
+	color:#ccc;
+}
+.ebiblio_img .lettre_defaut{
+	display:block;
+	background:url("@{imgPath}/img_lettre_defaut.png") no-repeat 0px 35px;
+	height:180px;
+	width:150px;
+	margin:auto;
+}
+#contenu .ebiblio_img span{
+	background:url("@{imgPath}/img_ebiblio_defaut.png") no-repeat 74px 100px; /*--Pour le www--*/
+}
+#contenu .ebiblio_img .lettre_defaut{
+	background:url("@{imgPath}/img_lettre_defaut.png") no-repeat 0px 35px; /*--Pour le www--*/
+}
+.ebiblio_detaildoc{
+	width:400px;
+	float:left;
+	margin:0 0 20px 0;
+	color:#333;
+	.ss_titre{
+		color:#666;
+	}
+	#details{
+		margin:0 0 0px 20px;
+	}
+	#details li{
+		margin:4px 0;
+	}
+	.editeur_ebiblio{
+		font:bold italic 12px/16px Georgia, Arial, Helvetica, sans-serif;
+		color:#666;
+		margin:10px 0;
+	}
+	a{
+		text-decoration:none;
+		color:#333;
+	}
+	a:hover{
+		text-decoration:underline;
+	}
+	.onglets > ul{
+		height:46px;
+	}
+	.onglets > ul > li.selected{
+		border:1px solid #aaa;
+		border-bottom:none;
+		background:#FFF;
+		cursor:default;
+	}
+	.onglets > ul > li{
+		float:left;
+		padding:5px 10px;
+		margin:20px 5px 0 0;
+		background:#E3E3E3;
+		-webkit-border-radius: 5px 5px 0px 0px;
+		border-radius: 5px 5px 0px 0px;
+		cursor:pointer;
+		font-weight:bold;
+		color:#666;
+	}
+	#content-resume,
+	#content-sommaire,
+	#content-description,
+	#content-notice{
+		border:1px solid #aaa;
+		padding:10px;
+		h2{
+			font: bold 14px/18px Arial,Helvetica,sans-serif;
+			color:#666;
+			margin:0 0 10px 0;
+		}
+		p{
+			margin:10px 0;
+		}
+		ol{
+			list-style-position:outside;
+			margin:0 0 0 15px;
+		}
+		ol li{
+			line-height: 135%;
+			margin: 0 0 0.5em 10px;
+		}
+		ul{
+			margin:10px 0;
+		}
+		ul li{
+			background: url("@{imgPathTheme}/puce_tab.png") no-repeat scroll 0 3px transparent;
+			line-height: 135%;
+			margin: 0 0 0.5em 10px;
+			overflow: hidden;
+			padding: 0 0 0 13px;
+		}
+	}
+}
+/*---------------------------------------------BOITE AUSSI TELECHARGE------------------------------------------------------------*/
+.section_aussiTelecharger{
+	clear:both;
+	margin:50px 0;
+	overflow:hidden;
+	p{
+		text-transform:uppercase;
+		border-bottom: 5px solid #ccc;
+		font:bold 14px/16px Arial, Helvetica, sans-serif;
+		padding:3px 0;
+	}
+	p span{
+		font-weight:normal;
+	}
+	#container{
+		position:relative;
+		height:190px;
+		width:660px;
+		margin:10px auto 0 auto;
+	}
+	#carousel {
+		height:190px;
+		overflow:hidden;
+		margin:0px auto;
+		width:624px;
+	}
+	#carousel a{
+		display:block;
+		float:left;
+		width:108px;
+		height:190px;
+		margin:0 21px 0 0;
+		text-align:center;
+		background:none;
+		padding:0;
+		overflow:hidden;
+		position:relative;
+		text-decoration:none;
+	}
+	#carousel a em{
+		display:block;
+		overflow:hidden;
+		width:100px;
+		height:28px;
+		font:11px/14px Arial, Helvetica, sans-serif;
+	}
+	#carousel a:hover em{
+		text-decoration:underline;
+	}
+	#carousel a img{
+		height:150px;
+		margin:0 0 7px 0;
+		box-shadow: 0 0 0 0 #fff;
+		border:1px solid #ccc;
+	}
+	#carousel a:hover img{
+		border:1px solid #aaa;
+	}
+	#carousel > .wrapper {
+		margin: 0;
+		padding: 0;
+		width: 9999px;
+	}
+	#ui-carousel-next,
+	#ui-carousel-prev {
+		cursor: pointer;
+		display: block;
+		height: 152px;
+		background:#ccc;
+		right: 0;
+		position: absolute;
+		top: 0px;
+		width: 15px;
+		z-index: 20;
+		text-decoration:none;
+	}
+	.carousel_prev {
+		left: 0;
+		right:auto;
+	}
+	.carousel_next span,
+	.carousel_prev span{
+		display:block;
+		height:15px;
+		width:15px;
+		margin:65px 0 0 0;
+	}
+	.carousel_next span{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat scroll -159px -165px;
+	}
+	.carousel_prev span{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat scroll -159px -225px;
+	}
+}
+/*--------------------------------- AUTRES LCT ---------------------------------*/
+.ebiblio_voir{
+	.autres_lettres{
+		border-left: 5px solid #ccc;
+		font: 14px/18px Arial,Helvetica,sans-serif;
+		margin: 0 0 20px;
+		overflow: hidden;
+		padding: 0 0 0 15px;
+	}
+	.autres_lettres ul{
+		margin:15px 0;
+	}
+	.autres_lettres li{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat scroll 0 -461px transparent;
+		list-style: none outside none;
+		padding: 0 0 5px 15px;
+		position: relative;
+	}
+	.autres_lettres a{
+		border-bottom: 1px dotted #ccc;
+		display: block;
+		position: relative;
+		text-decoration: none;
+	}
+	.autres_lettres a:hover{
+		text-decoration: underline;
+	}
+	.autres_lettres li span {
+		background: none repeat scroll 0 0 #FFFFFF;
+		margin: 0 30px 0 0;
+		padding: 0 12px 0 0;
+		position: relative;
+		top: 5px;
+	}
+	.autres_lettres .telecharger_autre_lettre {
+		background: url("@{imgPath}/sprite_commun.png") no-repeat scroll 5px -380px #FFFFFF;
+		bottom: -1px;
+		display: block;
+		height: 17px;
+		margin: 0;
+		padding: 0 0 0 10px;
+		position: absolute;
+		right: 0;
+		top: auto;
+		width: 10px;
+	}
+	.autres_lettres .toutes_lettres {
+		float: right;
+		font: 12px/15px Arial,Helvetica,sans-serif;
+		margin: 5px 0 0;
+	}
+	.autres_lettres .toutes_lettres a {
+		border: medium none;
+		display: inline-block;
+	}
+	.titreGris{
+		color: #666666;
+		font: bold 16px/25px Arial,Helvetica,sans-serif;
+		margin: 0 0 10px;
+		padding: 0;
+	}
+}

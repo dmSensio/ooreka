@@ -1,0 +1,1867 @@
+/**************************************************************** SOMMAIRE ****************************************************************
+* Separateur ligne
+* Box bas page
+* Box à découvrir
+* PAPL
+* Box NL
+* Box trouver pro
+* Box Médicament
+* Box demande devis
+* Box lien rapide
+* Box vous etes experts
+
+Responsive Design
+
+
+*/
+/************************** Separateur ligne **************************/
+hr{
+	border:1px solid #ccc;
+	margin: 0;
+	clear:both;
+}
+.separateur_rouge{
+	border-color:@rouge;
+}
+.separateur_violet{
+	border-color:@violet;
+}
+.separateur_violet_epais{
+	border:4px solid @violet;
+}
+.separateur_orange{
+	border-color:@orange;
+}
+.separateur_jaune{
+	border-color:@jaune;
+}
+.separateur_gris{
+	border-color:#ccc;
+}
+/************************** Box bas page **************************/
+.box_bas_page{
+	margin-top:4rem;
+	margin-bottom:4rem;
+	hr {
+		position:relative;
+		top: 4.8rem;
+		width: 100%;
+	}
+	.w1000{
+		margin-top:0;
+	}
+	.titre_bas_page{
+		position:relative;
+		margin-bottom:3rem;
+		font-size:4rem;
+		font-family: @museo;
+		font-weight:700;
+		text-shadow:-26px 0 0 #fff,
+		            -23px 0 0 #fff,
+		            -20px 0 0 #fff,
+		            -17px 0 0 #fff,
+		            -14px 0 0 #fff,
+		            -11px 0 0 #fff,
+		            -8px 0 0 #fff,
+		            -5px 0 0 #fff,
+		            -2px 0 0 #fff,
+		            1px 0 0 #fff,
+		            4px 0 0 #fff,
+		            7px 0 0 #fff,
+		            10px 0 0 #fff,
+		            13px 0 0 #fff,
+		            16px 0 0 #fff,
+			    19px 0 0 #fff,
+		            22px 0 0 #fff,
+		            25px 0 0 #fff,
+		            28px 0 0 #fff,
+		            31px 0 0 #fff;
+		line-height:inherit;
+	}
+	.titre_bas_page.icon::before{
+		position:absolute;
+		background-color:#fff;
+		text-shadow:none;
+		line-height: 1;
+	}
+	.titre_bas_page.icon-enveloppe::before{
+		top: 3rem;
+		left: -12rem;
+		padding-left: .5rem;
+		color:@rouge;
+		.scale(5.5);
+	}
+	.titre_bas_page.icon-plus::before{
+		top:2rem;
+		left:-10rem;
+		color:@violet;
+		.scale(9.5);
+	}
+	.titre_bas_page.icon-interrogation::before{
+		top:3rem;
+		left:-9rem;
+		color:@rouge;
+		.scale(9.5);
+	}
+	.titre_bas_page.icon-euros::before{
+		top:2.5rem;
+		left:-9rem;
+		color: @orange;
+		.scale(6.5);
+	}
+	.titre_bas_page.icon-medicament::before{
+		top:2.5rem;
+		left:-8rem;
+		color: @violet;
+		.scale(6.5);
+	}
+	.titre_bas_page.icon-panier::before{
+		top:3.5rem;
+		left:-10rem;
+		color: @jaune;
+		.scale(8.5);
+	}
+	.titre_bas_page.icon-oeil::before{
+		top: 2rem;
+		left: -10rem;
+		color: @violet;
+		.scale(6.5);
+	}
+	.titre_bas_page.icon-lumiere::before{
+		top: 1rem;
+		left: -7rem;
+		color: @rouge;
+		.scale(6.5);
+		padding:0 .2rem;
+	}
+	.titre_bas_page.icon-plante::before{
+		top:1.5rem;
+		left:-9.2rem;
+		color: @jaune;
+		.scale(8.7);
+	}
+}
+/************************** Box à découvrir **************************/
+.a_decouvrir{
+	.voir_plus{
+		float: right;
+		margin-top: 0;
+		margin-bottom: 3.5rem;
+		font-size: 1.8rem;
+		color: #333;
+		line-height:1;
+		span{
+			color:@rouge;
+		}
+		&::before{
+			top:.1rem;
+			color:@violet;
+		}
+	}
+}
+/************************** PAPL **************************/
+.papl{
+	.papl_video{
+		clear: both;
+		float: left;
+		width: 100%;
+		margin-top: 6rem;
+		hr{
+			top: 3rem;
+		}
+	}
+}
+/************************** Box NL **************************/
+.box_nl{
+	.w_2_3{
+		padding-left: 24rem;
+		position: relative;
+		&::before{
+			content: "";
+			position: absolute;
+			left:0;
+			top: 0;
+			width: 21.5rem;
+			height: 21.5rem;
+			.radius(21rem);
+			background-image: url("@{imgPath}/newsletter_tatie.png");
+			background-position: center top;
+			background-repeat: no-repeat;
+		}
+		p{
+			margin-top: 1rem;
+		}
+		.icon-chevron{
+			position: relative;
+			padding-left: 1.5rem;
+			&::before{
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: #333;
+				.scale-rotate(.6, 180deg);
+			}
+		}
+		a{
+			font-weight: bold;
+		}
+		li{
+			margin-top: 1.5rem;
+			margin-left: 1rem;
+			line-height: 110%;
+			+ li{
+				margin-top: 1rem;
+			}
+		}
+	}
+	.w_1_3{
+		padding: 2.5rem;
+		color: #fff;
+		fieldset{
+			margin-top: 0;
+		}
+		label{
+			font-family: "Museo", Calibri, Arial, Helvetica, sans-serif;
+			font-size: 2.4rem;
+			line-height: 110%;
+			+ p{
+				font-size: 1.4rem;
+			}
+		}
+		input{
+			margin-top: 2rem;
+			font-size: 1.6rem;
+			color: @violet;
+		}
+		.bt_rouge{
+			margin-top: 2rem;
+			margin-bottom: 0;
+		}
+	}
+}
+/************************** Box trouver pro **************************/
+.box_trouver_pro,
+.contenu_comprendre,
+.contenu_nav_gauche{
+	.partenariat_boxPJ{
+		position: absolute;
+		top:3rem;
+		right: 0;
+		padding: .2rem 1rem;
+		background-color: #fff;
+		font-size: 1.6rem;
+		p::after{
+			content:"";
+			display:inline-block;
+			width:125px;
+			height:30px;
+			margin:0 0 0 .5rem;
+			background:url("@{imgPath}/BoxPJ/logoPJ.png") no-repeat scroll 0 0 #fff;
+			vertical-align:-9px;
+		}
+	}
+	.proPJ{
+		width: 100%;
+		+ .proPJ{
+			margin-top: 2rem;
+		}
+		> a{
+			float: left;
+			margin-right:1rem;
+			margin-bottom: 1rem;
+			width: 110px;
+			height: 110px;
+			overflow: hidden;
+			border: 1px solid #ccc;
+			img{
+				width: 110px;
+				height: auto;
+			}
+		}
+		.info_proPJ{
+			font-size: 1.6rem;
+			overflow: hidden;
+			> *{
+				margin-top: .5rem;
+				&:first-child{
+					margin-top: 0;
+				}
+			}
+			.pro_nom{
+				display: block;
+				font-size: 2rem;
+				line-height: 100%;
+				font-weight: bold;
+			}
+			.pro_ville .icon-position{
+				&::before{
+					color: @violet;
+					margin-right: 0;
+					margin-left: .5rem;
+				}
+				&:hover::before{
+					color: @rouge;
+				}
+			}
+			.proPJ_numeroCache{
+				margin-top: 0;
+			}
+			.bt_min{
+				padding: .2rem .5rem;
+			}
+			.bt_moyen{
+				margin: .5rem 0;
+			}
+			.numero_affiche{
+				display: inline-block;
+				margin: .5rem 0 0 0;
+				border: 1px solid #ccc;
+				padding: 0 .5rem;
+				font-size: 2rem;
+				font-weight: bold;
+				vertical-align: -2px;
+			}
+			.bt_boxPJ{
+				font-size: 1.6rem;
+				font-weight: bold;
+				.bt_moyen{
+					font-weight: normal;
+				}
+				.proPJ_numeroCache{
+					display: inline-block;
+				}
+				.bt_violet{
+					margin-left: .5rem;
+				}
+			}
+		}
+	}
+	.proPJ_autre{
+		.lien_fort{
+			display: block;
+			margin-top: 2rem;
+			font-size: 1.6rem;
+			&::before{
+				content: "+";
+				display: inline-block;
+				color: @rouge;
+			}
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+}
+.box_trouver_pro{
+	.w1000{
+		position: relative;
+	}
+	.w_2_3{
+		float: right;
+		margin-right: 0;
+		margin-left: 5%;
+		.site_localisation{
+			margin-bottom: 2.5rem;
+			font-weight: bold;
+			font-style: italic;
+			font-size: 2.5rem;
+		}
+	}
+	.icon-trouver::before{
+		position: absolute;
+		top: 2rem;
+		left: -11rem;
+		background-color: #fff;
+		color: @jaune;
+		text-shadow: none;
+		.scale(8);
+	}
+	#mymap{
+		min-height:245px;
+	}
+	.btLocaliser{
+		min-width: 35%;
+		height: 3rem;
+		padding: .5rem 0;
+		.radius(3px);
+		font-size: 1.5rem;
+		font-family: @museo;
+		font-weight: 500;
+		background: @violet;
+		color:#fff;
+		cursor: pointer;
+	}
+	.map_pro{
+		float: right;
+		background: @jaune;
+		border: 2px solid @jaune;
+		form{
+			padding: 0;
+			margin: 0;
+		}
+		fieldset{
+			padding: 1rem 0;
+			margin: 0;
+			text-align: center;
+		}
+		input{
+			float: left;
+			width: 62%;
+			min-height: 3rem;
+			margin-top: 0;
+		}
+		.icon-localiser{
+			position: relative;
+			display: inline-block;
+			width: 3rem;
+			height: 3rem;
+			padding: 0;
+			background: @violet;
+			.radius(3px);
+			cursor: pointer;
+			vertical-align: top;
+			&::before{
+				position: absolute;
+				top: .7rem;
+				left: .2rem;
+				width: 2.5rem;
+				height: 2.5rem;
+				color: #fff;
+			}
+			&:hover{
+				background: @violet_typo;
+			}
+		}
+	}
+}
+/************************** Box Médicament **************************/
+.box_medicament{
+	.recherche_medicament{
+		> p{
+			font-size: 2.4rem;
+		}
+		form{
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+			padding: 3rem;
+			background-color: @violet;
+			color: #fff;
+			.bulle_info{
+				float: left;
+				position: relative;
+				> p{
+					float: left;
+					margin-bottom: 1rem;
+					position: relative;
+					font-size: 1.6rem;
+					span{
+						font-size: 2.1rem;
+						font-weight: bold;
+					}
+				}
+				> span{
+					display: inline-block;
+					width: 20px;
+					height: 20px;
+					margin-top: .5rem;
+					margin-left: .5rem;
+					background:url("@{imgPath}/sprite_general.png") no-repeat -187px -110px;
+					cursor: pointer;
+				}
+				> div{
+					display: none;
+					position: absolute;
+					top: -2rem;
+					right: -350px;
+					width: 320px;
+					.radius(10px);
+					border: 3px solid @violet-typo;
+					padding: 1rem;
+					background-color: #fff;
+					color: #333;
+					font-size: 1.4rem;
+					z-index: 1000;
+					&::before{
+						content: "";
+						position: absolute;
+						left: -13px;
+						top: 2rem;
+						display: inline-block;
+						width: 20px;
+						height: 20px;
+						border-bottom: 3px solid @violet-typo;
+						border-left: 3px solid @violet-typo;
+						background-color: #fff;
+						.rotate(45deg);
+					}
+					li{
+						position: relative;
+						margin-top: 1rem;
+						padding-left: 1.5rem;
+						&::before{
+							content: "";
+							position: absolute;
+							left: 0;
+							top: .7rem;
+							width: 7px;
+							height: 7px;
+							.radius(4px);
+							background-color: @violet-typo;
+						}
+					}
+				}
+			}
+			.info_bulle_ouvert{
+				> div{
+					display: block;
+				}
+			}
+			.w_2_3{
+				margin-bottom: 0;
+			}
+			.w_1_3{
+				margin-top: .5rem;
+				a{
+					margin: 0;
+				}
+				a + a{
+					font-size: 1.4rem;
+					color: #fff;
+					text-decoration: underline;
+					float: right;
+					margin-top: 1rem;
+				}
+			}
+		}
+	}
+}
+.listing_medicament{
+	margin-bottom: 3rem;
+	li.w_1_4{
+		margin-top: 1rem;
+		padding-left: 1.5rem;
+		line-height: 100%;
+		position: relative;
+		&::before{
+			content: "";
+			position: absolute;
+			left: 0;
+			top: .6rem;
+			width: 10px;
+			height: 10px;
+			.radius(5px);
+			background-color: #999;
+		}
+		a{
+			display: block;
+		}
+	}
+}
+.listing_medicament + div{
+	.flex-display(flex);
+	.flex-direction(row);
+	small{
+		.flex(1 0 0);
+		margin-right: 2rem;
+		font-size: 1.4rem;
+	}
+}
+/************************** Box demande devis **************************/
+.box_devis{
+	.demande_devis{
+		> p{
+			margin: 0;
+			font-size: 2.4rem;
+		}
+		.devis_gratuit{
+			display: none;
+			position: relative;
+			margin-top: 1rem;
+			padding: 2rem 0 2rem 8rem;
+			font-size: 2.6rem;
+			font-family: @museo;
+			color: @violet;
+			&::before{
+				content: "";
+				display: inline-block;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 70px;
+				height: 75px;
+				background: url("@{imgPath}/devis_chouette.png") no-repeat -180px 0;
+			}
+		}
+		form{
+			position: relative;
+			margin-top: 2rem;
+			margin-bottom:0;
+			padding: 2rem 35% 2rem 2rem;
+			font-size: 1.4rem;
+			background-color: @violet;
+			&::before{
+				content: "";
+				display: inline-block;
+				position: absolute;
+				right: 2rem;
+				top: 0;
+				width: 250px;
+				height: 75px;
+				background: url("@{imgPath}/devis_chouette.png") no-repeat 0 0;
+			}
+			fieldset{
+				margin-top: 0;
+				select,
+				input{
+					margin-top: 0;
+					font-size: 1.6rem;
+				}
+			}
+			.bt_rouge{
+				margin-top: .2rem;
+				margin-bottom: 0;
+			}
+			.cp{
+				position: relative;
+				padding-right: 18rem;
+				input{
+					width: 100%;
+				}
+				.bt_rouge{
+					position: absolute;
+					right: 0;
+					left: auto;
+
+				}
+			}
+		}
+		.devis_sante{
+			&::before{
+				top: 3rem;
+			}
+			fieldset{
+				float: left;
+			}
+			.projet{
+				width: 70%;
+				margin-bottom: 1rem;
+			}
+			.bilan{
+				width: 49%;
+				margin-right: 1%;
+			}
+			.cp{
+				width: 50%;
+				padding-right: 19rem;
+			}
+		}
+		.devis_maison,
+		.devis_b2b,
+		.devis_pratique{
+			fieldset{
+				float: left;
+			}
+			.projet{
+				width: 49%;
+				margin-right: 1%;
+			}
+			.cp{
+				width: 50%;
+			}
+		}
+		.devis_argent,
+		.devis_defisc{
+			color: #fff;
+			> p{
+				font-size: 1.6rem;
+				margin-bottom: 1rem;
+			}
+			fieldset{
+				float: left;
+				font-size: 1.4rem;
+			}
+			input[type=checkbox]{
+				display: inline-block;
+				float: none;
+				width: auto;
+				min-height: inherit;
+				vertical-align:-.2rem;
+				margin-right: .2rem;
+			}
+			label{
+				float: left;
+				margin-top: .3rem;
+			}
+			label:nth-of-type(-n+2){
+				margin-top: 0;
+			}
+		}
+		.devis_argent{
+			&::before{
+				top: 2rem;
+			}
+			.projet{
+				width: 55%;
+				margin-right: 1%;
+			}
+			label{
+				width: 48%;
+				margin-right: 2%;
+			}
+			.cp{
+				width: 44%;
+			}
+		}
+		.devis_defisc{
+			&::before{
+				top: 7rem;
+			}
+			.projet{
+				width: 100%;
+				margin-bottom: 1.5rem;
+			}
+			label{
+				width: 45%;
+				margin-right: 5%;
+			}
+			.revenu{
+				width: 40%;
+				margin-right: 1%;
+			}
+			.naissance{
+				position: relative;
+				width: 59%;
+				padding-right: 18rem;
+				.bt_rouge{
+					position: absolute;
+					right: 0;
+					left: auto;
+				}
+			}
+		}
+		.devis_partenaire{
+			background-color: @violet;
+			margin-top: 3rem;
+			padding:2.5rem 4rem 2.5rem 0;
+			position: relative;
+			&::before{
+				content: "";
+				display: inline-block;
+				position: absolute;
+				left: 2rem;
+				top: .8rem;
+				width: 250px;
+				height: 75px;
+				background: url("@{imgPath}/devis_chouette.png") no-repeat 0 0;
+			}
+			.bt_rouge{
+				margin: 0;
+			}
+		}
+		.devis_diagimmo{
+			&::before{
+				top: 3rem;
+			}
+			fieldset{
+				float: left;
+			}
+			.habitation{
+				width: 48%;
+				margin-right: 2%;
+				margin-bottom: 1rem;
+			}
+			.type_hab{
+				width: 50%;
+				margin-bottom: 1rem;
+			}
+			.ville{
+				width: 40%;
+				margin-right: 2%;
+			}
+			.cp{
+				width: 58%;
+			}
+		}
+		.devis_erreur{
+			clear:both;
+			p{
+				padding-top: 1rem;
+				color: @jaune;
+				&::before{
+					color: @jaune;
+				}
+			}
+			p + p{
+				padding: 0;
+				margin-top: .5rem;
+			}
+		}
+	}
+}
+/************************** Box lien rapide **************************/
+.box_lien_rapide{
+	p{
+		font-size:2.6rem;
+		font-family: @museo;
+		font-weight: 700;
+	}
+	article{
+		.liste_connexe{
+			overflow:auto;
+			margin:1em 0 3rem 0;
+			font-size:1.8rem;
+			.w-quart{
+				margin-bottom:0;
+			}
+			li{
+				position:relative;
+
+			}
+			li a{
+				display:block;
+				padding:.5rem 0 .5rem 1.5rem;
+				border-bottom:1px solid #ccc;
+			}
+			li a:hover{
+				border-bottom:1px solid @violet;
+			}
+			li:before{
+				content:"";
+				position:absolute;
+				top:1.2rem;
+				left:0;
+				width:.8rem;
+				height:.8rem;
+				.radius(.4rem);
+				background:@violet-typo;
+			}
+		}
+		> p{
+			margin-top: 0;
+		}
+		ul{
+			margin-top: 2rem;
+		}
+	}
+	.liste_encore{
+		margin-bottom: 0;
+		a{
+			padding:.2rem 0;
+		}
+	}
+}
+/************************** Box vous etes experts **************************/
+.box_reponse_expert{
+	.w_1_3{
+		margin-top:2rem;
+		margin-left:0;
+		font-size:1.4rem;
+		.expert_60w{
+			margin-bottom:1.5rem;
+		}
+		> a{
+			float: right;
+			margin-left:.8rem;
+			padding-left:.8rem;
+			color:@rouge;
+			border-left:1px solid #ccc;
+		}
+		> a + a{
+			color:@violet-typo;
+			border:none;
+		}
+	}
+	.w_2_3{
+		margin-top: 1.5rem;
+		padding-left: 19rem;
+		background: url("@{imgPath}/chouette_aile.png") no-repeat -2rem 2rem;
+		.icon-euros{
+			&::after{
+				content:"0";
+				top:-.5rem;
+				left: -4.7rem;
+				font-size:3.5rem;
+				font-family: @museo;
+				color:@rouge;
+			}
+			&::before{
+				top:1.7rem;
+				left: -2.5rem;
+				color:@rouge;
+				.scale-rotate(.7, -20deg);
+			}
+		}
+		.icon-pourcent{
+			&::before{
+				top: 1rem;
+				left: -4rem;
+				.scale(2);
+			}
+			&::after{
+				content: "";
+				top: -.5rem;
+				left: -3.8rem;
+				width: 0.6rem;
+				height: 4.9rem;
+				background:@rouge;
+				.rotate(-30deg);
+				.radius(1rem);
+			}
+		}
+		.icon-tick{
+			&::before{
+				top: 1rem;
+				left: -4rem;
+				.scale(1.5);
+			}
+		}
+		p{
+			position:relative;
+			margin-left: 4rem;
+			padding:.8rem 1rem;
+			border-left: 1px solid #ccc;
+			&::after,
+			&::before{
+				position:absolute;
+			}
+		}
+		a{
+			color:#333;
+		}
+		.bt_max.icon-question{
+			margin-top:2rem;
+			color:#fff;
+		}
+	}
+}
+.reassurance_expert.box_bas_page{
+	span{
+		top:2.5rem;
+	}
+	.titre_bas_page{
+		text-align:left;
+	}
+	h2::after{
+		display: none;
+	}
+}
+/************************** Box Trouver une plante **************************/
+.recherche_plant{
+	h3.w_1_3{
+		margin-right: 5%;
+		+ .w_2_3{
+			margin-right: 0;
+		}
+	}
+	.box_recherche_plante{
+		margin-bottom: 3rem;
+		padding: 1.5rem 2rem;
+		background: @violet;
+		fieldset{
+			margin:0;
+			input{
+				width: 75%;
+				float: left;
+				margin: 0;
+				border: none;
+				&::-webkit-input-placeholder{
+					color: #bbb;
+				}
+			}
+			a{
+				float: right;
+				margin: .3rem 0 0 0;
+			}
+		}
+		.w_2_3{
+			margin-bottom: 0;
+		}
+		.w_1_3:nth-of-type(3n+1){
+			clear: none;
+		}
+	}
+	.recherche_ou{
+		clear: both;
+		border-top: 2px dotted #e3e3e3;
+		span{
+			width: 4rem;
+			padding: .4rem;
+			font-size: 2rem;
+			top:-1.6rem;
+			text-shadow: none;
+			color: #999;
+			background: #fff;
+			font-family: @museo900;
+		}
+		+ h3{
+			margin: 0 0 3rem 0;
+		}
+	}
+	.lien_rechercher_plante{
+		float: right;
+		a{
+			margin: 0 0 1rem 1rem;
+		}
+		a:first-of-type{
+			line-height: 2.5rem;
+			font-size: 1.8rem;
+			&:hover{
+				color: @rouge;
+			}
+		}
+	}
+	form:last-of-type{
+		margin-bottom: 2rem;
+	}
+	.recherche_criteres{
+		ul{
+			border-top: none;
+			padding: 1.5rem 0 0 0;
+			li{
+				word-wrap:break-word;
+				font-size: 1.8rem;
+				margin-bottom: 1.5rem;
+			}
+		}
+		> div{
+			position: relative;
+			p{
+				position: relative;
+				overflow: hidden;
+				font-size: 2rem;
+				font-family: Calibri, Arial, Helvetica, sans-serif;
+				font-weight: bold;
+				&::after{
+					content:"";
+					position: absolute;
+					width: 100%;
+					height: 1px;
+					margin-left: 1rem;
+					background: #ccc;
+					bottom: .7rem;
+				}
+			}
+			input{
+				margin: .3rem .8rem .3rem .3rem;
+			}
+		}
+		.bulle_info{
+			display: inline-block;
+			width: 2rem;
+			height: 2rem;
+			margin-bottom: .5rem;
+			background:url("@{imgPath}/sprite_general.png") no-repeat -187px -110px;
+			cursor: pointer;
+		}
+		.menu_type,
+		.climat_plante{
+			li{
+				float: left;
+				width: 50%;
+				input{
+					float: left;
+				}
+				span{
+					overflow: hidden;
+					display: block;
+					line-height: 2rem;
+				}
+			}
+		}
+		.menu_type{
+			li:last-of-type{
+				width: 100%;
+			}
+		}
+		.climat_plante{
+			ul{
+				li{
+					width: 33.33%;
+					margin-bottom: 0;
+				}
+				input[type="checkbox"]{
+					display: none;
+				}
+				label{
+					display: block;
+					padding: .5rem 0;
+					font-size: 1.4rem;
+					text-align: center;
+					cursor: pointer;
+					.transition(all, .3s, ease-in-out, 0s);
+					&:hover{
+						opacity: .85;
+					}
+					span{
+						margin: 0 auto;
+					}
+				}
+				input[type="checkbox"]:checked{
+					+ label{
+						background-color: #e2e2e2;
+						-webkit-animation: scaleClick .3s ease;
+							animation: scaleClick .3s ease;
+					}
+				}
+			}
+		}
+		.couleur_fleur,
+		.couleur_feuille{
+			overflow: inherit;
+			ul{
+				.flex-display(flex);
+			}
+			li{
+				position: relative;
+				text-align: center;
+				.flex(1 0 0);
+				input{
+					margin: .3rem;
+				}
+				span{
+					display: none;
+				}
+				&:hover span{
+					display:block;
+					position:absolute;
+					bottom: 130%;
+					left:-5.3rem;
+					min-width:13rem;
+					padding:.5rem;
+					font-size: 1.6rem;
+					background:#fff;
+					box-shadow: 0 0 9px -2px #333;
+					.radius(5px);
+					z-index:100;
+				}
+				&:hover span::before{
+					top: 100%;
+					left: 50%;
+					border: solid transparent;
+					content: " ";
+					height: 0;
+					width: 0;
+					position: absolute;
+					pointer-events: none;
+				}
+				&:hover span::before{
+					border-color: transparent transparent #fff #fff;
+					border-width: 6px;
+					margin-left: -6px;
+					box-shadow: -3px 1px 3px #CECECE;
+					.transform-origin (0, 0);
+					.rotate (-45deg);
+				}
+			}
+		}
+		.liste_illustration{
+			li span{
+				float: none;
+			}
+		}
+		.liste_uniquement{
+			input{
+				float: left;
+				margin-top: 0.5rem;
+				+ div{
+					overflow: hidden;
+					span:last-of-type{
+						display: block;
+						overflow: hidden;
+					}
+				}
+			}
+			.niveau_entretien_easy{
+				width: 2rem;
+				margin-right: 1rem;
+			}
+			.besoin_eau_low{
+				width: 1.8rem;
+				margin-right: 1.2rem;
+			}
+		}
+		.information_plante{
+			width: 117%;
+			padding: 2.5rem 1rem 0 1rem;
+			border: 3px solid @violet-typo;
+			&.information_expo{
+				top: -3.5rem;
+				left: 14rem;
+			}
+			&::before{
+				content: " ";
+				position: absolute;
+				top: 5rem;
+				left: -1.1rem;
+				width: 1rem;
+				height: 1rem;
+				border: solid transparent;
+				border-color: @violet-typo transparent transparent @violet-typo;
+				border-width: 3px;
+				background: #fff;
+				.transform-origin (0, 0);
+				.rotate(-45deg);
+			}
+			.info_bulle{
+				overflow: hidden;
+				span{
+					background: none;
+					font-size: 24px;
+					color: @violet-typo;
+					&::before{
+						content:"|";
+						display: block;
+						.rotate(44deg);
+						position: absolute;
+						.transform-origin(center,right);
+					}
+					&::after{
+						content:"|";
+						display: block;
+						.rotate(-44deg);
+						position: absolute;
+						.transform-origin(center,left);
+					}
+				}
+				li{
+					width: 100%;
+					margin-bottom: 2rem;
+					clear: both;
+					aside{
+						overflow: hidden;
+						font-size: 1.4rem;
+					}
+					&::before{
+						content: "";
+						display: block;
+						float: left;
+						width: 13rem;
+						height: 13rem;
+						margin-right: 2rem;
+						background:url("@{imgPath}/sprite_plantes.png") no-repeat transparent;
+					}
+					&.soleil::before{
+						background-position: -1857px -6px;
+					}
+					&.mi-ombre::before{
+						background-position: -2007px -6px;
+					}
+					&.ombre::before{
+						background-position: -2136px -6px;
+					}
+				}
+			}
+			a{
+				font-size: 1.4rem;
+				text-decoration: underline;
+			}
+		}
+/*-------------------------------------- COULEUR FLEUR ET FEUILLE ---------------------------------------------------------*/
+		.couleur_feuille label{
+			display:block;
+			height:1.5rem;
+			width:2.7rem;
+			margin:0 0 .5rem 0;
+			padding:3.6rem 0 0 0;
+		}
+		.couleur_feuille label:hover{
+			color:#333;
+		}
+		.feuille_silver{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -5px -1px;
+		}
+		.feuille_golden{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -42px -1px;
+		}
+		.feuille_pale_green{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -79px -1px;
+		}
+		.feuille_variegated{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -298px -1px;
+		}
+		.feuille_dark_green{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -116px -1px;
+		}
+		.feuille_red{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -266px -1px;
+		}
+		.feuille_purple{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -228px -1px;
+		}
+		.feuille_black{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -190px -1px;
+		}
+		.feuille_blue{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -154px -1px;
+		}
+		.couleur_fleur label{
+			display:block;
+			height:1.5rem;
+			max-width:2.7rem;
+			margin: 0;
+			padding:2.3rem 0 0 0;
+		}
+		.couleur_fleur label:hover{
+			color:#333;
+		}
+		.fleur_white{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -5px -51px transparent;
+		}
+		.fleur_grey{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -30px -51px transparent;
+		}
+		.fleur_yellow{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -57px -51px transparent;
+		}
+		.fleur_orange{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -83px -51px transparent;
+		}
+		.fleur_red{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -108px -51px transparent;
+		}
+		.fleur_pink{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -135px -51px transparent;
+		}
+		.fleur_violet_purple{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -161px -51px transparent;
+		}
+		.fleur_blue{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -187px -51px transparent;
+		}
+		.fleur_green{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -214px -51px transparent;
+		}
+		.fleur_black{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -240px -51px transparent;
+		}
+		.fleur_multicolor{
+			background:url("@{imgPath}/sprite_droite.png")no-repeat -266px -51px transparent;
+		}
+	}
+}
+/************************** Responsive Design **************************/
+@media only screen and (max-width: 1350px) {
+	.box_bas_page{
+		.titre_bas_page{
+			&::before{
+				display: none;
+			}
+		}
+		.recherche_plant{
+			.information_plante{
+				width: 100%;
+				&.information_expo{
+					top: 4rem;
+					left: 0;
+				}
+				&.information_expo::before{
+					top:-1.1rem;
+					left:9.9rem;
+					.rotate(45deg);
+				}
+				.info_bulle{
+					li::before{
+						float: none;
+						margin: 0 auto;
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 950px) {
+	.box_medicament{
+		.recherche_medicament{
+			form{
+				.w_2_3{
+					width: 100%;
+					margin-right: 0;
+					margin-bottom: 2rem;
+				}
+				.w_1_3{
+					width: 100%;
+					margin: 0;
+					a.bt_rouge{
+						float: right;
+						margin-left: 2rem;
+					}
+				}
+				.bulle_info{
+					> div{
+						top: 4.5rem;
+						right: -23px;
+						&::before{
+							top: -13px;
+							right: 20px;
+							left: auto;
+							.rotate(135deg);
+						}
+					}
+				}
+			}
+		}
+	}
+	.box_devis{
+		.demande_devis{
+			.devis_gratuit{
+				display: block;
+			}
+			&.devis_lead_indirect{
+				.devis_gratuit{
+					display: none;
+				}
+				.devis_partenaire{
+					width: 100%;
+				}
+			}
+			form{
+				padding-right: 2rem;
+				&::before{
+					display: none;
+				}
+			}
+			.devis_maison,
+			.devis_b2b,
+			.devis_pratique{
+				.projet{
+					width: 60%;
+				}
+				.cp{
+					width: 39%;
+				}
+			}
+			.devis_sante{
+				.projet{
+					width: 30%;
+					margin-right: 1%;
+				}
+				.bilan{
+					width: 30%;
+				}
+				.cp{
+					width: 38%;
+				}
+			}
+		}
+	}
+	//**** RECHERCHE PLANTE ****//
+	.recherche_plant{
+		h3.w_1_3{
+			width: 100%;
+			margin-bottom: 1.5rem;
+		}
+		.box_recherche_plante{
+			width: 100%;
+		}
+		.recherche_criteres{
+			.couleur_fleur,
+			.couleur_feuille{
+				li:hover span{
+					display: none;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 850px) {
+	.box_reponse_expert{
+		.w_1_3{
+			display: none;
+		}
+		.w_2_3{
+			background:none;
+			padding:0;
+		}
+	}
+}
+@media only screen and (max-width: 800px) {
+	.box_bas_page{
+		hr{
+			top: 0;
+		}
+		.titre_bas_page{
+			margin-bottom: 3rem;
+		}
+		.proPJ_autre{
+			text-align: center;
+		}
+	}
+	.a_decouvrir{
+		.w_1_3{
+			display:none;
+		}
+	}
+	.box_trouver_pro{
+		.titre_bas_page{
+			margin-bottom: 2rem;
+		}
+		.remonteePJ{
+			position: relative;
+			.flex-display(flex);
+			.flex-direction(column);
+			.w_1_3{
+				margin-top: 0;
+				.flex-order(-1);
+			}
+			.w_2_3{
+				margin-top: 2rem;
+				margin-left: 0;
+			}
+		}
+		.partenariat_boxPJ{
+			position: static;
+			padding: 0;
+			.flex-order(2);
+			text-align: center;
+		}
+		.map_pro{
+			background: none;
+			border: none;
+		}
+		.map_pro.w_1_3{
+			width: 100%;
+			#mymap{
+				display: none;
+			}
+		}
+	}
+	.box_nl{
+		.w_2_3{
+			min-height: 21.5rem;
+		}
+		.w_1_3{
+			margin-top: 2rem;
+		}
+	}
+	/***** Box vous etes experts *****/
+	.reassurance_expert.box_bas_page{
+		.titre_bas_page{
+			margin-bottom: 1rem;
+		}
+		span{
+			position:static;
+		}
+	}
+	/***** Box medicament *****/
+	.listing_medicament + div{
+		.flex-direction(column);
+		small{
+			order:1;
+			margin-right: 0;
+			+ a{
+				display: table;
+				margin: 0 auto 2rem auto;
+			}
+		}
+	}
+	/***** Box devis *****/
+	.box_devis{
+		.demande_devis{
+			.devis_maison,
+			.devis_b2b,
+			.devis_pratique{
+				.projet{
+					width: 50%;
+				}
+				.cp{
+					width: 49%;
+				}
+			}
+			.devis_sante{
+				.projet{
+					width: 30%;
+				}
+				.bilan{
+					width: 23%;
+				}
+				.cp{
+					width: 45%;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 700px) {
+	.box_devis{
+		.demande_devis{
+			.devis_sante{
+				.projet{
+					width: 49%;
+
+				}
+				.bilan{
+					width: 49%;
+					margin-bottom: 1rem;
+				}
+				.cp{
+					width: 50%;
+				}
+			}
+			.devis_argent{
+				.projet{
+					width: 45%;
+				}
+				.cp{
+					width:54%;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 620px) {
+	.box_medicament{
+		.recherche_medicament{
+			form{
+				.bulle_info{
+					.flex-display(flex);
+					.flex-direction(row);
+					> p{
+						.flex-order(1);
+						span{
+							display: block;
+						}
+					}
+					span{
+						margin-left: 0;
+						margin-right: 1rem;
+					}
+					div{
+						right: auto;
+						left: -23px;
+						width: 100%;
+						top: 4.5rem;
+						&::before{
+							top: -13px;
+							left: 17px;
+							.rotate(135deg);
+						}
+					}
+				}
+			}
+		}
+	}
+	.box_devis{
+		.demande_devis{
+			&.devis_lead_indirect{
+				.devis_gratuit{
+					display: block;
+				}
+				.devis_partenaire{
+					background: none;
+					padding: 0;
+					margin: 0;
+					margin-top: 1rem;
+					&::before{
+						display: none;
+					}
+					.bt_rouge{
+						float: none;
+						display: table;
+						text-align: center;
+					}
+				}
+			}
+			.devis_maison,
+			.devis_b2b,
+			.devis_pratique{
+				.projet{
+					width: 35%;
+				}
+				.cp{
+					width: 64%;
+				}
+			}
+			.devis_sante{
+				.projet{
+					width: 100%;
+					margin-right: 0;
+
+				}
+				.bilan{
+					width: 100%;
+					margin-right: 0;
+				}
+				.cp{
+					width: 100%;
+				}
+			}
+			.devis_defisc{
+				.revenu{
+					width: 30%;
+				}
+				.naissance{
+					width: 69%;
+				}
+			}
+
+		}
+	}
+	.box_nl{
+		.w_2_3{
+			padding-left: 0;
+			padding-top: 17rem;
+			&::before{
+				width: 100%;
+				height: 16rem;
+				.radius(0);
+			}
+		}
+	}
+	// RECHERCHE PLANTE
+	.recherche_plant{
+		.box_recherche_plante{
+			fieldset{
+				input{
+					width: 100%;
+					margin-bottom: 1.5rem;
+				}
+				a{
+					float: none;
+					margin: 0 auto;
+					display: table;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 500px) {
+	/********* Autres *********/
+	.box_reponse_expert{
+		.w_2_3{
+			width:100%;
+			padding-left: .5rem;
+			background: none;
+		}
+	}
+	.a_decouvrir{
+		.w_1_2{
+			width:100%;
+		}
+	}
+	.box_bas_page .titre_bas_page{
+		font-size: 2.6rem;
+		margin-bottom: 1rem;
+	}
+	.box_lien_rapide{
+		article{
+			> p{
+				font-size: 2rem;
+			}
+			li.w_1_4:nth-of-type(n){
+				width: 45%;
+				margin-top: 0rem;
+			}
+			li.w_1_4:nth-of-type(2n+2){
+				margin-left: 5%;
+			}
+		}
+	}
+	.box_trouver_pro,
+	.contenu_comprendre,
+	.contenu_nav_gauche{
+		.lien_fort{
+			margin-top: 1rem;
+			padding-bottom: 1.5rem;
+		}
+	}
+	.box_devis{
+		.demande_devis{
+			.devis_gratuit{
+				font-size: 2rem;
+			}
+			> p{
+				font-size: 1.6rem;
+			}
+			form{
+				.cp{
+					width: 100%;
+					padding:0;
+					.bt_rouge{
+						position: static;
+						width: 100%;
+						margin-top: 1rem;
+						text-align: center;
+					}
+				}
+			}
+			.devis_maison,
+			.devis_b2b,
+			.devis_pratique{
+				.projet{
+					width: 100%;
+					margin-bottom: 1rem;
+				}
+				.cp{
+					width: 100%;
+				}
+			}
+			.devis_sante{
+				.cp{
+					padding-right: 0;
+				}
+			}
+			.devis_defisc{
+				> p{
+					margin-bottom: .5em;
+				}
+				label{
+					width: 100%;
+					margin-right: 0;
+					margin-top: .5rem;
+				}
+				label:nth-of-type(-n+2){
+					margin-top: .5rem;
+				}
+				.projet{
+					margin-bottom: 2rem;
+				}
+				.revenu{
+					width: 100%;
+					margin-right: 0;
+					margin-bottom: 1rem;
+				}
+				.naissance{
+					width: 100%;
+					padding-right: 0;
+					.bt_rouge{
+						position: static;
+						width: 100%;
+						margin-top: 1rem;
+						text-align: center;
+					}
+				}
+			}
+			.devis_argent{
+				> p{
+					margin-bottom: .5em;
+				}
+				label{
+					width: 100%;
+					margin-right: 0;
+					margin-top: .5rem;
+				}
+				label:nth-of-type(-n+2){
+					margin-top: .5rem;
+				}
+				.projet{
+					width: 100%;
+					margin-right: 0;
+					margin-bottom: 1rem;
+				}
+				.cp{
+					width: 100%;
+				}
+			}
+			.devis_diagimmo{
+				.habitation,
+				.type_hab,
+				.ville,
+				.cp{
+					width: 100%;
+					margin-right: 0;
+					margin-bottom: 1rem;
+				}
+			}
+		}
+	}
+}

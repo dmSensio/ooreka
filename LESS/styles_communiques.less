@@ -1,0 +1,241 @@
+/*----------------------------------------------------------- SOMMAIRE ------------------------------------------------------------
+I. HP COMMUNIQUES DE PRESSE
+	1. filtres
+	2. liste communiques - partie profil
+		a. bt_profil
+	3. liste communiques - partie communique
+	
+II. 1 COMMUNIQUE
+	1. info communique
+
+
+
+
+/****************************** HP COMMUNIQUES DE PRESSE ******************************/
+#page_communiques{
+	width:660px;
+	.titre_page{
+		margin-bottom:5px;
+	}
+	.intro{
+		font: 14px/17px Arial, Helvetica, sans-serif;
+		color:#666;
+	}
+/*----------------- filtres ----------------------*/
+	.filtre_communiques{
+		margin:0 0 20px 0;
+		font:12px/30px Arial, Helvetica, sans-serif;
+	}
+	.filtre_communiques label{
+		float:none;
+		padding:0;
+		font-size:12px;
+	}
+	.filtre_communiques input{
+		margin: 0 2px 0 15px;
+		float:none;
+		vertical-align:-2px;
+	}
+	.membre_communiques{
+		position:relative;
+		float: right;
+	}
+	.membre_communiques .fleche_type{
+		background:url("@{imgPath}/plantes/sprite_plantes.png")no-repeat -207px -231px #999;
+		cursor: pointer;
+		display: block;
+		height: 30px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 12px;
+	}
+	.membre_communiques ul {
+		border: 1px solid #999;
+		background:#fff;
+		list-style: none;
+		position: absolute;
+		right: 12px;
+		top: 0;
+		width:280px;
+		padding:0;
+		margin:0;
+		font-size:11px;
+		.inner-shadow(1px, 1px, 3px, 0px, #dddddd);
+	}
+	.membre_communiques a{
+		line-height: 28px;
+		padding: 0 0 0 10px;
+		cursor:pointer;
+		text-decoration:none;
+		color:#333;	
+		display:block;
+	}
+	.membre_communiques a:hover{
+		background:#eee;	
+	}
+/*---------------------------------- liste communiques ---------------------------------------*/
+	.all_communiques{
+		min-height:230px;
+		border-bottom:2px solid #aaa;
+	}
+/*----------------- liste communiques - partie profil ----------------------*/
+	.profil_communiques{
+		float:left;
+		min-height:200px;
+		width:170px;
+		padding:15px;
+		border-right:1px dotted #ccc;
+		position:relative;
+		text-align:center;
+	}
+	.profil_communiques img{
+		max-height:60px;
+		max-width:165px;
+		margin:0 0 10px 0;
+		color:#ccc;
+		font-size:9px;
+	}
+	.profil_communiques .no_logo_communiques{
+		display:inline-block;
+		width:150px;
+		height:100px;
+		background:#ccc;
+		margin:0 25px;
+	}
+	.societe_communiques{
+		max-height:54px;
+		overflow:hidden;
+		padding:0;
+		font: bold 15px/18px Arial, Helvetica, sans-serif;
+		color:#333;
+	}
+	.societe_communiques + p{
+		font:11px/14px Arial, Helvetica, sans-serif;
+		color:#666;
+		height: 28px;
+		overflow: hidden;
+		padding: 0;
+	}	
+/*-------------- bt_profil -----------------*/
+	.profil_communiques button{
+		border:none;
+		font: bold 11px/6px Arial,Helvetica,sans-serif;
+		height: 20px;
+		padding: 0 0 0 20px;
+		position: absolute;
+		left:0;
+		width: 145px;
+		margin: 0 25px;
+		cursor:pointer;
+	}
+	.contact_profil_communiques{
+		background:#ccc;
+		bottom:40px;
+	}
+	.espace_pro_communiques{
+		background:@color_aplat;
+		color: #fff;
+		bottom:15px;
+	}
+	.contact_profil_communiques:hover{
+		background:#999;
+		color:#fff;
+	}
+	.espace_pro_communiques:hover{
+		background:@color_base;
+	}
+	.contact_profil_communiques span,
+	.espace_pro_communiques span{
+		display:inline-block;
+		width:20px;
+		height:20px;
+		position:absolute;
+		top:0;
+		left:0;
+	}
+	.contact_profil_communiques span{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat scroll 1px -666px #999;
+	}
+	.espace_pro_communiques span{
+		background: url("@{imgPath}/sprite_commun.png") no-repeat scroll 1px -649px @color_base;
+	}
+/*----------------- liste communiques - partie communique ----------------------*/
+	.sujet_communiques{
+		float:left;
+		min-height:210px;
+		overflow:hidden;
+		width:439px;
+		padding:10px;
+	}
+	.sujet_communiques .titre_communiques {
+		font:20px/120% 'museo', Arial, Helvetica, sans-serif;
+		color:@color_base;
+		margin: 0 0 10px 0;
+	}
+	.sujet_communiques .titre_communiques a{
+		text-decoration:none;
+	}
+	.sujet_communiques .titre_communiques a:hover{
+		color:@color_contraste;
+	}
+	.sujet_communiques .titre_communiques span{
+		font:13px/17px Arial, Helvetica, sans-serif;
+		color:#999;
+	}
+	.sujet_communiques .suite_communiques{
+		float:right;
+		margin-top:10px;
+		font:12px/14px Arial, Helvetica, sans-serif;
+		color:@color_base;
+		text-decoration:none;
+	}
+	.sujet_communiques .suite_communiques:hover{
+		text-decoration:underline;
+	}
+}
+/******************************** 1 COMMUNIQUE *********************************/
+
+#ugc_communiques{
+	width:660px;
+	h1 span{
+		color:#999;
+	}
+/*----------------- info communique ----------------------*/
+	.signature_communiques {
+		font: 12px/16px Arial, Helvetica, sans-serif;
+		color:#999;
+		margin-bottom:30px;
+	}
+	img[alt="expert"]{
+		margin:0 5px 0 0;
+	}
+	.bt_tel_pdf{
+		float:right;
+		text-decoration:underline;
+		color:#c00;
+	}
+	.bt_tel_pdf:hover{
+		color:#333;
+	}
+	.bt_tel_pdf span{
+		display:inline-block;
+		width:20px;
+		height:15px;
+		background: url("@{imgPathTheme}/sprite_partage.png") no-repeat 4px -23px;
+		vertical-align:middle;
+		margin:0 5px 0 0;
+	}
+	.signature_communiques .bt_gris_clair{
+		display:inline-block;
+		float:none;
+		margin-left: 10px;
+	}
+/*----------------- article ----------------------*/
+	.article{
+		margin-bottom:20px;
+	}
+	.ad_540x350{
+		margin:20px 0 30px 0;
+	}
+}

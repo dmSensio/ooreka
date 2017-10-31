@@ -1,0 +1,401 @@
+/* SOMMAIRE 
+
+*/
+@import 'styles_variables';
+#dossier_murprotec{
+	font:16px/140% Arial, Helvetica, sans-serif;
+	*{
+		box-sizing:border-box;
+	}
+	a{
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+	}
+	a:hover{
+		-webkit-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+	}
+	.header_murprotec{
+		position:relative;
+		left:-10px;
+		height:176px;
+		width: 1030px;
+		padding:70px 0 0 50px;
+		background:url('@{imgPath}/dossier/header_murprotec.jpg')no-repeat;
+		color:#fff;
+		font:30px 'CodePro', Arial, Helvetica, sans-serif;
+		margin:20px 0;
+	}
+	.article_murprotec{
+		margin:40px 20px;
+	}
+	h1{
+		color:#142479;
+		font:26px 'CodePro', Arial, Helvetica, sans-serif;
+		margin:0 0 10px 0;
+	}
+	h2{
+		color:#142479;
+		font:24px Arial, Helvetica, sans-serif;
+		margin:30px 0 20px 0;
+	}
+	.signature_dossierSpe{
+		margin:0 0 40px 0;
+		color: #999;
+		font: 12px/150% Arial,Helvetica,sans-serif;
+	}
+	.signature{
+		color: #333;
+		font:italic bold 12px/140% Georgia,"Times New Roman",Times,serif;
+	}
+	.chapeau_murprotec{
+		font:bold italic 16px/140% Arial, Helvetica, sans-serif;
+		margin:0 0 15px 0;
+	}
+	p{
+		margin:0 0 20px 0;
+	}
+	ol{
+		margin:0 0 20px 0;
+		padding:0 0 0 50px;
+	}
+	ol li{
+		margin:0 0 5px 0;
+	}
+	ul{
+		padding:0 0 0 35px;
+		margin:0 0 20px 0;
+	}
+	ul li{
+		list-style:none;
+		background: url("@{imgPathTheme}/puce_tab.png") no-repeat 0 5px;
+		padding:0 0 0 15px;
+	}
+	.lienDevis{
+		font-weight:bold;
+		a{
+			color:#65a5c6;
+		}
+		a:hover{
+			color:#435094;
+		}
+	}
+	.imggauche{
+		margin:5px 30px 30px 0;
+	}
+	/*----------------------------------------- COLONNE DE DROITE / BOX DEVIS ----------------------------------------------------*/
+	.colD_murprotec{
+		width:300px;
+		float:right;
+		margin:0 0 0 30px;
+	}
+	.boxDevis_murprotec{
+		border:1px solid #435094;
+		text-align:center;
+	}
+	.boxDevisTitre{
+		position:relative;
+		top:-10px;
+		display:inline-block;
+		background-color:#fff;
+		padding:0 10px;
+		color:#142479;
+		font:17px 'CodePro', Arial, Helvetica, sans-serif;
+	}
+	.boxDevis_murprotec p{
+		margin:0;
+	}
+	.boxDevis_murprotec a{
+		display:inline-block;
+		height:30px;
+		padding:3px 30px;
+		margin:5px 0 10px 0;
+		.rounded(15px);
+		background-color:#435094;
+		color:#fff;
+		text-decoration:none;
+	}
+	.boxDevis_murprotec a:hover{
+		background-color:#6073d8;
+	}
+	/*----------------------------------------- COLONNE DE DROITE / NAV VERTICALE ----------------------------------------------------*/
+	.navVerticale_murprotec{
+		margin:20px 0 0 0;
+		background-color:#f0f0f0;
+		font-size:14px;
+		line-height:18px;
+	}
+	.navVerticale_murprotec img{
+		width:300px;
+		margin:0 auto 5px;
+	}
+	.navVerticale_murprotec p{
+		margin:10px 20px;
+	}
+	.navVerticale_murprotec a{
+		color:#333;
+		text-decoration:none;
+	}
+	.navVerticale_murprotec a span{
+		color:#267C89;
+		text-decoration:underline;
+	}
+	.navVerticale_murprotec a span:hover{
+		color:#435094;
+	}
+	p.navVerticaleTitre{
+		margin:0;
+		padding:10px 20px;
+		background-color:#5AA7B9;
+		color:#fff;
+		font:16px 'CodePro', Arial, Helvetica, sans-serif;
+	}
+	.navVerticaleSsTitre{
+		font-weight:bold;
+	}
+	.navVerticaleSsText{	
+		font:12px/16px Arial, Helvetica, sans-serif;
+	}
+	.navVerticale_murprotec ul{
+		padding:0 20px 20px 25px;
+	}
+	.navVerticale_murprotec ul li:first-child{
+		border-top:none;
+	}
+	.navVerticale_murprotec li{
+		margin:0;
+		padding:0;
+		border-top:1px solid #65a5c6;
+		background-position:0 15px;
+	}
+	.navVerticale_murprotec li a{
+		color:#267C89;
+		display:block;
+		padding:10px 0 10px 15px;
+		text-decoration:none;
+	}
+	.navVerticale_murprotec li a:hover{
+		background:#fafafa;
+	}
+}
+/*----------------------------------------- DEVIS ----------------------------------------------------*/
+#devis_murprotec{
+	clear:both;
+	height:420px;
+	margin:30px 0 40px 0;
+	border:1px solid #435094;
+	.devisGauche{
+		width:310px;
+		float:left;
+		text-align:center;
+		color:#435094;
+		font:18px/22px Arial, Helvetica, sans-serif;
+	}
+	.devisGaucheTitre{
+		position:relative;
+		background:#435094;
+		font:22px/54px 'CodePro', Arial, Helvetica, sans-serif;
+		color:#fff;
+		margin:0 0 30px 0;
+	}
+	.devisGaucheTitre:after{
+		position:absolute;
+		bottom:-15px;
+		left:140px;
+		content:'';
+		width: 0; 
+		height: 0; 
+		border-left: 14px solid #fff;
+		border-right: 14px solid #fff;
+		border-top: 15px solid #435094;
+	}
+	.devisReassurance{
+		text-transform:uppercase;
+		font-size:20px;
+		line-height:24px;
+	}
+	.devisEnLigne{
+		position:relative;
+		border-bottom:2px solid #435094;
+		margin:20px 30px;
+		padding:0 0 20px 0;
+		font-weight:bold;
+	}
+	.devisEnLigne span{
+		position:absolute;
+		left:101px;
+		bottom:-15px;
+		background: #fff;
+		padding:0 10px;
+	}
+	.devisTelephone{
+		position:relative;
+		margin:0 0 0 100px;
+		text-align:left;
+		font-weight:bold;
+	}
+	.devisTelephone:before{
+		content:'';
+		position:absolute;
+		top:0;
+		left:-60px;
+		display: block;
+		height: 50px;
+		width: 50px;
+		background:url('@{imgPath}/dossier/sprite_murprotec.png')no-repeat;
+	}
+	.devisTelephoneMention{
+		font-size:11px;
+	}
+	.partenariat_murprotec{
+		font-size:14px;
+	}
+	.partenariat_murprotec:after{
+		content:'';
+		display: block;
+		margin:6px auto;
+		height: 50px;
+		width: 195px;
+		background:url('@{imgPath}/dossier/sprite_murprotec.png')no-repeat -52px 0;
+	}
+	iframe{
+		border:none;
+		margin:8px 0 0 0;
+	}
+}
+/*------------------------------------------------ IFRAME ---------------------------------------------------------*/
+.iframeDossierSpe{
+	background:#fff;
+	margin:0;
+	padding:0;
+}
+.devis_etapes{
+	margin:0;
+	border:0;
+	background:#fff;
+	.etape_prev{
+		left:25px;
+	}
+	.etape_next{
+		right:25px;
+	}
+	.nom .etape_question{
+		min-height:153px;
+	}
+	.nom .etape_question > span{
+		height:32px;
+		margin:15px 10px 10px 0;
+	}
+	.nom .etape_question .mademoiselle{
+		margin:15px 0 10px 0;
+	}
+	.nom input,
+	.nom textarea{
+		margin:8px 0;
+	}
+	.nom input,
+	.lieu input{
+		margin-right:10px;
+	}
+	.nom span span{
+		height:94px;
+		top:-42px;
+	}
+	.etape_champs .erreur{
+		top:-8px;
+	}
+	.lieu .etape_champs{
+		padding:75px 0 85px;
+	}
+}
+.devisDossierMerci{
+	margin:0;
+	text-align:center;
+	color:#435094;
+	font:18px/22px Arial, Helvetica, sans-serif;
+	p{
+		margin:30px auto 0 auto;
+		width:415px;
+	}
+	p:first-child{
+		margin:80px auto 0 auto;
+		font:24px/30px Arial, Helvetica, sans-serif;
+	}
+}
+/*------------------------------------------------ A LIRE EGALEMENT ---------------------------------------------*/
+#dossier_murprotec{
+	.egalement_murprotec{
+		overflow:hidden;
+		padding:0;
+		margin:20px 0 40px 0;
+		li{
+			width:300px;
+			padding:0;
+			margin:0 0 0 35px;
+			float:left;
+			background:none;
+		}
+		li:first-child{
+			margin:0;
+		}
+		a{
+			text-decoration:none;
+			color:#435094;
+			font-weight:bold;
+		}
+		a:hover{
+			color:#6073d8;
+		}
+		img{
+			min-width:300px;
+			-webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-ms-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
+			transition: all 0.5s ease;
+		}
+		a:hover img{
+			opacity:0.8;
+			-webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-ms-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
+			transition: all 0.5s ease;
+		}
+		.imgcentrer{
+			margin:0;
+			height:199px;
+			overflow:hidden;
+			background:#6073d8;
+			border-bottom:10px solid #fff;
+		}
+	}
+}
+/*------------------------------------------------ FOOTER -------------------------------------------------------*/
+.footer_murprotec:before{
+	content:'';
+	display: inline-block;
+	vertical-align: -3px;
+	margin: 0 10px 0 0;
+	height: 14px;
+	width: 615px;
+	background:url('@{imgPath}/dossier/trame_murprotec.png')repeat-x;
+}
+.footer_murprotec{
+	font-size:12px;
+}
+.footer_murprotec:after{
+	content:'';
+	display: inline-block;
+	vertical-align: -3px;
+	margin: 0 0 0 10px;
+	height: 50px;
+	width: 195px;
+	background:url('@{imgPath}/dossier/sprite_murprotec.png')no-repeat -52px 0;
+}

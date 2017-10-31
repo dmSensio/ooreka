@@ -1,0 +1,1800 @@
+
+/*************************************  SOMMAIRE *************************************/
+/*
+I. Médicaments GENERAL
+	1. Bulle_info
+	2. Pictos medicaments
+
+II. Médicaments ACCUEIL
+	1. RECHERCHE MEDICAMENT
+	2. FILTRES MEDICAMENT
+		a.TYPE DE VOIES D'ADMINISTRATION
+		b. TYPE DE VOIES D'ADMINISTRATION MENU DEROULANT
+		c. FILTRE POPULATION A EXCLURE
+		d. FILTRE CONDITION DE DELIVRANCE
+		e. FILTRE CONTRE-INDICATION ET SUBSTANCES
+		f. BOUTON
+	3. CLASSES ATC
+	4. REASSURANCE
+	
+III. Médicaments RESULTATS DE RECHERCHE
+	1. AFFINAGE A GAUCHE
+	2. TRI DE LA LISTE
+	3. LISTE REPONSE
+
+IV. Médicaments FICHE
+	1. Présentation Médicaments
+	1. Sommaire
+	2. Service Médical Rendu
+	3. Composition
+	4. Autres formes
+	5. Génériques et équivalents
+	6. Indications
+	7. Posologie
+	8. Mise en garde - Tableau
+	9. Précautions
+	10. Effets indésirables
+	11. Recommandations
+	12. Classe ATC
+	13. BLOC Liaisons ATC
+	14. SOUS CONTENUS
+	15. BOX MALADIES LIEES
+	
+V. PAGES SEO
+	1. LISTE Liaisons ATC  ---------> Sert sur toutes les pages
+
+VI. BOX RECHERCHE MEDICAMENT
+	
+*/
+
+/************************************************************************************************************/
+/******************************************* Médicaments GENERAL ********************************************/
+/************************************************************************************************************/
+
+/*--------------------------- BULLE INFO ---------------------------------*/
+#Hp_medicament,
+.fiche_medicament,
+.box_recherche_med{
+	.bulle_info{
+		display:inline-block;
+		width:15px;
+		height:15px;
+		margin:0 0 0 3px;
+		vertical-align:-3px;
+		background:url("@{imgPathTheme}/i_info_publibox.png") no-repeat scroll 0px 0px transparent;
+	}
+}
+/*--------------------------- PICTOS MEDICAMENTS ---------------------------------*/
+.grossesse_med,
+.allaitement_med,
+.conduite_med,
+.nourrisson_med,
+.enfant_med,
+.agee_med,
+.femme_med,
+.sportif_med{
+	display:inline-block;
+	width:50px;
+	height:50px;
+}
+.grossesse_med{
+	background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat 9px -533px transparent;
+}
+.allaitement_med{
+	background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -31px -533px transparent;
+}
+.conduite_med{
+	background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -80px -533px transparent;
+}
+.nourrisson_med{
+	background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -45px -577px transparent;
+}
+.enfant_med{
+	background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -85px -580px transparent;
+}
+.agee_med{
+	background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -31px -626px transparent;
+}
+.femme_med{
+	background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -84px -624px transparent;
+}
+.sportif_med{
+	background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -35px -673px transparent;
+}
+/*--------------------------- LETTRES EN MINUSCULES ---------------------------------*/
+.minuscules{
+	text-transform:lowercase;
+}
+.minuscules:first-letter{
+	text-transform:capitalize;
+}
+.minuscules span{
+	text-transform:uppercase;
+}
+/*--------------------------- Variables Liste ---------------------------------*/
+.clear_liste{
+	clear:both;
+}
+.float_liste{
+	float:left;
+}
+/***********************************************************************************************************/
+/****************************************** Médicaments ACCUEIL ********************************************/
+/***********************************************************************************************************/
+
+#Hp_medicament{
+	position:relative;
+	margin:25px 10px 0 0;
+	border-top:1px solid #ccc;
+	h1{
+		position:relative;
+		top:-25px;
+		display: inline-block;
+		margin:0;
+		padding:0 10px 0 0;
+		background-color:#fff;
+	}
+	.virus_hp{
+		position:absolute;
+		top:-18px;
+		right:0;
+		display:block;
+		height:30px;
+		width:160px;
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 10px 0px #fff;
+	}
+	.intro_med{
+		font-size:14px;
+		color:#999;
+	}
+	.intro_med a{
+		font-weight:bold;
+	}
+	.bulle_info:hover > div{
+		width:300px;
+		right:auto;
+		left:-3px;
+	}
+/*************************** RECHERCHE MEDICAMENT ********************************************/
+	.recherche_medicament{
+		margin:15px 0 20px 0;
+		background-color:#efefef;
+		.rounded(5px);
+		padding:10px;
+	}
+	input[type="text"]{
+		float:none;
+		height:30px;
+		width:452px;
+		margin:15px 20px;
+		padding:2px 10px;
+		.rounded(6px);
+		border:3px solid #E2E2E2;
+		.inner-shadow(1px, 1px, 3px, 0px, #999);
+		background:#fff;
+		font:14px Arial, Helvetica, sans-serif;
+		color:#333;
+	}
+	input[type="text"]:focus{
+		border:3px solid @color_aplat;
+	}
+	input::-webkit-input-placeholder{
+		font-style:italic;
+		color:#666;
+	}
+	input::-moz-placeholder{
+		font-style:italic;
+		color:#666;
+	}
+	input:-ms-input-placeholder{
+		font-style:italic;
+		color:#666;
+	}
+	input:-moz-placeholder{
+		font-style:italic;
+		color:#666;
+	}
+	label{
+		font:12px/15px Arial, Helvetica, sans-serif;
+		color:#333;
+	}
+	label:hover{
+		cursor:pointer;
+		color:@color_base;
+	}
+	.button_med{
+		float:right;
+		padding:0;
+		margin:0 10px 0 0;
+	}
+/*************************** FILTRES MEDICAMENT ********************************************/
+	.afficher_filtre_med{
+		font: bold 14px Arial, Helvetica, sans-serif;
+		color:#999;
+	}
+	.afficher_filtre_med span{
+		font-weight:normal;
+	}
+	.plus_filtre{
+		display:inline-block;
+		height:12px;
+		width:12px;
+		margin:0 5px 0 0;
+		.rounded(2px);
+		background-color:#aaa;
+		font: 16px/12px Arial, Helvetica, sans-serif;
+		color:#fff;
+		text-align:center;
+	}
+	.afficher_filtre_med:hover{
+		color:@color_base;
+	}
+	.afficher_filtre_med:hover .plus_filtre{
+		background-color:@color_aplat;
+	}
+	.filtres_med{
+		position:relative;
+		top:-3px;
+		margin:0 0 30px 6px;
+		padding:20px 0 10px 10px;
+		border-left:1px solid #ccc;
+		border-bottom:1px solid #ccc;
+	}
+	.titre_filtre_med{
+		float:none;
+		clear:both;
+		font: bold 14px Arial, Helvetica, sans-serif;
+		color:#666;
+		margin:0 0 10px 0;
+	}
+	input[type="checkbox"],
+	input[type="radio"] {
+	    cursor: pointer;
+	    height: 15px;
+	    margin: 0 5px 0 0;
+	    width: 15px;
+	}
+/*--------------------------- TYPE DE VOIES D'ADMINISTRATION ---------------------------------*/
+	.menu_type{
+		height:170px;
+		margin:10px 0 0 0;
+		border-bottom:1px dotted #ccc;
+		> div{
+			position:relative;
+			float:left;
+			margin:0 7px 0 0;
+		}
+		.menu_injectable{
+			margin:0;
+		}
+		> div > span{/*images des voies d'admin*/
+			display:block;
+			width:124px;
+			height:105px;
+			background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 10px -30px;
+		}
+		.menu_orl > span{
+			background-position: 10px -249px;
+		}
+		.menu_peau > span{
+			background-position: 10px -143px;
+		}
+		.menu_vaginale > span{
+			background-position: 10px -470px;
+		}
+		.menu_injectable > span{
+			background-position: 10px -364px;
+		}
+		div > div{
+			position:relative;
+		}
+		div > label{
+			display:block;
+			float:none;
+			height:28px;
+			width:102px;
+			padding:5px 15px 5px 5px;
+			border:1px solid #999;
+			font: bold 12px/14px Arial, Helvetica, sans-serif;
+			.inner-shadow( 1px, 2px, 2px, 0px, #ddd);
+		}
+		div > label:hover{
+			background-color:#eee;
+			color:#333;
+		}
+		.fleche_type{
+			display:block;
+			position: absolute;
+			right:1px;
+			top:1px;
+			height:38px;
+			width:12px;
+			background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat -137px -31px #999;
+			cursor:pointer;
+		}
+		.fleche_type:hover{
+			background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat -137px -31px #ccc;
+		}
+/*---------------- TYPE DE VOIES D'ADMINISTRATION MENU DEROULANT -------------------*/
+		ul{
+			position:absolute;
+			z-index:200;
+			top:144px;
+			left:0;
+			width:104px;
+			padding:0 0 5px 18px;
+			margin:0;
+			background:#fff;
+			border:1px solid #999;
+			border-top:none;
+			.inner-shadow( 1px, -2px, 2px, 0px, #ddd);
+		}
+		ul li{
+			padding:2px 0;
+			overflow:auto;
+		}
+		ul label{
+			font:11px/13px Arial, Helvetica, sans-serif;
+			padding:2px 0 0 0;
+			max-width:80px;
+		}
+	}
+/*-------------------- FILTRE POPULATION A EXCLURE ------------------------*/
+	.filtre_uniquement{
+		height:80px;
+		padding:20px 0;
+		border-bottom:1px dotted #ccc;
+	}
+	.filtre_uniquement label{
+		width:206px;
+		margin:20px 0 0 10px;
+	}
+	.filtre_uniquement input + span{
+		float: left;
+		position:relative;
+		top:-20px;
+	}
+	.filtre_uniquement span + span{
+		float: left;
+		width: 115px;
+	}
+	.filtre_uniquement .grossesse_med + span,
+	.filtre_uniquement .conduite_med + span{
+		position:relative;
+		top:-9px;
+	}
+/*-------------------- FILTRE CONDITION DE DELIVRANCE -------------------------*/
+	.filtre_delivrance{
+		height:100px;
+		padding:20px 0;
+		border-bottom:1px dotted #ccc;
+	}
+	.filtre_delivrance label{
+		width:306px;
+		margin:10px 0 0 10px;
+	}
+	.filtre_delivrance span{
+		float: left;
+	}
+/*----------------------- FILTRE CONTRE-INDICATION ET SUBSTANCES -----------------------------*/
+	.filtre_exclure{
+		height:80px;
+		padding:20px 0;
+	}
+	.filtre_exclure > div{
+		float:left;
+		width:315px;
+	}
+	.filtre_exclure > div:first-child{
+		margin:0 20px 0 0;
+	}
+	.filtre_exclure input{
+		width:288px;
+		margin:10px 0 0 0;
+		height:25px;
+		font-size:12px;
+	}
+	.filtre_exclure .bulle_info div {
+		left:-170px;
+	}
+/*----------------------- BOUTON -----------------------------*/
+	.button_med_filtre{
+		position:absolute;
+		bottom:-23px;
+		right:0;
+		padding:0 0 0 10px;
+		background-color:#fff;
+	}
+	button{
+		height:30px;
+		line-height:23px;
+	}
+}
+/*************************** CLASSES ATC ********************************************/
+#Hp_medicament .titre_gris_med{
+	padding:0;
+	margin:20px 0 0 0;
+	font:bold 18px/22px Arial, Helvetica, sans-serif;
+	color:#999;
+}
+#classement_ATC{
+	overflow:auto;
+	margin:0 0 20px 0;
+	ul{
+		padding:0;
+		margin:0;
+		list-style:none;
+		text-transform:lowercase;
+	}
+	.liaisonAtc li{
+		width:auto;
+		margin:0;
+		float:none;
+	}
+	.liaisonAtc li:first-child{
+		border:none;
+	}
+	li:first-letter,
+	p:first-letter{
+		text-transform:capitalize;
+	}
+	> ul > li{
+		float:left;
+		width:321px;
+		border: 1px solid #ccc;
+		border-bottom:none;
+		margin:20px 0 0 0;
+	}
+	.gauche_ATC{
+		margin:20px 20px 0 0;
+		clear:both;
+	}
+	.toggle_ATC{
+		height:110px;
+		border-bottom:1px solid #ccc;
+		cursor:pointer;
+	}
+	.img_ATC{
+		width:110px;
+		height:110px;
+		float:left;
+		border-right:1px solid #ccc;
+	}
+	.img_A{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -584px #fff;
+	}
+	.img_B{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -701px #fff;
+	}
+	.img_C{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -818px #fff;
+	}
+	.img_D{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -935px #fff;
+	}
+	.img_G{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -1171px #fff;
+	}
+	.img_H{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -1406px #fff;
+	}
+	.img_J{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -1641px #fff;
+	}
+	.img_L{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -1876px #fff;
+	}
+	.img_M{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -1053px #fff;
+	}
+	.img_N{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -1288px #fff;
+	}
+	.img_P{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -1525px #fff;
+	}
+	.img_R{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -1759px #fff;
+	}
+	.img_S{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -1995px #fff;
+	}
+	.img_V{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat 0 -2111px #fff;
+	}
+	.toggle_ATC p{
+		float:left;
+		width: 175px;
+		padding: 30px 5px 0 10px;
+		font:16px/20px Arial, Helvetica, sans-serif;
+		color:#666;
+	}
+	.toggle_ATC:hover{
+		background-color:#efefef;
+	}
+	.fleche_toggle{
+		display:block;
+		float:left;
+		width:20px;
+		height:110px;
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat -130px -83px #CCC;
+	}
+	.toggle_ATC:hover .fleche_toggle{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat -130px -83px @color_aplat;
+	}
+	.ssliste_ATC{	
+		border-bottom:1px solid #ccc;
+	}
+}
+/*************************** REASSURANCE ********************************************/
+#reassurance_med{
+	clear:both;
+	margin:40px 0;
+	font:14px/18px Arial, Helvetica, sans-serif;
+	.titre_gris_med{
+		margin:20px 0;
+	}
+	.disclamer_med{
+		margin:30px 0;
+		text-align:center;
+		color:#c00;
+	}
+}
+
+/***********************************************************************************************************/
+/************************************* Médicaments RESULTATS DE RECHERCHE **********************************/
+/***********************************************************************************************************/
+
+/******************************** AFFINAGE A GAUCHE ***************************************/
+.affinage_med{
+	float:left;
+	width:180px;
+	margin:10px 30px 0 0;
+	font-size:12px;
+	.affinage_simple{
+		overflow:auto;
+		margin:0 0 20px 0;
+	}
+	.titre_tri{
+		display:block;
+		clear:both;
+		font:bold 14px/130% Arial, Helvetica, sans-serif;
+	}
+	.hide,
+	.recap_filtres + span.hide{
+		margin:0;
+		padding:0;
+		line-height:0px;
+	}
+	input[type="text"]{
+		float:none;
+		width:164px;
+		padding:5px;
+		margin:8px 0;
+		.rounded(5px);
+		border:3px solid #EBEBEB;
+		.inner-shadow(1px, 1px, 3px, 0, #999);
+		font-size:12px;
+	}
+	input[type="text"]:focus{
+		border:3px solid @color_aplat;
+	}
+	input::-webkit-input-placeholder{
+		font-style:italic;
+		color:#666;
+	}
+	input::-moz-placeholder{
+		font-style:italic;
+		color:#666;
+	}
+	input:-ms-input-placeholder{
+		font-style:italic;
+		color:#666;
+	}
+	input:-moz-placeholder{
+		font-style:italic;
+		color:#666;
+	}
+	.parmis_med{
+		width:100px;
+		float:left;
+		font-size:11px;
+	}
+	.bt_noir{
+		float:right;
+		margin:0;
+	}
+	.recap_filtres{
+		padding:1px 10px;
+		margin:8px 0 0 0;
+		background-color:@color_desat;
+	}
+	.recap_filtres + span{
+		display:block;
+		padding:0 10px 6px 10px;
+		margin:0 0 10px 0;
+		background-color:@color_desat;
+		font-size:10px;
+		text-align:right;
+		text-decoration:underline;
+		color:@color_base;
+		cursor:pointer;
+	}
+	.recap_filtres + span:hover{
+		color: #333;
+	}
+	.affinage_filtre{
+		padding:15px 0;
+		border-bottom:1px dotted #ccc;
+	}
+	.affinage_filtre > p{
+		padding:0 0 0 15px;
+		text-transform:uppercase;
+		color:#666;
+		font:bold 11px/15px Arial, Helvetica, sans-serif;
+		background:url("@{imgPath}/sprite_commun.png") no-repeat -1px -467px;
+	}
+	ul{
+		padding:0;
+		margin:0;
+		list-style:none;
+	}
+	li{
+		margin:10px 0;
+	}
+	label{
+		float:none;
+		position:relative;
+		display:block;
+		padding:0 0 0 18px;
+		font:12px/14px Arial, Helvetica, sans-serif;
+		cursor:pointer;
+	}
+	input[type="checkbox"]{
+		float:none;
+		position:absolute;
+		left:0;
+	}
+	label:hover{
+		color:@color_base;
+	}
+	ul ul {
+		margin:0 0 0 15px;
+	}
+	ul ul li{
+		margin:5px 0;
+	}
+	.affinage_autorise ul{
+		margin:20px 0 0 0;
+	}
+	.affinage_autorise label{
+		clear:both;
+	}
+	.affinage_autorise input{
+		top:6px;
+	}
+	.affinage_autorise span{
+		display:block;
+		float:left;
+		position:relative;
+		top:-15px;
+	}
+	.affinage_autorise li + li + li input{
+		top:0px;
+	}
+	.affinage_autorise li + li + li span{
+		top:-20px;
+	}
+	.affinage_filtre input[type="text"]{
+		width:130px;
+		margin:8px 4px 8px 0;
+		
+	}
+	.affinage_filtre input[type="text"] + a{
+		font-weight:bold;
+		
+	}
+}
+/******************************** TRI DE LA LISTE ***************************************/
+.tri_med{
+	position:relative;
+	margin:10px 0 0 5px;
+	padding:0 0 0 20px;
+	height:50px;
+	border-left:1px solid #999;
+	.fleche_tri{
+		background: url("/img/cc/0.1.0/medicaments/sprite_HP_medicaments.png") no-repeat -130px -330px #fff;
+		display: block;
+		height: 18px;
+		position: absolute;
+		left: -3px;
+		top: 0;
+		width: 15px;
+	
+	}
+	.virus_tri {
+		background: url("/img/cc/0.1.0/medicaments/sprite_HP_medicaments.png") no-repeat 10px 0;
+		display: block;
+		height: 30px;
+		position: absolute;
+		right: 0;
+		top: -5px;
+		width: 160px;
+	}
+	label{
+		font-size:14px;
+	}
+	select{
+		display:inline-block;
+		margin:0 0 0 5px;
+		width:200px;
+		font-size:12px;
+	}
+}
+/******************************** LISTE REPONSE ***************************************/
+.loader_med{
+	position:fixed;
+	background-color:#fff;
+	top:50%;
+	left:50%;
+	height:140px;
+	width:240px;
+	margin: -100px 0 0 -150px;
+	padding:30px;
+	text-align:center;
+	z-index:300;
+	font: bold 14px Arial, Helvetica, sans-serif;
+	color:@color_base;
+	.box-shadow (0, 0, 0, 5px, rgba(0, 0, 0, 0.3));
+	.rounded(5px);
+}
+.liste_med{
+	float:left;
+	width:451px;
+	margin:0 10px 0 0;
+	> ul{
+		margin:20px 0;
+		padding:0;
+		list-style:none;
+		margin:0 0 0 5px;
+		border-left:1px solid #999;
+	}
+	> ul > li{
+		position:relative;
+		left:-5px;
+		overflow:auto;
+		margin:30px 0;
+		padding:0 0 10px 10px;
+		border-left:10px solid #DFDFDF;
+		border-bottom:1px dotted #999;
+	}
+	ul li:first-child{
+		margin:0;
+	}
+	li a{
+		display:block;
+		margin:0 0 15px 0;
+		text-transform:lowercase;
+		font:bold 16px/20px Arial, Helvetica, sans-serif;
+		color:@color_base;
+		text-decoration:none;
+	}
+	li a:first-letter{
+		text-transform:capitalize;
+	}
+	li a:hover{
+		color:@color_aplatC;
+		text-decoration:underline;
+	}
+	.info_result{
+		float:left;
+		width:113px;
+		margin:0 10px 0 0;
+		padding:0 0 0 22px;
+		position:relative;
+		font-size:12px;
+	}
+	.info_result + div + div {
+		margin:0;
+	}
+	.icon_substance,
+	.icon_forme,
+	.icon_prix{
+		display:block;
+		width:18px;
+		height:18px;
+		position:absolute;
+		left:0;
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat -130px -256px;
+	}
+	.icon_forme{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat -132px -280px;
+	}
+	.icon_prix{
+		background:url("@{imgPath}/medicaments/sprite_HP_medicaments.png")no-repeat -130px -305px;
+	}
+	.info_result ul{
+		margin:0;
+		padding:0;
+		list-style:none;
+		font: 11px Arial, Helvetica, sans-serif;
+		color:#666;
+		text-transform:lowercase;
+	}
+}
+.aucun_resultat_med{
+	margin:10px 0 20px 0;
+	background: #F3F3F3;
+	.rounded(4px);
+	.inner-shadow(0, 1px, 4px, 0, #999);
+	padding: 15px;
+	text-align:center;
+}
+
+
+/***********************************************************************************************************/
+/********************************************* Médicaments FICHE *******************************************/
+/***********************************************************************************************************/
+
+.fiche_medicament{
+	margin:0 10px 0 0;
+	h1{
+		margin:0 0 20px 0;
+	}
+	h2{
+		font:22px/26px Arial, Helvetica, sans-serif;
+		color:@color_base;
+		margin:0 0 20px 0;
+	}
+	h2 span{
+		font-size:18px;
+	}
+	li{
+		margin:0 0 5px 0;
+	}
+	a{
+		text-decoration:underline;
+		color:@color_base;
+	}
+	a, /* Pour que le 'non commercialisé' en fixed n'empèche par de cliquer sur les liens */
+	*[onclick]{
+		position:relative;
+		z-index:20;
+	}
+	a:hover{
+		text-decoration:none;
+		color:#333;
+	}
+	a,
+	li,
+	p{
+		font:13px/140% Arial, Helvetica, sans-serif;
+	}
+	ul{
+		padding:0;
+		margin:0;
+		overflow:auto;
+	}
+	p.maj{
+		display: table;
+		padding: 0.4rem 1rem;
+		background-color: #fac200;
+		font-size: 14px;
+		color: #333;
+	}
+	.titre_noir_med{
+		font:bold 18px/22px Arial, Helvetica, sans-serif;
+		color:#333;
+		padding: 0 0 15px 0;
+		margin:0;
+	}
+	.titre_noir_med > span{
+		font-size:16px;
+	}
+	.titre_ss_partie_med{
+		font:bold 16px/20px Arial, Helvetica, sans-serif;
+		color:#666;
+	}
+	.titre_ss_partie_med span{
+		font-size:14px;
+	}
+	.partie_med{
+		clear:both;
+		overflow:auto;
+		margin:0 0 30px 0;
+	}
+	.retour_haut a{ /*Le reste des styles est dans styles_ugc*/
+		color:#adadad;
+		text-decoration:none;
+		font-size: 10px;
+		line-height: 13px;
+	}
+	.retour_haut a:hover{
+		color:#333;
+	}
+	.bulle_info:hover > span{
+		width:415px;
+		right:auto;
+		left:-3px;
+	}
+	.nsfp{
+		font: bold 71px/60px "museo";
+		color:#333;
+		opacity:0.1;
+		position:fixed;
+		z-index:10;
+	}
+	.nsfp + .partie_med{
+		margin:90px 0 30px 0;
+	}
+/************************ Présentation Médicaments ***********************************/
+	.sspartie_fiche_med{
+		float:left;
+		width:320px;
+		margin:0 0 20px 0;
+		min-height: 90px;
+	}
+	.partie_med a + .sspartie_fiche_med + .sspartie_fiche_med + .sspartie_fiche_med{
+		clear:both;
+	}
+	.sspartie_fiche_med p{
+		font: bold 14px/15px Arial, Helvetica, sans-serif;
+		padding: 15px 15px 15px 45px;
+		margin: 0 0 5px;
+		color:#666;
+	}
+	.sspartie_fiche_med .presentation_med{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat 0px 0px;
+	}
+	.sspartie_fiche_med .prix_med{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat 0px -43px;
+	}
+	.sspartie_fiche_med .admin_med{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat 0px -85px;
+	}
+	.sspartie_fiche_med .conservation_med{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat 0px -128px;
+	}
+	.sspartie_fiche_med li{
+		list-style:none;
+		padding:0 0 0 15px;
+		margin:0 0 5px 0;
+		background:url("@{imgPathTheme}/puce_fleche-liste.png") no-repeat scroll 0px 4px;
+	}
+	.sspartie_fiche_med li ul{
+		margin: 4px 0 6px 0;
+	}
+	.sspartie_fiche_med li li{
+		font-size:11px;
+		list-style: disc inside;
+		padding:0 0 0 30px;
+		margin:0 0 2px 0;
+		background:none;
+	}
+/************************************** Sommaire ***************************************/
+	#sommaire_med{
+		position:relative;
+		width:667px;
+		margin:0 0 50px 0;
+		background:#f0f0f0;
+		z-index: 100;
+		border-bottom:2px solid @color_aplat;
+	}
+	#sommaire_med h1{
+		margin:0;
+		color: #fff;
+		font: 18px/22px Arial, Helvetica, sans-serif;
+		padding:5px 5px 5px 10px;
+		background: @color_aplat;
+	}
+	.col_sommaire_med{
+		float:left;
+		width:204px;
+		margin:0 0 10px 15px;
+	}
+	#sommaire_med h2{
+		margin: 15px 0 5px;
+	}
+	#sommaire_med h3{
+		margin: 0;
+		padding: 5px 0 0 5px;
+	}
+	#sommaire_med h2 a{
+		font:bold 14px/17px Arial, Helvetica, sans-serif;
+		color:#333;
+		text-decoration:none;
+	}
+	#sommaire_med h3 a{
+		font: 12px/15px Arial, Helvetica, sans-serif;
+		color:#666;
+		text-decoration:none;
+	}
+	#sommaire_med h3 a:hover{
+		text-decoration:underline;
+	}
+	.footer_sommaire_med{
+		clear: both;
+		margin: 5px 0 3px 0;
+		overflow: auto;
+		padding:0 10px 10px 10px;
+	}
+	.envoi_sommaire_med,
+	.fb_sommaire_med,
+	.recommander_g{
+		float:left;
+		margin:0 5px;
+	}
+	.bt_gris_clair{
+		font: 11px/140% Arial,Geneva,sans-serif;
+		color:#333;
+		text-decoration:none;
+	}
+	.fermer_sommaire{
+		position:absolute;
+		bottom:-18px;
+		left:252px;
+		width:163px;
+		height:16px;
+		cursor:pointer;
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png") no-repeat 0px -745px;
+		text-align:center;
+		font-size:10px;
+		line-height:15px;
+		font-weight:bold;
+		color:#fff;
+		text-transform:uppercase;
+	}
+	.fermer_sommaire span{
+		display:inline-block;
+		width:15px;
+		height:10px;
+		background:url("@{imgPath}/sprite_commun.png") no-repeat -100px -552px;
+	}
+	.toggleUp_sommaire span{
+		background:url("@{imgPath}/sprite_commun.png") no-repeat -100px -537px;
+	}
+	.toggleUp_sommaire:after{
+		content:"Fermer le sommaire";
+	}
+	.toggleDown_sommaire:after{
+		content:"Ouvrir le sommaire";
+	}
+/****************** Service Médical Rendu ********************/
+	.liste_smr{	
+		height:70px;
+		overflow:visible;
+		color:#333;
+	}
+	.liste_smr li{
+		width:107px;
+		float:left;
+		list-style:none;
+		margin:30px 0 15px 0;
+		opacity:0.5;
+	}
+	.liste_smr .selected{
+		opacity:1;
+	}
+	.non_precise_med{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -2px -190px;
+	}
+	.insuffisant_med{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -2px -230px;
+	}
+	.faible_med{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -3px -270px;
+	}
+	.modere_med{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -3px -310px;
+	}
+	.important_med{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -4px -350px;
+	}
+	.majeur_med{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -4px -390px;
+	}
+	.liste_smr span{
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+		width: 75px;
+		background:#fff;
+		.rounded(15px);
+		font:bold 11px/14px Arial, Helvetica, sans-serif;
+		padding:2px 0;
+	}
+	.non_precise_med span{
+		border:3px solid #ff6600;
+	}
+	.insuffisant_med span{
+		border:3px solid #fa9930;
+	}
+	.faible_med span{
+		border:3px solid #F9D41B;
+	}
+	.modere_med span{
+		border:3px solid #FFEB19;
+	}
+	.important_med span{
+		border:3px solid #94cf00;
+	}
+	.majeur_med span{
+		border:3px solid #339900;
+	}
+	.liste_smr .selected span{
+		position:relative;
+		top:-26px;
+	}
+	.non_precise_med.selected span{
+		background:#FFC89E;
+	}
+	.insuffisant_med.selected span{
+		background:#FFD47F;
+	}
+	.faible_med.selected span{
+		background:#FFF09B;
+	}
+	.modere_med.selected span{
+		background:#FFFBA3;
+	}
+	.important_med.selected span{
+		background:#d3f57d;
+	}
+	.majeur_med.selected span{
+		background:#BDDD63;
+	}
+/****************** Composition ********************/
+	.compo_med{
+		width:313px;
+		float:left;
+		margin:0 20px 10px 0;
+	}
+/****************** Autres formes ********************/
+	.autres_formes ul{
+		list-style:none;
+		margin:0 0 0 30px;
+	}
+	.autres_formes li{
+		padding:0 0 0 12px;
+		background:url("@{imgPathTheme}/puce_fleche-liste.png")no-repeat 0 4px;
+	}
+	.autres_formes a{
+		font-size:11px;
+	}
+/****************** Génériques et équivalents ********************/
+	.generique_med table{
+		border:1px dotted #666;
+	}
+	.generique_med td{
+		border-right:1px dotted #666;
+		border-left:none;
+		border-top:none;
+		border-bottom:none;
+		padding: 7px 15px;
+	}
+	.generique_med tr{
+		border:none;
+	}
+	.ligne_grise{
+		background:#f2f2f2;
+	}
+	.ligne_blanche{
+		background:#fff;
+	}
+	.ligne_blanche a,
+	.ligne_grise a{
+		font:10px/13px Arial, Helvetica, sans-serif;
+	}
+	.info_med{
+		text-align:center;
+		min-width:100px;
+	}
+/****************** Indications ********************/
+	.indication_med li{
+		float:left;
+		list-style:none;
+		font:12px/15px Arial, Helvetica, sans-serif;
+		padding:0 0 0 10px;
+    		width: 322px;
+	}
+	.titre_indication_med{
+		position:relative;
+		display: block;
+		padding:0 0 0 18px;
+		width:300px;
+		margin:0 0 0 5px;
+		cursor:pointer;
+	}
+	.titre_indication_med:hover{
+		text-decoration:underline;
+	}
+	.neutre_titre_indication_med{
+		position:relative;
+		display: block;
+		padding:0 0 0 18px;
+		width:300px;
+		margin:0 0 0 5px;
+	}
+	.plus_med,
+	.moins_med,
+	.neutre_med{
+		position:absolute;
+		left:0;
+		display: block;
+		height: 12px;
+		width: 12px;
+		margin:0 5px 0 0;
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -1px -435px;
+	}
+	.moins_med{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -1px -450px;
+	}
+	.neutre_med{
+		height: 10px;
+		width: 10px;
+		.rounded(5px);
+		background:@color_base;
+	}
+	.indication_med p{
+		margin:5px 0 5px 30px;
+	}
+/****************** Posologie ********************/
+	a[name*="posologie"]{
+		position:absolute;
+	}
+	.Gd_plus_med,
+	.Gd_moins_med{
+		display: inline-block;
+		height: 23px;
+		margin: 0 5px 0 10px;
+		width: 23px;
+		vertical-align:-5px;
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -3px -475px;
+	}
+	.Gd_moins_med{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat -3px -504px;
+	}
+	.dose_med{
+		position:relative;
+		padding:7px 0;
+		margin:0;
+		border-bottom:1px dotted #999;
+	}
+	a[name*="posologie"]{
+		position:absolute; /*Evite un espace vide sur IE 9*/
+	}
+	ul .dose_med:first-child{
+		border-top:1px dotted #999;
+	}
+	.titre_dose_med{
+		padding:0;
+		font:bold 18px/22px Arial, Helvetica, sans-serif;
+		color:@color_base;
+		cursor:pointer;
+	}
+	.titre_dose_med:hover{
+		color:#333;
+	}
+	.precision_dose_med{
+		margin: 15px 0 15px 40px;
+	}
+/****************** Mise en garde - Tableau ********************/
+	> h2{
+		margin:0 0 30px 0;
+	}
+	.garde_med table{
+		border:1px dotted #666;
+		margin:0 0 20px 0;
+	}
+	.garde_med th{
+		.gradient(#767676, #aaa, #767676);
+		padding: 3px 10px;
+		text-align:center;
+		font:bold 14px/18px Arial, Helvetica, sans-serif;
+		text-transform:none;
+		border:1px solid #fff;
+	}
+	.garde_med th span{
+		font:11px/15px Arial, Helvetica, sans-serif;
+	}
+	.garde_med td{
+		border-right:1px dotted #666;
+		border-left:none;
+		border-top:none;
+		border-bottom:none;
+		padding: 7px 15px;
+		font:10px/13px Arial, Helvetica, sans-serif;
+	}
+	.garde_med td li{
+		list-style:none;
+		font:10px/13px Arial, Helvetica, sans-serif;
+	}
+	.garde_med tr{
+		border:none;
+	}
+	.garde_med td span{
+		float:left;
+		width:20px;
+		height:20px;
+		margin:0 10px 10px 0;
+	}
+	.garde_med td .indication_niveau_1{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat 0px -616px;
+	}
+	.garde_med td .indication_niveau_2{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat 1px -691px;
+	}
+	.garde_med td .indication_niveau_3{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat 0px -667px;
+	}
+	.garde_med td .indication_niveau_4{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat 0px -642px;
+	}
+	.garde_med td .indication_niveau_5{
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat 0px -666px;
+	}
+/*********************************** Précautions ***********************************/
+	.precaution_med td{
+		padding:0;
+		border-top:1px dotted #666;
+		border-bottom:1px dotted #666;
+		border-right:none;
+	}
+	.precaution_med table,
+	.precaution_med tr{
+		border:none;
+	}
+	.precaution_med table{
+		margin:0 0 10px 0;
+	}
+	td.precautions_part_plus{
+		width:450px;
+		padding:15px 0;
+	}
+	.precautions_part_plus p{
+		padding:0;
+	}
+	.precautions_part_plus p:first-child + p{
+		margin: 10px 0 0 0;
+	}
+	.precautions_part_hover:hover span{
+		text-decoration:underline;
+		cursor:pointer;
+	}
+	.precautions_part_plus .plus_med,
+	.precautions_part_plus .moins_med{
+		position:static;
+		float:left;
+		margin:2px 5px 0 0;
+	}
+	.precautions_part_plus .minuscules{
+		display:inline-block;
+	}
+/***************************** Effets indésirables ****************************************/
+	.effet_med p{
+		font:13px/17px Arial, Helvetica, sans-serif;
+		margin:0 0 5px 0;
+	}
+	.effet_med ul{
+		margin:10px 0;
+	}
+	.effet_med li{
+		float:left;
+		width:300px;
+		list-style:none;
+		margin:0 0 5px 20px;
+		font-size:12px;
+	}
+	.effet_med li span{
+		background:url("@{imgPathTheme}/puce_fleche-liste.png")no-repeat 0px 0px transparent;
+		display:inline-block;
+		width:8px;
+		height:12px;
+		margin:0 5px 0 0;
+		vertical-align:-2px;
+	}
+/***************************** Recommandations ****************************************/
+	.titre_reco_med{
+		font:bold 12px/15px Arial, Helvetica, sans-serif;
+		margin:10px 0 0 0;
+	}
+	.reco_med,
+	.reco_med + p{
+		margin:0 0 0 20px;
+	}
+	.reco_med a{
+		font-size:12px;
+	}
+	.reco_med .plus_med,
+	.reco_med .moins_med{
+		position:static;
+		float:left;
+		margin:2px 5px 0 0;
+		cursor:pointer;
+	}
+	.pdf_med{
+		display:inline-block;
+		width:40px;
+		height:13px;
+		margin:0 0 0 5px;
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat 0px -594px transparent;
+	}
+	.puce_reco_med{
+		display:inline-block;
+		width:5px;
+		height:5px;
+		.rounded(10px);
+		background:#999;
+		vertical-align:2px;
+	}
+/******************************* Classe ATC **************************************/
+	.classeAtc a{
+		text-decoration:none;
+	}
+	.classeAtc .minuscules{
+		display:inline-block;
+	}
+	.classeAtc span{
+		display:inline-block;
+		margin:0 5px 0 0;
+	}
+	.classeAtc .atcNiveau0 > span:first-child{
+		width:8px;
+		height:12px;
+		background:url("@{imgPathTheme}/puce_fleche-liste.png")no-repeat 0px 0px transparent;
+		vertical-align:-2px;
+	}
+	.classeAtc .atcNiveau1 > span:first-child{
+		width:8px;
+		height:12px;
+		background:url("@{imgPathTheme}/puce_tab.png")no-repeat 0px 0px transparent;
+		margin:0 5px 0 20px;
+		vertical-align:-2px;
+	}
+	.classeAtc .atcNiveau2 > span:first-child{
+		width:5px;
+		height:5px;
+		.rounded(10px);
+		background:#999;
+		margin:0 5px 0 40px;
+		vertical-align:1px;
+	}
+	.classeAtc .atcNiveau3 > span:first-child{
+		width:3px;
+		height:3px;
+		.rounded(2px);
+		background:#fff;
+		border:1px solid #666;
+		margin:0 5px 0 60px;
+		vertical-align:1px;
+	}
+	.classeAtc .atcNiveau4 > span:first-child{
+		width:5px;
+		height:5px;
+		background:#999;
+		margin:0 5px 0 80px;
+		vertical-align:1px;
+	}
+/************************************* BLOC Liaisons ATC ***************************************/
+	.liaisonAtc{
+		padding:15px 10px;
+		border:3px solid #ccc;
+	}
+	.liaisonAtc p{
+		margin: 0 10px 10px 10px;
+		font:18px/22px Arial, Helvetica, sans-serif;
+		color:#666;
+	}
+	.liaisonAtc ul{
+		margin:0;
+	}
+	.liaisonAtc li{
+		float:left;
+		width: 300px;
+		margin:0 10px;
+	}
+	.liaisonAtc a{
+		text-decoration:none;
+		color:#333;
+	}
+/**************************************** SOUS CONTENUS *****************************************/
+	.recommander_g{
+		margin:0 10px 0 0;
+	}
+
+/**************************************** BOX MALADIES LIEES *****************************************/
+	.titre_liaison_med{
+		font: 24px/28px 'museo',sans-serif;
+		color:#333;
+		margin:0;
+		width:550px;
+	}
+	.titre_liaison_med span{
+		font-size:22px;
+	}
+	.liaisonArticle{
+		position:relative;
+		padding:20px;
+		border:1px solid @color_base;
+		.rounded(10px);
+	}
+	.liaisonArticle .virus{
+		position:absolute;
+		top:10px;
+		right:10px;
+		display:block;
+		height:40px;
+		width:60px;
+		background:url("@{imgPath}/medicaments/sprite_medicaments.png")no-repeat 0px -776px;
+	}
+	.liaisonArticle ul{
+		overflow:hidden;
+	}
+	.liaisonArticle .sans_marge,
+	.liaisonArticle .avec_marge,{
+		float:left;
+		list-style:none;
+		width:294px;
+		margin:20px 20px 0 0;
+	}
+	.liaisonArticle .sans_marge{
+		margin:20px 0 0 0;
+	}
+	.liaisonArticle .avec_marge{
+		clear:both;
+	}
+	.liaisonArticle li ul{
+		float:left;
+		list-style:disc;
+		margin:0 0 0 10px;
+		width:172px;
+	}
+	.liaisonArticle li li{
+		margin:0 0 5px 15px;
+		list-style:disc outside;
+		color:@color_base;
+	}
+	.liaisonArticle a:hover{
+		text-decoration:underline;
+	}
+	.liaisonArticle img{
+		height:110px;
+		width:110px;
+		border:1px solid #ccc;
+		float:left;
+	}
+}
+/***************************************************************************************************************/
+/*********************************************** PAGES SEO *****************************************************/
+/***************************************************************************************************************/
+
+
+/**************************************** LISTE Liaisons ATC *****************************************/
+.liaisonAtc .pt_titre_noir{
+	color: #333;
+	font:24px/28px 'museo',Arial,Helvetica,sans-serif;
+	margin: 0 0 30px 0;
+}
+.liaisonAtc h2{
+	color: #666;
+	font: bold 14px/18px Arial,Helvetica,sans-serif;
+	margin:0 0 20px 0;
+}
+.liaisonAtc h2 span.minuscules{
+	text-transform:lowercase;
+	display:inline-block;
+}
+.liaisonAtc h2 span:first-letter{
+	text-transform: capitalize;
+}
+.liaisonAtc ul {
+	margin: 0 0 30px 0;
+	overflow: auto;
+	padding: 0;
+}
+.liaisonAtc li{
+	list-style:none;
+	border-top:1px dotted #ccc;
+	float: left;
+	margin: 0 30px 0 0;
+	width: 308px;
+	position:relative;
+}
+.liaisonAtc .ancre_medoc{
+	padding:0;
+}
+.liaisonAtc .indication_med p{
+	margin: 5px 0 5px 5px;
+	padding: 0;
+	color:#666;
+}
+.liaisonAtc_med{
+	display:inline-block;
+	width:6px;
+	height:6px;
+	.rounded(3px);
+	background:@color_base;
+	float:left;
+	position:absolute;
+	left:5px;
+	top:10px;
+	cursor:pointer;
+}
+.liaisonAtc a{
+	display:block;
+	padding: 5px 0 5px 15px;
+	text-decoration:none;
+	text-transform:lowercase;
+	color:#333;
+	font-size:12px;
+}
+.liaisonAtc a:first-letter {
+	text-transform: capitalize;
+}
+.liaisonAtc a:hover{
+	background-color:#e6e6e6;
+	color:#333;
+}
+
+/************************************************************************************************************/
+/************************************* BOX RECHERCHE MEDICAMENT  ********************************************/
+/************************************************************************************************************/
+.box_recherche_med{
+	position:relative;
+	margin:30px 0;
+	padding:10px;
+	border:1px solid @color_aplat;
+	.rounded(5px);
+	> p {
+		font: 24px/120% 'museo',sans-serif;
+		margin: 0;
+	}
+	.bulle_info{
+		vertical-align:-4px;
+	}
+	.bulle_info > div{
+		width:270px;
+	}
+	input[type="text"]{
+		float:none;
+		height:25px;
+		margin:10px 0;
+		padding:2px 10px;
+		.rounded(5px);
+		border:3px solid #E2E2E2;
+		.inner-shadow(1px, 1px, 3px, 0px, #999);
+		background:#fff;
+		font:14px Arial, Helvetica, sans-serif;
+		color:#333;
+	}
+	input[type="text"]:focus{
+		border:3px solid @color_aplat;
+	}
+	a{
+		font-size:12px;
+		margin:0 15px 0 0;
+	}
+	.virus {
+		background: url("@{imgPath}/sprite_droite.png") no-repeat -157px -153px;
+		display: block;
+		height: 40px;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		width: 60px;
+	}
+	.bt_noir{
+		margin:0;
+		display:inline-block;
+	}
+}
+#centre .box_recherche_med{
+	padding:10px 10px 15px 10px;
+	input[type="text"]{
+		width:492px;
+	}
+	label{
+		font:bold 14px/130% Arial, Helvetica, sans-serif;
+		padding:0;
+		margin:0 5px 0 0;
+	}
+	.virus_ligne{
+		display:inline-block;
+		height:30px;
+		width:210px;
+		margin: 0 31px 0 0;
+		vertical-align: -10px;
+		background:url("@{imgPath}/sprite_droite.png")no-repeat -88px -206px;
+	}
+}
+#droite .box_recherche_med{
+	> p {
+		margin:0 0 0 70px;
+		width:220px;
+	}
+	.virus {
+		right:auto;
+		left:10px;
+	}
+	input[type="text"]{
+		width:248px;
+		padding:2px 10px;
+		margin:10px 0;
+		border:3px solid #E2E2E2;
+		color:#333;
+	}
+	label{
+		float:none;
+		padding:0;
+		font:bold 12px/130% Arial, Helvetica, sans-serif;
+		color:#333;
+	}
+}
+
+/************************************************************************************************************/
+/************************************* BOX MEDICAMENTS LIES *************************************************/
+/************************************************************************************************************/
+.box_med_lies{
+	margin:30px 0;
+	padding:10px;
+	border:1px solid @color_aplat;
+	.rounded(5px);
+	background:url("@{imgPath}/medicaments/box_med_lies.png")no-repeat bottom right;
+	> p {
+		font: 24px/120% 'museo',sans-serif;
+		margin: 0;
+	}
+	ul{
+		list-style:none;
+		margin:0 0 10px 0;
+		padding:0;
+		overflow:auto;
+	}
+	li{
+		position:relative;
+		float:left;
+		width:200px;
+		margin:0 30px 0 0;
+		padding:5px 0 5px 15px;
+	}
+	a{
+		display:block;
+		text-transform:lowercase;
+		text-decoration:none;
+		color:#333;
+		font-size:13px;
+	}
+	a:first-letter{
+		text-transform:capitalize;
+	}
+	.plus_med_lies{
+		margin:0 0 10px 0;
+		text-decoration:underline;
+		color:#666;
+	}
+	small{
+		width:300px;
+		display:block;
+		font: 10px/13px Arial, Helvetica, sans-serif;
+		color:#666;
+	}
+}
+#article .box_med_lies a:hover{
+	text-decoration:underline;
+	color:@color_base;
+}
+/*******************************************************************************/
+/********************************* ADSENSE *************************************/
+/*******************************************************************************/
+.adsense_med_h60{
+	margin:0px auto 20px auto;
+	width:468px;
+}
+.adsense_med_h350{
+	margin:0 auto 20px auto;
+	width:540px;
+}
+.adsense_med_h180{
+	margin:0 auto 20px auto;
+	width:468px;
+}

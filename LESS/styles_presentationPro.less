@@ -1,0 +1,179 @@
+
+/*REGISTER PRO*/
+	/**COLONNE DE GAUCHE**/
+div.creationEspace {
+	background-color:#EAEAEA;
+	border:1px solid #DDD;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	behavior: url(/js/PIE.htc);
+	width:578px;
+	margin:0 20px 0 5px;
+	float:left;
+	padding:15px;
+	position:relative;
+}
+.creationEspace > span {
+	position:absolute;
+	top:-5px;
+	right:5px;
+	width:82px;
+	height:95px;
+	background: url('@{imgPathTheme}/sprites_login.png') -680px -380px no-repeat;
+}
+.creationEspace h1 {
+	font:normal 26px/140% 'museo', Arial, sans-serif;
+	color:@color_base;
+	text-align:center;
+	margin:0;
+}
+.creationEspace .sstitreH1 {
+	font:normal 20px/140% 'museo', Arial, sans-serif;
+	text-align:center;
+	margin:0;
+	padding:0 0 15px 0;
+}
+.creationEspace h2 {
+	font:normal 26px/140% 'museo', Arial, sans-serif;
+	margin:0;
+}
+.creationEspace p.sstitre {
+	font:normal 18px/140% 'museo', Arial, sans-serif;
+	padding:0;
+	margin:0 0 5px 0;
+}
+.creationEspace p {
+	padding:5px 0 5px 100px;
+	font:normal 12px/100% Arial, Helvetica, sans-serif;
+}
+.creationEspace ul {
+	margin:0 0 0 115px;
+	padding:5px 0;
+	font:normal 12px/100% Arial, Helvetica, sans-serif;
+}
+.creationEspace li {
+	list-style:none;
+	background:url('@{imgPathTheme}/puce_fleche-liste.png') 0 5px no-repeat;
+	line-height: 165%;
+	padding:0 0 0 15px;
+	margin:0;
+}
+.creationEspace > div {
+	position:relative;
+	padding:15px 15px 30px 15px;
+	margin:10px 0;
+	background-color:#FFF;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-webkit-box-shadow: 0px 0px 4px 0px #666666;
+	-moz-box-shadow: 0px 0px 4px 0px #666666;
+	box-shadow: 0px 0px 4px 0px #666666; 
+	behavior: url(/js/PIE.htc);
+}
+.creationEspace div.professionnel > div {
+	background:url('@{imgPathTheme}/sprites_login.png') 0 0 no-repeat;
+	padding:0 0 0 100px;
+}
+.creationEspace div.publiez > div {
+	background:url('@{imgPathTheme}/sprites_login.png') 0 -128px no-repeat;
+	padding:0 0 0 100px;
+/*	height:60px;*/
+}
+.creationEspace div.visibilite > div {
+	background:url('@{imgPathTheme}/sprites_login.png') 0 -255px no-repeat;
+	padding:0 0 0 100px;
+/*	height:60px;*/
+}
+a.sinscrire {
+	position:absolute;
+	bottom:0;
+	right:0;
+	padding:4px;
+	background-color:#DDD;
+	border:1px solid #CCC;
+	-webkit-border-radius:0 0 5px 0;
+	-moz-border-radius:0 0 5px 0;
+	border-radius:0 0 5px 0;
+	font:bold 12px/100% Arial, Helvetica, sans-serif;
+	color:#666;
+}
+.sinscrire:hover {
+	background-color:#AAA;
+	border:1px solid #999;
+	color:#FFF;
+}
+	/**COLONNE DE DROITE**/
+div#col3 div.payant {
+	float:left;
+	width:368px;
+	margin:0;
+	font:normal 12px/100% Arial, Helvetica, sans-serif;
+	line-height: 165%;
+}
+.payant h2 {
+	margin:0;
+	padding:0;
+	font-size:28px;
+	text-align:center;
+	font: 28px/120% 'museo', Arial, sans-serif;
+}
+.payant p.sstitre {
+	font:bold 16px/100% Arial, sans-serif;
+	text-align:center;
+	padding-bottom:20px;
+}
+.payant p {
+	margin:5px 0 5px 5px;
+}
+.payant ul {
+	margin:7px 0 0 0;
+	padding:0 0 10px 30px;
+	font:normal 12px/100% Arial, Helvetica, sans-serif;
+	line-height: 165%;
+}
+.payant li {
+	list-style:none;
+	background:url("@{imgPathTheme}/img_icones-communes.png") 0 -1293px no-repeat;
+	padding:0 0 0 12px;
+	margin:0 0 5px 0;
+}
+.payant > div {
+	position:relative;
+	padding:15px 15px 20px 15px;
+	margin:10px 0 20px 0;
+	background-color:@color_aplat;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	color:#fff;
+}	
+.creationEspace p.bouton {
+	text-align:center;
+	padding:0;
+}
+p.bouton a{
+	position:relative;
+	display:inline-block;
+	font:normal 16px/100% 'museo', Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	color:#FFF;
+	padding:10px 15px;
+	margin:0 auto;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	.gradient (@color_degradFonceC, @color_degradFonceC, @color_degradClairC);
+	cursor:pointer;
+}
+p.bouton a:hover {
+	.gradient (@color_degradClairC, @color_degradClairC, @color_degradFonceC);
+}
+p.bouton a.connection {
+	.gradient (@color_degradFonceC, @color_degradFonceC, @color_degradClairC);
+	font-size:24px;
+}
+p.bouton a.connection:hover {
+	.gradient (@color_degradClairC, @color_degradClairC, @color_degradFonceC);
+}

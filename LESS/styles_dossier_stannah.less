@@ -1,0 +1,100 @@
+@import 'ope_spe';
+
+/********* Variables ************/
+
+// Background
+
+@op_header:url('@{imgPath}/dossier/stannah/header.jpg')no-repeat;
+@op_sprite:url('@{imgPath}/dossier/stannah/sprite-stannah.png')no-repeat;
+
+// Color
+
+@op_color_header:#1b191a;
+@op_color_base:#ca1e2a;
+@op_liens:#ca1e2a;
+@op_encart_article:#f0f0f0;
+@op_encart_mention:#888;
+@op_article_annexe:#333;
+
+/********** Style **************/
+
+#dossier_stannah{
+	.article{
+		 ul li{
+			background-position: -10px -6px;
+		 }
+	}
+	.credit_impot{
+		padding: 20px;
+		border: 1px solid #e3e3e3;
+		h3,p:first-of-type{
+			text-align: center;
+		}
+		p:first-of-type{
+			font: 16px Arial,Helvetica,sans-serif;
+			color:@op_color_base;
+			margin-bottom: 10px;
+			span{
+				display: block;
+				font: bold 40px Arial,Helvetica,sans-serif;
+				color:#ffc550;
+			}
+		}
+		p{
+			font-size:13px;
+			color:#888;
+		}
+	}
+	.bloc_telephone{
+		position: relative;
+		background:url("@{imgPath}/dossier/stannah/bloc_telephone.jpg") no-repeat;
+		padding: 20px;
+		height: 396px;
+		font:20px/22px 'Museo',Arial,Helvetica,sans-serif;
+		.info_num:before {
+			background: @op_sprite no-repeat scroll -10px -47px rgba(0, 0, 0, 0);
+			content: "";
+			display: inline-block;
+			height: 50px;
+			margin: 0 10px;
+			padding: 0;
+			vertical-align: -16px;
+			width: 48px;
+		}
+		.info_num {
+			color: #fff;
+			font: bold 26px/40px Arial,Helvetica,sans-serif;
+			position: absolute;
+			bottom:10px;
+		}
+		.mention_num{
+			position: absolute;
+			right: 13px;
+			bottom:10px;
+			color: #fff;
+			font: 10px Arial,Helvetica,sans-serif;
+		}
+	}
+	.article_annexe{
+		.article_annexe_titre{
+			background-position: -10px -8px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1200 @@
+@import 'styles_variables';
+
+/*-------------------------------TITRE-------------------------------*/
+#annoncesj{
+	position:relative;
+	padding:10px 0 0 0;
+}
+#annoncesj h1{
+	font:22px/26px 'museo', sans-serif ;
+	color:#666;
+	margin:0 0 20px 0;
+}
+#annoncesj h1 span{
+	color:@color_base;
+}
+#annoncesj .renseignement_annonce .logo_aval{
+	top:10px;
+}
+#annoncesj .logo_aval{
+	position:absolute;
+	top:0px;
+	right:0;
+	color:@color_base;
+	font:12px/16px Arial, Helvetica, sans-serif;
+	span{
+		display:inline-block;
+		width:80px;
+		height:80px;
+		vertical-align:-15px;
+		margin:0 0 0 10px;
+		background:url('@{imgPath}/logo/logo_aval.png') no-repeat scroll 0px 0px;
+	}
+}
+#annonces_formulaire input[type="checkbox"]{
+	border:none;
+	background:none;
+}
+#annoncesj .filAriane {
+	margin:0px 0 15px 0;
+	padding:0;
+	font:normal 12px/140% Arial, Helvetica, sans-serif;
+	color:@color_base;
+}
+#annoncesj .filAriane em {
+	color:#333;
+	font:normal 11px/140% Arial, Helvetica, sans-serif;
+}
+#annoncesj .filAriane a {
+	color:#333;
+	text-decoration:none;
+}
+#annoncesj .filAriane a:hover {
+	text-decoration:underline;
+}
+/**************************************************** HP Annonces ************************************************************************/
+
+/*-------------------------------Onglets--------------------*/
+ul.annonces_onglet {
+	position:relative;
+	overflow:auto;
+	left:288px;
+	top:10px;
+	z-index:0;
+	margin:0;
+	padding:0;
+}
+.annonces_onglet li{
+	float:left;
+	position:relative;
+	top:7px;
+	margin:0 10px 0 0;
+	padding:0px 20px 10px 20px;
+	list-style-type:none;
+	-webkit-border-radius: 7px 7px 0px 0px;
+	border-radius: 7px 7px 0px 0px; 
+	font:16px/30px Arial, Helvetica, sans-serif;
+	background-color:#f2f2f2;
+	color:#b2b2b2;
+	text-align: center;
+	cursor:pointer;
+}
+.annonces_onglet li.selected{
+	position:relative;
+	top:0;
+	padding:5px 20px 10px 20px;
+	background-color:#e6e6e6;
+	color:#333;
+	cursor:default;
+}
+/*-------------------------------FORM AJ HP-------------------------------*/
+#annonces_formulaire{
+	position:relative;
+	z-index:5;
+	padding:0 20px 20px 20px;
+	background-color:#e6e6e6;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	overflow:auto;
+}
+#formulaire_HPImmo .titre_icone_AJ{
+	position: absolute;
+	left: 8px;
+	top: 81px;
+	/*z-index: 100;*/
+	margin:0;
+}
+#formulaire_HPImmo .annonces_cadreHP{
+	margin:30px 0;
+	background-color:#FFF;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-webkit-box-shadow: 0px 2px 4px 3px #ccc;
+	box-shadow: 0px 2px 4px 3px #ccc; 
+}
+#formulaire_HPImmo #annonces_formulaire .annonces_cadreHP fieldset{
+	padding:20px;
+	border-top: 2px solid #e6e6e6;	
+}
+#formulaire_HPImmo #annonces_formulaire .annonces_cadreHP fieldset:first-child{
+	border-top: none;	
+}
+.formulaire_titre{
+	float:none;
+	font: bold 15px/20px Arial, Helvetica, sans-serif;
+	color:@color_base;
+	padding:0;
+}
+#annonces_formulaire input[type="checkbox"]{
+	width:13px;
+	margin:0 8px 0 0;
+}
+#annonces_formulaire input[type="checkbox"] + label {
+	padding:0;
+	font:13px/12px Arial,Helvetica,sans-serif;
+}
+#annonces_formulaire input[type="number"],
+#annonces_formulaire input[type="text"]{
+	float:none;
+	height:18px;
+	margin:0;
+	display:inline-block;
+	vertical-align:middle;
+	font-size:12px;
+	color:#666;
+	border:#aaa 1px solid;
+}
+#annonces_formulaire fieldset div{
+	clear:both;
+	margin:20px 0 0 0;
+}
+#annonces_formulaire .formulaire_minmax{
+	clear:none;
+	float:right;
+	margin:0 155px 0 0;
+}
+#annonces_formulaire input.formulaire_localisation{
+	float:right;
+	width:299px;
+	margin:0 155px 0 0;
+}
+#annonces_formulaire fieldset ul{
+	padding:0;
+	margin:0;
+}
+#annonces_formulaire ul.formulaire_type{
+	margin:10px 0 0 0;
+	position:relative;
+}
+#annonces_formulaire ul.formulaire_nombre{
+	float:right;
+	padding: 3px 0 0 0;
+}
+#annonces_formulaire ul.formulaire_autre{
+	float:right;
+	width:460px;
+	padding: 3px 0 0;
+}
+#annonces_formulaire ul.formulaire_plus{
+	float:left;
+	width:460px;
+	margin:0 0 0 20px;
+}
+#annonces_formulaire fieldset li{
+	list-style-type:none;
+	float:left;
+}
+#annonces_formulaire .formulaire_type li{
+	width:199px;
+	margin:8px 0 0 0;
+}
+#annonces_formulaire .formulaire_type li:first-child{
+	position:absolute;
+	top:-36px;
+	left: 199px;
+}
+#annonces_formulaire .formulaire_nombre li{
+	width:83px;
+	margin:0;
+}
+#annonces_formulaire .formulaire_autre li{
+	width:150px;
+	margin:0 0 8px 0;
+}
+#annonces_formulaire .formulaire_plus li{
+	overflow:auto;
+	margin:0;
+	padding: 0 0 8px 0;
+}
+#annonces_formulaire .formulaire_plus li:first-child{
+	padding: 0 170px 8px 0;
+}
+#annonces_formulaire .formulaire_plus li:first-child + li{
+	padding: 0 30px 8px 0;
+}
+/*-------------------------------Aucune annonce trouvée--------------------*/
+#annoncesj .aucune_offre_annonce p{
+	color:@color_base;
+	text-align:center;
+	font:17px/150% Arial, Helvetica, sans-serif;
+	margin-top:70px;
+}
+/*-------------------------------Boutons--------------------*/
+.annonces_btn{
+	float:right;
+	padding: 5px 15px;
+	margin: 5px 20px 0 0;
+	background: #767676; /* Old browsers */
+	background: -moz-linear-gradient(top, #767676 0%, #444 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#767676), color-stop(100%,#444)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #767676 0%,#444 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #767676 0%,#444 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #767676 0%,#444 100%); /* IE10+ */
+	background: linear-gradient(top, #767676 0%,#444 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#767676, endColorstr=#444444,GradientType=0 ); /* IE6-9 */
+	border-radius: 5px 5px 5px 5px;
+	color: #fff;
+	cursor: pointer;
+	font: 14px/130% Arial, Helvetica, sans-serif;
+}
+.annonces_btn:hover{
+	background: #444; /* Old browsers */
+	background: -moz-linear-gradient(top, #444 0%, #767676 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#444), color-stop(100%,#767676)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #444 0%,#767676 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #444 0%,#767676 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #444 0%,#767676 100%); /* IE10+ */
+	background: linear-gradient(top, #444 0%,#767676 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#444444, endColorstr=#767676,GradientType=0 ); /* IE6-9 */
+}
+/*-------------------------------Erreurs--------------------*/
+#annonces_formulaire p.erreur{
+	line-height:14px;
+	padding: 5px 0 0 12px;
+	background: url("@{imgPathTheme}/img_icones-communes.png") no-repeat scroll 0 -1290px transparent;
+}
+
+/****************************************************LISTE REPONSE************************************************************************/
+/*-------------------------------------------------FORM LR-------------------------------*/
+#formulaire_listeImmo{
+	width:160px;
+}
+#formulaire_listeImmo #annonces_formulaire{
+	float:left;
+	width:156px;
+	padding:0;
+	margin:0 20px 0 0;
+	border: 2px #ccc solid;
+	-webkit-border-radius: 0px 0px 7px 7px;
+	border-radius: 0px 0px 7px 7px; 
+	background-color:#e6e6e6;
+	overflow:hidden;
+}
+#formulaire_listeImmo .annonces_cadreHP{
+	padding:10px 10px 0 10px;
+	background-color:#FFF;
+	-webkit-border-radius: 0px 0px 7px 7px;
+	border-radius: 0px 0px 7px 7px; 
+}
+/*-------------------------------Onglets liste réponse--------------------*/
+#formulaire_listeImmo .titre_icone_AJ{
+	display:none;
+}
+#formulaire_listeImmo ul.annonces_onglet {
+	float:left;
+	left:0px;
+	top:2px;
+	z-index:auto;
+	width:160px;
+	overflow:hidden;
+}
+#formulaire_listeImmo .annonces_onglet li:first-child{
+	margin:0 6px 0 0;
+}
+#formulaire_listeImmo .annonces_onglet li{
+	top:7px;
+	width:65px;
+	height:20px;
+	margin:0;
+	padding:0 5px 10px 5px;
+	-webkit-border-radius: 7px 7px 0px 0px;
+	border-radius: 7px 7px 0px 0px; 
+	font:14px/24px Arial, Helvetica, sans-serif;
+	background-color:#f2f2f2;
+	color:#b2b2b2;
+	overflow:hidden;
+}
+#formulaire_listeImmo .annonces_onglet li.selected{
+	top:2px;
+	z-index:10;
+	font:14px/30px Arial, Helvetica, sans-serif;
+	border: 2px #ccc solid;
+	border-bottom:none;
+	background-color:#fff;
+	color:#333;
+}
+/*-------------------------------FORM AJ liste réponse-------------------------------*/
+#formulaire_listeImmo .formulaire_titre{
+	display:block;
+	margin:0 0 10px 0;
+	font: bold 12px/20px Arial, Helvetica, sans-serif;
+}
+#formulaire_listeImmo fieldset{
+	width:156px;
+	padding:15px 0;
+	margin:0;
+	border-top:none;
+}
+#formulaire_listeImmo .annonces_cadreHP fieldset{
+	width:136px;
+	border-top: 2px #e6e6e6 solid;
+}
+#formulaire_listeImmo .annonces_cadreHP fieldset:first-child{
+	padding:0 0 10px 0;
+	border-top:none;
+}
+#formulaire_listeImmo #annonces_formulaire fieldset div {
+	margin: 15px 0 0;
+}
+#formulaire_listeImmo #annonces_formulaire ul li{
+	width:136px;
+}
+#formulaire_listeImmo #annonces_formulaire input[type="checkbox"] + label {
+	font: 11px/12px Arial, Helvetica, sans-serif;
+}
+#formulaire_listeImmo #annonces_formulaire input[type="number"],
+#formulaire_listeImmo #annonces_formulaire input[type="text"]{
+	float:none;
+	width:130px;
+	margin:0;
+}
+#formulaire_listeImmo #annonces_formulaire ul.formulaire_type {
+	margin:0;
+}
+#formulaire_listeImmo #annonces_formulaire .formulaire_minmax{
+	float:none;
+	margin:0;
+	color:#FFF;
+	line-height:10px;
+}
+#formulaire_listeImmo #annonces_formulaire ul.formulaire_nombre,
+#formulaire_listeImmo #annonces_formulaire ul.formulaire_autre{
+	float:none;
+	overflow: auto;
+	width:136px;
+	padding:0;
+}
+#formulaire_listeImmo #annonces_formulaire .formulaire_type li:first-child{
+	position:static;
+}
+#formulaire_listeImmo #annonces_formulaire .formulaire_type li{
+	margin:0 0 8px 0;
+}
+#formulaire_listeImmo #annonces_formulaire .formulaire_nombre li{
+	width:45px;
+	margin:0 0 8px 0;
+}
+#formulaire_listeImmo #annonces_formulaire .formulaire_nombre li + li + li + li + li{
+	width:80px;
+}
+#formulaire_listeImmo #annonces_formulaire ul.formulaire_plus {
+	margin:0 10px;
+	width:136px;
+	float:none;
+}
+#formulaire_listeImmo #annonces_formulaire ul.formulaire_plus label {
+	width:110px;
+}
+/*-------------------------------BTN liste réponse-------------------------------*/
+#formulaire_listeImmo #annonces_formulaire .annonces_btn {
+	margin:20px 25px 5px 0;
+}
+/*-------------------------------------------------ANNONCE LR-------------------------------*/
+/*-------------------------------tri liste réponse--------------------*/
+.tri_annonces{
+	width:498px;
+	height:20px;
+	margin:0 0 0 180px;
+	padding:10px;
+	background-color:#eee;
+	line-height:20px;
+	text-align:center;
+}
+.tri_annonces select{
+	float:none;
+	font-size:12px;
+}
+#annonces_LR{
+	margin:50px 0 0 180px;
+	width:498px;
+}
+#annonces_LR .adsense_LR{
+	border-bottom: 2px solid #ccc;
+	margin:0 0 20px 0;
+}
+/*-------------------------------UNE ANNONCE EN LR--------------------*/
+#annonces_LR .une_annonce{
+	border-bottom: 2px solid #ccc;
+	padding:0 0 20px 0;
+	margin:0 0 20px 0;
+	position:relative;
+}
+.une_annonce img{
+	height:150px;
+	max-width:500px;
+	margin:0 auto;
+}
+.une_annonce > p:first-child a{
+	text-decoration:none;
+	font: bold 16px/20px Arial, Helvetica, sans-serif;
+}
+.une_annonce > p:first-child a:hover{
+	color:#333;
+}
+.une_annonce > p + p{
+	margin:5px 0 0 0;
+	font: bold 13px/20px Arial, Helvetica, sans-serif;
+	color:#666;
+}
+.une_annonce > p + p em{
+	text-transform:uppercase;
+	font-style:normal;
+}
+.une_annonce > div{
+	margin:10px 0 0 0;
+	min-height:130px;
+	font: 12px/18px Arial, Helvetica, sans-serif;
+}
+.une_annonce div.sans_img{
+	height:75px;
+}
+.une_annonce > div a{
+	height:150px;
+	overflow:hidden;
+	float:right;
+	margin:0 0 0 20px;
+}
+.une_annonce > div + p{
+	color:#666;
+	padding:0;
+}
+.btn_voir_annonce{
+	position:absolute;
+	top:0;
+	right:0;
+	padding: 0 15px 0 0;
+	background:url('@{imgPathTheme}/sprite_publication_box.png') no-repeat 86px -2px;
+	text-decoration:underline;
+}
+.btn_voir_annonce:hover{
+	text-decoration:none;
+}
+/****************************************************BOITE HP DU GUIDE************************************************************************/
+/*-------------------------------FORM HP GUIDE-------------------------------*/
+#boite_AnnoncesJ_HPGuide{
+	position:relative;
+	margin:30px 0 40px 0;
+}
+h2.titre_icone_AJ_HPGuide{
+	position:absolute;
+	width: 200px;
+	margin:0 0 10px 0;
+	padding: 15px 0 0 40px;
+	background:url('@{imgPathTheme}/annoncesJ/annoncesJaunes.png') no-repeat left 3px;
+	font: 24px/24px 'museo',sans-serif;
+}
+#boite_AnnoncesJ_HPGuide .annonces_onglet{
+	z-index:auto;
+	left:284px;
+}
+#boite_AnnoncesJ_HPGuide .annonces_onglet li.selected{
+	border:2px solid #ccc;
+	border-bottom:none;
+	z-index:50;
+	padding:0 20px;
+	font:16px/35px Arial, Helvetica, sans-serif;
+}
+#boite_AnnoncesJ_HPGuide #annonces_formulaire{
+	margin:5px 0 0 0;
+	padding:20px;
+	-webkit-border-radius:0px;
+	border-radius:0px;
+	border:2px solid #ccc;
+	border-bottom:none;
+}
+#boite_AnnoncesJ_HPGuide span.formulaire_titre{
+	line-height:14px;
+}
+#boite_AnnoncesJ_HPGuide span.formulaire_titre + ul {
+	float:right;
+}
+#boite_AnnoncesJ_HPGuide span.formulaire_titre + ul li {
+	width:130px;
+}
+#boite_AnnoncesJ_HPGuide div.formulaire_localisationHP input{
+	width:190px;
+	margin:0 0 0 20px;
+}
+#boite_AnnoncesJ_HPGuide fieldset + div{
+	position:absolute;
+	right:0;
+	bottom:20px;
+}
+#boite_AnnoncesJ_HPGuide .annonces_btn + a{
+	float:right;
+	margin: 5px 40px 0 0;
+	padding: 5px 15px;
+	font: 14px/130% Arial, Helvetica, sans-serif;
+	text-decoration:underline;
+}
+/*-------------------------------ANNONCES HP GUIDE-------------------------------*/
+#boite_AnnoncesJ_HPGuide #a_la_une_HPGuide{
+	overflow:auto;
+	position:relative;
+	margin:0 0 30px 0;
+	border:2px solid #ccc;
+	border-top:none;
+}
+#a_la_une_HPGuide .une_annonce,
+.a_la_une .une_annonce{
+	float:left;
+	position:relative;
+	width:310px;
+	padding:15px 13px;
+	border-bottom:1px solid #ccc;
+}
+#a_la_une_HPGuide div:first-child{
+	border-right:#ccc 1px solid;
+}
+#a_la_une_HPGuide div:first-child + div + div{
+	border-right:#ccc 1px solid;
+}
+#a_la_une_HPGuide .une_annonce > p:first-child a,
+.a_la_une .une_annonce > p:first-child a{
+	font-size:15px;
+}
+#a_la_une_HPGuide .une_annonce > p + p,
+.a_la_une .une_annonce > p + p{
+	font-size:12px;
+	line-height:13px
+}
+#a_la_une_HPGuide .une_annonce img,
+.a_la_une .une_annonce img{
+	height:105px;
+	margin:0 auto;
+}
+#a_la_une_HPGuide .une_annonce > div a,
+.a_la_une .une_annonce > div a{
+	display:table;
+	margin:0 0 0 10px;
+}
+#a_la_une_HPGuide .une_annonce > div,
+.a_la_une .une_annonce > div{
+	overflow:hidden;
+	font: 11px/15px Arial, Helvetica, sans-serif;
+	height:105px;
+	min-height:inherit;
+	margin:10px 0 10px 0;
+}
+#a_la_une_HPGuide .btn_voir_annonce{
+	bottom:15px;
+	right:10px;
+	top:auto;
+}
+/*-------------------------------Erreurs BOITE HP--------------------*/
+#boite_AnnoncesJ_HPGuide p.erreur{
+	width:auto;
+	padding: 10px 0 0 12px;
+	background: url("@{imgPathTheme}/img_icones-communes.png") no-repeat scroll 0 -1284px transparent;
+}
+/*-------------------------------BOITE COL DROITE-------------------------------*/
+#annoncesJ_colD{
+	overflow:auto;
+	padding:10px;
+	margin:30px 0;
+	background-color: #f4f4f4;
+	border: 1px solid #ccc;
+	background: #d6d6d6; /* Old browsers */
+	background: -moz-linear-gradient(top,  #d6d6d6 0%, #f3f3f3 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d6d6d6), color-stop(100%,#f3f3f3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #d6d6d6 0%,#f3f3f3 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #d6d6d6 0%,#f3f3f3 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #d6d6d6 0%,#f3f3f3 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #d6d6d6 0%,#f3f3f3 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d6d6', endColorstr='#f3f3f3',GradientType=0 ); /* IE6-9 */
+}
+div#droite #annoncesJ_colD form{
+	padding:0;
+}
+#annoncesJ_colD .titre_colD{
+	padding:0 0 10px 60px  ;
+	font:24px/24px 'museo', sans-serif ;
+	background:url('@{imgPathTheme}/annoncesJ/annoncesJaunes_gd.png') no-repeat left top;
+}
+div#droite #annoncesJ_colD .titre_colD + p label{
+	margin:10px 0 5px 0;
+	padding:0;
+}
+div#droite #annoncesJ_colD label{
+	font: bold 12px/12px Arial, Helvetica, sans-serif;
+	color:@color_base;
+}
+#annoncesJ_colD .annonces_btn{
+	margin:17px 0 0 0;
+	font-size:12px;
+	line-height:12px;
+	padding:7px;
+}
+div#droite #annoncesJ_colD input{
+	margin: 20px 0px 0 0;
+}
+div#droite #annoncesJ_colD input[type="radio"]{
+	background:none;
+	border:none;
+	width:15px;
+	margin:10px 5px 0 0;
+}
+div#droite #annoncesJ_colD input[type="text"]{
+	width:145px;
+}
+div#droite #annoncesJ_colD select{
+	width:193px;
+	margin: 15px 0 0 0;
+}
+div#droite #annoncesJ_colD label{
+	margin: 15px 0 0 0;
+	float: left;
+}
+div#droite #annoncesJ_colD p.erreur{
+	padding: 10px 10px 5px 12px;
+	background:url("@{imgPathTheme}/img_icones-communes.png") no-repeat scroll 0 -1284px transparent;
+}
+/****************************************************VOIR UNE ANNONCE************************************************************************/
+#annoncesj h1.titre_icone_AJ{
+	margin:0 0 30px 0;
+	background:url('@{imgPathTheme}/annoncesJ/annoncesJaunes.png') no-repeat left 12px;
+	font:31px/34px 'museo', sans-serif ;
+	color:#333;
+	width:480px;
+}
+#annoncesj .titre_icone_AJ sup{
+	font-size:14px;
+}
+#annoncesj .titre_icone_AJ span{
+	color:#333;
+	font-size:24px;
+	display:block;
+}
+#annoncesj h1.titre_icone_AJ + p{
+	float:left;
+	font:bold 16px/20px Arial, Helvetica, sans-serif;
+	color:#666;
+}
+#annoncesj h1.titre_icone_AJ + p + p{
+	font:14px/20px Arial, Helvetica, sans-serif;
+	color:#666;
+	clear:both;
+}
+#annoncesj .redirection_contact_agence_annonce a.btEnvoyer{
+	border:none;
+	border-radius: 4px 4px 4px 4px;
+	color: #FFF;
+	float: right;
+	text-decoration:none;
+	font: bold 13px/17px Arial,Helvetica,sans-serif;
+	margin:-30px 0 0 0;
+	padding:5px 10px;
+	cursor:pointer;
+	.gradient(@color_degradFonce, @color_degradClairDiv, @color_degradFonce);
+}
+#annoncesj .redirection_contact_agence_annonce a.btEnvoyer:hover{
+	border:none;
+	.rounded(4px);
+	color: #FFF;
+	float: right;
+	text-decoration:none;
+	font: bold 13px/17px Arial,Helvetica,sans-serif;
+	margin:-30px 0 0 0;
+	padding:5px 10px;
+	cursor:pointer;
+	.gradient(@color_degradClairDiv, @color_degradFonce, @color_degradClairDiv);
+}
+#annoncesj #box_partage{
+	padding:10px;
+	margin:15px 0;
+	clear:both;
+	background-color:#ECECEC;
+}
+#annoncesj h2.voir_titre{
+	background-color: #FFF;
+	color: @color_base;
+	display: inline-block;
+	font: bold 14px/20px Arial,Helvetica,sans-serif;
+	text-transform: uppercase;
+	padding-right:5px;
+}
+#annoncesj .separator{
+	border-bottom: 5px solid @color_aplat;
+	margin-top: -22px;
+	z-index: -100;
+}
+#annoncesj .description_annonce{
+	width:675px;
+	text-align: justify;
+	margin: 0 0 20px 0;
+}
+#annoncesj .description_annonce p{
+	font:13px/130% Arial, Helvetica, sans-serif;
+	margin:15px 0 0px 0;
+}
+#annoncesj h3.caracteristiques_titre{
+	font:bold 14px/20px Arial, Helvetica, sans-serif;
+}
+#annoncesj h3.caracteristiques_titre:first-child{
+	margin-top:0;
+}
+#annoncesj .caracteristiques_annonce{
+	margin:0 0 20px 0;
+	overflow:hidden;
+}
+#annoncesj .adsense_annonce{
+	clear:both;
+	margin:0 0 20px 0;
+}
+/*-------------------------------PHOTOS-------------------------------*/
+#annoncesj .photos_annonce{
+	float:left;
+	margin:0 15px 20px 0;
+	max-width: 400px;
+	overflow: hidden;
+}
+#annoncesj .photos_annonce > img{
+	height:300px;
+	margin:0 auto;
+}
+#annoncesj .photos_annonce ul{
+	padding:0;
+	margin:0;
+}
+#annoncesj .photos_annonce ul img{
+	width:72px;
+}
+#annoncesj .photos_annonce ul li{
+	float:left;
+	list-style-type:none;
+	margin:10px 0 0 10px;
+}
+#annoncesj .photos_annonce ul li:first-child,
+#annoncesj .photos_annonce ul li:first-child + li + li + li + li + li,
+#annoncesj .photos_annonce ul li:first-child + li + li + li + li + li + li + li + li + li + li{
+	margin:10px 0 0 0;
+	clear:both;
+}
+/*-------------------------------INFO AGENCE-------------------------------*/
+#annoncesj .agence_annonce h3{
+	font:bold 14px/20px Arial, Helvetica, sans-serif;
+	margin:0;
+}
+#annoncesj .agence_telephone_annonce{
+	margin:25px 0 0 0;
+	display:inline-block;
+}
+#annoncesj .agence_annonce{
+	clear: both;
+	float: left;
+	line-height: 18px;
+	width: 675px;
+	margin: 0 0 20px;
+}
+#annoncesj .agence_annonce img{
+	display:block;
+	float:right;
+	margin:0 0 20px 10px;
+	max-height:90px;
+	max-width:150px;
+}
+#annoncesj p.adresse_agence_annonce{
+	background-color:@color_pale + #111;
+	float: right;
+	font: 12px/18px Arial,Helvetica,sans-serif;
+	margin: 30px 0 0 20px;
+	padding:10px 15px;
+	width: 310px;
+}
+#annoncesj .agence_annonce .tel_agence{
+	clear:both;
+	float:left;
+	width:200px;
+	margin:10px auto 5px;
+	padding:5px;
+	.gradient(@color_degradFonce, @color_degradClairDiv, @color_degradFonce);
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+	color:#fff;
+	font:bold 14px/20px Arial,Helvetica,sans-serif;
+	text-transform:uppercase;
+	text-align:center;
+	cursor:pointer;
+}
+#annoncesj .agence_annonce .tel_agence:hover{
+	.gradient(@color_degradClairDiv, @color_degradFonce, @color_degradClairDiv);
+}
+#annoncesj .agence_annonce .tel_agence p:first-child + p{
+	font:bold 18px/33px Arial, Helvetica, sans-serif;
+	background:url('@{imgPathTheme}/annoncesJ/tel_icone.png') no-repeat 10px 0px;
+	padding:0 0 0 15px;
+}
+#annoncesj .contact_agence_annonce{
+	clear:both;
+	margin:30px 0 0 0;
+}
+.contact_agence_annonce fieldset{
+	float:left;
+	width:333px;
+	margin-top:10px;
+}
+.contact_agence_annonce label{
+	clear: both;
+	float: left;
+	font: 13px/150% Arial,Helvetica,sans-serif;
+	margin: 0;
+	padding:2px 0 0;
+}
+.contact_agence_annonce input{
+	background: url("@{imgPathTheme}/background_input.gif") repeat-x scroll 0 0 #FFF;
+	border: 1px solid #999;
+	color: #666;
+	float: right;
+	font: 12px/17px Arial,Helvetica,sans-serif;
+	margin:0 20px 22px 0;
+	padding: 5px;
+	width:210px;
+}
+.contact_agence_annonce input.btEnvoyer{
+	border:none;
+	border-radius: 4px 4px 4px 4px;
+	color: #FFF;
+	float: right;
+	font: bold 13px/17px Arial,Helvetica,sans-serif;
+	margin: 15px 20px 22px 0;
+	padding:5px 0;
+	width: 90px;
+	cursor:pointer;
+	.gradient(@color_degradFonce, @color_degradClairDiv, @color_degradFonce);
+}
+.contact_agence_annonce input.btEnvoyer:hover{
+	border:none;
+	border-radius: 4px 4px 4px 4px;
+	color: #FFF;
+	float: right;
+	font: bold 13px/17px Arial,Helvetica,sans-serif;
+	margin: 15px 20px 22px 0;
+	padding:5px 0;
+	width: 90px;
+	cursor:pointer;
+	.gradient(@color_degradClairDiv, @color_degradFonce, @color_degradClairDiv);
+}
+.contact_agence_annonce textarea{
+	background: url("@{imgPathTheme}/background_input.gif") repeat-x scroll 0 0 #FFF;
+	border: 1px solid #999;
+	color: #666;
+	float: left;
+	font: 12px/150% Arial,Helvetica,sans-serif;
+	margin: 0 5px 0 0;
+	padding: 5px;
+	vertical-align: middle;
+	width:325px;
+	max-height: 110px;
+}
+.contact_agence_annonce select{
+	border: 1px solid #999;
+	color: #666;
+	float: left;
+	font: 12px/150% Arial,Helvetica,sans-serif;
+	margin:0 0px 20px;
+	padding: 5px;
+	vertical-align: top;
+	width:337px;
+}
+.contact_agence_annonce .error{
+	color: #CC0000;
+	float: left;
+	font: 10px/150% Arial,Helvetica,sans-serif;
+	height: 10px;
+	margin: -20px 0 0 95px;
+	padding: 2px 0 10px;
+	width: 230px;
+}
+#_AJConfirmContact{
+	background: url("@{imgPathTheme}/email_accept.png") no-repeat scroll 40px 29px transparent;
+	font: 13px/150% Arial,Helvetica,sans-serif;
+	padding: 40px 0 50px 100px;
+}
+#annoncesj .champs_obligatoires_annonce{
+	color: #333;
+	float: right;
+	font: 13px/150% Arial,Helvetica,sans-serif;
+	margin: 20px;
+	padding: 0;
+}
+#annoncesj .mentionLegale_annonce{
+	clear:both;
+	font: 10px/150% Arial,Helvetica,sans-serif;
+	margin:20px 0;
+	color:#666;
+}
+/*-------------------------------DIAGNOSTIQUE ENERGIE-------------------------------*/
+#annoncesj .energie_annonce{
+	overflow:auto;
+	margin:20px 0 0 0;
+}
+#annoncesj .energie_annonce .dpe_energie,
+#annoncesj .energie_annonce .dpe_impact{
+	position:relative;
+	margin:10px 0 0 0;
+	float:left;
+	width:306px;
+	height:225px;
+}
+#annoncesj .energie_annonce .dpe_energie{
+	background:url('@{imgPathTheme}/annoncesJ/annoncesJ_energie.png') no-repeat left 25px;
+	border-right:2px solid #ddd;
+	margin-top:30px;
+}
+#annoncesj .energie_annonce .dpe_impact{
+	background:url('@{imgPathTheme}/annoncesJ/annoncesJ_impact.png') no-repeat left 25px;
+	margin:30px 0 0 20px;
+}
+#annoncesj .energie_annonce > div > div{
+	position:absolute;
+	padding:5px;
+	font-size:11px;
+}
+#annoncesj .energie_annonce > div > div em,
+#annoncesj .energie_annonce p{
+	font-style:normal;
+	font-weight:bold;
+}
+#annoncesj .energie_annonce .dpe_A{
+	right:15px;
+	top:30px;
+	background-color:#309431;
+}
+#annoncesj .energie_annonce .dpe_B{
+	right:15px;
+	top:53px;
+	background-color:#2EC82F;
+}
+#annoncesj .energie_annonce .dpe_C{
+	right:15px;
+	top:76px;
+	background-color:#C8FF2F;
+}
+#annoncesj .energie_annonce .dpe_D{
+	right:15px;
+	top:99px;
+	background-color:#FFFF01;
+}
+#annoncesj .energie_annonce .dpe_E{
+	right:15px;
+	top:122px;
+	background-color:#FFC801;
+}
+#annoncesj .energie_annonce .dpe_F{
+	right:15px;
+	top:145px;
+	background-color:#FE962F;
+}
+#annoncesj .energie_annonce .dpe_G{
+	right:15px;
+	top:168px;
+	background-color:#FE0000;
+}
+#annoncesj .energie_annonce .ges_A{
+	right:0;
+	top:30px;
+	background-color:#F0E8FF;
+}
+#annoncesj .energie_annonce .ges_B{
+	right:0;
+	top:53px;
+	background-color:#DFBEF0;
+}
+#annoncesj .energie_annonce .ges_C{
+	right:0;
+	top:76px;
+	background-color:#D0A7EF;
+}
+#annoncesj .energie_annonce .ges_D{
+	right:0;
+	top:99px;
+	background-color:#BE8FF0;
+}
+#annoncesj .energie_annonce .ges_E{
+	right:0;
+	top:122px;
+	background-color:#B06DEF;
+	color:#FFF;
+}
+#annoncesj .energie_annonce .ges_F{
+	right:0;
+	top:145px;
+	background-color:#A047E0;
+	color:#FFF;
+}
+#annoncesj .energie_annonce .ges_G{
+	right:0;
+	top:168px;
+	background-color:#8E17E3;
+	color:#FFF;
+}
+/*-------------------------------MAP-------------------------------*/
+#annoncesj .map_annonce{
+	margin:20px 0 40px 0;
+	height:460px;
+}
+#annoncesj .map_annonce #mymap{
+	height:400px;
+	margin:30px;
+}
+/****************************************************SEO************************************************************************/
+#annoncesj .titre_icone_AJ{
+	margin:10px 0;
+	padding: 15px 0 0 40px;
+	background:url('@{imgPathTheme}/annoncesJ/annoncesJaunes.png') no-repeat left top;
+	font:16px/20px Arial, Helvetica, sans-serif;
+}
+#annoncesj .cadre.gris li,
+.departement .cadre.bleu li{
+	text-transform:lowercase;
+}
+#annoncesj .cadre li{
+	width:187px;
+}
+#annoncesj .cadre.gris li:first-letter,
+.departement .cadre.bleu li a:first-letter{
+	text-transform:capitalize;
+}
+#annoncesj .titreTop{
+	margin-top:40px;
+	line-height:20px;
+}
+/*-------------------------------PAGE DEPARTEMENT (par villes)-------------------------------*/
+#annoncesj .a_la_une{
+	border: 1px solid #ccc;
+	overflow:hidden;
+}
+#annoncesj .a_la_une > div{
+	float:left;
+	width:317px;
+	padding:10px;
+}
+#annoncesj .a_la_une div:first-child{
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+#annoncesj .a_la_une div:first-child + div{
+	border-bottom: 1px solid #ccc;
+}
+#annoncesj .a_la_une div:first-child + div + div{
+	border-right: 1px solid #ccc;
+}
+#annoncesj .a_la_une .btn_voir_annonce{
+	bottom:10px;
+	right:10px;
+	top:auto;
+}
+/*-------------------------------PAGE VILLE (par type)-------------------------------*/
+#annoncesj .boite_type + .adsense_annonce{
+	padding:10px 0 0 0;
+	margin:0 0 20px 0;
+}
+#annoncesj .boite_type{
+	float:left;
+	position:relative;
+	height:110px;
+	width:141px;
+	padding:20px 5px 20px 170px;
+	margin:20px 20px 0  0;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 7px;
+	border-radius: 7px; 
+}
+#annoncesj .boite_type p:first-child{
+	height:45px;
+	font:20px/22px 'museo', sans-serif ;
+	color:@color_base;
+}
+#annoncesj .boite_type p a:hover{
+	text-decoration:none;
+}
+#annoncesj .boite_type p:first-child + p{
+	padding:0 0 5px 0;
+	text-transform:lowercase;
+}
+#annoncesj .boite_type p:first-child + p:first-letter{
+	text-transform:capitalize;
+}
+#annoncesj .boite_type img{
+	position:absolute;
+	left:0;
+	bottom:7px;
+}
+#annoncesj .boite_type .btn_voir_annonce{
+	display:block;
+	height:20px;
+	width:141px;
+	padding:120px 5px 10px 170px;
+	bottom:0px;
+	right:0px;
+	top:auto;
+	background: url("@{imgPathTheme}/sprite_publication_box.png") no-repeat scroll 275px 118px transparent;
+}
+#annoncesj .a_la_une.page_type div:first-child + div + div{
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+#annoncesj .a_la_une.page_type div:first-child + div + div + div{
+	border-bottom: 1px solid #ccc;
+}
+#annoncesj .a_la_une.page_type div:first-child + div + div + div + div{
+	border-right: 1px solid #ccc;
+}
+#SEO_LR{
+	width: 498px;
+	margin: 0 0 0 180px;
+}
+/****************************************************BOITES DE DROITE************************************************************************/
+.annonces_droite{
+	position:relative;
+	padding:10px;
+	margin:30px 0;
+	border: 1px solid #CCC;
+}
+.annonces_droite p:first-child{
+	border-bottom: 1px solid #CCC;
+	margin:0 0 10px 0;
+	font:20px/22px 'museo', sans-serif ;
+	color:@color_base;
+}
+.annonces_droite p:first-child + p{
+	margin:0 0 30px 0;
+}
+.annonces_droite .lien_droite{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	width:248px;
+	background: url("@{imgPathTheme}/lien_mag.jpg") no-repeat scroll right center #F0F0F0;
+	clear: both;
+	display: block;
+	height: 15px;
+	padding: 7px 40px 7px 10px;
+	text-align: right;
+	text-decoration: underline;
+}
+.annonces_droite .lien_droite:hover{
+	background: url("@{imgPathTheme}/lien_mag.jpg") no-repeat scroll right center #DDD;
+	color:#333;
+}
+.annonces_droite.diagnostic{
+	height:110px;
+	padding:10px 140px 10px 10px;
+	background: url('@{imgPathTheme}/annoncesJ/annoncesJ_diagnostic.jpg') no-repeat scroll 150px top;
+	color:#333;
+}
+.annonces_droite.demenagement{
+	height:110px;
+	padding:10px 140px 10px 10px;
+	background: url('@{imgPathTheme}/annoncesJ/annoncesJ_demenagement.jpg') no-repeat scroll 150px 5px;
+	color:#333;
+}
+.annonces_droite.diagnostic p,
+.annonces_droite.demenagement p{
+	border-bottom:none;
+	margin:0;
+}
+div#droite .reassurance .reassurance_annonces{
+	float:left;
+	margin:0 10px 0 0;
+}

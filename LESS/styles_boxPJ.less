@@ -1,0 +1,385 @@
+/********************************************* BOX DANS GUIDE *******************************************/
+.pros_PJ_edito{
+	margin:40px 0 60px 0;
+	float:left;
+	width:100%;
+	*{
+		box-sizing:border-box;
+	}
+	.titre_boxPJ{
+		font:18px/25px Arial, Helvetica, sans-serif;
+		color:@color_base;
+	}
+	.edito_boxPJ{
+		position:relative;
+		width:100%;
+		float:left;
+		margin:0 0 30px 0;
+	}
+	.edito_boxPJ .titreFontFace{
+		float: left;
+   		width: 55%;
+		font:18px/22px Arial, Helvetica, sans-serif;
+		color:@color_base;
+		margin:0 10px 0 0;
+		padding:0;
+	}
+	fieldset{
+		position:absolute;
+		bottom:3px;
+		right:0;
+	}
+	.edito_boxPJ input{
+		float: left;
+   		width: 120px;
+		height:30px;
+		padding:0 0 0 5px;
+		margin:0;
+		font:11px/28px Arial,Helvetica,sans-serif;
+		background:#eee;
+		border:1px solid #ccc;
+		text-transform:uppercase;
+		margin-right: 10px;
+		+ a{
+			float: left;
+			margin-top: 0;
+		}
+	}
+	/*********************** PLACEHOLDER ***************************/
+	::-webkit-input-placeholder{
+		color: #666;
+	}
+	:-moz-placeholder{ /* Firefox 18- */
+		color: #666;
+	}
+	::-moz-placeholder{  /* Firefox 19+ */
+		color: #666;
+	}
+	:-ms-input-placeholder{
+		color: #666;
+	}
+	/**************************************************************/
+	.btLocaliser{
+		border:none;
+		background:@color_base;
+		color: #fff;
+		cursor: pointer;
+		display: block;
+		font:bold 11px/30px Arial,Helvetica,sans-serif;
+		text-transform:uppercase;
+		height:30px;
+		padding:0 5px;
+	}
+	.btLocaliser:hover{
+		background:@color_aplat;
+	}
+	.btLocaliser:before{
+		background:url("@{imgPath}/sprite_commun.png") no-repeat scroll 0px 4px transparent;
+		height: 28px;
+		width: 20px;
+		display:inline-block;
+		content:"";
+		vertical-align:-12px;
+	}
+	#top-pros-pj-in-page{
+		clear:both;
+	}
+	#top-pros-pj-in-page *{
+		box-sizing:border-box;
+	}
+	#top-pros-pj-in-page .proPJ{
+		padding:0;
+		float: left;
+		clear:both;
+		margin:0 0 20px 0;
+		width:100%;
+	}
+	#top-pros-pj-in-page .proPJ > a{
+		float: left;
+		width: 80px;
+		height: 80px;
+		margin-right: 10px;
+		border: 1px solid @violet;
+	}
+	#top-pros-pj-in-page .proPJ{
+		.info_proPJ{
+			font-size: 14px;
+			overflow: hidden;
+			.pro_nom{
+				font-size: 20px;
+				line-height: 100%;
+			}
+			.pro_ville,
+			.proPJ_numeroCache{
+				margin-top: 0;
+			}
+			.bt_min{
+				padding: 2px 5px;
+			}
+			.bt_moyen{
+				margin: 5px 0;
+			}
+			.numero_affiche{
+				display: inline-block;
+				margin: 5px 0 0 0;
+				border: 1px solid #ccc;
+				padding: 0 5px;
+				font-size: 20px;
+				font-weight: bold;
+				vertical-align: -2px;
+			}
+			.bt_boxPJ{
+				font-size: 16px;
+				font-weight: bold;
+				.bt_moyen{
+					font-weight: normal;
+				}
+				.proPJ_numeroCache{
+					display: inline-block;
+				}
+				.bt_violet{
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+	#top-pros-pj-in-page .plus_resultat{
+		padding:0 10px 0 15px;
+		color:#666;
+		text-decoration:none;
+		background:url("@{imgPathTheme}/i_plus_all_fiche.png") no-repeat scroll 0px 1px #fff;
+		position:relative;
+		top:-10px;
+	}
+	#top-pros-pj-in-page .plus_resultat:hover{
+		color:@color_base;
+	}
+	#top-pros-pj-in-page .info_proPJ{
+		float:left;
+		width:68%;
+	}
+	#top-pros-pj-in-page .img_boxPJ{
+		display:inline-block;
+		width: 80px;
+		height: 80px;
+	}
+	#top-pros-pj-in-page .pro_nom{
+		font:bold 14px/18px Arial, Helvetica, sans-serif;
+		text-decoration:none;
+	}
+	#top-pros-pj-in-page a.pro_nom{
+		color:@color_base;
+	}
+	#top-pros-pj-in-page a.pro_nom:hover{
+		color:@color_contraste;
+	}
+	#top-pros-pj-in-page .pro_ville{
+		font:bold 12px/20px Arial, Helvetica, sans-serif;
+		color:#666;
+		padding:0;
+		margin:0 0 10px 0;
+	}
+	#top-pros-pj-in-page .proPJ_numeroCache,
+	#top-pros-pj-in-page .numero_affiche{
+		font:12px/15px Arial, Helvetica, sans-serif;
+		margin:0;
+		padding:0;
+	}
+	#top-pros-pj-in-page .bt_min{
+		margin-top:0;
+	}
+	.partenariat_boxPJ{
+		border-top:1px solid #ccc;
+		position:relative;
+		clear:both;
+		float:left;
+		width:100%;
+		margin:20px 0 0 0;
+	}
+	.partenariat_boxPJ p{
+		color: #666;
+		font: 11px/15px Arial,Helvetica,sans-serif;
+		position:absolute;
+		right:0;
+		top:-17px;
+		padding:0 0 0 10px;
+		background:#fff;
+	}
+	.partenariat_boxPJ p:after{
+		display:inline-block;
+		width:125px;
+		height:30px;
+		background:url("@{imgPath}/BoxPJ/logoPJ.png") no-repeat scroll 0 0 #fff;
+		content:"";
+		vertical-align:-10px;
+		margin:0 0 0 10px;
+
+	}
+}
+/******************************************* STYLES DES BOUTONS EN AB TESTING  ****************************************/
+.pros_PJ_btCC #top-pros-pj-in-page{
+	.pro_nom{
+		display: inline-block;
+		max-width: 225px;
+	}
+	.bt_numero{
+		cursor:pointer;
+		display:block;
+		height:26px;
+		width:110px;
+		padding:0 0 0 28px;
+		float:right;
+		background:url('@{imgPathTheme}/bt_afficher_numero.png') no-repeat 0px 0px;
+		font: bold 11px/26px Arial, Helvetica, sans-serif;
+		color:#fff;
+	}
+	.picto_PJ{
+		display:none;
+	}
+	.bt_numero:hover{
+		background:url('@{imgPathTheme}/bt_afficher_numero.png') no-repeat 0px -26px;
+	}
+	.numero_affiche{
+		width: auto;
+		margin:2px 0 0 0;
+		float:right;
+	}
+}
+.pros_PJ_btPJ #top-pros-pj-in-page{
+	li{
+		position:relative;
+	}
+	li .img_boxPJ + span{
+		width:255px;
+	}
+	.bt_numero{
+		position:absolute;
+		right:0;
+		top:0;
+		cursor:pointer;
+		display:block;
+		width: 62px;
+		height: 31px;
+		padding: 8px 14px 2px 30px;
+		border: 1px solid #CCC;
+		.rounded(5px);
+		.gradient(#D2D2D2, #fff, #D2D2D2);
+		color: #000;
+		font-weight: bold;
+		font-size:12px;
+		line-height: 14px;
+	}
+	.bt_numero:hover{
+		color:#5e5e5e;
+	}
+	.picto_PJ{
+		position: absolute;
+		left: 1px;
+		top: 10px;
+		display: block;
+		height: 20px;
+		width: 20px;
+		background: url("@{imgPath}/bt_afficher_numero_PJ.png") no-repeat 0 0;
+	}
+	.bt_numero:hover .picto_PJ{
+		background: url("@{imgPath}/bt_afficher_numero_PJ.png") no-repeat -24px 0;
+	}
+	.numero_affiche{
+		position:absolute;
+		right:0;
+		top:1px;
+		width:auto;
+	}
+}
+/***************************** IMG *************************/
+.pros_PJ_edito{
+	/*--------------------------- images divorce ---------------------------------*/
+	#top-pros-pj-in-page li:first-child span.img_boxPJ.divorce,
+	#top-pros-pj-in-page li:first-child span.img_boxPJ.succession{
+		background:url("@{imgPath}/BoxPJ/Divorce4.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li span.img_boxPJ.divorce,
+	#top-pros-pj-in-page li:first-child + li span.img_boxPJ.succession{
+		background:url("@{imgPath}/BoxPJ/Divorce5.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li + li span.img_boxPJ.divorce,
+	#top-pros-pj-in-page li:first-child + li + li span.img_boxPJ.succession{
+		background:url("@{imgPath}/BoxPJ/Divorce6.png") no-repeat 3px 3px;
+	}
+	/*--------------------------- images installation-electrique ---------------------------------*/
+	#top-pros-pj-in-page li:first-child span.img_boxPJ.installation-electrique{
+		background:url("@{imgPath}/BoxPJ/Installation1.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li span.img_boxPJ.installation-electrique{
+		background:url("@{imgPath}/BoxPJ/Installation2.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li + li span.img_boxPJ.installation-electrique{
+		background:url("@{imgPath}/BoxPJ/Installation3.png") no-repeat 3px 3px;
+	}
+	/*--------------------------- images portail-cloture ---------------------------------*/
+	#top-pros-pj-in-page li:first-child span.img_boxPJ.portail-cloture,
+	#top-pros-pj-in-page li:first-child span.img_boxPJ.fenetre{
+		background:url("@{imgPath}/BoxPJ/Portail1.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li span.img_boxPJ.portail-cloture,
+	#top-pros-pj-in-page li:first-child + li span.img_boxPJ.fenetre{
+		background:url("@{imgPath}/BoxPJ/Portail2.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li + li span.img_boxPJ.portail-cloture,
+	#top-pros-pj-in-page li:first-child + li + li span.img_boxPJ.fenetre{
+		background:url("@{imgPath}/BoxPJ/Portail3.png") no-repeat 3px 3px;
+	}
+	/*--------------------------- images massage ---------------------------------*/
+	#top-pros-pj-in-page li:first-child span.img_boxPJ.massage{
+		background:url("@{imgPath}/BoxPJ/Massage1.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li span.img_boxPJ.massage{
+		background:url("@{imgPath}/BoxPJ/Massage2.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li + li span.img_boxPJ.massage{
+		background:url("@{imgPath}/BoxPJ/Massage3.png") no-repeat 3px 3px;
+	}
+	/*--------------------------- images plomberie ---------------------------------*/
+	#top-pros-pj-in-page li:first-child span.img_boxPJ.plomberie{
+		background:url("@{imgPath}/BoxPJ/Plomberie1.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li span.img_boxPJ.plomberie{
+		background:url("@{imgPath}/BoxPJ/Plomberie2.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li + li span.img_boxPJ.plomberie{
+		background:url("@{imgPath}/BoxPJ/Plomberie3.png") no-repeat 3px 3px;
+	}
+	/*--------------------------- images placements & retraites ---------------------------------*/
+	#top-pros-pj-in-page li:first-child span.img_boxPJ.banque{
+		background:url("@{imgPath}/BoxPJ/Placements1.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li span.img_boxPJ.banque{
+		background:url("@{imgPath}/BoxPJ/Placements2.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li + li span.img_boxPJ.banque{
+		background:url("@{imgPath}/BoxPJ/Placements3.png") no-repeat 3px 3px;
+	}
+	/*--------------------------- images troubles et maladies ---------------------------------*/
+	#top-pros-pj-in-page li:first-child span.img_boxPJ.douleurs-musculaires,
+	#top-pros-pj-in-page li:first-child span.img_boxPJ.mal-de-dos{
+		background:url("@{imgPath}/BoxPJ/Maladies1.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li span.img_boxPJ.douleurs-musculaires,
+	#top-pros-pj-in-page li:first-child + li span.img_boxPJ.mal-de-dos{
+		background:url("@{imgPath}/BoxPJ/Maladies2.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li + li span.img_boxPJ.douleurs-musculaires,
+	#top-pros-pj-in-page li:first-child + li + li span.img_boxPJ.mal-de-dos{
+		background:url("@{imgPath}/BoxPJ/Maladies3.png") no-repeat 3px 3px;
+	}
+	/*--------------------------- images chauffage ---------------------------------*/
+	#top-pros-pj-in-page li:first-child span.img_boxPJ.poele-cheminee{
+		background:url("@{imgPath}/BoxPJ/Chauffage1.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li span.img_boxPJ.poele-cheminee{
+		background:url("@{imgPath}/BoxPJ/Chauffage2.png") no-repeat 3px 3px;
+	}
+	#top-pros-pj-in-page li:first-child + li + li span.img_boxPJ.poele-cheminee{
+		background:url("@{imgPath}/BoxPJ/Chauffage3.png") no-repeat 3px 3px;
+	}
+}

@@ -1,0 +1,2486 @@
+/*********************************** ANNUAIRE *************************
+
+	I.	ANNUAIRE - SITES DE NICHE
+		- LISTING
+		- FICHE DETAILLEE*
+		- RESPONSIVE PAGE
+
+
+
+	II. 	ANNUAIRE.OOREKA.FR
+		- HOMEPAGE
+		- CARTE DE FRANCE
+		- DEPARTEMENT
+			- INTRO - DEPARTEMENT
+		- LISTING - BAS DE PAGE
+		- LISTE DE RESULTATS
+		- FICHE DETAILLEE
+		- MAP - MAPPY
+		- ANNUAIRE DEPARTEMENT & VILLE
+		- RESPONSIVE PAGE
+
+*/
+/****************************** ANNUAIRE - SITES DE NICHE ******************************/
+.annuaire_listing_pro,
+.annuaire_fd{
+	.bt_numero{
+		display: table;
+		margin: 2rem auto;
+		.bt_jaune{
+			margin: 0;
+		}
+	}
+	.numero{
+		display: none;
+	}
+	.numero_visible{
+		&::before,
+		span{
+			display: none;
+		}
+		.numero{
+			display: block;
+			padding: 0 1rem;
+		}
+	}
+}
+/******************** LISTING ********************/
+.annuaire_listing_pro{
+	margin-bottom: 5rem;
+	.un_pro{
+		position: relative;
+		margin-top: 3rem;
+		> img{
+			float: left;
+			width: 130px;
+			height: auto;
+			.radius(5px);
+			border: 1px solid @violet;
+			padding: 5px;
+			margin-right: 3rem;
+			cursor: pointer;
+			.transition(border-color, .3s, ease-in-out, 0s);
+			&:hover{
+				border-color: @rouge;
+			}
+		}
+		.img_defaut{
+			float: left;
+			width: 130px;
+			height: 130px;
+			background-color: #eee;
+			margin-right: 3rem;
+			.radius(5px);
+		}
+		> div{
+			overflow: hidden;
+			.titre{
+				font-size: 3rem;
+				color: @violet;
+				font-family: @museo;
+				cursor: pointer;
+				.transition(color, .3s, ease-in-out, 0s);
+				&:hover{
+					color: @rouge;
+				}
+			}
+			p{
+				font-size: 1.8rem;
+				+ p {
+					margin-top: .5rem;
+				}
+			}
+			.activite{
+				display: block;
+				margin-top: .5rem;
+				font-style: italic;
+				font-size: 1.6rem;
+				&:hover{
+					color: @rouge;
+				}
+			}
+			.bt_numero{
+				position: absolute;
+				top: 50%;
+				right: 0;
+				.bt_violet{
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+/******************** FICHE DETAILLEE ********************/
+.header_pro{
+	margin-bottom: 0;
+	.header_marque{
+		padding: 2rem 15px 0 15px;
+	}
+	.header_droite_annuaire{
+		margin-top: 2rem;
+		font-size: 1.8rem;
+		.flex-display(flex);
+		.align-items(center);
+		&::after{
+			content: "";
+			display: inline-block;
+			width: 15rem;
+			height: 3.3rem;
+			margin-left: 1rem;
+			background-image: url('https://media.ooreka.fr/public/image/logo_pj_png-source-12586543.png');
+			background-repeat: no-repeat;
+			background-size: 100%;
+		}
+	}
+}
+.annuaire_fd{
+	margin-bottom: 5rem;
+	.bt_haut{
+		display: none;
+		position: fixed;
+		right:2rem;
+		bottom: 2rem;
+		width: 5rem;
+		height: 5rem;
+		.radius(50%);
+		background-color: #ccc;
+		cursor: pointer;
+		z-index: 1;
+		&.icon-chevron::before{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			font-size: 3rem;
+			margin-top: -1.5rem;
+			margin-left: -1rem;
+			margin-right: 0;
+			color:#fff;
+			.scale-rotate(1, 90deg);
+		}
+		&:hover{
+			background-color: #aaa;
+		}
+		&.visible{
+			display: block;
+		}
+	}
+	.header_fd .w1000{
+		text-align: center;
+		padding: 3rem 15px;
+		color: #fff;
+		position: relative;
+		h1{
+			font-size: 1.2rem;
+			font-family: @calibri;
+			position: absolute;
+			color: #333;
+			bottom: 100%;
+			right: 15px;
+			font-weight: normal;
+			margin: 0;
+			padding: .5rem;
+			color: #fff;
+			z-index: -1;
+		}
+		.h1{
+			margin-bottom: 1rem;
+		}
+		.h1 ~ p {
+			font-size: 1.8rem;
+			font-weight: lighter;
+		}
+		.bt_numero{
+			.bt_jaune{
+				padding-left: 5rem;
+				position: relative;
+				font-size: 2.6rem;
+				&::before{
+					font-size: 34px;
+					position: absolute;
+					top: 50%;
+					left:.5rem;
+					margin-top: -17px;
+				}
+				&:hover{
+					color: #333;
+				}
+			}
+			.numero{
+				color: @black;
+				font-size: 2.6rem;
+			}
+		}
+		@widthImg : 110px;
+		> img{
+			display: table;
+			margin: 0 auto 2rem auto;
+			max-width: @widthImg;
+			max-height: @widthImg;
+			border: 1px solid @violet;
+			.radius(5px);
+		}
+	}
+	.header_fd .text_black{
+		color: #000000;
+	}
+	h2{
+		text-align: center;
+		&::after{
+			display: none;
+		}
+	}
+	h3{
+		margin-top: 0;
+		text-align: center;
+	}
+	.bt_sticky{
+		padding: .3rem 15px;
+		.flex-display(flex);
+		> a,
+		> span{
+			background-color: @violet;
+			padding: 1.5rem 0;
+			text-align: center;
+			color: #fff;
+			font-size: 1.6rem;
+			cursor: pointer;
+			.flex(100%);
+			.flex-display(flex);
+			.justify-content(center);
+			.align-items(center);
+			.flex-wrap(wrap);
+			&::before{
+				color:#fff;
+				font-size: 22px;
+			}
+			&.icon-trouver::before{
+				font-size: 25px;
+			}
+			&.icon-horloge2::before{
+				font-size: 30px;
+			}
+			&:hover{
+				background-color: @violet-typo;
+			}
+			+ a,
+			+ span{
+				margin-left: .3rem;
+			}
+		}
+		.numero_sticky{
+			padding: 0;
+			background-color: @jaune;
+			color: #333;
+			.icon-mobile::before{
+				color:#333;
+				font-size: 30px;
+			}
+			> span{
+				display: block;
+				padding: 1rem 0;
+				.flex-display(flex);
+				.justify-content(center);
+				.align-items(center);
+				.flex-wrap(wrap);
+			}
+			&:hover{
+				background-color: darken(@jaune, 2%);
+			}
+		}
+		&.fixed{
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 3;
+		}
+	}
+	.contenu_fd{
+		> div + div{
+			margin-top: 5rem;
+		}
+		.description{
+			.date_fondation{
+				text-align: center;
+				font-weight: bold;
+				font-size: 2.4rem;
+				+ p{
+					margin-top: 2rem;
+				}
+			}
+			.produit{
+				padding: 2rem 0;
+				margin: 2rem 0;
+				border-top: 1px solid #ccc;
+				border-bottom: 1px solid #ccc;
+				p{
+					font-weight: bold;
+					font-size: 2.4rem;
+					text-align: center;
+					margin-bottom: 1rem;
+				}
+				ul{
+					li{
+						float: left;
+						position: relative;
+						padding-left: 3rem;
+						font-size: 1.8rem;
+						width: 30%;
+						margin-left: 5%;
+						&::before{
+							content: '';
+							display: inline-block;
+							position: absolute;
+							top: 50%;
+							margin-top: -2.5px;
+							left: 1rem;
+							width: 5px;
+							height: 5px;
+							.radius(50%);
+							background-color: #333;
+						}
+						&:nth-of-type(3n+1){
+							margin-left: 0;
+						}
+					}
+				}
+			}
+			> ul{
+				padding-left: 1rem;
+				a{
+					display: block;
+					position: relative;
+					padding: .5rem 0 .5rem 3rem;
+					color: @violet;
+					&::before{
+						position: absolute;
+						top: 50%;
+						left: 0;
+						font-size: 24px;
+						margin-top: -12px;
+					}
+					&.icon-web::before{
+						color: @violet;
+					}
+					&:hover{
+						color: @rouge;
+					}
+				}
+			}
+		}
+		.bon_plan > div{
+			border: 2px solid @jaune;
+			.flex-display(flex);
+			.align-items(center);
+			padding-right: 30rem;
+			position: relative;
+			img{
+				max-width: 250px;
+				height: auto;
+			}
+			+ div{
+				margin-top: 5rem;
+			}
+			> div{
+				overflow: hidden;
+				padding: 1rem 0 1rem 3rem;
+				text-align: center;
+				font-size: 2.4rem;
+				.bt_violet{
+					position: absolute;
+					top: 50%;
+					right: 10rem;
+					margin-top: -20px;
+				}
+				p{
+					padding: 0 4rem;
+				}
+			}
+			.promo{
+				position: absolute;
+				top: -4rem;
+				right: 2rem;
+				text-transform: uppercase;
+				text-align: center;
+				width: 8rem;
+				height: 8rem;
+				line-height: 7.6rem;
+				font-size: 1.8rem;
+				background-color: #fff;
+				.radius(50%);
+				border: 2px solid @jaune;
+			}
+		}
+		.horaires > div{
+			padding: .3rem 0;
+			.flex-display(flex);
+			> div{
+				.flex(100%);
+				text-align: center;
+				p{
+					font-size: 1.8rem;
+				}
+				p + p{
+					line-height: 5rem;
+					background-color: @violet-typo;
+					color: #fff;
+					margin-top: .3rem;
+				}
+				.actuel{
+					background-color: @vert;
+				}
+				.ferme{
+					background-color: #999;
+				}
+				+ div{
+					margin-left: .3rem;
+				}
+			}
+		}
+		.photos{
+			> div{
+				position: relative;
+				overflow: hidden;
+				.precedent,
+				.suivant{
+					width: 150px;
+					height: 100%;
+					position: absolute;
+					top:0;
+					z-index: 1;
+					cursor: pointer;
+					.bt_carousel{
+						width: 6rem;
+						height: 6rem;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						margin-top: -3rem;
+						margin-left: -3rem;
+						background-color: @violet;
+						.radius(50%);
+						cursor: pointer;
+						z-index: 2;
+						&.icon-chevron::before{
+							position: absolute;
+							left: 50%;
+							top: 50%;
+							font-size: 3rem;
+							margin-top: -1.5rem;
+							margin-left: -1rem;
+							margin-right: 0;
+							color:#fff;
+						}
+					}
+				}
+				.suivant{
+					right: 0;
+					.gradient(#fff, rgba(255,255,255,0),rgba(255,255,255,.7), to right);
+					.icon-chevron::before{
+						.scale-rotate(1, 180deg);
+					}
+				}
+				.precedent{
+					left: 0;
+					.gradient(#fff, rgba(255,255,255,.7),rgba(255,255,255,0), to right);
+					.icon-chevron::before{
+						.scale-rotate(1, 0);
+					}
+				}
+				.carousel{
+					.transition(all, .5s, ease-in-out, 0s);
+					.flex-display(flex);
+					.align-items(center);
+					position: relative;
+					img{
+						height: 290px;
+						width: auto;
+						margin-right: .5rem;
+					}
+				}
+			}
+		}
+		.bullet{
+			.flex-display(flex);
+			.justify-content(center);
+			.flex-wrap(wrap);
+			padding: 0 10rem;
+			span{
+				margin-top: 1rem;
+				display: inline-block;
+				width: 1.6rem;
+				height: 1.6rem;
+				.radius(50%);
+				background-color: #ccc;
+				cursor: pointer;
+				margin-right: .5rem;
+				&.selected{
+					background-color: @violet;
+				}
+			}
+		}
+		.video{
+			> div{
+				background-color: #bbb;
+				color: #fff;
+				padding: 0 2rem 2rem 2rem;
+				.flex-display(flex);
+				.align-items(center);
+				.flex-wrap(wrap);
+				.justify-content(center);
+				a{
+					margin-top: 2rem;
+				}
+				img{
+					display: block;
+				}
+			}
+		}
+		.avis{
+			h2{
+				text-shadow: none;
+				> span{
+					margin-left: 1rem;
+					span::before{
+						font-size: 24px;
+					}
+				}
+			}
+			.icon-etoilePleine{
+				&::before{
+					color: #ccc;
+					margin: 0;
+				}
+			}
+			.avis_1 span{
+				&:nth-of-type(1)::before{
+					color: @jaune;
+				}
+			}
+			.avis_2 span{
+				&:nth-of-type(-n+2)::before{
+					color: @jaune;
+				}
+			}
+			.avis_3 span{
+				&:nth-of-type(-n+3)::before{
+					color: @jaune;
+				}
+			}
+			.avis_4 span{
+				&:nth-of-type(-n+4)::before{
+					color: @jaune;
+				}
+			}
+			.avis_5 span{
+				&:nth-of-type(-n+5)::before{
+					color: @jaune;
+				}
+			}
+			> div{
+				overflow:hidden;
+			}
+			@height: 110px;
+			.listing_avis{
+				position: relative;
+				overflow:hidden;
+				height: auto;
+				.transition(all, .5s, ease-in-out, 0s);
+				.un_avis{
+					float: left;
+					width: 100%;
+					padding: 0 2rem;
+					> span{
+						width: @height;
+						height: @height;
+						.radius(50%);
+						float: left;
+						margin-right: 2rem;
+						overflow:hidden;
+						background-color: #ccc;
+						position: relative;
+						&::before{
+							position: absolute;
+							top: 0;
+							left: 5px;
+							font-size: 60px;
+							line-height: @height;
+							.rotate(18deg);
+						}
+						img{
+							min-width: 100%;
+							min-height: 100%;
+							z-index: 1;
+						}
+					}
+					> div{
+						overflow: hidden;
+						font-size: 1.8rem;
+						.titre{
+							font-weight: bold;
+						}
+						.note_avis{
+							font-size: 1.6rem;
+							> span{
+								margin-right: .5rem;
+							}
+						}
+					}
+					+ .un_avis{
+						margin-top: 2rem;
+					}
+				}
+			}
+			.voir_avis{
+				text-align: center;
+				margin-top: 3rem;
+				font-size: 1.8rem;
+				font-weight: bold;
+				color: @rouge;
+				cursor: pointer;
+				&::before{
+					.scale-rotate(.5, -90deg);
+					color: @rouge;
+					font-weight: bold;
+				}
+				&.masquer::before{
+					.scale-rotate(.5, 90deg);
+				}
+			}
+		}
+		.savoir_plus{
+			p{
+				font-size: 1.8rem;
+			}
+			div + div{
+				margin-top: 3rem;
+			}
+			.sous_titre{
+				font-weight: bold;
+				text-align: center;
+				font-family: @museo;
+			}
+			.plus_pro{
+				position: relative;
+				hr{
+					position: absolute;
+					top:1rem;
+					left:0;
+					width: 100%;
+					border: 1px solid #fff;
+					border-bottom-color: #ccc;
+				}
+				h2{
+					font-size: 2rem;
+					position: relative;
+					span{
+						padding: 0 1rem;
+						background-color: #fff;
+					}
+				}
+				> div{
+					margin-top: 2rem;
+					a{
+						float: left;
+						display: block;
+						width: 30%;
+						font-size: 1.6rem;
+						padding: .5rem 0;
+						+ a{
+							margin-left: 5%;
+						}
+						&:hover{
+							color: @rouge;
+						}
+						&:nth-of-type(3n+1){
+							margin-left: 0;
+							clear:both;
+						}
+					}
+				}
+			}
+		}
+	}
+	.carte_map{
+		margin: 5rem 0;
+		@padding: 15px;
+		> div{
+			background-color: #eee;
+			.w1000{
+				padding: 0 @padding;
+				position: relative;
+				overflow: hidden;
+			}
+			.panneau_info{
+				background-color: rgba(99,88,159, .9);
+				position: absolute;
+				top: @padding*2;
+				left: @padding*3;
+				max-width: 30rem;
+				padding: 4rem;
+				color:#fff;
+				text-align: center;
+				font-size: 1.8rem;
+				.transition(all, .5s, ease-in-out, 0s);
+				p + p{
+					margin-top: .5rem;
+				}
+				.close{
+					position: absolute;
+					right: .5rem;
+					top: .5rem;
+					cursor: pointer;
+					&::before{
+						color: #fff;
+					}
+					&:hover::before{
+						color: @jaune;
+					}
+				}
+				.bt_numero{
+					margin-bottom: 0;
+					.numero{
+						color: #fff;
+					}
+				}
+			}
+			.agrandir{
+				position: absolute;
+				top: @padding*2;
+				right: @padding*5;
+				.box-shadow(.2rem, .2rem, 0, 0, #333);
+				background-color: #fff;
+				padding: 1rem;
+				font-size: 1.8rem;
+				font-family: @museo;
+				color: @violet;
+				.radius(3px);
+				cursor: pointer;
+				&::before{
+					margin: 0;
+					color: @rouge;
+					font-size: 4rem;
+				}
+				&.icon{
+					.box-shadow(0,0,0,0);
+				}
+			}
+			.map{
+				width: 100%;
+				height: 350px;
+				.transition(all, .5s, ease-in-out, 0s);
+			}
+		}
+	}
+	.contact{
+		margin: 5rem 0;
+		background-color: @violet;
+		padding: 1rem 15px;
+		.titre{
+			text-align: center;
+			color: #fff;
+			font-family: @museo;
+			font-size: 3.4rem;
+		}
+		form{
+			width: 50rem;
+			margin: 0 auto;
+			display: table;
+			fieldset{
+				margin: 0;
+			}
+			label{
+				display: block;
+				margin-top: 3rem;
+				position: relative;
+				textarea,
+				input{
+					.radius(3px);
+					padding: 1rem 4rem 1rem .5rem;
+					font-size: 1.6rem;
+				}
+				.libelle{
+					position: absolute;
+					top: 0;
+					left: 0;
+					padding: 1rem .5rem;
+					.transition(all, .5s, ease-in-out, 0s);
+				}
+				&.valide .libelle,
+				&.actif .libelle{
+					top: -20px;
+					color: #fff;
+					font-size: 1.6rem;
+					padding: 0;
+				}
+				&.erreur input{
+					color: @rouge;
+				}
+				&.icon-croix::before{
+					position: absolute;
+					right: .5rem;
+					bottom: 1rem;
+					color: @rouge;
+					.scale(0);
+					.transition(all, .3s, ease-in-out, 0s);
+				}
+				&.icon-tick::before{
+					right: .5rem;
+				}
+				&.erreur.icon-croix::before,
+				&.valide.icon-tick::before{
+					.scale(1);
+				}
+			}
+			.checkbox{
+				position: relative;
+				color: #fff;
+				padding-left: 3rem;
+				cursor: pointer;
+				margin-top: 1rem;
+				&.icon-tick::before{
+					position: absolute;
+					top: -2px;
+					left: 2px;
+					right: auto;
+					z-index: 1;
+					.scale(0);
+					.transition(all, .3s, ease-in-out, 0s);
+				}
+				&.valide::before{
+					.scale(1);
+				}
+				&::after{
+					content: "";
+					width: 2rem;
+					height: 2rem;
+					position: absolute;
+					top: 0;
+					left: 0;
+					.radius(3px);
+					margin: 0;
+					background-color: #fff;
+				}
+				+ .checkbox{
+					margin-top: 1rem;
+				}
+			}
+			.bt_envoyer{
+				cursor: pointer;
+				background-color: #fff;
+				display: table;
+				margin: 3rem auto 5rem auto;
+				float: none;
+				.box-shadow(.2rem, .2rem, 0, 0, #333);
+			}
+		}
+		.info_pro{
+			color: #fff;
+			.flex-display(flex);
+			.flex-wrap(wrap);
+			> div{
+				.flex(50%);
+				text-align: center;
+				> p + p{
+					margin-top: .5rem;
+				}
+				> span{
+					display: block;
+					margin-top: 2rem;
+					cursor: pointer;
+					&::before{
+						color:#fff;
+						font-size: 34px;
+					}
+					&.icon-mobile{
+						display: block;
+						width: 60px;
+						height: 60px;
+						line-height: 60px;
+						margin: 0 auto 2rem auto;
+						border: 2px solid #fff;
+						text-align: center;
+						.radius(50%);
+						&::before{
+							margin: 0;
+						}
+					}
+				}
+				+ div{
+					border-left: 1px solid #eee;
+					.numero{
+						color: #fff;
+					}
+				}
+			}
+			> p{
+				color: #eee;
+				margin-top: 3rem;
+				font-size: 1.5rem;
+				strong{
+					display: block;
+				}
+			}
+		}
+	}
+}
+.info_envoi{
+	padding: 2rem;
+	text-align: center;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: -200px;
+	.transition(all, .3s, ease-in-out, 0s);
+	z-index: 3;
+	p{
+		width: 50%;
+		margin: 0 auto;
+		font-size: 1.6rem;
+		padding: 3rem;
+		background-color: #eee;
+		font-family: @museo;
+		.radius(5px);
+	}
+	&.popin_visible{
+		bottom: 0;
+	}
+}
+/******************** LISTING ********************/
+@media only screen and (max-width: 800px){
+	.annuaire_listing_pro{
+		.un_pro{
+			> div .titre{
+				font-size: 2.4rem;
+			}
+			> img{
+				width: 110px;
+			}
+		}
+	}
+	.annuaire_fd{
+		.h1{
+			font-size: 3.4rem;
+		}
+		h2{
+			font-size: 2.8rem;
+		}
+		.header_fd .h1 ~ p,
+		p{
+			font-size: 1.8rem;
+		}
+		.bt_sticky{
+			padding: 0;
+			> a,
+			> span{
+				padding: 1rem 0;
+			}
+		}
+		.contenu_fd{
+			.description{
+				.produit ul li{
+					width: 47.5%;
+					margin: 0;
+					&:nth-of-type(2n+2){
+						margin-left: 5%;
+					}
+				}
+				.date_fondation{
+					font-size: 2rem;
+				}
+			}
+			.bon_plan > div{
+				padding-right: 0;
+				> div{
+					p{
+						padding: 0;
+					}
+					.bt_violet{
+						display: table;
+						position: static;
+						margin: 2rem auto 0 auto;
+					}
+				}
+				+ div{
+					margin-top: 3rem;
+				}
+				.promo{
+					top: auto;
+					bottom: 1rem;
+					width: 6rem;
+					height: 6rem;
+					line-height: 5.6rem;
+					font-size: 1.4rem;
+				}
+			}
+			.horaires > div{
+				.flex-wrap(wrap);
+				> div{
+					.flex-display(flex);
+					.align-items(center);
+					p{
+						.flex(100%);
+						+ p{
+							line-height: 4rem;
+							margin-left: .3rem;
+						}
+						&:first-of-type{
+							text-align: left;
+						}
+					}
+					+ div{
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+	.info_envoi p{
+		width: 100%;
+	}
+}
+@media only screen and (max-width: 600px){
+	.annuaire_fd{
+		.contact form{
+			width: 100%;
+		}
+	}
+	.header_pro .header_droite_annuaire{
+		margin-top: 0;
+		position: relative;
+		font-size: 1.2rem;
+		&::after{
+			position: absolute;
+			top: 100%;
+			right: 0;
+			margin: 0;
+			width: 12rem;
+			height: 2.5rem;
+		}
+	}
+}
+@media only screen and (max-width: 550px){
+	.header_pro .header_marque{
+		display: block !important;
+	}
+}
+@media only screen and (max-width: 500px){
+	.annuaire_listing_pro{
+		.un_pro{
+			padding-bottom: 3rem;
+			border-bottom: 1px solid #ccc;
+			> div{
+				clear: both;
+				text-align: center;
+				.titre{
+					font-size: 2rem;
+				}
+				p{
+					font-size: 1.6rem;
+				}
+			}
+			> img{
+				width: 90px;
+				display: table;
+				margin: 0 auto 1rem auto;
+				padding: 2px;
+				float:none;
+			}
+		}
+	}
+	.annuaire_fd{
+		.h1{
+			font-size: 2.6rem;
+		}
+		h2{
+			font-size: 2.2rem;
+		}
+		.bt_haut{
+			width: 3.5rem;
+			height: 3.5rem;
+			top: 2rem;
+			bottom: auto;
+			&.icon-chevron::before{
+				font-size: 2rem;
+				margin-top: -1rem;
+				margin-left: -.6rem;
+			}
+		}
+		.header_fd .h1 ~ p,
+		p{
+			font-size: 1.6rem;
+		}
+		.header_fd{
+			.bt_numero .bt_jaune{
+				font-size: 2.2rem;
+			}
+		}
+		.popin_call{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			margin: 0;
+			z-index: 1;
+			.w1000{
+				> img{
+					position: static;
+					margin: 0 !important;
+				}
+				.h1{
+					margin-top: 2rem;
+				}
+				> .icon-mobile{
+					position: relative;
+					display: block;
+					margin-top: 6rem;
+					font-size: 1.6rem;
+					color: #fff;
+					&::before{
+						position: absolute;
+						bottom: 100%;
+						left: 50%;
+						margin-left: -1.5rem;
+						margin-right: 0;
+						font-size: 3rem;
+						color: #fff;
+						z-index: 1;
+						line-height: 5.4rem;
+					}
+					&::after{
+						content: "";
+						width: 5rem;
+						height: 5rem;
+						background: @vert;
+						position: absolute;
+						bottom: 100%;
+						left: 50%;
+						margin-left: -2.5rem;
+						.radius(50%);
+						border: 2px solid #fff;
+					}
+				}
+				.icon-croix{
+					position: absolute;
+					top:0;
+					right: 0;
+					background-color: #fff;
+					&::before{
+						color: @rouge;
+						margin: 1rem;
+						font-size: 20px;
+					}
+				}
+			}
+		}
+		.bt_sticky{
+			> a,
+			> span{
+				padding: .5rem 0;
+				font-size: 1.4rem;
+				line-height: .9;
+				&::before{
+					font-size: 18px;
+					margin-bottom: .5rem;
+				}
+			}
+			.numero_sticky .icon-mobile::before{
+				font-size: 22px;
+				margin-bottom: .5rem;
+			}
+			&.fixed{
+				top: auto;
+				bottom: 0;
+			}
+			.hideMobile{
+				display: none;
+			}
+			.icon::before,
+			.icone::before{
+				display: block;
+				width: 100%;
+			}
+		}
+		.contenu_fd{
+			> div + div{
+				margin-top: 3rem;
+			}
+			.description{
+				.produit ul li{
+					width: 100%;
+					margin-left: 0;
+					&:nth-of-type(2n+2){
+						margin-left: 0;
+					}
+				}
+				.date_fondation{
+					font-size: 1.8rem;
+					+ p{
+						margin-top: 1rem;
+					}
+				}
+				> ul{
+					padding-left: 0;
+				}
+			}
+			.bon_plan > div{
+				.flex-wrap(wrap);
+				img{
+					display: table;
+					margin: 0 auto;
+				}
+				> div{
+					padding: 0 1rem;
+					margin: 2rem 0;
+				}
+			}
+			.horaires > div{
+				> div{
+					p{
+						font-size: 1.6rem;
+					}
+				}
+			}
+			.photos > div{
+				overflow: visible;
+				.precedent,
+				.suivant{
+					width: 6rem;
+					height: 6rem;
+					background: none;
+					top: 100%;
+					.bt_carousel{
+						margin-top: 0;
+						top: 0;
+						left: 0;
+						margin-left: 0;
+						margin-top: -3rem;
+					}
+				}
+				.carousel img{
+					height: 200px;
+				}
+				&.bullet{
+					padding: 0 7rem;
+					span{
+						width: .8rem;
+						height: .8rem;
+						margin-top: .8rem;
+					}
+				}
+			}
+			@dimensionPhotoAvis : 50px;
+			.avis .listing_avis{
+				margin-top: 0;
+				.un_avis{
+					padding: 0;
+					> span{
+						width: @dimensionPhotoAvis;
+						height: @dimensionPhotoAvis;
+						margin-right: 1rem;
+						&::before{
+							font-size: 2.4rem;
+							line-height: @dimensionPhotoAvis;
+						}
+					}
+					> div .note_avis{
+						margin-top: 0;
+						> span{
+							display: block;
+							margin-right: 0;
+							margin-bottom: .5rem;
+						}
+					}
+				}
+			}
+			.savoir_plus .plus_pro > div a{
+				width: 100%;
+				+ a{
+					margin-left: 0;
+				}
+			}
+		}
+		.carte_map{
+			margin: 3rem 0;
+			> div{
+				background-color: #fff;
+				.panneau_info{
+					position: static;
+					background: none;
+					padding: 2rem 0 0 0;
+					color: #333;
+					.close,
+					.bt_numero{
+						display: none;
+					}
+				}
+				.agrandir{
+					left: 20px;
+					right: auto;
+				}
+			}
+		}
+		.contact{
+			padding: 0;
+			margin: 3rem 0 1rem 0;
+			.titre{
+				font-size: 2.2rem;
+			}
+			.info_pro{
+				> div{
+					.flex(100%);
+					+ div{
+						border: none;
+						margin-top: 2rem;
+						.flex-display(flex);
+						.align-items(center);
+						.justify-content(center);
+						p{
+							margin-left: 1rem;
+						}
+					}
+					@dimensionIconContact : 45px;
+					> span.icon-mobile{
+						margin: 0;
+						width: @dimensionIconContact;
+						height: @dimensionIconContact;
+						line-height: @dimensionIconContact - 5px;
+
+					}
+					> span::before{
+						font-size: 22px;
+					}
+				}
+				.bt_numero {
+					margin: 0;
+				}
+				> p{
+					font-size: 1.3rem;
+				}
+			}
+		}
+	}
+}
+/**/
+
+/****************************** ANNUAIRE.OOREKA.FR ******************************/
+.annuaire{
+	/******************** HOMEPAGE ********************/
+	.top_recherche{
+		margin: 2rem 0;
+		div{
+			.flex-display(flex);
+			.flex-wrap(wrap);
+			.justify-content(space-between);
+			a{
+				position: relative;
+				display: block;
+				text-align: center;
+				.icon::before,
+				.icone::before{
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					margin: -2.5rem 0 0 -2.5rem;
+					font-size: 5rem;
+				}
+				.icon::before{
+					color: @violet;
+				}
+				.icone::before{
+					color: #fff;
+				}
+				.icon-restaurant-couvert::before{
+					margin-left: -3.7rem;
+				}
+				span:first-of-type{
+					display: block;
+					width: 8rem;
+					height: 8rem;
+					margin: 0 auto;
+					background-color: @violet;
+					.transition (all, .3s, ease-in-out, 0s);
+					.radius(4rem);
+					&.icon-plus{
+						border: 1px solid @violet;
+						background-color: #fff;
+					}
+				}
+				span:last-of-type{
+					display: block;
+					padding: .5rem 0;
+					font-size: 1.6rem;
+				}
+				&:hover{
+					color:@rouge;
+					span:first-of-type{
+						background-color: @rouge;
+						border: 1px solid @rouge;
+						&::before{
+							color: #fff;
+							animation: pulseLight .8s ease;
+						}
+					}
+				}
+			}
+		}
+	}
+	/********** CARTE DE FRANCE **********/
+	.map_france{
+		margin-top: 2rem;
+	}
+	.carte_france,
+	.carte_france_region,
+	.carte_france_departement{
+		max-width: 100%;
+		path{
+			fill: #ccc;
+			stroke: #fff;
+			.transition (all, .3s, ease-in-out, 0s);
+		}
+		path:hover{
+			opacity: 0.5;
+			stroke: #fff;
+			cursor: pointer;
+		}
+	}
+	.carte_france{
+		path{
+			stroke-width: 39;
+			animation: mapFrance 1s ease forwards .6s;
+		}
+		#complete_map{
+			.scale(1.5);
+		}
+		.separator{
+			fill: none;
+		}
+		.departement-jaune{
+			fill: @jaune;
+		}
+		.departement-orange{
+			fill: @orange;
+		}
+		.departement-violet{
+			fill: @violet;
+		}
+		.departement-rouge{
+			fill: @rouge;
+		}
+	}
+	.carte_france_region,
+	.carte_france_departement{
+		max-height: 30rem;
+		path{
+			stroke-width: 1.6;
+		}
+	}
+	/**/
+	.w_1_3 + .w_2_3{
+		margin-left: 5%;
+		margin-right: 0;
+	}
+	/******************** DEPARTEMENT ********************/
+	.article{
+		.mappy{
+			margin-top: 2rem;
+		}
+		a{
+			background: none;
+			.transition (all, .3s, ease-in-out, 0s);
+			&:hover{
+				background: none;
+			}
+		}
+		ul{
+			margin-left: 2rem;
+			li{
+				padding-bottom: 0;
+			}
+		}
+	}
+	/********** INTRO - DEPARTEMENT **********/
+	.localite{
+		.w_2_3 span{
+			display: block;
+			max-height: 30rem;
+			overflow: hidden;
+			img{
+				width: 100%;
+			}
+		}
+		.intro_localite p:first-of-type{
+			font-size: 2.2rem;
+			font-weight: bold;
+		}
+	}
+	/********** LISTING BAS DE PAGE **********/
+	.liste_ville,
+	.liste_top_activite{
+		> div{
+			font-size: 1.4rem;
+		}
+		.titre,
+		.sstitre{
+			font-family: @museo;
+			font-weight: 700;
+		}
+		.titre{
+			font-size: 1.6rem;
+		}
+		.sstitre{
+			font-size: 1.4rem;
+		}
+		ul{
+			margin-top: 0;
+			+ h3{
+				margin-top: 2rem;
+			}
+			li{
+				padding-left: 1.5rem;
+			}
+		}
+	}
+	.liste_top_activite{
+		margin-bottom: 2rem;
+		h3{
+			margin-top: 0;
+		}
+		.listing_activite{
+			padding-bottom: 3rem;
+			ul li{
+				padding-left: .5rem;
+				margin: .5rem 0;
+			}
+			+ .listing_activite{
+				padding-top: 3rem;
+				border-top: 1px solid #ccc;
+			}
+		}
+	}
+	.autres_departements,
+	.autres_villes{
+		margin-top: 4rem;
+		ul{
+			li + li{
+				margin-top: 1rem;
+			}
+		}
+	}
+	.autres_departements{
+		font-size: 1.4rem;
+	}
+	.autres_villes{
+		> div{
+			.flex-display(flex);
+			.align-items(center);
+		}
+	}
+	/********** LISTE DE RESULTAT **********/
+	.liste_resultat{
+		.listing_resultat{
+			margin-top: 1rem;
+			+ .listing_resultat{
+				margin-top: 5rem;
+			}
+		}
+		.mapContent_open{
+			margin-bottom: 5rem;
+		}
+		.nb_results{
+			margin-bottom: 2rem;
+			span{
+				margin-right: 1rem;
+				color: #999;
+			}
+			.icon-imprimante{
+				font-size: 1.4rem;
+				&::before{
+					color: @violet-typo;
+					font-size: 3rem;
+				}
+				&:hover::before{
+					color: @rouge;
+				}
+			}
+		}
+		.resultat_title{
+			p{
+				overflow: hidden;
+			}
+			a{
+				font-size: 2.4rem;
+				font-family: @museo;
+				font-weight: 700;
+				span{
+					color: @rouge;
+					font-family: Calibri, Arial, Helvetica, sans-serif;
+					font-weight: normal;
+					font-size: 1.4rem;
+				}
+			}
+			> span{
+				float: left;
+				margin-right: 1rem;
+				padding: .5rem 1.5rem;
+				color: #fff;
+				background-color: #dfdfdf;
+			}
+		}
+		.detail_adresse{
+			margin-top: 1.5rem;
+			.logo{
+				float: left;
+				display: block;
+				max-width: 14.5rem;
+				margin-right: 2rem;
+				padding: 1rem 2rem;
+				background-color: #dfdfdf;
+				img{
+					width: 100%;
+				}
+			}
+			.adresse{
+				span{
+					&::before{
+						float: right;
+						margin-left: .5rem;
+						font-size: 2.6rem;
+					}
+				}
+				.w_2_3{
+					margin-bottom: 0;
+				}
+				.w_1_3{
+					text-align: right;
+				}
+			}
+			.activite{
+				font-size: 1.4rem;
+			}
+			div{
+				overflow: hidden;
+			}
+			+ p{
+				font-size: 1.6rem;
+				margin-top: 1rem;
+			}
+		}
+		.contact_fantome{
+			position: relative;
+			margin-top: 1rem;
+			hr{
+				position: absolute;
+				top: 50%;
+				width: 100%;
+				margin-top: .1rem;
+				border-bottom: 1px solid #ccc;
+				border-top: none;
+			}
+			p,
+			aside{
+				display: inline-block;
+				margin: 0;
+			}
+			aside{
+				position: relative;
+				padding-right: 1rem;
+				background-color: #fff;
+				.numero{
+					margin: 1rem 0;
+					padding: .5rem 1.5rem;
+					font-family: @museo;
+					border: 1px solid #ccc;
+					&::before{
+						font-size: 2.2rem;
+					}
+				}
+			}
+		}
+		.bt_max{
+			font-size: 1.8rem;
+			&:hover{
+				color: #fff;
+			}
+		}
+		.bt_violet{
+			margin-left: 1rem;
+		}
+		.leaflet-popup-content-wrapper{
+			border-radius: 0;
+			.leaflet-popup-content{
+				margin: 2rem 0;
+			}
+		}
+		.tooltip_mappy{
+			p{
+				margin: 0;
+				font-size: 1.4rem;
+				font-family: Calibri, Arial, Helvetica, sans-serif;
+			}
+			aside{
+				overflow: hidden;
+				padding: 0 1.5rem;
+			}
+			.position_entreprise{
+				display: block;
+				float: left;
+				padding: .1rem 1rem;
+				color: #fff;
+				font-size: 2rem;
+				background-color: #dfdfdf;
+			}
+			.nom_entreprise{
+				font-size: 1.8rem;
+				font-family: @museo;
+				color: @violet-typo;
+			}
+			.adresse_entreprise{
+				margin: 1rem 0 0 0;
+			}
+			.img_entreprise{
+				display: inline-block;
+				max-width: 5rem;
+				margin: .5rem .5rem 0 0;
+				padding: .3rem 0;
+				background-color: #dfdfdf;
+				img{
+					width: 100%;
+					vertical-align: middle;
+				}
+			}
+			.categorie_entreprise{
+				display: inline-block;
+				margin-top: .5rem;
+				vertical-align: top;
+				font-size: 1.2rem;
+				&::first-letter{
+					text-transform: capitalize;
+				}
+			}
+			.contact_entreprise{
+				margin-top: 1rem;
+				p{
+					display: inline-block;
+				}
+				.numero_info{
+					margin: 1rem 0;
+					padding: .2rem 1rem;
+					border: 1px solid #ccc;
+					font-family: @museo;
+				}
+			}
+			.icon-horloge2::before{
+				margin-right: 0;
+			}
+			.bt_rouge,
+			.bt_violet{
+				color:#fff;
+			}
+		}
+		.autres_villes{
+			font-size: 1.4rem;
+		}
+	}
+	/********** FICHE DETAILLEE **********/
+	.annuaire_fiche_pro{
+		padding-bottom: 3rem;
+		> div + div{
+			margin-top: 3rem;
+		}
+		.entete{
+			.flex-display(flex);
+			.logo{
+				max-width: 14.5rem;
+				min-width: 10rem;
+				.align-self(baseline);
+				padding: 1rem;
+				background-color: #dfdfdf;
+				img{
+					display: block;
+					width: 100%;
+				}
+			}
+			.details{
+				.flex(1);
+				position: relative;
+				margin-left: 2rem;
+				h1{
+					padding-right: 10rem;
+				}
+				.icon-horloge2{
+					position: absolute;
+					top: 1rem;
+					right: 0;
+					font-weight: bold;
+					&::before{
+						margin-right: 3px;
+						font-size: 2rem;
+					}
+				}
+				.logo{
+					display: none;
+				}
+				.activite{
+					display: block;
+					margin-top: .5rem;
+					font-size: 1.4rem;
+					color: #666;
+					&:first-letter{
+						text-transform: capitalize;
+					}
+				}
+				.info_pro{
+					.flex-display(flex);
+					.adresse{
+						.flex(1 0 0);
+					}
+					.bt_action{
+						margin-left: 1rem;
+						> div{
+							display: inline-block;
+						}
+						> span{
+							margin-left: 1rem;
+						}
+					}
+				}
+				p::first-letter{
+					text-transform: capitalize;
+				}
+			}
+		}
+		.bandeau_ancre{
+			.flex-display(flex);
+			.align-items(center);
+			.flex-wrap(wrap);
+			font-family: @museo;
+			font-size: 1.4rem;
+			background-color: #eee;
+			.map_show{
+				.flex(1);
+				margin-bottom: 0;
+				box-shadow: none;
+			}
+			aside{
+				.flex-display(flex);
+				.flex(2);
+				margin: 0 5%;
+				a{
+					text-align: center;
+					.flex-dimension(0 1, 9rem);
+					&::before{
+						display: block;
+						margin: 0 0 .5rem 0;
+						font-size: 5rem;
+						color: @violet;
+					}
+					+ a{
+						margin-left: 2rem;
+					}
+				}
+			}
+			#mymap{
+				.flex-dimension(0 1, 100%);
+			}
+		}
+		.horaires_pro{
+			.icon-horloge2::before{
+				margin: 0;
+				font-size: 2.7rem;
+				vertical-align: -6px;
+			}
+			.listing_horaire{
+				margin-top: 1rem;
+				.horaires_jour{
+					float: left;
+					width: 50%;
+					color: #999;
+				}
+				div{
+					overflow: hidden;
+					span{
+						display: block;
+					}
+				}
+			}
+		}
+		.contact h3{
+			margin-top: 0;
+		}
+		.autres_contact{
+			p{
+				float: left;
+				span:first-of-type{
+					display: block;
+					font-weight: bold;
+				}
+			}
+			div{
+				float: right;
+			}
+			+ .autres_contact{
+				border-top: 1px solid #ccc;
+				margin-top: 1rem;
+				padding-top: 1rem;
+			}
+		}
+		.affichage_photo_video{
+			div{
+				a{
+					max-height: 10rem;
+					background-color: #ccc;
+					overflow: hidden;
+					border: 1px solid #ccc;
+				}
+				img{
+					max-width: 100%;
+					display: block;
+					margin: 0 auto;
+				}
+				+ h2{
+					margin-top: 3rem;
+				}
+			}
+		}
+		.promos{
+			.img_promo{
+				background-color: #ccc;
+				img{
+					display: block;
+					max-width: 100%;
+					margin: 0 auto;
+				}
+				+ a{
+					display: block;
+					margin: 1rem 0;
+					font-size: 2.4rem;
+					font-weight: 700;
+					font-family: @museo;
+				}
+			}
+			p{
+				word-wrap: break-word;
+			}
+		}
+	}
+	.ferme,
+	.ferme::before{
+		color: @rouge;
+	}
+	.ouvert,
+	.ouvert::before{
+		color: #1c8627;
+	}
+	.bt_max{
+		&.clicked{
+			background: @violet;
+			box-shadow: none;
+			top: 0;
+			left: 0;
+		}
+		&.icon-phone-line::before{
+			font-size: 2.3rem;
+		}
+	}
+	/********** MAP - MAPPY **********/
+	.mapContent{
+		overflow: hidden;
+		width: 100%;
+		&_open{
+			#mymap{
+				.animation(fadeIn,.6s,ease-in-out, forwards);
+			}
+		}
+	}
+	#mymap{
+		.leaflet-map-pane{
+			position: relative;
+		}
+		.leaflet-control-container > div{
+			clear: both;
+		}
+		.mappy-control{
+			margin: 1rem;
+			background: rgba(255, 255, 255, .9);
+			a{
+				.transition(all, 0s, ease, 0s);
+			}
+		}
+		.mappy-button{
+			.flex-display(flex);
+			.align-items(center);
+			.justify-content(center);
+			width: 3.8rem;
+			height: 3.6rem;
+			border-top: 1px solid #ddd;
+			&:first-child{
+				border-top-color: transparent;
+			}
+			span{
+				display: block;
+				width: 2.4rem;
+				height: 2.4rem;
+				background: url("@{imgPathTheme}/mappy/tools.png")no-repeat 0 0;
+				color: #FFF;
+				font-size: 0;
+			}
+		}
+		.mappy-button-traffic span{
+			background-position: -2.4rem 0;
+		}
+		.mappy-button-transport span{
+			background-position: 0 0;
+		}
+		.mappy-button-aerial span{
+			background-position: -4.8rem 0;
+		}
+		.mappy-button-zoom-in span{
+			background-position: -7.2rem 0;
+		}
+		.mappy-button-zoom-out span{
+			background-position: -9.6rem 0;
+		}
+		.mappy-button-active.mappy-button-traffic span,
+		.mappy-button-traffic:hover span{
+			background-position: -2.4rem -2.4rem;
+		}
+		.mappy-button-active.mappy-button-transport span,
+		.mappy-button-transport:hover span{
+			background-position: 0 -2.4rem;
+		}
+		.mappy-button-active.mappy-button-aerial span,
+		.mappy-button-aerial:hover span{
+			background-position: -4.8rem -2.4rem;
+		}
+		.mappy-button-active.mappy-button-zoom-in span,
+		.mappy-button-zoom-in:hover span{
+			background-position: -7.2rem -2.4rem;
+		}
+		.mappy-button-active.mappy-button-zoom-out span,
+		.mappy-button-zoom-out:hover span{
+			background-position: -9.6rem -2.4rem;
+		}
+		.mappy-button-active,
+		.mappy-button:hover{
+			background: @violet;
+			text-decoration: none;
+			span{
+				color: #68d419;
+			}
+		}
+		.mappy-button-zoom-in,
+		.mappy-button-zoom-out{
+			&:hover{
+				background-color: @violet;
+			}
+			span{
+				display: block;
+				margin: .6rem 1.1rem;
+				width: 1.6rem;
+				height: 1.6rem;
+			}
+		}
+		.mappy-button-zoom-full{
+			padding: 0;
+			&.mappy-button-zoom-out{
+				border-top: none;
+			}
+		}
+		.mappy-tooltip{
+			position: absolute;
+			right: 5rem;
+			padding: .8rem 1.2rem;
+			background: @violet;
+			color: #fff;
+			white-space: nowrap;
+			span{
+				display: block;
+			}
+			input{
+				margin-right: .5rem;
+				cursor: pointer;
+			}
+			label{
+				display: inline-block;
+				cursor: pointer;
+			}
+			&::after,
+			&::before{
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 100%;
+				width: 0;
+				height: 0;
+				border: solid transparent;
+				pointer-events: none;
+			}
+			&::after{
+				margin-top: -.6rem;
+				border-width: .6rem;
+				border-color: transparent transparent transparent @violet;
+			}
+			&:::before{
+				margin-top: -.7rem;
+				border-width: .7rem;
+				border-color: transparent transparent transparent @violet;
+			}
+		}
+		.leaflet-left .mappy-tooltip{
+			right: auto;
+			left: 5rem;
+			&::after,
+			&::before{
+				right: 100%;
+				left: auto;
+			}
+			&::after{
+				border-right-color: #666;
+				border-left-color: transparent;
+			}
+			&::before{
+				border-right-color: #838383;
+				border-left-color: transparent;
+			}
+		}
+		p.mappy-traffic-legend-title{
+			font-weight: 700;
+			font-size: 1.2rem;
+		}
+		.mappy-traffic-legend{
+			clear: both;
+			padding: .5rem 1rem;
+			border: none;
+			border-radius: 0;
+			background-color: #fff;
+			background-color: rgba(255, 255, 255, .8);
+			box-shadow: none;
+			color: #000;
+			font-size: 1.2rem;
+			table{
+				margin: .5rem 0;
+			}
+			td{
+				width: 4rem;
+				height: .7rem;
+			}
+			p.left{
+				float: left;
+			}
+			p.right{
+				float: right;
+			}
+			.orange{
+				background-color: orange;
+			}
+			.red{
+				background-color: red;
+			}
+			.darkred{
+				background-color: #b20000;
+			}
+			.black{
+				background-color: #443434;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+				outline: 0;
+				border: 0;
+			}
+		}
+		.leaflet-control{
+			&.leaflet-control-attribution,
+			&.leaflet-control-scale{
+				float: left;
+				clear: none;
+				margin: 1rem;
+				background: #fff;
+				background: rgba(255, 255, 255, .5);
+			}
+			&.leaflet-control-scale{
+				+ .leaflet-control-attribution{
+					margin-left: 0;
+					padding-right: 1rem;
+				}
+			}
+		}
+		.leaflet-control-scale-line{
+			border-width: 1px;
+			border-color: #666;
+			background: 0 0;
+		}
+		.leaflet-control-attribution a{
+			color: #333;
+			font-size: 1.1rem;
+		}
+		.mappy-tooltip-transport{
+			padding: .5rem;
+			p{
+				margin: .5rem 0;
+			}
+			span{
+				display: inline-block;
+				margin-bottom: .5rem;
+				color: #333;
+				font-weight: 700;
+				font-size: 1.6rem;
+			}
+		}
+	}
+	.map_show{
+		display: block;
+		margin-bottom: 2rem;
+		padding: 5rem 0;
+		text-align: center;
+		background:url('https://media.ooreka.fr/localisation_LRx2-source-12599625.jpg') no-repeat;
+		background-size: cover;
+		.icon-croix::before{
+			font-size: 1.2rem;
+			vertical-align: 0px;
+		}
+		&.responsive{
+			display: none;
+		}
+	}
+}
+/********** ANNUAIRE DEPARTEMENT & VILLE **********/
+.annuaire_departement,
+.annuaire_ville{
+	.top_recherche{
+		div{
+			width: 70%;
+		}
+	}
+	> div + div{
+		margin-top: 4rem;
+	}
+}
+/********** RESPONSIVE PAGE **********/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5){
+	.mappy-button span{
+		background: url("@{imgPathTheme}/mappy/tools-2x.png")no-repeat 0 0;
+		background-size: 12rem 4.8rem;
+	}
+}
+@media only screen and (max-width: 1000px){
+	.annuaire .annuaire_fiche_pro .entete .details .info_pro{
+		.flex-wrap(wrap);
+		.adresse{
+			.flex(1 0 100%);
+		}
+		.bt_action{
+			margin-left: 0;
+		}
+	}
+}
+@media only screen and (max-width: 800px){
+	.annuaire{
+		.top_recherche{
+			div{
+				width: 100%;
+			}
+		}
+		.map_france svg{
+			display: none;
+		}
+		.mappy{
+			width: 100%;
+		}
+		.w_1_3 + .w_2_3{
+			margin-left: 0;
+		}
+		.liste_resultat{
+			.map_ad{
+				display: none;
+			}
+			.detail_adresse{
+				.adresse{
+					.w_2_3,
+					.w_1_3{
+						width: 100%;
+						margin-top: 0;
+					}
+					.w_1_3{
+						text-align: left;
+						&::before{
+							float: none;
+							font-size: 2rem;
+							margin: 0 3px 0 0;
+						}
+					}
+				}
+			}
+		}
+		.map_show{
+			position: relative;
+			z-index: 1;
+			padding: 2rem 0;
+			margin-bottom: 0;
+			.box-shadow(0, 25px, 54px, -27px, #2f2f2f);
+			&.responsive{
+				display: block;
+			}
+		}
+		.autres_departements,
+		.autres_villes{
+			.w_1_3{
+				text-align: center;
+			}
+		}
+		.autres_departements ul{
+			margin-top: 1rem;
+		}
+		.autres_villes > div{
+			display: inherit;
+		}
+		.annuaire_fiche_pro{
+			> div + div{
+				margin-top: 2rem;
+			}
+			.entete{
+				> .logo{
+					display: none;
+				}
+				.details{
+					margin-left: 0;
+					.logo{
+						display: block;
+						float: left;
+						margin-right: 1rem;
+					}
+					.info_pro{
+						overflow: hidden;
+					}
+				}
+			}
+			.bandeau_ancre{
+				.align-items(inherit);
+				.flex-direction(column);
+				.map_show{
+					.flex-order(0);
+				}
+				aside{
+					.flex-direction(column);
+					margin: 0;
+					padding: 2rem 4rem;
+					.flex-order(2);
+					a{
+						text-align: left;
+						.flex-dimension(0 1, auto);
+						&::before{
+							display: inline-block;
+							margin: 0 1.5rem 0 0;
+							font-size: 2rem;
+						}
+						+ a{
+							margin: 1rem 0 0 0;
+						}
+					}
+				}
+				#mymap{
+					.flex-order(1);
+					.flex-dimension(0 1, 40rem);
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 500px){
+	.annuaire{
+		.top_recherche{
+			div{
+				.justify-content(flex-start);
+				a{
+					.flex(0 1 33%);
+				}
+			}
+		}
+		.liste_ville,
+		.liste_top_activite{
+			.listing_activite{
+				max-width: 80%;
+				padding-bottom: 1.5rem;
+				+ .listing_activite{
+					padding-top: 1.5rem;
+				}
+			}
+		}
+		h2::after{
+			content:"";
+		}
+		.liste_resultat{
+			.contact_fantome span{
+				font-size: 1.6rem;
+			}
+			.bt_max{
+				padding:.5rem 1rem;
+				font-size:1.6rem;
+				&::before{
+					margin-right: 0;
+				}
+			}
+			.bt_violet{
+				font-size: 1.4rem;
+			}
+			.icon-email::before{
+				content:"";
+			}
+		}
+		.annuaire_fiche_pro{
+			.autres_contact{
+				text-align: center;
+				a{
+					color: #fff;
+				}
+				p{
+					text-align: left;
+				}
+				p,
+				div{
+					float: none;
+				}
+			}
+		}
+		.annuaire_fiche_pro .entete{
+			.details{
+				h1{
+					padding-right: 0;
+				}
+				.icon-horloge2{
+					position: static;
+				}
+				margin-left: 0;
+				.logo{
+					display: block;
+					float: left;
+					margin-right: 1rem;
+				}
+				.info_pro{
+					overflow: visible;
+					display: block;
+					.adresse{
+						overflow: hidden;
+					}
+					.bt_action{
+						clear: both;
+						float: left;
+						margin-top: 1rem;
+						text-align: center;
+						> * {
+							margin: 1rem 0 0 0;
+						}
+						> span{
+							margin-left: 0;
+						}
+						> div .bt_max{
+							margin: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

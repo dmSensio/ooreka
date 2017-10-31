@@ -1,0 +1,817 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*ON ANNULE LES STYLES PAR DEFAUT DE TABLE*/
+div.form table,
+div.form table td {
+	background:none;
+	border:none;
+	margin:0;
+	padding:0;
+	font-size:11px;
+	}
+
+/*STYLES PAR DEFAUT ELEMENTS DE FORMULAIRE*/
+.show {
+	display:block;
+	visibility:visible;
+	height:100%
+	}
+.hide, .form p.hide {
+	display:none;
+	visibility:hidden;
+	height:0%;
+	}
+form {
+	font-size:11px;
+	margin:0;
+	padding:0;
+	}
+div.form input,
+div.form select {
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin:0 5px 0 0;
+	padding:2px;
+	vertical-align:middle;
+	}
+div.form p.note {
+	font-size:0.85em;
+	font-weight:normal;
+	padding:10px 0 5px 0;
+	margin:0 5px;
+	background:none;
+	}
+p.legal {
+	font:italic normal 11px/140% Arial, Helvetica, sans-serif;	
+	background: url('@{imgPathTheme}/logo_cnil.gif') 0 10px no-repeat;
+	padding: 10px 0 0 100px;
+	margin:0 5px;
+	border-top:1px dotted #666;
+}
+
+div.form fieldset {
+	border:0;
+	margin:0;
+	padding:4px;
+	}
+div.form fieldset:hover {
+	background-color:#dedede;
+	}
+div.form p {
+	margin:2px 0;
+	padding:0;
+	font-size:11px;
+	font-weight:bold;
+	display:block;
+	}
+div.form div.bouton, div.form_diagimmo div.bouton {
+	margin:5px auto;
+	border:none;
+	text-align:center;
+}
+div.erreur {
+	margin:5px;
+	padding:5px;
+	background-color:#FF8C2F;
+	border:1px solid #FF7200;
+	font:bold 12px/130% Arial, Helvetica, sans-serif;
+	color:#333;
+	}
+div.erreur ul li {
+	background: url("@{imgPathTheme}/img_icones-communes.png") 0 -1291px no-repeat;
+	color:#CC0000;
+	font-weight:bold;
+	margin:0;
+	padding:0 0 0 12px;
+	}
+p.erreur {
+	background: url("@{imgPathTheme}/img_icones-communes.png") 0 -1291px no-repeat;
+	clear: both;
+	color: #CC0000;
+	font-weight: bold;
+	line-height: 130%;
+	margin: 0;
+	padding: 5px 10px 10px 12px;
+	text-align: left;
+	width: 95%;
+	font-size: 11px;
+}
+.ui-dialog p.erreur {
+    background: url("@{imgPathTheme}/img_icones-communes.png") no-repeat scroll 0 -1285px transparent;
+}
+#droite p.erreur {
+	clear: both;
+	color: #CC0000;
+	font-weight: bold;
+	line-height: 130%;
+	margin: 0;
+	text-align: left;
+	width: 90%;
+	padding: 5px 5px 5px 15px;
+	margin:0 0 10px 0;
+	background: @color_pale url("@{imgPathTheme}/img_icones-communes.png") 4px -1292px no-repeat;
+}
+
+	/*general*/
+div.devis {
+	float:left;
+	margin:0 20px 0 20px;
+	overflow:hidden;
+}
+
+	/*colonne de droite*/
+#droite_devis {
+	background-color: #FFF;
+	float: left;
+	margin: 20px 0 0;
+	width: 430px;
+}
+#droite .form_sante label,
+#droite .pro form.sante label{
+	width:130px;
+	font-size:11px;
+}
+#droite .pro form.argent label{
+	width:130px;
+	font-size:11px;
+}
+#droite .form_sante select,
+#droite .pro form.sante select{
+	width:140px;
+	margin-bottom:10px;
+}
+#droite .form_sante select,
+#droite .pro form.argent select{
+	width:140px;
+	margin-bottom:10px;
+}
+#droite .pro form.argent {
+	margin: 0 auto;
+	padding: 0;
+	width: 280px;
+}
+div#droite form.argent input {
+	width: 75px;
+}
+#droite .form_sante input,
+#droite .pro form.sante input {
+	margin:0 0 5px 0;
+}
+#droite_devis img.txtReassurance {
+	margin: 20px 0 0;
+}
+#droite_devis div.reassurance {
+	background-color: #FFF;
+	border:none;
+	border-top: 1px dashed #666;
+	border-bottom: 1px dashed #666;
+	color: #333;
+	font:normal 11px/140% Arial,Helvetica,sans-serif;
+	margin: 0 0 20px;
+	padding: 10px 0;
+	overflow:hidden;
+}
+#droite_devis div.reassurance img {
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+/*simulation*/
+#droite_devis div.texte-reassurance {
+	background:#FFFFFF url("@{imgPathTheme}/photo_reassurance.jpg") 0 0 no-repeat ;
+	border: 1px solid @color_base;
+	color: #333;
+	font: 12px/120% Arial,Helvetica,sans-serif;
+	margin: 0 0 20px;
+	overflow: auto;
+	padding: 5px 10px 5px 0;
+}
+#droite_devis div.texte-reassurance p {
+	color: #267C89;
+	font: 18px/100% Arial, Helvetica, sans-serif;
+	padding: 0 0 10px 130px;
+}
+#droite_devis div.texte-reassurance ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0 0 0 130px;
+}
+#droite_devis div.texte-reassurance li {
+	background: url('@{imgPathTheme}/i_puce-devis.png') 0 4px no-repeat;
+	padding: 0 0 5px 20px;
+}
+
+/******************************************** FORMULAIRES DROITE MAISON - SANTE - DIAGIMMO - B2B *********************************************/
+#droite p.bouton {
+	padding:0 0 0 10px;
+	overflow:hidden;
+	margin:0;
+	float:left;
+}
+#droite .devis input#btEnvoyer {
+	width:80px;
+	height:30px;
+	border:none;
+	margin:0;
+	padding:0;
+	cursor:pointer;
+	color:#ffffff;
+	margin:0 0 5px 0;
+	padding:0;
+	cursor:pointer;
+	position:relative;
+	background:none;
+	.gradient (@color_degradFonceC, @color_degradFonceC, @color_degradClairC);
+	.rounded (3px);
+	font-family: 'museo', Arial, Helvetica, sans-serif;
+}
+#droite .devis input#btEnvoyer:hover {
+	.gradient (@color_degradClairC, @color_degradClairC, @color_degradFonceC);
+}
+#droite .devis p.boutonOK {
+    float: left;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+    width: 41px;
+}
+#droite .devis input#btOkRDV {
+	background:url("@{imgPathTheme}/btOk.gif") 0 0 no-repeat;
+	width:41px;
+	height:30px;
+	border:none;
+	margin:0;
+	padding:0;
+	cursor:pointer;
+}
+
+#droite .pro p.bouton {
+	width:41px;
+	margin:0;
+}
+div#droite div.form_maison,
+div#droite div.form_sante, 
+div#droite div.form_defisc,
+div#droite div.form_argent{
+	overflow:hidden;
+	padding:5px 10px;
+	margin:0 0 0 0;
+	width:280px;
+	color:#333;
+	background: @color_aplat;
+}
+div#droite div.form_diagimmo {
+	background:@color_base;
+	overflow:hidden;
+	padding:5px 10px 0 10px;
+	margin:0 0 0 0;
+	width:280px;
+	color:#333;
+	}
+div#droite img {
+	display:block;
+	margin:0;
+	}
+div#droite form {
+	padding:5px 0 0 0;
+	width:100%;
+	margin-bottom:3px;
+	}
+#droite .pro form.sante,
+#droite .pro form.diagimmo {
+	width:280px;
+	margin:0 auto 0 auto;
+	padding:0;
+}
+div#droite form fieldset {
+	padding:5px;
+	margin:0;
+	border:none;
+	}
+div#droite form fieldset.projet {
+	padding:5px 0px;
+	overflow:hidden;
+	}
+div#droite form fieldset.cp {
+	padding:2px 0;
+	overflow:hidden;
+	}
+div#droite form p.bouton {
+	margin-bottom:0px;
+	}
+div#droite form label {
+	font:normal 12px/100% Arial, Helvetica, sans-serif;
+	padding:7px 0 0 0;
+	float:left;
+	width:85px;
+	color:#fff;
+	}
+#droite .pro label {
+	color:#333;
+}
+div#droite form input {
+	float:left;
+	font:normal 12px/100% Arial, Helvetica, sans-serif;
+	padding:2px;
+	width:80px;
+	color:#666;
+	border:1px solid #AFAFAF;
+	margin:5px 8px 0 0;
+	}
+div#droite form input.btOk {
+	margin:0;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px; 
+	border-radius: 5px 5px 5px 5px;
+	border:3px solid #fff;
+	width:41px;
+	color:#fff;
+	font-weight:bold;
+	line-height:10px;
+	position:relative;
+	}
+:root div#droite form input.btOk {
+	padding-bottom:4px;
+	}
+div#droite form select {
+	font:normal 12px/100% Arial, Helvetica, sans-serif;
+	padding:2px;
+	width:182px;
+	color:#666;
+	border:1px solid #AFAFAF;
+	float:left;
+	margin:5px 0;
+	}
+div#droite .form_diagimmo label,
+#droite .pro form.diagimmo label {
+	width:125px;
+	}
+div#droite .form_diagimmo select,
+#droite .pro form.diagimmo select {
+	width:145px;
+	}
+div#droite .form_diagimmo input {
+	width:135px;
+	margin:5px 0 10px 0;
+	}
+#droite .pro form.diagimmo input {
+	margin:5px 0 10px 0;
+	}
+div#droite form fieldset div.bouton {
+	float:left;
+	margin:0 0 0 5px;
+}
+div#droite form fieldset div.bouton input {
+	width:24px;
+	border:none;
+	float:left;
+	padding:0;
+}
+/****************************************** FORMULAIRE SIMULATION DROITE DEFISC **********************************************/
+div#droite div.form_defisc form, 
+div#droite div.form_argent form{
+	margin:0;
+	padding:0 ;
+}
+div#droite div.form_defisc fieldset, 
+div#droite div.form_argent fieldset {
+	width:280px;
+}
+#droite div.form_defisc .erreur, 
+div#droite div.form_argent .erreur {
+	width:90%;
+	padding: 5px 5px 5px 15px;
+	margin:0 0 10px 0;
+	background: @color_desat + #222 url("@{imgPathTheme}/img_icones-communes.png") 4px -1292px no-repeat;
+}
+div#droite div.form_defisc input{
+	border:1px solid #999;
+	width:80px;
+	margin:3px 0 0 0;
+	padding:2px;
+	color:#666;
+}
+div#droite div.form_defisc input[type="text"]{
+	width:60px;
+}
+div#droite div.form_defisc select, 
+div#droite div.form_argent select {
+	width:140px;
+	margin:3px 0 0 0;
+	padding:2px;
+	color:#666;
+	width:145px;
+}
+div#droite div.form_defisc label, 
+div#droite div.form_argent label {
+	font:bold 11px/140% Arial, Helvetica, sans-serif;
+	width:120px;
+}
+div#droite div.form_defisc .argent_delai_cp label,
+div#droite div.form_argent .argent_delai_cp label {
+	color: #FFF;
+	float: left;
+	font: 12px/100% Arial,Helvetica,sans-serif;
+	padding: 7px 0 0;
+	width: 85px;
+	}
+div#droite div.form_defisc .argent_delai_cp select,
+div#droite div.form_argent .argent_delai_cp select {
+	border: 1px solid #AFAFAF;
+	color: #666;
+	float: left;
+	font: 12px/100% Arial,Helvetica,sans-serif;
+	margin: 0 0 10px;
+	padding: 2px;
+	width: 182px;
+	}
+div#droite div.form_defisc p.label, 
+div#droite div.form_argent p.label {
+	float:left;
+	font:bold 11px/140% Arial, Helvetica, sans-serif;
+	margin:0 0 5px 0;
+	padding:0;
+	width:275px;
+	color:#fff;
+}
+div#droite div.form_defisc table.acocher, 
+div#droite div.form_argent table.acocher {
+	margin:0 0 0 0;
+	border:none;
+	width:280px;
+}
+div#droite div.form_defisc table.acocher tr,
+div#droite div.form_defisc table.acocher td, 
+div#droite div.form_argent table.acocher tr, 
+div#droite div.form_argent table.acocher td {
+	border:none;
+	padding:0;
+}
+div#droite div.form_defisc input.checkbox, 
+div#droite div.form_argent input.checkbox {
+	border:none;
+	width:10px;
+	margin:5px 5px 0 0;
+}
+div#droite div.form_defisc label.checkbox, 
+div#droite div.form_argent label.checkbox {
+	border:none;
+	width:120px;
+	font:normal 11px/140% Arial, Helvetica, sans-serif;
+	margin:3px 0 5px 0;
+	padding:0;
+}
+div#droite div.form_defisc form p.bouton, 
+div#droite div.form_argent form p.bouton {
+	float:left;
+	width:80px;
+}
+div#droite div.form_defisc form p.bouton .btValiderPt, 
+div#droite div.form_argent form p.bouton .btValiderPt {
+	color:#fff;
+	position:relative;
+	background:none;
+	.gradient (@color_degradFonceC, @color_degradFonceC, @color_degradClairC);
+	-moz-border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius:3px 3px 3px 3px; 
+	border-radius: 3px 3px 3px 3px;
+	font-weight:bold;
+	border:none;
+}
+div#droite div.form_defisc form p.bouton .btValiderPt:hover, 
+div#droite div.form_argent form p.bouton .btValiderPt:hover {
+	.gradient (@color_degradClairC, @color_degradClairC, @color_degradFonceC);
+}
+div#droite div.form_defisc form div.bouton, 
+div#droite div.form_argent form div.bouton {
+	margin:10px 0 10px 0;
+	width:280px;
+	clear:both;
+	text-align:center;
+	padding:0;
+}
+div#droite div.form_defisc form div.bouton input, 
+div#droite div.form_argent form div.bouton input {
+	width:89px;
+	border:none;
+	padding:0;
+	float:none;
+}
+div#droite form p.obligatoire {
+	font:italic 10px/140% Arial, Helvetica, sans-serif;
+	margin:0 0 0 5px;
+}
+	/**CNIL ET REASSURANCE**/
+div#droite div.petit260 {
+	font-size:10px;
+	margin:20px 0;
+}
+div#droite div.petit260 img {
+	margin:0 10px 0 0;
+	float:left;
+}
+div.reassurance {
+	background-color:#F0F1F4;
+	border:1px solid #CCCDD5;
+	color:#333;
+	font-size:11px;
+	margin:20px 0;
+	overflow:auto;
+	padding:10px;
+}
+
+	/**BOUTON**/
+div.devis540 .form_maison div.bouton,
+div.devis540 .form_sante div.bouton, 
+div.devis540 .form_diagimmo div.bouton {
+	text-align:center;
+	margin:8px 0 0 0;
+	clear:both;
+	padding:0;
+	width:510px;
+	overflow:hidden;
+}
+div.devis540 .form_maison input#btvalider,
+div.devis540 .form_sante input#btvalider, 
+div.devis540 .form_diagimmo input#btvalider {
+	margin:15px 0 15px 0;
+	border:none;
+	float:none;
+	width:89px;
+}
+
+
+/***************************************************** FORMULAIRE CONTACT *************************************************************************/
+div.formulaire {
+	margin:20px 20px 50px 0;
+	width:690px;
+	float:left;
+}
+div.formulaire div.encart676_gris p {
+	clear:both;
+	margin:0 0 5px;
+	font-size:12px;
+}
+div.formulaire div.encart676_gris p em {
+	font-size:11px;
+	padding:0;
+}
+div.formulaire div.encart676_gris label {
+	margin:0 0 5px;
+	padding:15px 0 0;
+	width:300px;
+	font-size:12px;
+}
+div.formulaire div.encart676_gris p select {
+	border:1px solid #999;
+	margin:13px 0 0;
+	padding:2px;
+	width:355px;
+}
+div.formulaire div.encart676_gris p input {
+	margin:13px 0 0;
+	width:350px;
+	height:15px;
+}
+div.formulaire div.encart676_gris p textarea {
+	border:1px solid #999;
+	margin:10px 0 0;
+	padding:2px;
+	width:650px;
+}
+div.formulaire div.encart676_gris input.btValiderGd {
+	margin:15px 0 0 0;
+}
+div.reassuranceContact {
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border:1px solid #bcbcbc;
+	background-color:#FFF;
+	padding:10px;
+	margin:20px 0 20px 0;
+	width:278px;
+	float:left;
+}
+div.reassuranceContact p.merci {
+	color:@color_base;
+	font:bold 16px/140% Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0 0 15px;
+}
+div.reassuranceContact ul {
+	font-size:12px;
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+div.reassuranceContact ul li {
+	background:url('@{imgPathTheme}/puce_fleche-liste.png') 0 5px no-repeat;
+	margin:0 0 15px;
+	padding:0 0 0 12px;
+}
+div.reassuranceContact img {
+	border:1px solid #666;
+	display:block;
+	margin:0;
+}
+.formulaire_grats {
+	margin-left:10px;
+	}
+.formulaire_grats p.merci{
+	color:@color_base;
+	font-size:16px;
+	font-weight:bold;
+	}
+.formulaire_grats h3{
+	color:#666;
+	font-size:12px;
+	margin:5px 0;
+	font-weight:normal;
+	}
+.formulaire_grats p.revenir_accueil {
+	display:block;
+	margin: 100px auto;
+	width:300px;
+	}
+/******************************************************** BT FORM **************************************************/
+#droite .boutonForm {
+	margin:0 0 20px 0;	
+}
+/******************************************************** BOX SIMULATION PARTENAIRE EN COLONNE DE DROITE **************************************************/
+
+#droite .boxSimu {
+	border:1px solid @color_base;
+	margin:5px 0 30px 0;
+	.titre_boxSimu {
+		position:relative;
+		top:-10px;
+		font:bold 16px/20px Arial, Helvetica, sans-serif;
+		text-align:center;
+		color:@color_base;
+	}
+	.titre_boxSimu span{
+		background:#fff;
+		padding:0 5px;
+	}
+	.partie_boxSimu{
+		float:left;
+		width:170px;
+		margin:0 0 0 15px;
+	}
+	.sstitre_boxSimu{
+		margin:5px 0 0 0;
+		font:bold 12px/16px Arial, Helvetica, sans-serif;
+		color:#333;
+	}
+	.texte_boxSimu{
+		margin:10px 0 0 0px;
+		font:italic 12px/16px Arial, Helvetica, sans-serif;
+		color:#333;
+	}
+	img{
+		margin:0 0 10px 0;
+	}
+	.bt_boxSimu{
+		clear:both;
+		background:@color_aplat;
+	}
+	.bt_boxSimu a:hover{
+		background:@color_base;
+	}
+	.bt_boxSimu a{
+		color:#fff;
+		text-decoration:none;
+		display:block;
+		text-align:right;
+		font:13px/25px Arial, Helvetica, sans-serif;
+	}
+	.bt_boxSimu span{
+		display:inline-block;
+		width:25px;
+		height:25px;
+		margin:0 0 0 10px;
+		float:right;
+		border-left:1px solid @color_aplat;
+		background:url("@{imgPath}/sprite_commun.png")no-repeat scroll 6px -190px @color_base;	
+	}
+}
+/************************************** PAGES MULTI PARTENAIRES *****************************************/
+.multiPartenaires{
+	margin:0 auto;
+	overflow:auto;
+	.titre{
+		padding-left:0;
+	}
+	ul.liste_2choix{
+		width:550px;
+	}
+	ul{
+		width:825px;
+		margin:0 auto;
+		overflow:auto;
+		padding:10px 0;
+	}
+	li{
+		float:left;
+		margin:20px 10px;
+		-webkit-transition:all .2s;
+		-moz-transition:all .2s;
+		-o-transition:all .2s;
+		transition:all .2s;
+		display:block;
+		text-align:center;
+		position:relative;
+		.rounded(5px);
+		-webkit-box-shadow:  1px 1px 0px 0px #B7B7B7, 2px 2px 0px 0px #C6C6C6, 3px 3px 0px 0px #C6C6C6;
+		box-shadow:  1px 1px 0px 0px #B7B7B7, 2px 2px 0px 0px #C6C6C6, 3px 3px 0px 0px #C6C6C6;
+		background: #e5e5e5; /* Old browsers */
+		background: -moz-linear-gradient(top,  #e5e5e5 0%, #f0f0f0 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e5e5), color-stop(100%,#f0f0f0)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #e5e5e5 0%,#f0f0f0 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #e5e5e5 0%,#f0f0f0 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #e5e5e5 0%,#f0f0f0 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #e5e5e5 0%,#f0f0f0 100%); /* W3C */
+	}
+	li:hover{
+		background:#ddd;
+		-webkit-box-shadow:  0px 0px 0px 0px #B7B7B7;
+		box-shadow:  0px 0px 0px 0px #B7B7B7;
+		top:3px;
+		left:3px;
+	}
+	li a{
+		font:bold 15px/18px Arial, Helvetica, sans-serif;
+		text-decoration:none;
+		width:255px;
+		height:180px;
+		display:block;
+	}
+	li span{
+		font:11px/15px Arial, Helvetica, sans-serif;
+	}
+	.img_multiPart{
+		display:inline-block;
+		height:140px;
+		width:150px;
+		margin:0 40px;
+	}
+	.img_mutuelle1{
+		background:url("@{imgPath}/box_simulation/pages_multi_partenaires/img_mutuelle_entreprise.png")no-repeat scroll 0 10px transparent;
+	}
+	.img_mutuelle2{
+		background:url("@{imgPath}/box_simulation/pages_multi_partenaires/img_mutuelle_entreprise.png")no-repeat scroll -150px 10px transparent;
+	}
+	.img_justice1{
+		background:url("@{imgPath}/box_simulation/pages_multi_partenaires/img_justice.png")no-repeat scroll 0px 5px transparent;
+	}
+	.img_justice2{
+		background:url("@{imgPath}/box_simulation/pages_multi_partenaires/img_justice.png")no-repeat scroll -165px 5px transparent;
+	}
+	.img_justice3{
+		background:url("@{imgPath}/box_simulation/pages_multi_partenaires/img_justice.png")no-repeat scroll -322px 5px transparent;
+	}
+	.img_justice4{
+		background:url("@{imgPath}/box_simulation/pages_multi_partenaires/img_justice.png")no-repeat scroll -493px 5px transparent;
+	}
+	.img_justice5{
+		background:url("@{imgPath}/box_simulation/pages_multi_partenaires/img_justice.png")no-repeat scroll -680px 5px transparent;
+	}
+	.img_justice6{
+		background:url("@{imgPath}/box_simulation/pages_multi_partenaires/img_justice.png")no-repeat scroll -860px 5px transparent;
+	}
+}
+
+/************************************ADSENSE ET PUBS COL DROITE******************************************/
+.ad_300x250 {
+	margin:0;
+	overflow:hidden;
+	clear:both;
+}
+#droite .partenaires {
+	width:300px;
+	margin:0;
+	background-color:#fff;
+	overflow:hidden;
+	clear:both;
+}
+#droite .marques {
+	width:234px;
+	margin:20px auto 0 auto;
+}
+#droite .marques > a{
+	display:block;
+}
+/*********************************************************************************************/
+.devis540 .hauteur_select{
+	overflow:auto;
+}
+div#droite div.form_argent .argent_delai_cp .champs_petit label{
+	width:60px;
+}
+div#droite .argent_delai_cp .champs_petit input{
+	width:113px;
+}
+div#droite .argent_delai_cp .champs_petit input{
+	width:113px;
+}

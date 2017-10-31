@@ -1,0 +1,281 @@
+/*** PAGE QUI ***/
+#Qui {
+	padding:40px;
+	text-align:center;
+	color:#333;
+	font:26px/150% 'museo', Arial, Helvetica, sans-serif;
+}
+#Qui strong, #Qui a{
+	font-weight:normal;
+	color:@color_contraste;
+}
+#Qui em {
+	font-style:normal;
+	color:#666;
+}
+#Qui sup {
+	font-size:0.6em;
+	top:-0.5em;
+}
+#Qui .petit {
+	font-size:20px;
+}
+#Qui img {
+	margin:40px 0;
+}
+#Qui .section {
+	margin:0;
+	padding:0;
+	border:0;
+	clear:both;
+	overflow:auto;
+}
+#Qui .section > p:first-child {
+	margin:50px 0 0 0;
+	padding:50px 0 0 0;
+	border-top:5px solid #CCC;
+	border-bottom:0;
+	font:31px/150% 'museo', Arial, Helvetica, sans-serif;
+}
+#Qui .section > div {
+	float:left;
+}
+#Qui .section > div > h2 {
+	font:20px/150% 'museo', Arial, Helvetica, sans-serif;
+	border:0;
+}
+#Qui .section > div > p {
+	font:14px/150% Arial, Helvetica, sans-serif;
+	border:0;
+	margin:0 0 10px 0;
+}
+#Qui .section figure {
+	display:inline-block;
+	margin:0 0 20px 0;
+}
+#Qui .section figure img {
+	margin:0;
+}
+#Qui .section figcaption {
+	margin:10px 0 0 0;
+	color:#333;
+	font:12px/120% Arial, Helvetica, sans-serif;
+}
+#Qui .finemedia {
+	margin:50px 0 0 0;
+	padding:110px 0 0 0;
+	border-top:5px solid #CCC;
+	background: url("@{imgPath}/logo-principal+accroche.png") center 20px no-repeat;
+	font:16px/140% Arial, Helvetica, sans-serif;
+	text-align:left;
+}
+#Qui h1 {
+	text-align:center;
+	font:normal 16px/150% 'museo', Arial, Helvetica, sans-serif;
+	color:#999;
+}
+#Qui .finemedia p{
+	padding:10px 0;
+}
+
+/*** PAGE RP ***/
+#agenceRP {
+	padding:0 20px;
+	font-size:18px;
+	line-height:140%;
+	color:#333;
+}
+#agenceRP h1 {
+	font:33px/150% 'museo', Arial, Helvetica, sans-serif;
+	text-align:center;
+	margin:20px 0 40px 0;
+}
+#agenceRP h1 span{
+	font:18px/120% Arial, Helvetica, sans-serif;
+	color:#666;
+	text-transform:inherit;
+}
+#agenceRP h2{
+	border-bottom: 5px solid #666;
+	color: #333;
+	font: bold 14px/16px Arial,Helvetica,sans-serif;
+	padding: 35px 0 5px;
+	text-transform: uppercase;
+}
+#agenceRP p {
+	margin:0 0 5px 0;
+	padding:0;
+}
+#agenceRP em {
+	font-style:normal;
+	color:@color_univers_conso;
+	font-weight:bold;
+}
+#agenceRP .encart {
+	z-index:0;
+	position:relative;
+	margin:30px 0 30px 90px;
+	padding:20px 30px 10px 140px;
+	background: #e5e5e5; /* Old browsers */
+	background: -moz-linear-gradient(top, #e5e5e5 0%, #cccccc 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e5e5), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #e5e5e5 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #e5e5e5 0%,#cccccc 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #e5e5e5 0%,#cccccc 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #e5e5e5 0%,#cccccc 100%); /* W3C */
+	border:1px solid #FFF;
+	-webkit-box-shadow: 0px 0px 2px 1px #ccc;
+	box-shadow: 0px 0px 2px 1px #ccc; 
+}
+#agenceRP .encart > span {
+    display:block;
+    position:absolute;
+	top:40px;
+	left:40px;
+    width:65px;
+    height:65px;
+    background:url("@{imgPath}/sprite_rp.png") no-repeat 0 0;
+}
+#agenceRP .encart a {
+	font-size:12px;
+	color:#333;
+}
+#agenceRP .encart .bouton {
+	position:relative;
+	display:inline-block;
+	margin: 20px 10px;
+	padding: 2px 10px 2px 5px;
+	background: linear-gradient(to bottom, #666666 60%, #333333 100%) repeat 0 0;
+	border: 1px solid #333333;
+	border-radius: 4px;
+	box-shadow: 0 0 0 0 #999 inset;
+	color: #FFF;
+	cursor: pointer;
+	font: bold 14px/20px Arial,Helvetica,sans-serif;
+	text-decoration:none;
+}
+#agenceRP .bouton span {
+	background: url("@{imgPath}/sprite_commun.png") no-repeat 0px -193px;
+	border-right: 1px solid #222222;
+	box-shadow: 1px 0 0 0 #666666, -1px 0 0 0 #666666 inset;
+	display: inline-block;
+	height: 22px;
+	margin: 0 10px 0 0;
+	width: 20px;
+}
+#agenceRP .encart .bouton {
+	display:inline-block;
+	margin: 20px 10px;
+	padding: 2px 10px 2px 5px;
+	background: linear-gradient(to bottom, #666666 60%, #333333 100%) repeat 0 0;
+	border: 1px solid #333333;
+	border-radius: 4px;
+	box-shadow: 0 0 0 0 #999 inset;
+	color: #FFF;
+	cursor: pointer;
+	font: bold 14px/20px Arial,Helvetica,sans-serif;
+	text-decoration:none;
+}
+#agenceRP .encart .bouton:hover {
+	background: linear-gradient(to bottom, #333 60%, #666 100%) repeat 0 0;
+}
+#agenceRP .section {
+	margin:30px 0 10px 90px;
+}
+#agenceRP .section > div{
+	float:left;
+	width:265px;
+	margin-left:30px;
+	text-align:center;
+	font:12px/130% Arial, Helvetica, sans-serif;
+}
+#agenceRP .section > div:first-child{
+	margin-left:0;
+}
+#agenceRP .section > div > span {
+	display:block;
+	width:64px;
+	height:64px;
+	margin:0 auto;
+}
+#agenceRP .section .un span {
+	background: url("@{imgPath}/sprite_rp.png") no-repeat 0 -80px;
+}
+#agenceRP .section .deux span {
+	background: url("@{imgPath}/sprite_rp.png") no-repeat 0 -172px;
+}
+#agenceRP .section .trois span {
+	background: url("@{imgPath}/sprite_rp.png") no-repeat 0 -268px;
+}
+#agenceRP .section .un a {
+	color:@color_univers_maison;
+}
+#agenceRP .section .deux a {
+	color:@color_univers_business;
+}
+#agenceRP .section .trois a {
+	color:@color_univers_sante;
+}
+#agenceRP .section > div h3{
+	font:18px/140% Arial, Helvetica, sans-serif;
+	color:#666;
+	margin:10px 0;
+}
+#agenceRP .section > div p{
+	margin:0 0 15px 0;
+}
+#agenceRP .section li{
+	background:url("@{imgPath}/sprite_commun.png") 0 -462px no-repeat;
+	padding:0 0 10px 15px;
+	margin:0;
+}
+#popInRP {
+	z-index:100;
+	display:block;
+	width:660px;
+	position:absolute;
+	top:400px;
+	left:50%;
+	padding:20px;
+	margin-left:-330px;
+	background-color:#E7E7E7;
+	background-clip:padding-box;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border:5px solid rgba(0, 0, 0, 0.5);
+	font:14px/130% Arial, Helvetica, sans-serif;
+}
+#popInRP h2{
+	font:20px/130% Arial, Helvetica, sans-serif;
+	border:none;
+	padding:0;
+	margin:10px 0 20px 0;
+	text-transform:none;
+}
+#popInRP ol{
+	list-style-position:outside;
+	padding:0 0 0 10px;
+}
+#popInRP li{
+	font-weight:bold;
+}
+#popInRP li p{
+	font-weight:normal;
+}
+#popInRP a{
+	color:@color_univers_argent;
+	text-decoration:underline;
+}
+#popInRP img{
+	margin:20px 0;
+}
+#popInRP .close{
+	display:block;
+	position:absolute;
+	top:20px;
+	right:20px;
+	height:20px;
+	width:20px;
+	background: url("@{imgPath}/sprite_commun.png") no-repeat 0px -26px;
+	text-decoration:none;
+}

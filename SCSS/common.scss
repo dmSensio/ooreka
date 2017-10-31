@@ -1,0 +1,1045 @@
+////////// FONT FACE
+@font-face {
+	font-family: "museo";
+	font-style: normal;
+	font-weight: normal;
+	src: 	url("museo500.eot?") format("eot"),
+		url("museo500.woff") format("woff"),
+		url("museo500.ttf") format("truetype");
+}
+@font-face {
+	font-family: "museo900";
+	font-style: normal;
+	font-weight: normal;
+	src: 	url("museo900.eot?") format("eot"),
+		url("museo900.woff") format("woff"),
+		url("museo900.ttf") format("truetype");
+}
+@font-face {
+	font-family: "FontAwesome";
+	font-style: normal;
+	font-weight: normal;
+	src: 	url("fontawesome.eot?") format("eot"),
+		url("fontawesome.woff") format("woff"),
+		url("fontawesome.svg") format("svg"),
+		url("fontawesome.ttf") format("truetype");
+}
+///// STYLES GENERAUX
+*{
+	box-sizing: border-box;
+	color: #333;
+}
+html,
+button,
+input,
+select,
+textarea {
+	color: #333;
+}
+html{
+	background: #fff;
+	font-size: 62.5%;
+ 	font-size: calc(.625em);
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+body{
+	margin: 0;
+	padding: 0;
+	font-size: 1.5rem;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	line-height: 2.4rem;
+	-webkit-text-size-adjust: 100%; /*--- Empêche chrome 'd'adapter' les tailles des typos automatiquement ---*/
+}
+a, button {
+	cursor: pointer;
+}
+button{
+	padding: 0;
+	border: 0;
+}
+p{
+	margin: 1rem 0 0 0;
+	padding: 0;
+	&:first-of-type{
+		margin-top: 0;
+	}
+}
+figure{
+	margin: 0;
+	position: relative;
+}
+code{
+	text-align: center;
+	margin: 1rem 0;
+	@include font( 1.8rem, Consolas);
+}
+ul, ol{
+	margin: 0;
+	padding: 0 0 0 1rem;
+	list-style: none;
+	list-style-image: none;
+	@extend %clearfix;
+	&[class*="grid"] {
+		padding-left: 0;
+	}
+	ul, ol{
+		margin-top: .5rem;
+	}
+}
+* + ul,
+* + ol{
+	margin-top: 1rem;
+}
+ul{
+	li{
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		@extend .icon-chevron;
+		padding-left: 1rem;
+		position: relative;
+		&::before{
+			position: absolute;
+			top: 3px;
+			left: 0;
+			@include font(16px, FontAwesome, initial);
+			margin-right: .5rem;
+			color: $orange;
+		}
+		+ li{
+			margin-top: .5rem;
+		}
+		ul {
+			li{
+				&::before{
+					content:'-';
+					top: 3px;
+				}
+			}
+		}
+	}
+}
+ol{
+	counter-reset: puces;
+	> li{
+		counter-increment: puces;
+		&::before{
+			content: counter(puces) '.';
+			@include font(1.6rem);
+			margin-right: .5rem;
+		}
+	}
+}
+p + ul{
+	margin-top: 1rem;
+}
+ul.bullet{
+	li::before{
+		content: "•";
+		color: $orange;
+	}
+}
+img{
+	border: none;
+	display: block;
+	width: 100%;
+	height: auto;
+}
+table{
+	max-width: 100%;
+	width: 100%;
+	border-collapse: collapse;
+	vertical-align: top;
+	td, th{
+		word-wrap: break-word;
+		vertical-align: top;
+		text-align: left;
+		padding: .5rem;
+	}
+}
+///// CLASS
+%clearfix {
+	&::after{
+		content: "";
+		clear: both;
+		display: table;
+	}
+}
+body,
+.clearfix{
+	@extend %clearfix;
+}
+.no_icon li{
+	padding: 0;
+	&::before{
+		display: none;
+	}
+}
+.chapeau{
+	@include font(1.6rem, $museo, 150%);
+	padding: 0 10rem;
+	text-align: center;
+}
+.copyright{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: .2rem;
+	background-color: rgba(#fff, .8);
+	@include font(.9rem);
+	color: #666;
+}
+.bg_purple{
+	padding: 4rem 0 2rem 0;
+	background-color: $purple;
+	> .w_full {
+		background-color: $purple;
+		h1::before{
+			display: none;
+		}
+	}
+	*{
+		color: #fff;
+	}
+}
+.elemCenter{
+	@include elemCenter(3rem);
+}
+.ad_test1{
+	display: table;
+	margin: 2rem auto;
+	clear: both;
+}
+///// ELEMENT A FIXER
+.element_fixed{
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	right: 0 !important;
+	z-index: 10 !important;
+}
+.pub_right{
+	position: relative;
+}
+.fixed_top{
+	position: fixed;
+}
+.fixed_bottom{
+	position: absolute;
+	bottom: 0;
+}
+///// LINKS
+a{
+	text-decoration: none;
+}
+.titre a {
+	color: #333;
+}
+article{
+	p a, li a{
+		color: $orange;
+	}
+	a{
+		&:visited{
+			color: lighten($purple, 20%);
+		}
+		&:hover {
+			text-decoration: underline;
+			color: $red;
+			&::before {
+				text-decoration: none;
+			}
+		}
+	}
+}
+.voir_plus,
+.retour{
+	@extend .icon-chevron;
+	align-items: center;
+	@include flex-d(row-reverse);
+	@include font(1.6rem);
+	@include d-flex();
+	font-weight: bold;
+	color: #333;
+	&:hover{
+		color: $orange;
+		text-decoration: none;
+		span{
+			text-decoration: underline;
+		}
+	}
+	&::before{
+		color: $orange;
+		@include font(2.5rem, FontAwesome);
+	}
+}
+.voir_plus{
+	flex-direction: row-reverse;
+	span{
+		margin-right: .5rem;
+	}
+	&::before{
+		margin-left: .5rem;
+	}
+}
+.retour{
+	span{
+		margin-left: .5rem;
+	}
+	&::before{
+		margin-right: .5rem;
+		transform: rotate(180deg);
+	}
+}
+////////// PLACEHOLDER
+%column_2{
+	@extend .column_2;
+}
+%gap_2{
+	@extend .gap_2;
+}
+///// LAYOUT
+.habillage{
+	._site{
+		cursor: pointer;
+		padding-top: 20rem;
+		background-repeat: no-repeat;
+		background-position: center 77px;
+		background-attachment: fixed;
+	}
+	.w_full{
+		cursor: default;
+	}
+}
+section{
+	float: left;
+	width: 100%;
+	clear: both;
+	+ section{
+		margin-top: 6rem;
+	}
+	&._site{
+		padding-top: 3rem;
+		@include gradient($grey, $grey, #fff, top, 1000px);
+		> .w_full.stepper + .w_full.content_page,
+		> .w_full:first-of-type{
+			padding-top: 6rem;
+		}
+		> .w_full:last-of-type{
+			padding-bottom: 6rem;
+		}
+		> .w_full.content_page{
+			padding-top: 2rem;
+		}
+		&.no_habillage{
+			padding-top: 0;
+			@include gradient(#fff, #fff, #fff, top, 1000px);
+		}
+	}
+}
+.w_full{
+	clear: both;
+	width: $totalColumn + 3rem;
+	margin: auto;
+	padding: 0 1.5rem;
+	background-color: #fff;
+	@extend %clearfix;
+	+ .w_full{
+		padding-top: 6rem;
+	}
+	> * + * {
+		margin-top: 3rem;
+	}
+	&.margin_xl{
+		> * + * {
+			margin-top: 6rem;
+		}
+	}
+}
+////////// UIKIT
+///// Typo
+h1,h2,h3,h4,h5{
+	margin-top: 0;
+}
+h1{
+	@include font(3.6rem, $museo);
+	margin-bottom: 2rem;
+	text-align: center;
+	position: relative;
+	&::before{
+		content: "";
+		width: 8rem;
+		height: .1rem;
+		background-color: $orange;
+		position: absolute;
+		bottom: -10px;
+		left: 50%;
+		margin-left: -4rem;
+	}
+}
+.h2,
+h2{
+	@include font(2.6rem, $museo);
+	margin-bottom: 1rem;
+	font-weight: bold;
+}
+h2{
+	color: $purple;
+}
+.h3,
+h3{
+	@include font(2.2rem, $museo);
+	margin-bottom: 1rem;
+}
+.h4,
+h4{
+	@include font(1.8rem, $museo);
+	margin-bottom: 1rem;
+}
+.h5,
+h5{
+	@include font(1.6rem, $museo);
+}
+* + h2{
+	margin-top: 5rem;
+}
+* + h3,
+* + h4{
+	margin-top: 3rem;
+}
+///// Buttons
+* + [class^='bt_']{
+	margin-top: 1rem;
+}
+[class*='bt_small'],
+[class*='bt_large']{
+	display: inline-block;
+	border-radius: .3rem;
+	text-transform: uppercase;
+	cursor: pointer;
+	box-shadow: 0 2px 10px -1px #ccc;
+	transition: all .1s ease-in-out 0s;
+	> *{
+		transition: all .1s ease-in-out 0s;
+	}
+	&.inactive,
+	&:disabled{
+		opacity: .3;
+		cursor: default;
+	}
+	&:hover{
+		text-decoration: none !important;
+	}
+}
+[class*='bt_small']{
+	padding: 1rem 1.5rem;
+	background-color: #fff;
+	border: 1px solid $orange;
+	color: $orange;
+	@include font(1.2rem, $museo);
+	> *{
+		color: $orange;
+	}
+	&.inactive,
+	&:disabled{
+		background-color: #fff;
+		color: $orange;
+	}
+}
+[class*='bt_large']{
+	padding: .8rem 1.3rem;
+	background-color: $orange;
+	border: 2px solid $orange;
+	color: #fff;
+	@include font(1.5rem, $museo);
+	> *{
+		color: #fff;
+	}
+	&.inactive,
+	&:disabled{
+		background-color: $orange;
+		color: #fff;
+	}
+}
+.bt_small_reverse{
+	background-color: $orange;
+	color: #fff;
+	> *{
+		color: #fff;
+	}
+}
+.bt_large_reverse{
+	background-color: #fff;
+	color: $orange;
+	> *{
+		color: $orange;
+	}
+}
+.bt_large_reverse,
+.bt_small{
+	&:hover{
+		background-color: $orange !important;
+		color: #fff !important;
+		> *{
+			color: #fff !important;
+		}
+	}
+}
+.bt_large,
+.bt_small_reverse{
+	&:hover{
+		background-color: #fff !important;
+		color: $orange !important;
+		> *{
+			color: $orange !important;
+		}
+	}
+}
+///// TOOLTIPS
+$size : 3rem;
+.tooltips{
+	position: absolute;
+	background-color: #fff;
+	box-shadow: 0 0 6px 1px #ccc;
+	@extend .col_3;
+	z-index: 2;
+	&.show_bottom,
+	&.show_top{
+		left: 0;
+		&.right{
+			left: auto;
+			right: 0;
+			&::before{
+				left: auto;
+				right: $size/2;
+			}
+			> * {
+				text-align: right;
+			}
+		}
+		&::before{
+			content: "";
+			display: inline-block;
+			position: absolute;
+			left: $size/2;
+			width: $size;
+			height: $size;
+			background-color: #fff;
+			box-shadow: -2px -2px 5px 0px #ccc;
+
+		}
+	}
+	&.show_bottom{
+		top: 100%;
+		margin-top: $size;
+		&::before{
+			top: -$size/2;
+			transform: rotate(45deg);
+		}
+		> *:first-of-type(){
+			position: relative;
+			z-index: 1;
+		}
+	}
+	&.show_top{
+		bottom: 100%;
+		margin-bottom: $size;
+		&::before{
+			bottom: -$size/2;
+			transform: rotate(-135deg);
+		}
+		> *:last-of-type(){
+			position: relative;
+			z-index: 1;
+		}
+	}
+	> *{
+		display: block;
+		padding: .8rem 2rem;
+		cursor: pointer;
+		&:hover{
+			background-color: $grey;
+		}
+	}
+	> svg{
+		padding: 0;
+	}
+}
+///// Stepper
+$tailleBull : 3.2rem;
+.nb_stepper{ // Réutilisation du style du numero dans le header
+	display: table;
+	margin: 0 auto .5rem auto;
+	width: $tailleBull;
+	height: $tailleBull;
+	border: 3px solid $purple;
+	border-radius: 50%;
+	@include font(1.4rem, $museo, $tailleBull - .6);
+	text-align: center;
+	transition: all .1s ease-in-out 0s;
+	&.icon-home::before{
+		vertical-align: -1px;
+	}
+}
+section._site >.w_full.stepper{
+	padding: 1.5rem;
+}
+$zIndexStepper : 0;
+.stepper{
+	position: relative;
+	background-color: $greyLight;
+	overflow: hidden;
+	> p:first-of-type{
+		@include font(1.4rem);
+		text-transform: uppercase;
+		+ p{
+			@include font(2rem, $museo);
+			margin-top: .5rem;
+		}
+	}
+	.titre{
+		position: relative;
+		z-index: $zIndexStepper + 2;
+	}
+	> div{
+		position: relative;
+		margin-bottom: 1.5rem;
+		.next, .previous{
+			position: absolute;
+			top: 0;
+			margin-top: 0;
+			z-index: $zIndexStepper;
+			span{
+				@include d-flex();
+				align-items: center;
+				justify-content: center;
+				width: 3rem;
+				height: 5rem;
+				background-color: #fff;
+				cursor: pointer;
+				transition: all .1s ease-in-out 0s;
+				z-index: $zIndexStepper +1;
+				&.inactive{
+					opacity: .3;
+					cursor: default;
+					&:hover{
+						background-color: #fff;
+						&::before{
+							color: $orange;
+						}
+					}
+				}
+				&::before{
+					font-size: 2.5rem;
+					color: $orange;
+				}
+				&:hover{
+					background-color: $orange;
+					&::before{
+						color: #fff;
+					}
+				}
+			}
+		}
+		.next{
+			right: -1.5rem;
+			span{
+				right: 0;
+			}
+		}
+		.previous{
+			left: -1.5rem;
+			span{
+				left: 0;
+				&::before{
+					transform: rotate(-180deg);
+				}
+			}
+		}
+	}
+	.listing_step{
+		position: relative;
+		align-content:center;
+		justify-content: space-between;
+		transition: all .3s ease-in-out 0s;
+		> * {
+			position: relative;
+			margin: 0;
+			z-index: $zIndexStepper;
+			text-align: center;
+			@include font(1.4rem, $roboto, 1.6rem);
+			.bar_step{
+				position: absolute;
+				top: 1.5rem;
+				height: .4rem; // width and right in js
+				background-color: #b3b3b3;
+				&.step_inferieur{
+					background-color: $green;
+				}
+			}
+			&:first-child{
+				.bar_step{
+					display: none;
+				}
+			}
+			&:hover{
+				color: $orange;
+				text-decoration: underline;
+				.nb_stepper{
+					border: 3px solid $orange;
+					background-color: $orange;
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	.selected{
+		color: $green !important;
+		text-decoration: none !important;
+		font-weight: bold;
+		.nb_stepper{
+			border: 3px solid $green !important;
+			background-color: $green !important;
+			color: #fff !important;
+		}
+	}
+	&.multiple_stepper{
+		.listing_step{
+			margin-left: 4rem;
+			> a, > span{
+				display: inline-table;
+				width: 12rem;
+			}
+		}
+		.next span{
+			box-shadow: 0 0 140px 80px $greyLight;
+		}
+		.previous span{
+			box-shadow: 0 0 60px 30px $greyLight;
+		}
+	}
+}
+///// Module de partage
+@gap : 2.6rem;
+.share_module{
+	padding: 1.5rem 0;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	justify-content: space-between;
+	> div{
+		position: relative;
+		padding: 2rem;
+		color: $orange;
+		@include font(1.4rem, $museo);
+		text-align: center;
+		text-transform: uppercase;
+		cursor: pointer;
+		&:hover span{
+			text-decoration: underline;
+		}
+		+ div{
+			border-left: 1px solid #ccc;
+		}
+		> div{
+			position: absolute;
+			top: 110%;
+			left: 0;
+			z-index: 1;
+			@include d-flex();
+			justify-content: space-between;
+			width: 100%;
+			padding: 2rem;
+			background-color: #fff;
+			box-shadow: 0 0 8px 0 #ddd;
+			> span{
+				color: $orange;
+				@include font(1.2rem, $museo);
+				text-transform: uppercase;
+				cursor: pointer;
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+			&::before{
+				content: "";
+				position: absolute;
+				top: -1rem;
+				left: 50%;
+				display: inline-block;
+				width: 2rem;
+				height: 2rem;
+				margin-left: -1rem;
+				background-color: #fff;
+				box-shadow: -2px -2px 5px 0 #ededed;
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+///// LOADING
+$loadingIndex : 2;
+.loading::before{
+	content: "";
+	display: table;
+	margin: 0 auto;
+	width: 5rem;
+	height: 5rem;
+	background: url("http://www.ooreka.fr/img/loadingCC.gif") 0 0 no-repeat;
+	background-size: 100%;
+	z-index: $loadingIndex + 1;
+}
+.box_pro.loading{
+	position: relative;
+	&::before{
+		position: absolute;
+		top: 5rem;
+		left: 0;
+		right: 0;
+	}
+	&::after{
+		content:"";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(255,255,255,.8);
+		z-index: $loadingIndex;
+	}
+}
+///// POPIN CONTENU
+.popin_content{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	width: 100%;
+	height: 100vh;
+	@include d-flex();
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0,0,0,.4);
+	.close{
+		position: absolute;
+		top: .5rem;
+		right: .5rem;
+		cursor: pointer;
+		&:hover{
+			&::before, &::after{
+				background-color: $orange;
+			}
+		}
+	}
+	> div{
+		position: relative;
+		width: 80rem;
+		max-height: 90vh;
+		padding: 6rem;
+		background-color: #fff;
+		overflow-y: auto;
+	}
+	.titre{
+		text-align: center;
+		@include font(2.3rem, $museo);
+		font-weight: bold;
+		margin-bottom: 2rem;
+	}
+	.vers_autre{
+		@include d-flex();
+		align-items: center;
+		justify-content: center;
+		@include font(1.6rem, $museo);
+		font-weight: bold;
+		span{
+			@include font(1.4rem, $roboto);
+			margin-left: 1rem;
+			color: $orange;
+			cursor: pointer;
+		}
+	}
+	.popin_download{
+		.grid{
+			margin-top: 5rem;
+			.info_doc{
+				.col_3{
+					margin: auto;
+					> * + *{
+						margin-top: 1.8rem;
+					}
+				}
+				.titre_telechargement{
+					@include font(1.8rem, $museo);
+					font-weight: bold;
+				}
+				ul{
+					padding-left: 0;
+					li{
+						@include font(1.2rem);
+						@include d-flex();
+						span{
+							margin-right: .5rem;
+							color: $orange;
+						}
+						+ li{
+							margin-top: 1rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.doc_front{
+	.titre_doc_front{
+		margin-bottom: 2rem;
+		@include font(2rem);
+		color: $orange;
+	}
+	> * + *{
+		border-top: 2px solid $grey;
+		margin-top: 6rem;
+		padding-top: 6rem;
+	}
+	pre{
+		margin-top: 3rem;
+		background: #333;
+		padding: 2rem;
+		color: #fff;
+		max-width: 100%;
+	}
+	.pub_right{
+		background-color: $grey;
+		@include d-flex();
+		align-items: center;
+		justify-content: center;
+	}
+}
+@media screen and (max-width: $tab-device) {
+	.w_full{
+		width: 100%;
+	}
+	h1{
+		@include font(3.2rem, $museo);
+	}
+	h2{
+		@include font(2.4rem, $museo);
+	}
+	h3{
+		@include font(2rem, $museo);
+	}
+	h4{
+		@include font(1.6rem, $museo);
+	}
+	h5{
+		@include font(1.4rem, $museo);
+	}
+	.chapeau{
+		padding: 0;
+	}
+	.share_module{
+		padding: 0;
+		> div {
+			+ div{
+				border-top: 1px solid #ccc;
+				border-left: none;
+			}
+		}
+	}
+	.pub_right{
+		display: none;
+	}
+}
+@media screen and (max-width: $mob-device) {
+	section._site{
+		background: #fff;
+		padding-top: 0;
+	}
+	.nb_stepper{
+		position: absolute;
+		top: 50%;
+		right: 100%;
+		margin: -($tailleBull / 2) 1rem 0 0;
+		background-color: #fff;
+	}
+	.stepper{
+		background-color: $greyLight;
+		padding: 1vh !important;
+		> div{
+			margin: 1rem 0 0 0;
+		}
+		> p{
+			margin-bottom: 1rem;
+		}
+		&.element_fixed{
+			.fil_ariane{
+				display: none;
+			}
+			> div{
+				margin-top: 0;
+			}
+		}
+		.stepper_mob{
+			margin-top: 0;
+			border: 1px solid #ccc;
+			background-color: #fff;
+			> span{
+				display: block;
+				position: relative;
+				padding: 2rem 0;
+				margin-left: 5rem;
+				@include font(1.4rem);
+				cursor: pointer;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				&::before{
+					content: "\f0d7";
+					position: absolute;
+					right: 1rem;
+					color: #333;
+					font-weight: normal;
+					@include font(20px, FontAwesome);
+					transition: all .5s ease-in-out 0s;
+				}
+			}
+		}
+		&.stepper_show{
+			.stepper_mob > span::before{
+				transform: rotate(180deg);
+			}
+		}
+		&.stepper_show.element_fixed{
+			> div:not(.fil_ariane){
+				max-height: 98vh;
+				overflow-y: auto;
+			}
+		}
+		.listing_step{
+			margin: 0;
+			padding-right: 1.5rem;
+			border: 1.5rem solid #ccc;
+			background-color: #fff;
+			&::before{
+				content: "";
+				display: inline-block;
+				height: 100%;
+				width: 1px;
+				position: absolute;
+				left: 3.3rem;
+				background-color: #ccc;
+			}
+			> *{
+				align-items: center;
+				padding: 2rem 0;
+				margin-left: 6rem;
+				text-align: left;
+				+ * {
+					border-top: 1px solid #ccc;
+				}
+
+			}
+		}
+	}
+}

@@ -1,0 +1,1903 @@
+/*///////////////////////////////////////// SOMMAIRE /////////////////////////////////////////*
+
+*	Styles généraux
+*	Qui sommes nous
+*	Presse
+*	Offres job
+*	Une offre
+
+*/
+.nav_corporate .w1000{
+	padding: 2rem 15px 0 15px;
+}
+.corporate{
+	/*-- styles généraux --*/
+	padding-top: 2rem;
+	.hidden{
+		display: none;
+	}
+	section + .w1000{
+		padding: 3rem 15px;
+	}
+	.img_entete{
+		display: block;
+	}
+	.content{
+		margin:2.5rem 0;
+	}
+	.bandeau_violet_color{
+		background-color: @violet;
+	}
+	.bandeau_rouge_color{
+		background-color: @rouge;
+	}
+	.bandeau_orange_color{
+		background-color: @orange;
+	}
+	.bandeau_jaune_color{
+		background-color: @jaune;
+	}
+	.bandeau_violet{
+		background: url("@{imgPath}/fd_violet_motif_tuile.png") repeat;
+		background-size: 50px;
+	}
+	.bandeau_orange{
+		background: url("@{imgPath}/fd_orange_motif.png") repeat;
+		color: #fff;
+		+ .img_city_univers{
+			margin-top: 0;
+		}
+	}
+	.bandeau_rouge{
+		background: url("@{imgPath}/fd_rouge_motif.png") repeat;
+		color: #fff;
+	}
+	.bandeau_jaune{
+		background: url("@{imgPath}/fd_jaune_motif.png") repeat;
+	}
+	.titre_offre{
+		margin:0;
+		+ h4{
+			margin: .5rem 0 3rem;
+		}
+	}
+	&.presentation,
+	&.presse,
+	&.travailler-ensemble,
+	&.offres,
+	&.charte_engagement,
+	&.leads,
+	&.publicite-partenariat,
+	&.page_contact{
+		text-align: center;
+		h2{
+			color: #fff;
+			text-shadow: none;
+			font-size: 4rem;
+			margin: auto;
+			+ p{
+				margin-top: 2rem;
+			}
+		}
+		h2::after{
+			content:none;
+		}
+		h3{
+			font-size: 3rem;
+		}
+		.titre{
+			line-height: 110%;
+			font-family: @museo;
+			+ p{
+				font-size: 1.8rem;
+				line-height: 100%;
+				.date{
+					display: block;
+					margin-top: 1rem;
+					font-size: 1.8rem;
+				}
+			}
+		}
+		.titre_big{
+			margin-bottom: 1rem;
+			font-size: 2.45rem;
+			font-family: @museo900;
+			~ p:last-of-type{
+				margin: 0 0 1rem;
+			}
+		}
+		.voir_plus{
+			margin-top: 3rem;
+			hr{
+				position: relative;
+				top: 1.5rem;
+				width: 100%;
+				height: 1px;
+				background-color: #999;
+				border:none;
+				+ p{
+					position: relative;
+					display: inline-block;
+					padding: 0 1rem;
+					background-color: #fff;
+					font-style: 1.8rem;
+					font-weight: bold;
+					color:@violet;
+					cursor: pointer;
+				}
+			}
+		}
+		.lien_expert{
+			padding-right: .5rem;
+			+ a{
+				border-left: 1px solid #ccc;
+				padding-left: 1rem;
+				color: @rouge;
+			}
+		}
+		.contact_liste{
+			text-align: left;
+			margin-bottom: 3rem;
+			p{
+				margin-bottom: 2rem;
+			}
+			ul{
+				margin-left: 5rem;
+				li{
+					position: relative;
+					padding: 0 0 .7rem 0;
+					&::before{
+						position: absolute;
+						font-family: @museo;
+						color: @violet;
+						content:"•";
+						left:-2rem;
+					}
+				}
+			}
+		}
+		.logo_marque{
+			img{
+				max-width: 100%;
+			}
+		}
+		.toggleShow{
+			display: none;
+		}
+	}
+	/*-- Qui sommes nous --*/
+
+	&.presentation{
+		overflow: hidden;
+		.les_experts{
+			margin: 3rem;
+			.lien_fort{
+				display: block;
+				margin-top: 2rem;
+				font-size: 1.6rem;
+			}
+		}
+		.service_gratuit{
+			margin-top: 1rem;
+			p{
+				font-size: 3rem;
+				font-family: @museo900;
+			}
+			.icon-euros{
+				position: relative;
+				display: inline-block;
+				padding-right: 3rem;
+				font-size: 7rem;
+				font-family: @museo;
+				color: @rouge;
+				&::before{
+					position: absolute;
+					top: 4.2rem;
+					left:5rem;
+					color:@rouge;
+					.scale-rotate(2, -20deg);
+				}
+			}
+			.icon-indesirable{
+				&::before{
+					font-size: 70px;
+					color: @violet;
+					margin: 6px 0;
+				}
+			}
+		}
+		.logo_marque{
+			margin-top: 2rem;
+		}
+	}
+
+	/*-- Presse --*/
+
+	&.presse{
+		.christophe_scp{
+			background-color: #000;
+		}
+		h1{
+			color: #fff;
+		}
+		h3{
+			text-align: left;
+			margin-bottom: 3rem;
+		}
+		h4{
+			margin: 0 0 2rem 0;
+			font-size: 2.4rem;
+			font-family: @museo;
+			text-align: left;
+		}
+		.presentation_presse > p{
+			padding-left: 5rem;
+			padding-right: 5rem;
+		}
+		.autres_revues{
+			margin-top: 8rem;
+			.w_1_3{
+				text-align: right;
+				color:#333;
+			}
+			.w_2_3{
+				font-family: @museo;
+				text-align: left;
+				padding-left: 5%;
+				margin-right: 0;
+			}
+		}
+		.autres_communiques{
+			margin-bottom: 3rem;
+			ul{
+				margin: 4rem 0;
+			}
+			.w_5_6{
+				text-align: left;
+				font-family: @museo;
+			}
+		}
+		.ressources_multimedia{
+			text-align: left;
+			.social a{
+				margin-right: 1rem;
+			}
+			.logo_download{
+				margin: 3rem 0;
+				a{
+					display: block;
+				}
+				.icon-telecharger::before{
+					color:@violet-typo;
+				}
+			}
+			.galerie{
+				margin-bottom: 5rem;
+				.photos{
+					display: block;
+					width: 100%;
+					max-height: 20rem;
+					margin-bottom: 1rem;
+					overflow:hidden;
+					+ a{
+						display: block;
+						line-height: 110%;
+					}
+					img{
+						width: 100%;
+						.transition(all, .3s, ease-in-out, 0s);
+					}
+					&.icon::after{
+						content:"";
+						position: absolute;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						top: 0;
+						margin: 0;
+						background-color: #000;
+						opacity: 0.5;
+						.transition(all, .3s, ease-in-out, 0s);
+					}
+					&.icon-telecharger::before{
+						position: absolute;
+						width: 6rem;
+						height: 5.5rem;
+						top: 50%;
+						left: 50%;
+						margin: -3rem;
+						padding-top: 0.5rem;
+						.radius(4rem);
+						background: @rouge;
+						color: #fff;
+						font-size: 4rem;
+						text-align: center;
+						z-index: 2;
+					}
+				}
+				div:hover{
+					img{
+						.scale(1.03);
+					}
+					.photos.icon::after{
+						opacity: 0;
+					}
+				}
+			}
+		}
+	}
+	/*---- Charte d'engagement ---*/
+	&.charte_engagement{
+		counter-reset: li;
+		h1{
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+		}
+		.sstitre{
+			font-size: 3rem;
+		}
+		ul{
+			border-bottom: 1px solid #ccc;
+		}
+		.tete{
+			width: 100%;
+			height: 70px;
+			margin: 1rem 0 3rem;
+			background: url("https://media.ooreka.fr/public/image/charte_engagement-expert-source-12334769.jpg") no-repeat center;
+		}
+		li{
+			position: relative;
+			border-top: 1px solid #ccc;
+			padding: 4rem 0 4.5rem;
+			width: 90%;
+			margin: 0 auto;
+			&::after{
+				counter-increment: li;
+				content:counter(li)"";
+				position: absolute;
+				top: -17px;
+				left: 50%;
+				font-family: @museo;
+				font-weight: 700;
+				font-size: 2.6rem;
+			}
+			&::before{
+				content: "";
+				position: absolute;
+				top: -26px;
+				left: 50%;
+				margin-left: -23px;
+				padding: 0 .5rem;
+				width: 50px;
+				height: 75px;
+				background: url("https://media.ooreka.fr/public/image/medaillon_violet-source-12335377.png") no-repeat 3px 0 #fff;
+			}
+		}
+		.plus_expert{
+			float: right;
+			padding: 3rem 0 2rem;
+			.lien_fort{
+				border-left: 1px solid #ccc;
+				margin-left: 0.5rem;
+				padding-left: 1rem;
+			}
+		}
+	}
+	/*---------- Leads --------*/
+	&.leads{
+		.article{
+			h3,
+			ul{
+				text-align: left;
+			}
+			h4{
+				font-size: 2.4rem;
+				font-style: normal;
+				font-family: @museo;
+			}
+			.txt_contrat{
+				max-width: 80rem;
+				margin: 0 auto 2rem auto;
+			}
+		}
+		.text_intro{
+			max-width: 80rem;
+			margin-top: 3rem ;
+			margin-bottom: 4rem ;
+		}
+		.step_lead{
+			padding: 6rem 15px;
+			h3 span{
+				display: block;
+				font-size: 4rem;
+			}
+			.w_1_3 + .w_1_3{
+				&::before{
+					content:"=";
+					font-family: @museo;
+					font-size: 8rem;
+					color: #999;
+					position: absolute;
+					left: -4.8rem;
+				}
+			}
+		}
+	}
+	/*-- Contact --*/
+	&.page_contact{
+		padding-bottom: 3rem;
+		h1{
+			margin-bottom: 7rem;
+		}
+		.contact_top{
+			margin-bottom: 5rem;
+		}
+		.assistance{
+			position: relative;
+			&::before{
+				content:"";
+				display: block;
+				position: absolute;
+				width: 6.6rem;
+				height: 6.2rem;
+				right: -2.9rem;
+				top: -2.8rem;
+				background: url("@{imgPath}/help_boue.png");
+			}
+		}
+		.w_1_3,
+		.w_1_2{
+			a{
+				.flex-display(flex);
+				.align-items(center);
+				.justify-content(center);
+				max-width: 25rem;
+				min-height: 5rem;
+				margin: 0 auto 2rem auto;
+			}
+			p{
+				position: relative;
+				font-family: @museo;
+				margin-bottom: 3rem;
+				&::before{
+					content:"";
+					position: absolute;
+					display: block;
+					bottom: 50%;
+					background: #ccc;
+					width: 100%;
+					height: 1px;
+					z-index: -1;
+				}
+				span{
+					padding: 0 1rem;
+					background: #fff;
+				}
+			}
+		}
+		.autres_sujets{
+			display: inline-block;
+			text-decoration: underline;
+			margin-top: 3rem;
+			&:hover{
+				color: @rouge;
+			}
+		}
+		.formulaire{
+			display: none;
+			margin-top: 3rem;
+			h2{
+				display: none;
+			}
+			&.formulaire_remarque,
+			&.formulaire_autre{
+				display: block;
+			}
+			&.formulaire_remarque{
+				.icon-web span:last-of-type{
+					display: none;
+				}
+				.remarque_redac{
+					display: block;
+				}
+			}
+			&.formulaire_autre{
+				.icon-web{
+					display: none;
+				}
+				.remarque_autre{
+					display: block;
+				}
+			}
+		}
+	}
+	/*----- Publicité & Partenariat ------*/
+	&.publicite-partenariat{
+		h1{
+			color: #fff;
+		}
+		h4{
+			margin: 1rem 0;
+			font-size: 2.4rem;
+			font-style: normal;
+			font-family: @museo;
+		}
+		.red{
+			font-weight: bold;
+			color: @rouge;
+		}
+		.chiffres_cles{
+			h3{
+				margin-top: 1rem;
+			}
+			p span{
+				display: block;
+				margin-top: .5rem;
+				font-size: 1.2rem
+			}
+		}
+		.multiple_tabs{
+			padding: 0 15px;
+		}
+		.tabs{
+			.flex-display(flex);
+			.flex-wrap(wrap);
+			// Liens Tabs
+			.lien_tabs{
+				.flex(1 0 0);
+				position: relative;
+				padding: 3rem 1rem;
+				cursor: pointer;
+				&:hover{
+					background-color: #f3f3f3;
+				}
+				&.current{
+					background-color: #eee;
+				}
+				&.current,
+				&:hover{
+					h4{
+						color: #333;
+					}
+				}
+				+ .lien_tabs::before{
+					content: "";
+					position: absolute;
+					top: 50%;
+					left: 0;
+					margin-top: -50px;
+					width: 1px;
+					height: 100px;
+					background-color: #dadada;
+				}
+				h4{
+					color: @violet-typo;
+				}
+				a,
+				span{
+					display: inline-block;
+					margin-top: 1rem;
+					font-size: 1.4rem;
+					color: @rouge;
+				}
+				// Onglet Format Ooreka
+				&.format_native,
+				&.format_classique{
+					&.current,
+					&:hover{
+						span{
+							color: #333;
+						}
+						h4::before{
+							background-position: 0 -100%;
+						}
+					}
+					h4{
+						margin-top: 0;
+						&::before{
+							content: "";
+							display: block;
+							margin: 0 auto 1rem auto;
+							width: 7.2rem;
+							height: 6.9rem;
+							background-position: 0 0;
+						}
+					}
+					span{
+						color: @violet-typo;
+					}
+					a{
+						border-left: 1px solid #333;
+						padding-left: .5rem;
+					}
+				}
+				&.format_native{
+					h4::before{
+						background: url('https://media.ooreka.fr/public/image/pubpart_formNative-source-12811859.png');
+					}
+				}
+				&.format_classique{
+					h4::before{
+						background: url('https://media.ooreka.fr/public/image/pubpart_formClassique-source-12811857.png');
+					}
+				}
+			}
+			// Contenu des différentes Tabs
+			.content_tabs{
+				position: relative;
+				display: none;
+				padding: 0 2rem 4rem 2rem;
+				text-align: left;
+				background-color: #eee;
+				overflow: hidden;
+				h3{
+					margin: 3rem 0;
+				}
+				aside{
+					+ p{
+						margin-top: 2rem;
+					}
+					img{
+						float: left;
+					}
+				}
+				.title{
+					font-family: @museo;
+					font-size: 2.4rem;
+					font-weight: 700;
+				}
+				.texte{
+					padding-left: 3rem;
+					overflow: hidden;
+				}
+				.logo_ADhesive{
+					margin-top: 2rem;
+					overflow: hidden;
+					img{
+						width: 49.5%;
+					}
+				}
+			}
+			// Contenu Tabs Enquête & Client
+			&.tabs_enquete,
+			&.tabs_cas_client,
+			&.tabs_segment{
+				.lien_tabs{
+					.flex(0 1 33.333%);
+				}
+				.content_tabs{
+					ul{
+						margin-top: 0;
+						li{
+							ul,
+							ol{
+								margin-top: .5rem;
+								li{
+									padding-bottom: 0;
+									font-size: 1.8rem;
+								}
+								p{
+									margin-top: 0;
+								}
+							}
+							ol li::before{
+								left: -1.8rem;
+							}
+						}
+					}
+				}
+			}
+			&.tabs_cas_client,
+			&.tabs_segment{
+				.lien_tabs{
+					span{
+						display: block;
+					}
+				}
+				.content_tabs{
+					img{
+						display: block;
+						max-width: 100%;
+						margin: 0 auto;
+					}
+				}
+			}
+			&.tabs_cas_client{
+				.lien_tabs img{
+					max-height: 10rem;
+				}
+			}
+			&.tabs_segment{
+				.content_tabs{
+					.flex(0 1 100%);
+					padding: 3rem 5rem;
+				}
+				// Carousel Slide Responsive
+				.rslides{
+					position: relative;
+					list-style: none;
+					overflow: hidden;
+					width: 100%;
+					padding: 0;
+					margin: 0;
+					a{
+						-webkit-backface-visibility: hidden;
+						position: absolute;
+						display: none;
+						width: 100%;
+						left: 0;
+						top: 0;
+					}
+					a:first-child{
+						position: relative;
+						display: block;
+						float: left;
+					}
+					img{
+						display: block;
+						height: auto;
+						float: left;
+						width: 100%;
+						border: 0;
+					}
+				}
+				.rslides_nav{
+					position: absolute;
+					top: 50%;
+					margin-top: -1.75rem;
+					z-index: 3;
+					visibility: hidden;
+					&::before{
+						// Icon Chevron
+						content: "\e603";
+						font-size: 3.5rem;
+						font-family: 'icomoon';
+						color: @violet;
+						visibility: visible;
+					}
+					&:hover,
+					&:active{
+						&::before{
+							color: @rouge;
+						}
+					}
+					&.prev{
+						left: 1.3rem;
+						.animation(fadeIn, 0.6s, ease, 0s);
+					}
+					&.next{
+						.animation(fadeIn, 0.6s, ease, 0s);
+						right: 1.3rem;
+						.rotate(180deg);
+					}
+				}
+
+			}
+		}
+	}
+	/*///////////// Formulaire de contact (Leads + Contact) ////////*/
+	&.leads,
+	&.page_contact,
+	&.publicite-partenariat{
+		.contact{
+			width: 70%;
+			margin: 2rem auto;
+			div{
+				position: relative;
+				z-index: 1;
+				padding-top: 2.5rem;
+				text-align: left;
+				&.icon::before,
+				&.icone::before{
+					position: absolute;
+					right: 0;
+					top: 50%;
+					margin-top: .3rem;
+					color: #999;
+				}
+				&._notNeed::after{
+					content: none;
+				}
+				&::after{
+					content:"*";
+					position: absolute;
+					right: -15px;
+					top: 50%;
+					margin-top: .3rem;
+					font-family: Calibri, Arial, Helvetica, sans-serif;
+					color: @rouge;
+				}
+				label{
+					position: absolute;
+					width: 100%;
+					bottom: 0;
+					padding: 0.5rem 1rem;
+					.transition(all, .3s, ease-in-out, 0s);
+					font-size: 1.8rem;
+					span{
+						position: relative;
+						display: block;
+						width: 100%;
+						color: #666;
+					}
+				}
+				&.icon-enveloppe,
+				&.icon-mobile,
+				&.icon-trouver{
+					width: 50%;
+				}
+				// Input rempli
+				&.input_filled{
+					label{
+						padding-left: 0;
+						font-size: 1.4rem;
+						.translateY(-3rem);
+						span{
+							color: #999;
+						}
+					}
+				}
+				// Input focus
+				&.input_focus{
+					&.icon::before,
+					&.icone::before,
+					input,
+					textarea,
+					label span{
+						color: @violet-typo;
+					}
+				}
+				// Input Erreur
+				&.error{
+					&.icon::before,
+					&.icone::before,
+					label span,
+					textarea,
+					input{
+						color: @rouge;
+					}
+					input,
+					textarea{
+						border-color: @rouge;
+					}
+				}
+			}
+			input,
+			textarea{
+				position: relative;
+				display: block;
+				z-index: 10;
+				width: 100%;
+				padding: .5rem 1rem;
+				font-size: 1.8rem;
+				font-family: Calibri, Arial, Helvetica, sans-serif;
+				color: #666;
+				background: transparent;
+				border: 1px solid #ccc;
+				&:focus{
+					border-color: @violet-typo;
+				}
+			}
+			textarea{
+				min-height: 22rem;
+				max-width: 100%;
+				+ label{
+					top: 3rem;
+				}
+			}
+			.captcha{
+				.flex-display(flex);
+				.align-items(center);
+				.justify-content(space-between);
+				p{
+					font-size: 1.8rem;
+				}
+				input{
+					margin-left: 2rem;
+					width: 40%;
+				}
+			}
+			.envoyer{
+				margin-top: 2rem;
+				text-align: left;
+				color: @rouge;
+				span{
+					font-size: 1.4rem;
+				}
+				a{
+					float: right;
+					&:hover{
+						color: #fff;
+					}
+				}
+			}
+		}
+		.messageConfirmation{
+			padding: 8rem 2rem;
+			margin: 8rem;
+			border: 1px solid @vert;
+			.animation(fadeInUp, .6s, ease, 0s);
+			span{
+				display: block;
+				margin-bottom: 1rem;
+				color: @vert;
+			}
+		}
+		.cnil_information{
+			text-align: left;
+		}
+	}
+	/*---- Offres job ----*/
+	&.offres{
+		h1{
+			text-align:left;
+		}
+		.offres_job{
+			.w_1_3{
+				position: relative;
+				border-bottom: 1px solid #ccc;
+				min-height: 12rem;
+				line-height: 12rem;
+				div{
+					display: inline-block;
+					vertical-align: middle;
+					padding-bottom:2.5rem;
+					line-height: 100%;
+					a{
+						font-size: 2.4rem;
+						font-family: @museo;
+						line-height: 120%;
+						&:hover{
+							color: @rouge;
+						}
+					}
+					p{
+						margin-top: 1rem;
+					}
+				}
+			}
+			.titre{
+				font-size: 2.4rem;
+				font-weight: 700;
+			}
+		}
+	}
+	/*---- Une offre ----*/
+	.une_offre{
+		.w1000{
+			margin-bottom: 5rem;
+		}
+		h1{
+			margin-bottom: .5rem;
+		}
+		.sstitre{
+			font-size: 2.4rem;
+			margin-top: 0;
+		}
+		li span{
+			font-weight: bold;
+			display: block;
+			font-family: @museo;
+			font-size: 2.2rem;
+		}
+	}
+}
+/*-------------- REASSURANCE EXPERT --------------*/
+.reassurance_inscription{
+	h2{
+		&::after{
+			content:none;
+		}
+	}
+	.bg_violet{
+		color:#fff;
+	}
+	.video_expert{
+		display: table;
+		margin: 5rem auto;
+	}
+	.entete_reassurance{
+		padding: 3rem 15px;
+		h1{
+			margin-bottom: 0;
+			& + p{
+				font-size: 24px;
+			}
+		}
+		.bt_fort + p{
+			font-size: 1.6rem;
+			text-align: right;
+		}
+		.w_1_3{
+			padding:1.4rem;
+			border-left:1px solid #fff;
+			text-align:center;
+			font-size:2.6rem;
+			font-family: @museo;
+			width: 33.33%;
+			margin-left: 0;
+			p{
+				font-size: 2.4rem;
+				font-family: Calibri, Arial, Helvetica, sans-serif;
+			}
+			&:first-of-type{
+				border-left: none;
+			}
+			span{
+				display:block;
+				font-size:3rem;
+				color:@jaune;
+				font-family: @museo;
+				&::before{
+					content: "+";
+					display: inline-block;
+					margin-right: .5rem;
+					font-size: 3rem;
+				}
+			}
+		}
+		// Animation des SVG
+		svg{
+			.ampoule,
+			.courbe,
+			.personne{
+				stroke-dasharray: 750;
+				stroke-dashoffset: 800;
+			}
+			.ampoule{
+				-webkit-animation: dash 5s ease-in forwards;
+					animation: dash 5s ease-in forwards;
+			}
+			line{
+				-webkit-animation: bulbe .8s ease-in;
+					animation: bulbe .8s ease-in;
+				-webkit-animation-delay: 1.8s;
+					animation-delay: 1.8s;
+				opacity: 0;
+			}
+			.courbe{
+				-webkit-animation: dash 5s ease-in forwards;
+					animation: dash 5s ease-in forwards;
+			}
+			.personne{
+				-webkit-animation: personne 3.5s ease-in forwards;
+					animation: personne 3.5s ease-in forwards;
+				-webkit-animation-delay: .6s;
+					animation-delay: .6s;
+			}
+		}
+	}
+	.partage_savoir{
+		padding-top: 16rem;
+		padding-bottom: 16rem;
+		.bulle_expert{
+			position: relative;
+			visibility: hidden;
+			span{
+				position: absolute;
+				display: block;
+				width: 120px;
+				height: 120px;
+				background: url("@{imgPath}/reassurance/sprite_savoir-faire-reassurance.png");
+				&::before{
+					content: "";
+					position: absolute;
+					width: 100px;
+					height: 90px;
+					opacity: 0;
+					background: url("@{imgPath}/reassurance/sprite_savoir-faire-reassurance.png") no-repeat;
+				}
+				&:nth-of-type(1){
+					top: -60px;
+					left: -50px;
+					&::before{
+						top: -30px;
+						right: -60px;
+						background-position: -135px -10px;
+						-webkit-animation-delay: .3s;
+						animation-delay: .3s
+					}
+				}
+				&:nth-of-type(2){
+					top: 8px;
+					right: 0;
+					background-position: 0 -128px;
+					&::before{
+						top: -30px;
+						right: 80px;
+						background-position: -135px -150px;
+						-webkit-animation-delay: 1.2s;
+						animation-delay: 1.2s;
+					}
+				}
+				&:nth-of-type(3){
+					top: 80px;
+					left: -50px;
+					background-position: 0 -265px;
+					&::before{
+						top: -30px;
+						right: -60px;
+						background-position: -135px -280px;
+						-webkit-animation-delay: 1.8s;
+						animation-delay: 1.8s;
+					}
+				}
+			}
+		}
+	}
+	.ecran{
+		visibility: hidden;
+		padding-top: 6rem;
+		padding-bottom: 6rem;
+		img{
+			max-width: 100%;
+		}
+		p{
+			font-size: 2.4rem;
+		}
+		.bt_fort{
+			margin-top: 6rem;
+		}
+		.profil_expert{
+			position: relative;
+			margin-bottom: 0;
+			&::before{
+				content:"";
+				display: block;
+				position: absolute;
+				right: -80px;
+				top: -160px;
+				background: url("@{imgPath}/reassurance/sprite_savoir-faire-reassurance.png") no-repeat -285px 0;
+				width: 120px;
+				height: 160px;
+				.scale-rotate(0, 35deg);
+				.transform-origin(right,top);
+				.transition(all, .5s, ease-out, 1.8s);
+			}
+		}
+	}
+	.developper_visibilite{
+		visibility: hidden;
+		padding-top: 6rem;
+		p{
+			font-size: 2.4rem;
+		}
+		.w_2_3{
+			position: relative;
+			&::before{
+				content:"";
+				position: absolute;
+				display: block;
+				width: 100%;
+				//opacity: 0; A remettre en opacite 0 lors de l'ajout en javascript
+			}
+		}
+		.visibilite_web{
+			.w_2_3{
+				text-align: right;
+				&::before{
+					opacity: 0;
+					top: 30px;
+					height: 220px;
+					background: url("https://media.ooreka.fr/public/image/visibilite_web_E1-1-source-12337129.png") no-repeat;
+					background-position: center top;
+					background-size: contain;
+				}
+			}
+		}
+		.visibilite_profil{
+			.w_2_3{
+				&::before{
+					opacity: 0;
+					top: 28%;
+					right: 0;
+					height: 135px;
+					background: url("https://media.ooreka.fr.com/public/image/visibilite_web_E2-2-source-12337131.png") no-repeat;
+					background-position: right top;
+					background-size: contain;
+				}
+			}
+		}
+	}
+	.rejoindre_reseau{
+		.w1000{
+			padding: 3rem 15px;
+		}
+		.expert_ooreka{
+			visibility: hidden;
+		}
+		h2{
+			display: inline-block;
+			margin-bottom: 0;
+		}
+		.icon.icon-personne::before{
+			color:#fff;
+			font-size: 2rem;
+			margin-right: 1rem;
+		}
+	}
+	.presse{
+		text-align: center;
+		padding: 2rem 0;
+		.presse_detail{
+			visibility: hidden;
+		}
+		.titre{
+			line-height: 110%;
+			font-family: @museo;
+			+ p{
+				font-size: 1.8rem;
+				line-height: 100%;
+				.date{
+					display: block;
+					margin-top: 1rem;
+					font-size: 1.8rem;
+				}
+			}
+		}
+	}
+	/*==================== Animation des pseudos elements ======================*/
+	.animated{
+		// Afficher l'ensemble des éléments avant l'animation
+		.bulle_expert,
+		.ecran,
+		.developper_visibilite,
+		.expert_ooreka,
+		.presse_detail{
+			visibility: visible;
+		}
+		// Flêche qui tourne entre les deux écrans
+		.ecran{
+			.profil_expert{
+				&::before{
+					.scale-rotate(1, 0deg);
+				}
+			}
+		}
+		// Bounce des bulles experts
+		.bulle_expert{
+			span{
+				&::before{
+					-webkit-animation:bounceIn 1.5s ease 1s forwards;
+						animation:bounceIn 1.5s ease 1s forwards;
+				}
+			}
+		}
+		// Apparition des élements pour le developpement Web
+		.visibilite_web{
+			.w_2_3::before{
+				-webkit-animation:pulse 1s ease 2s forwards;
+					animation:pulse 1s ease 2s forwards;
+			}
+		}
+		.visibilite_profil{
+			.w_2_3::before{
+				-webkit-animation:pulse 1s ease 2s forwards;
+					animation:pulse 1s ease 2s forwards;
+			}
+		}
+	}
+}
+@keyframes dash{
+	from {
+		stroke-dashoffset: 900;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+@-webkit-keyframes dash{
+	from {
+		stroke-dashoffset: 900;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+@keyframes personne{
+	0% {
+		stroke-dashoffset: 900;
+	}
+	50%{
+		fill:@violet;
+	}
+	100%{
+		fill:white;
+		stroke-dashoffset: 0;
+	}
+}
+@-webkit-keyframes personne{
+	0% {
+		stroke-dashoffset: 900;
+	}
+	50%{
+		fill:@violet;
+	}
+	100%{
+		fill:white;
+		stroke-dashoffset: 0;
+	}
+}
+@keyframes bulbe{
+	0%, 50%, 100%{
+		.transform-origin(center,center);
+	}
+	0% {
+		opacity: 0;
+		.scale(0);
+	}
+	50% {
+		opacity: 1;
+		.scale(1);
+	}
+	100%{
+		opacity: 0;
+		.scale(0.7);
+	}
+}
+@-webkit-keyframes bulbe{
+	0%, 50%, 100%{
+		.transform-origin(center,center);
+	}
+	0% {
+		opacity: 0;
+		.scale(0);
+	}
+	50% {
+		opacity: 1;
+		.scale(1);
+	}
+	100%{
+		opacity: 0;
+		.scale(0.7);
+	}
+}
+/************************************ RESPONSIVE ************************************/
+@media only screen and (max-width: 800px) {
+	.corporate{
+		&.presse{
+			.w_1_6{
+				width: 100%;
+				text-align: left;
+				margin-bottom: 0;
+			}
+			.autres_revues{
+				margin-top: 5rem;
+				.w_1_3{
+					text-align: center;
+					width: 100%;
+				}
+				.w_2_3{
+					padding-left: 0;
+					text-align: center;
+				}
+			}
+		}
+		&.leads{
+			.step_lead{
+				padding: 3rem 15px;
+				.w_1_3 + .w_1_3{
+					&::before{
+						content:"";
+					}
+				}
+			}
+		}
+		&.leads,
+		&.page_contact,
+		&.publicite-partenariat{
+			.contact{
+				div{
+					&.icon-enveloppe,
+					&.icon-mobile,
+					&.icon-trouver{
+						width: 100%;
+					}
+				}
+			}
+		}
+		&.publicite-partenariat{
+			.tabs{
+				.content_tabs{
+					aside img{
+						max-width: 100%;
+						display: block;
+						float: none;
+						margin: 0 auto;
+					}
+					.texte{
+						margin-top: 2rem;
+						padding-left: 0;
+					}
+				}
+			}
+		}
+	}
+	.reassurance_inscription{
+		text-align: center;
+		.bg_violet{
+			margin: 0 15px;
+		}
+		.left,
+		.right{
+			float: none;
+		}
+		.entete_reassurance{
+			padding: 4rem 15px 1rem;
+			h1 + p{
+				margin:1rem 0;
+			}
+			.bt_fort + p{
+				text-align: center;
+			}
+			.info_site{
+				margin-top: 0;
+			}
+			.w_1_3{
+				width: 100%;
+				padding: 2rem 1.4rem;
+				border-left: none;
+				margin: 0;
+				&:nth-of-type(n+2)::before{
+					content: "";
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					width: 60%;
+					height: 1px;
+					margin: 0 auto;
+					background-color: #fff;
+				}
+			}
+		}
+		.partage_savoir{
+			padding: 4rem 15px;
+			.bulle_expert{
+				height: 300px;
+				span{
+					&:nth-of-type(1){
+						top: 30px;
+						left: 50%;
+						margin-left: -165px;
+					}
+					&:nth-of-type(2){
+						top: 100px;
+						left: 50%;
+						margin-left: 55px;
+					}
+					&:nth-of-type(3){
+						top: 170px;
+						left: 50%;
+						margin-left: -165px;
+					}
+				}
+			}
+		}
+		.ecran{
+			padding: 4rem 15px;
+			h2{
+				margin-bottom: 0;
+			}
+			.flex-display(flex);
+			.flex-direction(column);
+			div:nth-of-type(1){
+				.flex-order(2);
+			}
+			div:nth-of-type(2){
+				.flex-order(1);
+			}
+			div:nth-of-type(3){
+				.flex-order(3);
+			}
+			div:nth-of-type(4){
+				.flex-order(4);
+			}
+			.profil_expert::before{
+				content: none;
+			}
+			p{
+				font-size: 1.8rem;
+			}
+			.bt_fort{
+				margin-top: 3rem;
+			}
+		}
+		.developper_visibilite{
+			padding-top: 4rem;
+			p{
+				font-size: 1.8rem;
+			}
+			.w_1_3{
+				width: 100%;
+			}
+			.visibilite_profil{
+				.w_1_3{
+					margin-top: 0;
+				}
+			}
+			.visibilite_web{
+				margin-bottom: 3rem;
+				.w_2_3{
+					text-align: center;
+				}
+				.flex-display(flex);
+				.flex-direction(column);
+				div:nth-of-type(1){
+					.flex-order(2);
+				}
+				div:nth-of-type(2){
+					.flex-order(1);
+				}
+			}
+		}
+		.presse{
+			padding: 0 0 2rem;
+		}
+	}
+}
+@media only screen and (max-width: 600px) {
+	.corporate{
+		&.presentation,
+		&.presse,
+		&.travailler-ensemble,
+		&.leads,
+		&.publicite-partenariat,
+		&.page_contact{
+			h2{
+				font-size: 2.8rem;
+			}
+		}
+		&.publicite-partenariat{
+			h3{
+				font-size: 2.2rem;
+				margin: 2rem 0;
+			}
+			.tabs{
+				.flex-direction(column);
+				&.tabs_enquete,
+				&.tabs_cas_client,
+				&.tabs_segment{
+					.lien_tabs,
+					.content_tabs{
+						.flex(1 0 auto);
+					}
+				}
+				.lien_tabs{
+					.flex(1 0 auto);
+				}
+				.content_tabs{
+					h3{
+						margin: 2rem 0;
+					}
+					.title{
+						font-size: 2rem;
+					}
+					.logo_ADhesive img{
+						width: 100%;
+					}
+				}
+				// Gestion de l'emplacement des Tabs
+				.tabs_1{
+					.flex-order(1);
+				}
+				.content_tabs_1{
+					.flex-order(2);
+				}
+				.tabs_2{
+					.flex-order(3);
+				}
+				.content_tabs_2{
+					.flex-order(4);
+				}
+				.tabs_3{
+					.flex-order(5);
+				}
+				.content_tabs_3{
+					.flex-order(6);
+				}
+				.tabs_4{
+					.flex-order(7);
+				}
+				.content_tabs_4{
+					.flex-order(8);
+				}
+				.tabs_5{
+					.flex-order(9);
+				}
+				.content_tabs_5{
+					.flex-order(10);
+				}
+				.tabs_6{
+					.flex-order(11);
+				}
+				.content_tabs_6{
+					.flex-order(12);
+				}
+				.lien_tabs + .lien_tabs::before{
+					top: 0;
+					left: 50%;
+					height: 1px;
+					width: 20rem;
+					margin-left: -10rem;
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 500px) {
+	.corporate{
+		.titre_offre{
+			text-align: center;
+			+ h4{
+				text-align: center;
+			}
+		}
+		.content{
+			margin:2rem 0;
+		}
+		section + .w1000{
+			padding: 15px;
+		}
+		.w1000{
+			padding: 15px;
+		}
+		.img_city_univers,
+		.christophe_scp,
+		.bandeau_violet,
+		.bandeau_orange,
+		.bandeau_rouge,
+		.bandeau_jaune,
+		.bandeau_violet_color,
+		.bandeau_rouge_color,
+		.bandeau_orange_color,
+		.bandeau_jaune_color{
+			margin: 0 15px;
+		}
+		.img_entete{
+			padding: 0 15px;
+		}
+		.christophe_scp{
+			.w1000,
+			.img_entete{
+				padding: 0;
+			}
+		}
+		&.presse,
+		&.travailler-ensemble,
+		&.offres,
+		&.leads{
+			h3{
+				font-size: 2.4rem;
+				margin-bottom: 2rem;
+			}
+			h4,
+			.titre_big{
+				font-size: 2rem;
+			}
+			.autres_revues{
+				.w_2_3{
+					margin-bottom: 2rem;
+				}
+			}
+			.autres_communiques{
+				ul{
+					margin: 2rem 0;
+				}
+			}
+			.ressources_multimedia{
+				.galerie{
+					text-align: center;
+					.photos{
+						width: 20rem;
+						height: 20rem;
+						margin: 0 auto 1rem;
+					}
+				}
+			}
+			.lien_expert{
+				display: block;
+				+ a{
+					border-left: none;
+				}
+			}
+		}
+		&.presse{
+			h1{
+				font-size: 2.8rem;
+			}
+		}
+		&.presentation{
+			.service_gratuit p{
+				font-size: 2.5rem;
+			}
+			.logo_marque{
+				.w_1_3{
+					margin-top: 0;
+				}
+			}
+		}
+		&.travailler-ensemble{
+			.contact_list{
+				h3{
+					margin-top: 1rem;
+				}
+			}
+			.valeurs{
+				margin-bottom: 0;
+			}
+			.job{
+				margin: 1rem 0;
+			}
+		}
+		&.charte_engagement{
+			h1{
+				font-size: 2.8rem;
+			}
+			h3{
+				font-size: 2rem;
+			}
+			li{
+				width: 100%;
+			}
+			.sstitre{
+				font-size: 2rem;
+			}
+			.plus_expert{
+				font-size: 1.4rem;
+			}
+			.tete{
+				-webkit-animation-duration: 25s;
+				animation-duration: 25s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+				-webkit-animation-name: defilement-expert;
+				animation-name: defilement-expert;
+				animation-iteration-count: infinite;
+			}
+		}
+		&.leads{
+			h4{
+				margin-top: 1rem;
+			}
+			.step_lead{
+				h3{
+					margin-top: 0;
+				}
+				.w_1_3 + .w_1_3{
+					margin-top: 4rem;
+					&::before{
+						content:"=";
+						top:-6rem;
+						left: 50%;
+						margin-left: -1.5rem;
+						font-size: 6rem;
+					}
+				}
+			}
+			.contact{
+				width: 90%;
+			}
+			.messageConfirmation{
+				padding: 5rem 2rem;
+				margin: 3rem;
+			}
+		}
+		&.page_contact{
+			h1,
+			.contact_top{
+				margin-bottom: 3rem;
+			}
+			.assistance::before{
+				width: 4.6rem;
+				height: 4.2rem;
+				top: -1.8rem;
+				right: -1.9rem;
+				background-size: 100%
+			}
+			.w_1_3 a{
+				margin: 0 auto;
+			}
+			.autres_sujets{
+				margin: 2rem;
+			}
+			.contact{
+				width: 90%;
+			}
+			.messageConfirmation{
+				padding: 5rem 2rem;
+				margin: 3rem;
+			}
+			.formulaire{
+				&.formulaire_remarque{
+					.icon-web span{
+						&:first-of-type{
+							display: none;
+						}
+						&:last-of-type{
+							display: block;
+						}
+					}
+				}
+			}
+		}
+		&.offres{
+			h1{
+				text-align: center;
+			}
+			.offres_job{
+				.w_1_3{
+					min-height: initial;
+					div{
+						position: initial;
+						padding-top: .5rem;
+						padding-bottom:2.5rem;
+					}
+				}
+				.titre{
+					font-size: 2rem;
+					font-weight: 500;
+				}
+			}
+		}
+		.une_offre{
+			h1,
+			.sstitre{
+				text-align: center;
+			}
+			.sstitre{
+				font-size: 2rem;
+			}
+			h2,
+			h3{
+				margin-top: 4rem;
+			}
+		}
+	}
+	.reassurance_inscription{
+		.bt_fort,
+		.bt_max{
+			font-size: 1.4rem;
+			padding: 0.8rem 0.7rem;
+		}
+		.entete_reassurance{
+			h1{
+				font-size: 2.8rem;
+				& + p{
+					font-size: 2rem;
+				}
+			}
+		}
+		.partage_savoir{
+			padding-bottom: 1rem;
+			.bulle_expert{
+				.scale(0.8);
+			}
+		}
+	}
+}
+
+/*--- BOUNCE IN --*/
+@-webkit-keyframes defilement-expert {
+	0%, 50%, 100%{
+		-webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	}
+}
+@keyframes defilement-expert {
+	0%, 50%, 100% {
+		-webkit-animation-timing-function: ease;
+		animation-timing-function: ease;
+	}
+	0% {
+		background-position: left;
+	}
+	50% {
+		background-position: right;
+	}
+	100%{
+		background-position: left;
+	}
+}

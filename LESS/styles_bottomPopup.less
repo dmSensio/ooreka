@@ -1,0 +1,59 @@
+.popUp_2art{
+	position:fixed;
+	bottom:0;
+	right:0;
+	background:#fff;
+	border-top:3px solid #666;
+	border-left:3px solid #666;
+	padding:0;
+	width:300px;
+	z-index:2000;
+	span{
+		display:inline-block;
+		float:right;
+		width:20px;
+		height:20px;
+		margin:5px 0;
+		background:url("@{imgPath}/sprite_commun.png") no-repeat scroll 1px -27px;
+		cursor:pointer;
+		opacity:0.5;
+	}
+	span:hover{
+		opacity:1;
+	}
+	.titre_poupUp{
+		background:#ccc;
+		font:15px/30px 'museo', Arial, Helvetica, sans-serif;
+		padding:0 10px;
+		p{
+			display:inline-block;
+			margin:0;
+			padding:0;
+		}
+	}
+	.article_popUp{
+		float:left;
+		clear:both;
+		margin:10px;
+		img{
+			float:left;
+			width:100px;
+		}
+	}
+	.txt_article_popUp{
+		float:left;
+		width:170px;
+		margin:0px 0 0 10px;
+		a{
+			margin:0 0 5px 0;
+			font:18px/22px Arial, Helvetica, sans-serif;
+			text-decoration:none;
+			color:#333;
+		}
+		p:hover,
+		a:hover{
+			color:@color_base;
+		}
+			
+	}
+}

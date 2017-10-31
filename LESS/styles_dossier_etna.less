@@ -1,0 +1,824 @@
+/* SOMMAIRE 
+ Version 1 -  Devis en bas & articles annexes à droite
+ Version 2 - Devis à droite & article annexes en bas
+
+	1- ARTICLE ETNA
+	2- COLONNE DE DROITE /  INFORMATIONS SUPPLEMENTAIRES
+	3- COLONNE DE DROITE / NAV VERTICALE 
+	4- COLONNE DE DROITE / NAV VERTICALE -> DEVIS (version2)
+	5- COLONNE DE DROITE /  INFORMATIONS SUPPLEMENTAIRES
+	6- DEVIS
+	7- DEVIS / FORMULAIRE
+	8- AGENCE ETNA FRANCE 
+	9- ATICLE ANNEXES  (version2)
+	10- REMERCIEMMENT CONTACT
+
+*/
+@import 'styles_variables';
+#dossier_etna{
+	font:14px/18px Arial, Helvetica, sans-serif;
+	*{
+		box-sizing:border-box;
+		transition: all 0.3s ease;
+	}
+	a,img{
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+	}
+	a:hover{
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+	}
+	
+	.header_etna{
+		position:relative;
+		left:-10px;
+		height:121px;
+		width: 1030px;
+		padding:43px 0 0 30px;
+		background:url('@{imgPath}/dossier/etna/bandeau.jpg')no-repeat;
+		color:#fff;
+		font:30px 'CodePro', Arial, Helvetica, sans-serif;
+		margin:30px 0 30px 0;
+	}
+
+/*=========================== ARTICLE ETNA ===================================*/
+	
+	.article_etna{
+		clear:both;
+		float:left;
+		margin:0px 30px 0 20px;
+		width:640px;
+	}
+	
+	.article_etna ul{
+		padding:0 0 0 10px;
+		margin:0 0 20px 0;
+	}
+	.article_etna ul li{
+		list-style:none;
+		background: url("@{imgPath}/dossier/etna/sprite_etna.png") no-repeat -132px -15px;
+		padding:0 0 0 15px;
+		margin: 0 0 5px 0;
+	}
+	
+	ul{
+		list-style:none;
+	}
+	
+	h1{
+		color:#023064;
+		font:26px 'CodePro', Arial, Helvetica, sans-serif;
+		margin:0 0 10px 0;
+	}
+	.article_etna h1 span {
+		display: block;
+	}
+	h2{
+		color:#023064;
+		font:18px Arial, Helvetica, sans-serif;
+		font-weight:bold;
+		margin:20px 0 10px 0;
+	}
+	h3{
+		color:#527dad;
+		font:16px Arial, Helvetica, sans-serif;
+		font-weight:bold;
+		margin:0 0 10px 0;
+	}
+	.signature_dossierSpe{
+		margin:0 0 20px 0;
+		color: #999;
+		font: 12px/150% Arial,Helvetica,sans-serif;
+	}
+	.signature{
+		color: #333;
+		font:italic bold 12px/140% Georgia,"Times New Roman",Times,serif;
+	}
+
+	.article_etna p{
+		margin:0 0 10px 0;
+	}
+
+	.article_etna .mention-legale{
+		font:italic 11px Arial, Helvetica, sans-serif;
+	}
+	.lien-devis{
+		font:bold 14px/150% Arial,Helvetica,sans-serif;
+		padding:20px;
+		background-color: #eeeeee;
+		a{
+			font:14px/150% Arial,Helvetica,sans-serif;
+			color:#65a5c6;
+		}
+		a:hover{
+			color:#435094;
+		}
+	}
+
+/*======================== COLONNE DE DROITE /  INFORMATIONS SUPPLEMENTAIRES ========================*/
+	
+	.col_d_etna{
+		width:300px;
+		float:left;
+		margin: 0 0 10px 0;
+	}
+	.info_etna{
+		border:1px solid #cdcdcd;
+		.rounded(10px);
+		text-align:center;
+		padding:10px 20px 40px;
+		margin: 0 0 20px 0;
+		position:relative;
+	}
+	.info_etna p{
+		margin:0;
+	}
+	.info_etna span{
+		font-weight:bold;
+		color:#666666;
+	}
+	.info_num {
+		font:bold 26px/40px Arial,Helvetica,sans-serif;
+		color:#00a0ea;
+	}
+	.info_num:before {
+		content:'';
+		display: inline-block;
+		height: 35px;
+		width: 35px;
+		margin:0 10px;
+		background:url('@{imgPath}/dossier/etna/sprite_etna.png')no-repeat -30px -17px;
+		vertical-align:-9px;
+		padding:0;
+	}
+	
+	.info_num_mention{
+		position:absolute; 
+		right:-22px; 
+		bottom:8px;
+		padding:0 35px 0 80px;
+		font:11px Arial,Helvetica,sans-serif;
+		color:#a3a3a3;
+	}
+
+/*============Version 1=========== COLONNE DE DROITE / NAV VERTICALE ============================*/
+
+	.nav_verticale_etna{
+		clear:both;
+		float:left;
+		position:relative;
+		width:300px;
+		margin: 0 0 20px 0;
+		padding:65px 20px 10px;
+		font:13px Arial,Helvetica,sans-serif;
+		border:1px solid #e3e3e3;
+		.nav_v_titre{
+			position:absolute;
+			left:0;
+			top:0;
+			padding:10px 20px;
+			background-color:#1e2526;
+			text-align:center;
+			font:17px/22px 'CodePro', Arial, Helvetica, sans-serif;
+			color:#fff;
+		}
+
+		.imgcentrer{
+			float:left;
+			margin:0 20px 0 0;
+		}
+		a{
+			color:#333;
+			text-decoration:none;
+		}
+		a:hover{
+			color:#023064;
+		}
+		.mini_article{
+			clear:both;
+			float:left;
+			padding:20px 0;
+			border-bottom:1px solid #ccc;
+		}
+		.mini_article:last-child{
+			border:none;
+		}
+		img{
+			width:120px;
+			margin:0 auto 10px;
+			border:1px solid #e3e3e3;		
+		}
+		img:hover{
+			opacity:0.8;
+		}
+	
+		.bt_savoir{
+			float:left;
+			position:relative;
+			height:25px;
+			width:120px;
+			line-height:25px;
+			background-color:#e3e3e3;
+			color:#333;
+			padding:0 0 0 8px;
+		}
+		.bt_savoir:after{
+			background:url('@{imgPath}/dossier/etna/sprite_etna.png')no-repeat -122px -63px #999;
+			content:"";
+			position:absolute;
+			right:0;
+			display:inline-block;
+			height:25px;
+			width:25px;
+		}
+		.bt_savoir:hover{
+			background-color:#999;
+			color:#fff;
+		}
+		.col_mini_article{
+			float:left;
+			width:120px;
+			margin:0 18px 0 0;
+		}
+		.col_mini_article:last-child{
+			margin:0;
+		}
+		
+		.col_mini_article .nav_verticale_sstitre{
+			font:14px Arial, Helvetica, sans-serif;
+			padding:0;
+			margin:0 0 10px 0;;
+		}
+		
+		.col_mini_article ul {
+			margin:0;
+			padding:0;
+		}
+		
+		.col_mini_article ul li {
+			font:12px Arial, Helvetica, sans-serif;
+			padding:0 0 0 10px;
+			margin:0 0 5px;
+			background:url('@{imgPath}/dossier/etna/sprite_etna.png')no-repeat -134px -122px;
+		}
+		
+		.col_mini_article ul li a {
+			color:#666;
+		}
+		.col_mini_article ul li a:hover {
+			color:#000;
+		}
+	}
+	
+/*============Version 2=========== COLONNE DE DROITE / NAV VERTICALE -> DEVIS ==========================*/
+
+	.nav_verticale_etna_v2{
+		position:relative;
+		width:300px;
+		margin:20px 0 30px 0;
+		padding:20px 20px 20px;
+		border:1px solid #e3e3e3;
+		background-color:#023064;
+		text-align:center;
+		font:16px Arial,Helvetica,sans-serif;
+		color:#fff;
+		.devis_v_titre{
+			font:23px/28px 'CodePro', Arial, Helvetica, sans-serif;
+		}
+		.devis_v_sstitre{
+			margin: 10px 0 0 0 ;
+			font:15px Arial,Helvetica,sans-serif;
+			font-style:italic;
+		}
+		/*Formulaire */
+		#RequetePro_contact > p {display: none;}
+		form{
+			margin: 10px 0 0 0;
+		}
+		label{
+			font:Bold 12px Arial,Helvetica,sans-serif;
+			text-align: left;
+			padding: 0;
+		}
+		input{
+			clear: both;
+			width: 260px;
+			height: 30px;
+			margin: 0 0 10px 0;
+			padding: 0 0 0 4px;
+			border:none;
+			font:13px Arial,Helvetica,sans-serif;
+			color:#666;
+		}
+		.checkbox input{
+			width:12px;
+			height: 16px;
+			margin: 0 10px 20px 0;
+		}
+		.checkbox_contact{
+			font:12px Arial,Helvetica,sans-serif;
+		}
+		textarea{
+			width: 260px;
+			height: 150px;
+			resize:none;
+			margin: 3px 0 20px 0;
+		}
+		.message_contact p{
+			padding : 0 0 8px 0;
+			font:Bold 12px Arial,Helvetica,sans-serif;
+			text-align: left;
+		}
+		.bt_valider{
+			background:#c50e27;
+			color:#fff;
+			cursor: pointer;
+		}
+		.bt_valider:hover{
+			background:#dc1630;
+		}
+		/*#form_ville{
+			width: 150px;
+		}
+		#form_code-postal{
+			clear: none;
+			width: 100px;
+			margin: 0 0 0 10px;
+		}
+		*/
+		.erreur_formulaire {
+			font: 12px Arial,Helvetica,sans-serif;
+			color:#ffa304;
+		}
+		
+		/*Fin formulaire */
+		.devis_en_ligne{
+		position:relative;
+		border-bottom:2px solid #fff;
+		margin: 21px 0;
+		}
+		.devis_en_ligne span{
+			position:absolute;
+			right:108px;
+			bottom:-11px;
+			background:#023064;
+			padding:0 10px;
+			font-style:normal;
+		}
+		.devis_phone{
+			font:18px Arial,Helvetica,sans-serif;
+			position:relative;
+			margin:0 0 5px 81px;
+			text-align:left;
+		}
+		.devis_phone span{
+			font-weight:bold;
+		}
+		.devis_phone:before{
+			content:'';
+			position:absolute;
+			top:0;
+			left:-62px;
+			display: block;
+			height: 50px;
+			width: 50px;
+			background:url('@{imgPath}/dossier/etna/sprite_etna.png')no-repeat -23px -98px;;
+		}
+		.devis_mention{
+			font: 11px/14px Arial,Helvetica,sans-serif;
+		}
+	}
+	.partenariat{
+
+		position:relative;
+		padding: 0 100px 0 0;
+		margin: 0 0 30px 0;
+		text-align:center;
+		color:#023064;
+	}
+	.partenariat:after{
+		content:'';
+		position:absolute;
+		top:-10px;
+		right:40px;
+		display: block;
+		height: 40px;
+		width: 87px;
+		background:url('@{imgPath}/dossier/etna/logo_etna.jpg')no-repeat;
+	}
+
+
+/*======================== COLONNE DE DROITE /  INFORMATIONS SUPPLEMENTAIRES ========================*/
+	
+	.etna_telechargement{
+		clear:both;
+		text-align:center;
+		padding:10px 20px 30px 20px;
+		margin: 0 0 20px 0;
+		background: #f4f4f4;
+		img{
+			margin:0 0 20px 0;
+			border: 1px solid #023064;
+		}
+		span{
+			display: block;
+		}
+		span:last-child{
+			margin: 5px 0 0 0;
+			font:14px Arial, Helvetica, sans-serif;
+			color:#939393;
+		}
+		p{
+			margin:10px 0;
+			font:bold 16px Arial, Helvetica, sans-serif;
+			color:#023064;
+		}
+		.bt_telechargement{
+			padding:7px 37px 7px 21px;
+			background:url('@{imgPath}/dossier/etna/sprite_etna.png')no-repeat -14px -59px;
+			background-color:#023064;
+			text-decoration:none;
+			font:16px Arial, Helvetica, sans-serif;
+			color:#fff;	
+		}
+		.bt_telechargement:hover{
+			background-color:#004696;	
+		}
+	}	
+
+/*===================Version 1==================== DEVIS ===========================================*/
+
+	#demande_contact{
+		clear:both;
+		height:auto;
+		margin:20px;
+		padding:30px;
+		background:#023064;
+		.devis_gauche{
+			float:left;
+			width:240px;
+			margin:0px 25px 0 0;
+			text-align:center;
+			color:#fff;
+			font:17px/21px Arial, Helvetica, sans-serif;
+		}
+		.devis_titre{
+			margin:15px 0 0 0;
+			position:relative;
+			font:23px/29px 'CodePro', Arial, Helvetica, sans-serif;
+			color:#fff;
+		}
+
+		.devis_en_ligne{
+			position:relative;
+			margin:20px 20px;
+			padding:0 0 30px 0;
+			border-bottom:2px solid #fff;
+			font-style:italic;
+		}
+		.devis_en_ligne span{
+			position:absolute;
+			left:78px;
+			bottom:-11px;
+			background:#023064;
+			padding:0 10px;
+			font-style:normal;
+		}
+		.devis_phone{
+			position:relative;
+			margin:0 0 15px 81px;
+			text-align:left;
+		}
+		.devis_phone span{
+			font-weight:bold;
+		}
+		.devis_phone:before{
+			content:'';
+			position:absolute;
+			top:0;
+			left:-62px;
+			display: block;
+			height: 50px;
+			width: 50px;
+			background:url('@{imgPath}/dossier/etna/sprite_etna.png')no-repeat -23px -98px;;
+		}
+		.devis_mention{
+			font:11px/15px Arial,Helvetica,sans-serif;
+			opacity: 0.5;
+		}
+/*===================Version 1============== DEVIS / FORMULAIRE ======================================*/
+		.devis_droite{
+			color:#fff;
+			.partenariat{
+				position:relative;
+				padding: 0 95px 0 0;
+				margin: 0 0 20px 0;
+				text-align:right;
+				color:#fff;
+			}
+			.partenariat:after{
+				content:'';
+				position:absolute;
+				top:-10px;
+				right:0;
+				display: block;
+				height: 40px;
+				width: 87px;
+				background:url('@{imgPath}/dossier/etna/logo_etna.png')no-repeat;
+			}
+			
+			/*Formulaire */
+			#RequetePro_contact > p {display: none;}
+			fieldset{
+				position:relative;
+			}
+			label, .message_contact{
+				font: bold 12px Arial, Helvetica, sans-serif;	
+			}
+			input{
+				float:left;
+				width:315px;
+				height:30px;
+				margin:0 10px 3px 0;
+				padding:0 0 0 5px;
+				border:none;
+				font:12px Arial, Helvetica, sans-serif;	
+			}
+			.ville_contact{
+				clear: both;
+				width: 195px;
+			}
+			.cp_contact{
+				width: 120px;
+			}
+			#RequetePro_contact_ville{
+				width: 185px;
+			}
+			#RequetePro_contact_zip{
+				width: 120px;
+			}
+			.message_contact{
+				position:absolute;
+				right: 0;
+				padding: 4px 0;
+			}
+			textarea{
+				width:308px;
+				height:200px;
+				margin:0 0 4px 0;
+				border:none;
+				resize:none;
+			}
+			.checkbox input{
+				width:12px;
+				height: 16px;
+				margin: 0 10px 20px 0;
+			}
+			.checkbox_contact{
+				clear: both;
+				font:12px Arial,Helvetica,sans-serif;
+			}
+			.bt_valider{
+				position: absolute;
+				right: 0;
+				top: 245px;
+				margin: 0;
+				width: 200px;
+				background:#c50e27;
+				font: bold 14px Arial,Helvetica,sans-serif;
+				color:#fff;
+				cursor: pointer;
+			}
+			.bt_valider:hover{
+				background:#dc1630;
+			}
+			.erreur_formulaire {
+				font: 12px Arial,Helvetica,sans-serif;
+				color:#ffa304;
+			}
+		}
+	}
+	#demande_contact:hover , #demande_contact:hover .devis_en_ligne span{
+		background: #033c7d;
+	}
+
+/*=========================================== AGENCE ETNA FRANCE ============================================*/
+
+	.agences_etna{
+		clear:both;
+		float:left;
+		position:relative;
+		width:1030px;
+		left:-10px;
+		padding:20px;
+		margin: 10px 0 20px 0;
+		background-color:#bcb7ac;
+		box-sizing:border-box;
+		.carte_agence{
+			float:left;
+			margin:20px 40px 0 0; 
+		}
+		.carte_agence p{
+			text-align:center;
+			position:absolute;
+			top:110px;
+			left:107px;
+			font:22px/25px 'CodePro', Arial, Helvetica, sans-serif;
+		}
+		.carte_agence a{
+			text-decoration: none;
+			color:#bcb7ac;
+		}
+		.carte_agence span{
+			display:block;
+		}
+		.carte_agence .carte_france{
+			height:240px;
+			width:250px;
+			background:url('@{imgPath}/dossier/etna/carte.png')no-repeat 7px -113px;;
+		}
+		.agences_etna_titre{
+			margin: 0 0 20px 0;
+			font:bold 18px Arial, Helvetica, sans-serif;
+			color:#fff;
+		}
+		ul{
+			margin: 0;
+		}	
+		li{
+			display: inline-block;
+			width:150px;
+			margin:0 20px 20px 0;
+			vertical-align: top;
+			font:12px/15px Arial, Helvetica, sans-serif;
+			color:#fff; 	
+		}
+		.titre_agence{
+			font-weight:bold;
+		}
+	}
+	.agences_etna:hover{
+		background-color:#aba69a;
+	}
+	
+/*================= Version 2 ================= ATICLE ANNEXES =========================================*/
+	.article_annexe{
+		clear: both;
+		height: 215px;
+		margin:0 30px 0 20px;
+		ul{
+			padding:0;
+		}
+		li{
+			float: left;
+			width: 300px;
+			margin: 0 0 0 30px;
+		}
+		li:first-child{
+			margin: 0;
+		}
+		.imgcentrer{
+			position: relative;
+			height:130px;
+			margin: 0 0 10px 0;
+		}
+		a{
+			text-decoration: none;
+			padding:0px;
+		}
+		a:hover{
+			color:#c50e27;
+		}
+		a:hover img{
+			opacity: 0.8;
+		}
+		.titre_article_annexe:before{
+			content:"";
+			display: inline-block;
+			height: 15px;
+			width: 18px;
+			background: url("@{imgPath}/dossier/etna/sprite_etna.png") no-repeat -131px -15px;
+		}
+	}
+
+/*================================== REMERCIEMMENT CONTACT =========================================*/
+	.remerciement_contact{
+		float:left;
+		margin:50px 0 60px 0;
+		p{
+			font:24px/30px 'CodePro', Arial, Helvetica, sans-serif;
+			text-align:center;
+			color:#023064;
+			float:left;
+			width:650px;
+		}
+		a{
+			float:left;
+			position:relative;
+			top:25px;
+			left:30px;
+			width:240px;
+			padding:10px;
+			display:block;
+			text-decoration: none;
+			font:17px/17px 'CodePro', Arial, Helvetica, sans-serif;
+			background:#023064;
+			color:#fff;
+			text-align:center;
+		}
+		a:hover{
+			background:#112155;
+		}
+		a:last-child{
+			font:14px Arial, Helvetica, sans-serif;
+			background: #fff;
+			text-decoration: underline;
+			color:#023064;
+		}
+		a:last-child:hover{
+			color:#d5161e;
+		}
+		span{
+			display:block;
+		}
+		.logo_partenaire{
+			width:230px;
+			height:85px;
+			display:block;
+			margin:20px auto 0px auto;
+			background:url('@{imgPath}/dossier/etna/logo_etna_hd.jpg')no-repeat scroll 0px 0px;
+		}
+	}
+/*================================== INTERVIEW =========================================*/
+	.interview_etna{
+		clear:both;
+		float:left;
+		margin:0px 30px 20px 20px;
+		width:640px;
+		h1{
+			color:#023064;
+			font: bold 24px Arial, Helvetica, sans-serif;
+			margin:0 0 20px 0;
+		}
+		h2{
+			color:#023064;
+			font:14px/140% Arial, Helvetica, sans-serif;
+			font-weight:bold;
+			margin:20px 0 10px 0;
+		}
+		h3{
+			color:#527dad;
+			font:16px Arial, Helvetica, sans-serif;
+			font-weight:bold;
+			margin:0 0 10px 0;
+		}
+		.imgcentrer{
+			float:left;
+			margin: 0;
+			img{
+				height: 150px;
+			}
+		}
+		.fiche_interview{
+			margin: 0 0 20px 0;
+			height: 150px;
+			background: #f7f7f7;
+			.infos_interview{
+				float: left;
+				margin: 0 0 20px 0;
+				padding:20px;
+				font: 12px Arial, Helvetica, sans-serif;
+			}
+			.nom{
+				font: bold 14px Arial, Helvetica, sans-serif;
+				color:#023064;
+			}
+			p{
+				color:#808080;
+			}
+		}
+		.preambule{
+			font: italic 12px/140% Arial, Helvetica, sans-serif;
+		}
+		blockquote{
+			margin:0 0 0 20px;
+			padding: 0 0 0 15px;
+			border-left: 2px solid #e9868b;
+			font:13px/140% Arial, Helvetica, sans-serif;
+			p{
+				padding: 0 0 10px 0;
+			}
+			p:last-child{
+				padding: 0;
+			}
+		}
+	}
+
+}

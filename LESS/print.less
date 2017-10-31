@@ -1,0 +1,321 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.calculatrice .calculatrice_recap .modifier_calculatrice,
+.calculatrice .calculatrice_recap .voir_detail_calculatrice,
+.calculatrice .calculatrice_nav,
+.calculatrice .calculatrice_titre,
+.calculatrice .calculatrice_resultat .calculatrice_refaire,
+.calculatrice .calculatrice_form .navigation_calculatrice,
+.calculatrice a,
+.calculatrice .titre_calculatrice_recap{
+	display:none;
+}
+.calculatrice .calculatrice_form fieldset{
+	border:none;
+}
+.calculatrice .calculatrice_recap{
+	border:5px solid #666;
+	border-bottom:none;
+	margin:0px;
+	padding:15px;
+}
+.calculatrice .calculatrice_form .calculatrice_resultat{
+	margin:0;
+	border:5px solid #666;
+	padding:15px;
+}
+.calculatrice .calculatrice_resultat .resultat_egal,
+.calculatrice .calculatrice_resultat .resultat{
+	display:inline;
+	font:bold 24px/40px Arial, Helvetica, sans-serif;
+}
+.calculatrice caption{
+	text-decoration:underline;
+}
+@page {
+	size: portrait;
+	margin: 1.5cm;
+}
+
+h1, h2, h3, h4, h5, p, ol, ul {
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+a {
+	color: #36C;
+}
+
+a.print:after,
+#sameTheme a:after,
+#techniquesPlantes a:after{
+	content : "(" attr(href) ")";
+	font:normal 10pt/120% Arial, Helvetica, sans-serif;
+	color:#666;
+}
+
+body,
+#header,
+#footer .footerGris,
+#footer .footerGris .div3,
+#footerAbsolute {
+	background:none;
+	border:0;
+	height:auto;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.enquete_happiness{
+	display: none;
+}
+#sharebar,
+#barre_navigation,
+#droite,
+#gauche,
+#rechercheConnect,
+#menu,
+#sousMenuH,
+.siteIndepdt,
+.siteIndepdtPage,
+#footer .footerGris .div3 .centre,
+#footerAbsolute #footerCdT,
+#footerAbsolute #footerPartenaires,
+.ad_540x350, .google-afc-zone,
+.publicationBox,
+#sendQuestionBox_large,
+.action,
+#commenter,
+.article_mini, .article_mini_last,
+.vote,
+.navigation,
+.fiche_actions,
+#comments,
+#commenter,
+#guide_pratique_275,
+#headerSociete div.boutons,
+#centrePro .encart385_gris,
+#annonces_formulaire,
+#menuPro,
+.noprint,
+#box_partage,
+.partage_bulles,
+.contenu.commenter,
+.comment_immedia,
+#sommaire_med,
+.liaisonArticle,
+.retour_haut,
+.liaisonAtc {
+	display:none;
+	height:0;
+}
+
+#logoprint {
+	text-align:center;
+	padding:15px 0 10px 0;
+	border:1px solid #666;
+}
+#logoprint p{
+	font:normal 30pt/100% Arial, Helvetica, sans-serif;
+	padding:0;
+	margin:0;
+}
+#logoprint img{
+	padding:0;
+	margin:0 0 10px 0;
+	border:1px solid #FFF;
+}
+
+#footer .footerGris .div3 div {
+	float:none;
+	width:100%;
+	margin:20px 0;
+}
+#footerAbsolute #footerInterne {
+	text-align:center;
+}
+#footerAbsolute #footerInterne a {
+	color:#333;
+}
+#footer .footerGris div ul li {
+	display: inline;
+}
+#footer .footerGris div ul li:after {
+	content: " | ";
+}
+
+/*-------------------------- STYLES PLANTES ---------------------------------*/
+._planteColonne5 td{
+	width:18%;
+}
+._planteColonne4 td{
+	width:23%;
+}
+._planteColonne3 td{
+	width:30%;
+}
+._planteColonne2 td{
+	width:45%;
+}
+.tableau_periodicite td,
+.entete_comparatif,
+.telecharger_comparatif{
+	display:none;
+}
+.tableau_periodicite td._selected1,
+.tableau_periodicite td._selected2,
+.tableau_periodicite td._selected3,
+.tableau_periodicite td._selected4{
+	display:inline;
+	border:none;
+}
+.tableau_comparer_plante{
+	border-collapse:collapse;
+}
+.tableau_comparer_plante,
+.tableau_comparer_plante td,
+.tableau_comparer_plante th{
+	border:1px solid #000000;
+}
+.couleur_feuille{
+
+}
+.fleur_white:after{
+	content: " Fleurs blanches\0000a0|";
+}
+.fleur_grey:after{
+	content: " Fleurs grises\0000a0|";
+}
+.fleur_yellow:after{
+	content: " Fleurs jaunes\0000a0|";
+}
+.fleur_orange:after{
+	content: " Fleurs oranges\0000a0|";
+}
+.fleur_red:after{
+	content: " Fleurs rouges\0000a0|";
+}
+.fleur_pink:after{
+	content: " Fleurs roses\0000a0|";
+}
+.fleur_violet_purple:after{
+	content: " Fleurs violettes\0000a0|";
+}
+.fleur_blue:after{
+	content: " Fleurs bleues\0000a0|";
+}
+.fleur_green:after{
+	content: " Fleurs vertes\0000a0|";
+}
+.fleur_black:after{
+	content: " Fleurs noires\0000a0|";
+}
+.fleur_multicolor:after{
+	content: " Fleurs multicolores\0000a0|";
+}
+.feuille_silver:after{
+	content: " Feuillage argenté\0000a0|";
+}
+.feuille_golden:after{
+	content: " Feuillage doré\0000a0|";
+}
+.feuille_pale_green:after{
+	content: " Feuillage vert pale\0000a0|";
+}
+.feuille_dark_green:after{
+	content: " Feuillage vert foncé\0000a0|";
+}
+.feuille_red:after{
+	content: " Feuillage rouge\0000a0|";
+}
+.feuille_purple:after{
+	content: " Feuillage violet\0000a0|";
+}
+.feuille_black:after{
+	content: " Feuillage noir\0000a0|";
+}
+.feuille_blue:after{
+	content: " Feuillage bleu\0000a0|";
+}
+/*-------------------------- STYLES MEDICAMENTS ---------------------------------*/
+
+.fiche_medicament table,
+.fiche_medicament table td,
+.fiche_medicament table th{
+	border:1px solid #000000;
+	border-collapse:collapse;
+}
+.fiche_medicament li,
+.fiche_medicament td{
+	font-size:11px;
+}
+.sspartie_fiche_med li,
+.fiche_medicament li.dose_med,
+.fiche_medicament .precision_dose_med li{
+	font-size:14px;
+}
+.titre_noir_med{
+	font-weight:bold;
+	font-size:18px;
+}
+.liste_smr li{
+	display:none;
+}
+.liste_smr li.selected{
+	display:block;
+	font-size:14px;
+}
+.liste_smr li.selected:before{
+	content:"Service médical rendu\0000a0:\0000a0";
+}
+.nsfp{
+	color:#cc0000;
+	font-weight:bold;
+	font-size:24px;
+	text-transform:uppercase;
+}
+/********************************** STYLES VIDEOS ************************************/
+.imprimer_materiel{
+	.rounded(3px);
+	border: 1px solid #999;
+	margin: 50px auto 0 auto;
+	overflow: auto;
+	padding: 0 0 20px;
+	position: relative;
+	width: 650px;
+	.bt_imprimer{
+		display:none;
+	}
+	h1{
+		font:20px/25px Arial, Helvetica, sans-serif;
+		background:#eee;
+		color:#333;
+		border-bottom:1px solid #999;
+		text-align:center;
+		margin:0 0 20px 0;
+		padding:10px 20px;
+	}
+	ul{
+		padding:0 20px;
+		margin:0 auto;
+		width:600px;
+		li{
+			font:12px/40px Arial, Helvetica, sans-serif;
+			list-style:none;
+			background:#eee;
+			padding:0 0 0 10px;
+			margin:10px 0;
+			.rounded(0 3px 0 0);
+			border-left:5px solid #4b4182;
+			overflow:auto;
+			border-bottom:1px solid #4b4182;
+
+			span{
+				float:right;
+				padding:0 10px;
+				font:11px/40px Arial, Helvetica, sans-serif;
+				margin:0 0 0 20px;
+				color:#333;
+			}
+		}
+	}
+}

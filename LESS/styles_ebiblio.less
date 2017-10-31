@@ -1,0 +1,203 @@
+
+/*********************************************** SOMMAIRE **************************************************************/
+/*
+QUE SUR LES NICHES----> LE RESTE DES STYLES SONT DANS styles_ebiblio_commun
+
+1. Widget AMAZON
+2. Colonne de droite
+3. Cross-Nav e-Bibliotheque (Box en colonne de droite)
+
+/**********************************************************************************************************************/
+
+/*-------------------------------------------------------- Widget AMAZON ---------------------------------------------*/
+#widget_amazon{
+	width:600px;
+	background:url('@{imgPathTheme}/logo_amazon_widget.jpg') no-repeat right bottom;
+	padding:0 0 27px 0;
+	margin:0 auto;
+	overflow:hidden;
+	clear:both;
+}
+#widget_amazon object{
+/* 	border:1px solid #333; */
+	display:block;
+}
+
+/*-------------------------------------------------------- Colonne de droite -----------------------------------------*/
+#col_droite_biblio{
+	background:#eeeeee;
+	border:1px solid #ccc;
+	padding:5px 10px 10px 10px;
+	position:relative;
+	margin:5px 0 30px 0;
+}
+#col_droite_biblio .bandeau_gratuit{
+	width:85px;
+	height:85px;
+	position:absolute;
+	text-indent:-999px;
+	z-index:90;
+	top:-5px;
+	right:-5px;
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -6px -215px;
+}
+#col_droite_biblio .titre_biblio{
+	font:21px/120% 'museo',sans-serif;
+	letter-spacing:-0.3px;
+}
+#col_droite_biblio .intro{
+	font:18px/120% 'museo',sans-serif;
+	color:#666;
+	margin-bottom:10px;
+}
+#col_droite_biblio .intro span{
+	color:#cc0000;
+}
+#col_droite_biblio .categorie{
+	border-bottom:1px solid #bebebe;
+	margin:0 10px;
+}
+#col_droite_biblio .consulter{
+	margin:0 10px;
+}
+#col_droite_biblio ul{
+	padding:0;
+	margin:0;
+}
+#col_droite_biblio a.plus{
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -21px -343px;
+	padding:10px 0 10px 20px;
+	display:block;
+}
+#col_droite_biblio ul li{
+	list-style:none;
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -21px -310px;
+	padding-left:20px;
+	margin:0 0 10px 20px;
+	font-size:11px;
+}
+#col_droite_biblio ul li a{
+	text-decoration:none;
+}
+#col_droite_biblio ul li.consulter{
+	list-style:none;
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -21px -310px;
+	padding-left:20px;
+	margin:0 0 10px 20px;
+}
+#col_droite_biblio div.bas{
+	width:290px;
+	height:8px;
+	position:absolute;
+	bottom:-8px;
+	background:url('@{imgPathTheme}/sprite_e-biblio.png') no-repeat -335px -400px;
+}
+
+/*-------------------------------------------------------- Cross-Nav e-Bibliotheque -------------------------------------*/
+.bt_eBiblio_home{
+	display:block;
+	height:26px;
+	overflow:hidden;
+}
+.box-eBiblio > span{
+		position:absolute;
+		top:-5px;
+		right:-4px;
+		display:block;
+		width:76px;
+		height:78px;
+		background:url('@{imgPath}/sprite_droite.png') no-repeat -1px -154px;
+		text-indent:-9999px;
+}
+#droite .box-eBiblio{
+	position:relative;
+	width:268px;
+	padding:15px 15px 0 15px;
+	margin:30px 0;
+	border:1px solid #ccc;
+	.titreFontFace{
+		font:24px/120% 'museo',sans-serif;
+		margin:0 0 10px 0;
+	}
+	.titreFontFace span{
+		display:inline-block;
+		width:34px;
+		height:30px;
+		margin:0 10px 0 0 ;
+		vertical-align:middle;
+		background:url('@{imgPath}/sprite_droite.png') no-repeat -82px -155px;
+	}
+	.img_box-eBiblio{
+		float:left;
+		overflow:hidden;
+		height:170px;
+		width:119px;
+		margin:0 10px 20px 0;
+		border:1px solid #aaa;
+	}
+	.lettre_box-eBiblio{
+		float:left;
+		margin:0 10px 20px 0;
+	}
+	.img_box-eBiblio img{
+		min-height:170px;
+		max-width:119px;
+		margin:0;
+	}
+	.info_box-eBiblio{
+		max-height:130px;
+		margin:0 0 41px 0;
+		overflow:hidden;
+	}
+	.titre_box-eBiblio{
+		max-height: 81px;
+		overflow:hidden;
+		font:16px/20px 'museo',sans-serif;
+		color:@color_base;
+		text-decoration:none;
+		margin:0 0 10px 0;
+	}
+	.titre_box-eBiblio:hover{
+		text-decoration:underline;
+	}
+	.info_box-eBiblio p{
+		font: 11px/13px Arial, Helvetica, sans-serif;
+		color:#666;
+		margin:10px 0;
+	}
+	.type_ebiblio{
+		display:inline;
+		margin:0;
+	}
+	.bt_noir{
+		position:absolute;
+		right:25px;
+		bottom:40px;
+		height:23px;
+		padding:0 6px;
+	}
+	.lien_mag{
+		clear:both;
+		position:relative;
+		left:-15px;
+		margin:10px 0 0 0;
+		width:248px;
+		color:@color_contraste;
+	}
+}
+.sans_eBiblio{
+	background:url('@{imgPath}/box_telecharger.jpg') no-repeat bottom;
+	height:180px;
+	p{
+		margin:0 0 10px 115px;
+		font:bold 16px/20px Arial, Helvetica, sans-serif;
+	}
+	a{
+		display:block;
+		margin:0 0 0 115px;
+		color:#c00;
+	}
+	a:hover{
+		color:#333;
+	}
+}

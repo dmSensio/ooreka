@@ -1,0 +1,866 @@
+/* SOMMAIRE 
+
+*/
+#dossier_thermale_soleil{
+	margin:10px;
+	position:relative;
+	a{
+		color:#0f416f;
+		font-weight:bold;
+		text-decoration:none;
+	}
+	li,
+	p{
+		font:14px/18px Arial, Helvetica, sans-serif;
+		padding:0;
+	}
+	ul,
+	li{
+		list-style:none;
+		padding:0;
+		margin:0;
+	}
+	.header_cts{
+		background:url('@{imgPath}/dossier/header_cts.png')no-repeat scroll 0px 0px;
+		height:57px;
+		border-top:1px solid #0f416f;
+		border-bottom: 2px solid #0f416f;
+		margin:0 0 50px 0;
+		position:relative;
+		left:-20px;
+		width:970px;
+		font:20px/24px 'CodePro', Arial, Helvetica, sans-serif;
+		padding:90px 30px;
+		float:left;
+		color:#0f416f;
+		span{
+			font:30px/34px 'CodePro', Arial, Helvetica, sans-serif;
+			display:block;
+		}
+		.logo_partenaire{
+			width:230px;
+			height:55px;
+			display:inline-block;
+			position:absolute;
+			top:110px;
+			right:95px;
+			background:url('@{imgPath}/dossier/logo_cts.png')no-repeat scroll 0px 0px;
+		}
+	}
+	.colG_cts{
+		width:210px;
+		padding:15px 20px 24px 20px;
+		margin:0 20px 0 0px;
+		float:left;
+		background:#f1f1f1;
+		box-shadow:4px 4px 0 0 #ccc;
+		p{
+			font:13px/30px 'CodePro', Arial, Helvetica, sans-serif;
+			text-align:center;
+		}
+		.img_documentation{
+			display:block;
+			width:196px;
+			height:276px;
+			border:2px solid #0f416f;
+			margin:0 auto;
+			background:url('@{imgPath}/dossier/documentation_cts.png')no-repeat scroll 0px 0px;
+		}
+		.bt_tel{
+			display:block;
+			width:180px;
+			height:35px;
+			font:17px/35px 'CodePro', Arial, Helvetica, sans-serif;
+			background:#c00;
+			color:#fff;
+			text-align:center;
+			box-shadow:4px 4px 0 0 #999;
+			margin:10px auto;
+			text-decoration:none;
+			position:relative;
+			top:0;
+			left:0;
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;
+			-ms-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+		}
+		.bt_tel:hover{
+			background:#830101;
+			top:3px;
+			left:3px;
+			box-shadow:none;
+		}
+		.titre_liste{
+			margin:40px 0 5px 5px;
+			font:17px/20px 'CodePro', Arial, Helvetica, sans-serif;
+			text-align:left;
+			text-decoration:underline;
+			color:#0f416f;
+		}
+		ul{
+			padding:0 0 0 5px;
+			margin:0;
+		}
+		ul li{
+			padding:0;
+		}
+		li a{
+			padding:8px 5px;
+			display:block;
+			color:#333;
+			border-bottom:1px dotted #ccc;
+			font:14px/17px Arial, Helvetica, sans-serif;
+		}
+		li a:hover{
+			background:#0f416f;
+			color:#fff;
+			border-bottom:1px solid #0f416f;
+		}
+		a span{
+			display:block;
+			width:20px;
+			height:20px;
+			float:right;
+			background:url('@{imgPath}/dossier/sprite_cts.png')no-repeat scroll 11px 3px;
+		}
+		a:hover span{
+			background:url('@{imgPath}/dossier/sprite_cts.png')no-repeat scroll 11px -17px;
+		}
+		/* Reassurance */
+		.reassurance_cts{
+			margin:30px 0;
+			p{
+				font:bold 12px/17px Arial, Helvetica, sans-serif;
+				color:#0f416f;
+				margin:0 0 30px 0;
+			}
+			p span{
+				font:80px/85px 'CodePro', Arial, Helvetica, sans-serif;
+				display:block;
+			}
+			.img_reassurance{
+				display:block;
+				width:50px;
+				margin:0 auto 10px auto;
+				height:70px;
+				background:url('@{imgPath}/dossier/sprite_cts.png')no-repeat scroll 0px -43px;
+			}
+		}
+	}
+	.presentation_articles_cts{
+		width:720px;
+		float:left;
+		margin:0 0 30px 0;
+		.article_cts{
+			clear:both;
+			margin:0 0 60px 0;
+			float:left;
+			position:relative;
+		}
+		.article_cts:last-child{
+			margin:0;
+		}
+		img{
+			float:left;
+			margin:0 20px 0 0;
+		}
+		.titre_article{
+			margin:0 0px 15px 0;
+		}
+		.titre_article a{
+			font:20px/24px 'CodePro', Arial, Helvetica, sans-serif;
+			color:#0f416f;
+		}
+		.titre_article a:hover{
+			text-decoration:underline;
+		}
+		ul{
+			padding:10px 20px 5px 20px;
+		}
+		li{
+			padding:0 0 0 15px;
+			margin:0 0 5px 0;
+			position:relative;
+		}
+		li span{
+			display:inline-block;
+			width:10px;
+			height:15px;
+			position:absolute;
+			left:0;
+			top:0;
+			background:url('@{imgPathTheme}/sprite_publication_box.png')no-repeat scroll -6px -2px;
+		}
+		.article_cts p{
+			font:14px/17px Arial, Helvetica, sans-serif;
+			margin:0 10px 10px 0;
+		}
+		.en_savoir_plus{
+			position:absolute;
+			bottom:0;
+			background:#e7e7e7;
+			font:bold 12px/35px Arial, Helvetica, sans-serif;
+			text-align:right;
+			color:#333;
+			display:block;
+			width:450px;
+			right:0;
+		}
+		.en_savoir_plus:hover{
+			background:#0f416f;
+			color:#fff;
+		}
+		.en_savoir_plus span{
+			width:35px;
+			height:35px;
+			display:inline-block;
+			margin:0 0 0 10px;
+			background:#0f416f;
+			color:#fff;
+			text-align:center;
+			font:bold 24px/35px Arial, Helvetica, sans-serif;
+			vertical-align:-4px;
+		}
+		.en_savoir_plus:hover span{
+			background:#022d54;
+		}
+		.demande_contact_cts{
+			width:720px;
+		}
+		.demande_contact_cts fieldset{
+			label{
+				width:350px;
+				input{
+					width:350px;
+				}
+			}
+			.cp_contact,
+			.cp_contact input{
+				width:110px;
+			}
+			.tel_contact,
+			.tel_contact input{
+				width:220px;
+			}
+			.checkbox_contact input{
+				width:15px;
+			}
+			.message_contact{
+				right:0;
+				textarea{
+					width:315px;
+					min-width:315px;
+					max-width:315px;
+				}
+			}
+			.bt_valider{
+				right:3px;
+			}
+			.bt_valider:hover{
+				right:0;
+			}
+		}
+	}
+	.ss_partie_cts{
+		font:18px/22px 'CodePro', Arial, Helvetica, sans-serif;
+		border-bottom:5px solid #0f416f;
+	}
+	/*************************** Demande de contact *****************************/
+	.demande_contact_cts{
+		clear:both;
+		float:left;
+		margin:50px 0 0 0;
+		width:680px;
+		position:relative;
+		.titre_contact_cts + p{
+			font:11px/14px Arial, Helvetica, sans-serif;
+			position:absolute;
+			top:-38px;
+			right:0px;
+			span{
+				width:230px;
+				height:55px;
+				display:inline-block;
+				margin:0 10px;
+				background:url('@{imgPath}/dossier/logo_cts.png')no-repeat scroll 0px 0px;
+				vertical-align:-1px;
+			}
+		}
+		fieldset {
+			margin:15px 0 0 0;
+			float:left;
+			p{
+				font:bold 14px/17px Arial, Helvetica, sans-serif;
+				margin:0 0 2px 0;
+				padding:0;
+			}
+			label{
+				float:left;
+				margin:0 20px 5px 0;
+				padding:0;
+				width:330px;
+			}
+			input{
+				float:none;
+				width:322px;
+				height:20px;
+				border:2px solid #0f416f;
+				font:12px/15px Arial, Helvetica, sans-serif;
+			}
+			.tel_contact{
+				clear:both;
+				width:195px;
+				input{
+					width:187px;
+				}
+			}
+			.cp_contact{
+				width:115px;
+				input{
+					width:107px;
+				}
+			}
+			.checkbox_contact{
+				clear:both;
+				input{
+					width:15px;
+					vertical-align:-6px;
+					margin:0 5px 0 0;
+				}
+			}
+			.message_contact{
+				right:20px;
+				position:absolute;
+				textarea{
+					max-height:71px;
+					min-height:71px;
+					height:71px;
+					margin:0 0 5px 0;
+					width:295px;
+					max-width:295px;
+					min-width:295px;
+					border:2px solid #0f416f;
+				}
+			}
+			.bt_valider{
+				position:absolute;
+				bottom:35px;
+				right:23px;
+				cursor:pointer;
+				padding:0 10px;
+				height:40px;
+				display:block;
+				font:17px/17px 'CodePro', Arial, Helvetica, sans-serif;
+				background:#0f416f;
+				color:#fff;
+				text-align:center;
+				box-shadow:3px 3px 0 0 #999;
+				width:100px;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-ms-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+			.bt_valider:hover{
+				background:#022d54;
+				right:20px;
+				bottom:32px;
+				box-shadow:none;
+			}
+			.erreur_formulaire{
+				font:bold 12px/14px Arial, Helvetica, sans-serif;
+				color:#c00;
+				clear:both;
+			}
+		}
+	}
+	.demande_contact_cts.contact_article{
+		width:720px;
+		fieldset{
+			input{
+				width:340px;
+			}
+			.cp_contact input{
+				width:107px;
+			}
+			.tel_contact input{
+				width:205px;
+			}
+			.checkbox_contact input{
+				width:15px;
+			}
+			.message_contact{
+				right:00px;
+				position:absolute;
+				textarea{
+					max-height:71px;
+					min-height:71px;
+					height:71px;
+					margin:0;
+					width:320px;
+					max-width:320px;
+					min-width:320px;
+					border:2px solid #0f416f;
+				}
+			}
+			.bt_valider{
+				right:3px;
+			}
+			.bt_valider:hover{
+				right:0px;
+			}
+		}
+	}
+	/**/
+	.station_cts{
+		float:left;
+		margin:50px 0 0 30px;
+		width:276px;
+		p{
+			width:280px;
+		}
+		a span{
+			display:inline-block;
+			width:160px;
+			height:130px;
+			background:url('@{imgPath}/dossier/station_cts.png')no-repeat scroll 0px 0px;
+		}
+		a{
+			height:130px;
+			width:160px;
+			display:block;
+			margin:20px auto;
+		}
+		.voir_station{
+			display:block;
+			font:13px/30px Arial, Helvetica, sans-serif;
+			height:30px;
+			background:#0f416f;
+			color:#fff;
+			text-align:center;
+			text-decoration:none;
+			width:160px;
+			margin:0 auto;
+			span{
+				width:20px;
+				height:30px;
+				background:url('@{imgPath}/dossier/sprite_cts.png')no-repeat scroll 2px -11px;
+			}
+		}
+		a:hover{
+			background:#022d54;
+		}	
+	}
+	.plus_articles_cts{
+		clear:both;
+		float:left;
+		margin:50px 0;
+		div{
+			float:left;
+			margin:20px 60px 0 0;
+			width:202px;
+			img{
+				width:200px;
+				height:200px;
+			}
+			a{
+				display:block;
+				border:1px solid #fff;
+			}
+			a + a{
+				font:bold 14px/17px Arial, Helvetica, sans-serif;
+				color:#0f416f;
+				margin:10px 0 0 0;
+				border:none;
+			}
+			a:hover{
+				border:1px solid #0f416f;
+			}
+			a + a:hover{
+				text-decoration:underline;
+				border:none;
+			}
+		}
+		div:last-child{
+			margin:20px 0 0 0;
+		}
+	}
+	/****************************** UN ARTICLE ******************************/
+	.un_article{
+		margin:0 0 30px 0;
+		h1{
+			font:28px/32px 'CodePro', Arial, Helvetica, sans-serif;
+			color:#0f416f;
+			margin:0 0 20px 0;
+		}
+		h2{
+			font:20px/24px Arial, Helvetica, sans-serif;
+			color:#0f416f;
+			margin:20px 0 15px 0;
+		}
+		ul{
+			padding:0px 20px 5px 20px;
+		}
+		li{
+			padding:0 0 0 15px;
+			margin:0 0 5px 0;
+			position:relative;
+		}
+		li span{
+			display:inline-block;
+			width:10px;
+			height:15px;
+			position:absolute;
+			left:0;
+			top:0;
+			background:url('@{imgPathTheme}/sprite_publication_box.png')no-repeat scroll -6px -2px;
+		}
+		p{
+			margin:0 0 10px 0;
+		}
+	}
+	/************************ EETABLISSEMENT **************************/
+	.etablissement_cts{
+		clear:both;
+		float:left;
+		padding:20px;
+		background:#0f416f;
+		position:relative;
+		left:-20px;
+		width:990px;
+		margin:20px 0 50px 0;
+		.carteFr_cts{
+			float:left;
+			p{
+				font:17px/20px 'CodePro', Arial, Helvetica, sans-serif;
+				color:#0f416f;
+				position:absolute;
+				top:87px;
+				left:79px;
+				text-align:center;
+				span{
+					display:block;
+				}
+			}
+			p + span{
+				display:block;
+				width:275px;
+				height:235px;
+				background:url('@{imgPath}/dossier/sprite_cts.png')no-repeat scroll 3px -117px;
+				margin:0 40px 0 0;
+			}
+		}
+		p{
+			color:#fff;
+		}
+		ul{
+			margin:20px 0;
+		}
+		li{
+			font:bold 12px/23px Arial, Helvetica, sans-serif;
+			list-style:inside;
+			color:#fff;
+			float:left;
+			width:225px;
+		}
+		a{
+			color:#fff;
+			text-decoration:underline;
+		}
+	}
+	/*************************** A LIRE EGALEMENT *******************************/
+	.lire_aussi{
+		margin:0 0 60px 0;
+		float:left;
+		div{
+			float:left;
+			margin:20px 26px 0 0;
+			width:177px;
+			a{
+				display:block;
+				border:1px solid #fff;
+			}
+			img{
+				width:175px;
+			}
+			a + a{
+				font:bold 14px/17px Arial, Helvetica, sans-serif;
+				color:#0f416f;
+				margin:10px 0 0 0;
+				border:none;
+			}
+			a:hover{
+				border:1px solid #0f416f;
+			}
+			a + a:hover{
+				text-decoration:underline;
+				border:none;
+			}
+		}
+		div:last-child{
+			margin:20px 0 0 0;
+		}
+	}
+	/*********************** Remerciement Contact *************************/
+	.remerciement_contact{
+		float:left;
+		margin:50px 0 60px 0;
+		p{
+			font:24px/30px 'CodePro', Arial, Helvetica, sans-serif;
+			text-align:center;
+			color:#0f416f;
+			float:left;
+			width:650px;
+		}
+		a{
+			float:left;
+			position:relative;
+			top:25px;
+			left:30px;
+			padding:10px;
+			display:block;
+			font:17px/17px 'CodePro', Arial, Helvetica, sans-serif;
+			background:#0f416f;
+			color:#fff;
+			text-align:center;
+			box-shadow:3px 3px 0 0 #999;
+			width:200px;
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;
+			-ms-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+		}
+		a:hover{
+			background:#022d54;
+			left:33px;
+			top:28px;
+			box-shadow:none;
+		}
+		span{
+			display:block;
+		}
+		.logo_partenaire{
+			width:230px;
+			height:55px;
+			display:block;
+			margin:20px auto 0px auto;
+			background:url('@{imgPath}/dossier/logo_cts.png')no-repeat scroll 0px 0px;
+		}
+	}
+	/*************************** Demande de téléchargement *****************************/
+	.demande_tel_cts{
+		margin:0px auto 60px auto;
+		padding:60px 0 0 0;
+		display:block;
+		width:800px;
+		position:relative;
+		overflow:hidden;
+		clear:both;
+		.ss_partie_cts + p{
+			font:11px/14px Arial, Helvetica, sans-serif;
+			position:absolute;
+			top:22px;
+			right:0px;
+			span{
+				width:230px;
+				height:55px;
+				display:inline-block;
+				margin:0 10px;
+				background:url('@{imgPath}/dossier/logo_cts.png')no-repeat scroll 0px 0px;
+				vertical-align:-1px;
+			}
+		}
+		.img_documentation{
+			display:inline-block;
+			float:left;
+			width:196px;
+			height:276px;
+			border:2px solid #0f416f;
+			margin:40px 20px;
+			background:url('@{imgPath}/dossier/documentation_cts.png')no-repeat scroll 0px 0px;
+		}
+		fieldset {
+			margin:60px 0 0 30px;
+			float:left;
+			width:530px;
+			position:relative;
+			p{
+				font:bold 14px/28px Arial, Helvetica, sans-serif;
+				margin:0;
+				padding:0;
+				float:left;
+				width:100px;
+			}
+			label{
+				float:left;
+				margin:0 30px 10px 0;
+				padding:0;
+			}
+			input{
+				width:385px;
+				height:20px;
+				border:2px solid #0f416f;
+				font:12px/15px Arial, Helvetica, sans-serif;
+			}
+			.tel_contact{
+				width:248px;
+				input{
+					width:140px;
+				}
+			}
+			.cp_contact{
+				width:215px;
+				input{
+					width:107px;
+				}
+			}
+			.checkbox_contact{
+				position:relative;
+				left:100px;
+				top:-5px;
+				font:11px/18px Arial, Helvetica, sans-serif;
+				input{
+					width:15px;
+					vertical-align:-6px;
+					margin:0 5px 0 0;
+				}
+			}
+			.bt_valider{
+				position:absolute;
+				cursor:pointer;
+				bottom:-45px;
+				right:40px;
+				padding:0 10px;
+				height:40px;
+				display:block;
+				font:17px/40px 'CodePro', Arial, Helvetica, sans-serif;
+				background:#0f416f;
+				color:#fff;
+				text-align:center;
+				box-shadow:3px 3px 0 0 #999;
+				width:100px;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-ms-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+			.bt_valider:hover{
+				background:#022d54;
+				right:37px;
+				bottom:-48px;
+				box-shadow:none;
+			}
+			.bt_valider.bt_desactive{
+				opacity:0.3;
+				transition:none;
+				cursor:auto;
+			}
+			.bt_valider.bt_desactive:hover{
+				bottom:-45px;
+				right:40px;
+			}
+			.retour_accueil_cts{
+				position:absolute;
+				cursor:pointer;
+				bottom:-40px;
+				right:160px;
+				padding:0 10px;
+				height:40px;
+				display:block;
+				font:17px/40px 'CodePro', Arial, Helvetica, sans-serif;
+				background:#0f416f;
+				color:#fff;
+				text-align:center;
+				box-shadow:3px 3px 0 0 #999;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-ms-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+			.retour_accueil_cts:hover{
+				background:#022d54;
+				right:157px;
+				bottom:-43px;
+				box-shadow:none;
+			}
+			.erreur_formulaire{
+				font:bold 12px/14px Arial, Helvetica, sans-serif;
+				color:#c00;
+				margin:0 0 0 100px;
+				width:auto;
+			}
+		}
+	}
+	/*************************** Confirmation de téléchargement *****************************/
+	.confirmation_tel_cts{
+		margin:0px auto 60px auto;
+		padding:60px 0 0 0;
+		display:block;
+		width:900px;
+		position:relative;
+		overflow:auto;
+		.ss_partie_cts + p{
+			font:11px/14px Arial, Helvetica, sans-serif;
+			position:absolute;
+			top:22px;
+			right:0px;
+			span{
+				width:230px;
+				height:55px;
+				display:inline-block;
+				margin:0 10px;
+				background:url('@{imgPath}/dossier/logo_cts.png')no-repeat scroll 0px 0px;
+				vertical-align:-1px;
+			}
+		}
+		.img_documentation{
+			display:inline-block;
+			float:left;
+			width:196px;
+			height:276px;
+			border:2px solid #0f416f;
+			margin:40px 20px;
+			background:url('@{imgPath}/dossier/documentation_cts.png')no-repeat scroll 0px 0px;
+		}
+		.tel_valide{
+			margin:100px 0 0 0;
+			font: 24px/30px 'CodePro', Arial, Helvetica, sans-serif;
+			text-align:center;
+			color:#0f416f;
+			span{
+				display:block;
+			}
+		}
+		a{
+			float:left;
+			position:relative;
+			top:30px;
+			left:220px;
+			padding:10px;
+			display:block;
+			font:17px/17px 'CodePro', Arial, Helvetica, sans-serif;
+			background:#0f416f;
+			color:#fff;
+			text-align:center;
+			box-shadow:3px 3px 0 0 #999;
+			width:200px;
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;
+			-ms-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+		}
+		a:hover{
+			background:#022d54;
+			left:223px;
+			top:33px;
+			box-shadow:none;
+		}
+	}
+}

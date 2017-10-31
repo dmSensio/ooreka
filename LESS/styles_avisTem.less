@@ -1,0 +1,568 @@
+
+/* ************************************ SOMMAIRE ************************************** */
+/* ************************************************************************************ */
+
+.btOk3 {
+	background: url("@{imgPathTheme}/btOk.gif") no-repeat scroll 0 0 transparent;
+	border: medium none;
+	cursor: pointer;
+	float: left;
+	height: 30px;
+	margin: 0;
+	padding: 0;
+	width: 41px;
+}
+#allAvisTem .btOk {
+	bottom: 7px;
+	position: absolute;
+	right: 18px;
+}
+#allAvisTem .contenu {
+	position:relative;
+}
+p.titreTemoignage {
+	color:#333;
+	font:24px/100% 'museo',sans-serif;
+	padding:0 0 3px 25px;
+	margin:0 0 5px 0;
+	background:url('@{imgPathTheme}/i_temoignage.gif') 0 5px no-repeat;
+}
+p.titreAvis {
+	color:#333;
+	font:31px/100% 'museo',sans-serif;
+	padding:0 0 3px 0;
+	margin:0 0 5px 0;
+}
+p.chapeau {
+	color:#666;
+	font:normal 12px/130% Arial, Helvetica, sans-serif;
+	padding:0 0 20px 0;
+}
+p.chapeau strong{
+	color:@color_base;
+}
+div.ombreTop {
+	background:url('@{imgPathTheme}/ombre690.gif') 0 0 no-repeat;
+	padding:4px 0 0 0;
+	margin:15px auto;
+}
+div.ombreBas {
+	background:url('@{imgPathTheme}/ombre690.gif') bottom left no-repeat;
+	margin:0 auto;
+	padding:0 0 15px 0;
+}
+.retour_all{
+	padding:0 0 15px 15px;
+	background:url('@{imgPathTheme}/fleche_liste_gris2.png') 0 2px no-repeat;
+}
+.commentText .cloche_signaler {
+	display: block;
+	float: right;
+}
+#avisTem {
+	font:normal 13px/140% Arial, Helvetica, sans-serif;
+}
+#avisTem #home_avisTem{
+	font:normal 12px/140% Arial, Helvetica, sans-serif;
+}
+#avisTem .intro{
+	background:url('@{imgPathTheme}/intro_hp_avis_pro.jpg') 0 0 no-repeat;
+	padding: 2px 0 50px 150px;
+	color:#666;
+	font-size:16px;
+	line-height:140%;
+}
+#avisTem .listAvis {
+	background:url('@{imgPathTheme}/ombre_avispro.jpg') no-repeat center top;
+	width:667px;
+	padding:30px 15px 40px 0px;
+}
+#avisTem .listAvis ul,
+#avisTem .listAvis ol {
+	list-style-type: none;
+	margin: 0.5em 0;
+	padding: 0 0 0.5em;
+}
+#avisTem .listAvis ul li{
+	background: url("@{imgPathTheme}/puce_fleche-liste.png") no-repeat scroll 0 3px transparent;
+	line-height: 135%;
+	margin: 0 0 0.5em 10px;
+	overflow: hidden;
+	padding: 0 0 0 13px;
+	list-style-type: none;
+}
+#avisTem .listAvis ul li ul li{
+	background: url("@{imgPathTheme}/puce_tab.png") no-repeat scroll 0 4px transparent;
+	line-height: 135%;
+	margin: 0 0 0 15px;
+	padding: 0 0 4px 15px;
+	list-style-type: none;
+}
+#avisTem .listAvis a.titre {
+	font:normal 18px/140% Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	display:block;
+	margin-bottom:10px;
+}
+#avisTem .listAvis a.titre:hover {
+	text-decoration:underline;
+}
+#avisTem .listAvis p.titre {
+	font:normal 18px/140% Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	display:block;
+	margin:0 0 10px 0;
+	padding:0;
+}
+#avisTem .listAvis .interactions_boutons{
+	overflow:hidden;
+	margin-top:10px;
+	height:25px;
+}
+#avisTem .listAvis .interactions_boutons p{
+	float:right;
+	margin-left:10px;
+	font-size:14px;
+}
+#avisTem .listAvis .interactions_boutons p a:hover{
+	color:#333;
+}
+#avisTem .listAvis .interactions_boutons p a{
+	font-weight:bold;
+}
+#avisTem p.boutonAvisTem{
+	float:right;
+}
+#avisTem .bordure_arrondis  p{
+	font:22px/100% 'museo',sans-serif;
+	color:#333;
+	margin-bottom:10px;
+}
+#avisTem .bordure_arrondis ul {
+	padding: 0 0 0 0;
+	margin: 0 0 0 5px;
+	color:#666;
+}
+#avisTem .bordure_arrondis ul li{
+	background: url("@{imgPathTheme}/puce_tab.png") no-repeat scroll 0 4px transparent;
+	list-style:none;
+	padding: 0 0 4px 13px;
+	margin-bottom:10px;
+}
+#avisTem .bordure_arrondis ul li a{
+	text-decoration:none;
+}
+#avisTem .bordure_arrondis  ul li span{
+	font-size:10px;
+	text-transform:uppercase;
+	white-space: nowrap;
+}
+#avisTem h1{
+	font:30px/100% 'museo',sans-serif;
+	color:@color_base;
+	margin:0px 0 10px 0;
+}
+#avisTem h1.avisTem_voir{
+	font:24px/100% 'museo',sans-serif;
+	color:@color_base;
+	margin:0px 0 10px 0;
+}
+#avisTem .all_avis{
+	background: url("@{imgPathTheme}/ombre_698_ligne.jpg") no-repeat top center;
+	clear:both;
+	overflow:hidden;
+	padding: 20px 0 0 0;
+	margin-top:10px;
+}
+#avisTem .all_avis .reponses{
+	border-bottom: 1px dotted #999;
+	padding: 10px 0 15px 0;
+	color:#333;
+}
+#avisTem .all_avis .reponses .titre{
+	font-size:12px;
+	padding:0 0 5px 0;
+	color:#333;
+}
+#avisTem .all_avis .reponses .titre a{
+	text-decoration:none;
+}
+#avisTem .sujet{
+	overflow:hidden;
+	padding: 0 0 5px 0;
+}
+#avisTem .sujet .nb_action{
+	margin:10px 0;
+}
+#avisTem .sujet ul,
+#avisTem .sujet ol {
+	list-style-type: none;
+	margin: 0.5em 0;
+	padding: 0 0 0.5em;
+}
+#avisTem .sujet ul li{
+	background: url("@{imgPathTheme}/puce_fleche-liste.png") no-repeat scroll 0 3px transparent;
+	line-height: 135%;
+	margin: 0 0 0.5em 10px;
+	overflow: hidden;
+	padding: 0 0 0 13px;
+	list-style-type: none;
+}
+#avisTem .sujet ul li ul li{
+	background: url("@{imgPathTheme}/puce_tab.png") no-repeat scroll 0 4px transparent;
+	line-height: 135%;
+	margin: 0 0 0 15px;
+	padding: 0 0 4px 15px;
+	list-style-type: none;
+}
+#avisTem .sujet p{
+	padding-bottom:10px;
+}
+#avisTem .sujet p.boutonAvisTem{
+	padding:0;
+}
+#avisTem .all_avis .tri {
+	border-bottom: 1px dotted #999;
+	padding: 0 0 10px 0;
+	font-size:11px;
+}
+#avisTem .all_avis .texte{
+	border-left: 3px solid #CCC;
+	padding-left: 10px;
+}
+#avisTem .titre_page{
+	margin-bottom: 8px;
+}
+#avisTem .navigation a:hover,
+#avisTem .navigation.bas a:hover{
+	color:#333;
+}
+#avisTem .navigation.bas{
+	overflow:hidden;
+	clear:both;
+	padding:30px 0 25px 0px;
+	text-align:center;
+	color:#999;
+	position:relative;
+	background:url('@{imgPathTheme}/ombre_avispro_bas.jpg') no-repeat center top;
+	font-size:11px;
+	color:#999;
+}
+#avisTem .navigation.bas div{
+	width:auto;
+}
+#avisTem .navigation.bas a.tous, #avisTem .navigation a.tous{
+	font-size:10px;
+}
+#avisTem .navigation a{
+	text-decoration:none;
+}
+#avisTem .navigation span{
+	font-weight:bold;
+}
+#avisTem .navigation.bas .precedent{
+	position:absolute;
+	left:0;
+	top:30px;
+}
+#avisTem .navigation.bas .suivant{
+	position:absolute;
+	right:0;
+	top:30px;
+}
+#avisTem .navigation > div a:hover{
+	text-decoration:underline;
+}
+#avisTem .info_avis{
+	font-size:14px;
+	margin-bottom:15px;
+	position:relative;
+	overflow:hidden;
+}
+#avisTem .info_avis a{
+	text-decoration:none;
+	font:italic 14px/140% georgia, Arial, sans-serif;
+	font-weight:bold;
+	text-transform: capitalize;
+}
+#autres_sujets{
+	border: 5px solid #e6e6e6;
+}
+#autres_sujets ul li{
+	background: url("@{imgPathTheme}/puce_tab.png") no-repeat scroll 0 2px transparent;
+	list-style:none;
+	padding: 0 0 2px 13px;
+	float:left;
+	width:250px;
+}
+#autres_sujets ul li a{
+	text-decoration:none;
+}
+#autres_sujets ul{
+	padding:0;
+	margin:0 0 0 5px;
+}
+#autres_sujets p{
+	font:22px/100% 'museo',sans-serif;
+	color:#333;
+	margin-bottom:5px;
+}
+.statut_membre {
+	display: inline;
+	margin: 0 0 0 5px;
+	padding: 0 3px 1px;
+}
+#avisTem .statut_membre {
+	display: inline;
+}
+#avisTem .statut_membre .membre_pro{
+	padding:3px 5px;
+	box-shadow:none;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	background:#eee;
+	color:#666;
+	font:normal 10px/12px Arial, Helvetica, sans-serif;
+}
+#avisTem .mark {
+	width:100px;
+	background:url('@{imgPathTheme}/meilleure_note.png') no-repeat;
+	font-size:11px;
+	color:#666;
+	padding:0 0 0 20px;
+	float:right;
+}
+#avisTem h2 {
+	font-weight:bold;
+	font-size:13px;
+	padding:0;
+	margin:0;
+}
+#avisTem .actions {
+	text-align:right;
+}
+#avisTem blockquote {
+	padding:0px 15px 0px 10px;
+	margin:10px 0 15px 10px;
+	border-left:3px solid #CCC;
+}
+#avisTem blockquote {
+	padding:0px 15px 0px 10px;
+	margin:10px 0 15px 10px;
+	border-left:3px solid #CCC;
+}
+#avisTem blockquote ul,
+#avisTem blockquote ol {
+	list-style-type: none;
+	margin: 0.5em 0;
+	padding: 0 0 0.5em;
+}
+#avisTem blockquote ul li{
+	background: url("@{imgPathTheme}/puce_fleche-liste.png") no-repeat scroll 0 3px transparent;
+	line-height: 135%;
+	margin: 0 0 0.5em 10px;
+	overflow: hidden;
+	padding: 0 0 0 13px;
+	list-style-type: none;
+}
+#avisTem blockquote ul li ul li{
+	background: url("@{imgPathTheme}/puce_tab.png") no-repeat scroll 0 4px transparent;
+	line-height: 135%;
+	margin: 0 0 0 15px;
+	padding: 0 0 4px 15px;
+	list-style-type: none;
+}
+.titre_box {
+	color: @color_base;
+	font-family: 'museo',sans-serif;
+	font-size: 20px;
+	line-height: normal;
+}
+#avisTem .contenu {
+	padding:13px 16px 10px 20px;
+	position: relative;
+	background:#e3e3e3;
+	border:5x solid #d9d9d9;
+	behavior: url('/js/PIE.htc');
+}
+#avisTem .bordure_arrondis {	/* une bordure pour IE */
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	border-radius:7px;
+	padding:15px;
+	border:5px solid #e3e3e3;
+	behavior: url('/js/PIE.htc');
+	position:relative;
+}
+:root #avisTem .bordure_arrondis {	
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px; 
+	border-radius:7px;
+	border:5px solid #e3e3e3;
+	-webkit-box-shadow: 0px 0px 0 6px #e3e3e3;
+	-moz-box-shadow: 0px 0px 0 6px #e3e3e3;
+	box-shadow: 0px 0px 0 6px #e3e3e3;
+	margin:10px;
+	position:relative;
+	border:none;
+}
+#avisTem .btOk {
+	float:right;
+	margin-top:10px;
+	position:static;
+}
+#avisTem .btOk.bt_if_connected {
+	float:right;
+	position:static;
+}
+#avisTem div.text_comments {
+	background: url("@{imgPathTheme}/fd_commentCentre.gif") no-repeat scroll -1693px bottom transparent;
+	width: 650px;
+	padding: 0 10px 15px 15px;
+}
+#avisTem #comments .reaction_indiv {
+	background: url("@{imgPathTheme}/fd_comment.gif") no-repeat scroll -1690px 0 transparent;
+	margin-bottom: 20px;
+	overflow: hidden;
+	padding: 15px 0 0;
+	width: 677px;
+}
+#avisTem #comments .auteur {
+	float:right;
+	font-size:11px;
+	color:#666;
+	margin:10px 0;
+}
+span.cloche_signaler {
+	display: block;
+	float: right;
+}
+#avisTem .voir_un_avis {
+	margin-bottom:20px;
+}
+#comments .auteur a {
+	font: italic bold 11px/135% Georgia,"Times New Roman",Times,serif;
+	text-decoration: none;
+	text-transform: capitalize;
+}
+.nb_comments {
+	font-size:14px;
+	padding:0 0 10px 0;
+}
+#entete {
+	clear: both;
+	color: #333;
+	font: 24px/150% 'museo',sans-serif;
+	height: 35px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+}
+#avisTem .titre_page_float {
+	width:250px;
+	float:left;
+	color: #333;
+	font: 24px/100% 'museo',sans-serif;
+}
+#avisTem #entete .titre_page {
+	margin-bottom: 10px;
+}
+#avisTem textarea {
+	width:622px;
+	height:120px;
+	margin-bottom:10px;
+	float:none;
+}
+/* ecrire */
+#allAvisTem .titreSujet {
+	font:24px/100% 'museo',sans-serif;
+	padding:0;
+	margin:0;
+}
+#allAvisTem .titreSujet span{
+	font-size:20px;
+	color:#666;
+}
+#allAvisTem .titreSujet strong{
+	color:@color_base;
+	font-weight:normal;
+}
+#allAvisTem .appelDescription {
+	-moz-border-radius:6px; 
+	-webkit-border-radius:6px; 
+	-khtml-border-radius:6px; 
+	border-radius:6px;
+	padding:10px;
+	margin:0 0 20px 0;
+	background-color:#FFF;
+}
+#allAvisTem p.sstitre {
+	font:14px/130% Arial, Helvetica, sans-serif;
+	float:none;
+}
+#allAvisTem .temoigner form {
+	margin:0;
+	padding-top:20px;
+}
+#allAvisTem .bloc_question{
+	margin-bottom:20px;
+	clear:both;
+	float:none;
+	}
+#allAvisTem .bloc_question textarea{
+	margin-bottom:5px;
+	overflow:hidden;
+	}
+#allAvisTem .bloc_question label.question {
+	font:bold 12px/130% Arial, Helvetica, sans-serif;
+	width:200px;
+	float:left;
+}
+#allAvisTem .bloc_question label {
+	font:bold 12px/130% Arial, Helvetica, sans-serif;
+	float:none;
+	color:@color_base;
+}
+#allAvisTem .bloc_question p{
+	margin:0 0 15px 0;
+	vertical-align:middle;
+	overflow:auto;
+}
+#allAvisTem input.bt_if_connected{
+	clear:both;
+	overflow:hidden;
+	float:right;
+	position:relative;
+	right:0;
+}
+.img_triangle {
+	background: url('@{imgPathTheme}/triangle_attention.png') no-repeat;
+	padding:5px 0 10px 60px;
+	line-height:135%;
+	margin-bottom:30px;
+}
+.img_triangle span {
+	color: #cc0000;
+	display:block;
+	margin-bottom:7px;
+	font-size:14px;
+	font-weight:bold;
+}
+#avisTem .avis_de_pseudo{
+	width:694px;
+	float:left;
+}
+#avisTem .input_type_text input.input_type1,
+#avisTem .input_type_text2 input.input_type1 {
+	height:20px;
+}
+#avisTem p.ui-state-error {
+	background: none repeat scroll 0 0 transparent;
+	border: 0 none;
+	color: #CC0000;
+	font-size: 10px;
+	font-weight: bold;
+	padding: 0 15px 0 0;
+	width: 218px;
+}
