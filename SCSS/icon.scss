@@ -1,0 +1,134 @@
+///// ICONS
+.icon{
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	&::before{
+		display: inline-block;
+		@include font(20px, FontAwesome);
+	}
+}
+[class*="icon-"]{
+	@extend .icon;
+}
+.icon-search::before {
+	content: "\f002";
+}
+.icon-nav::before {
+	content: "\f0c9";
+}
+.icon-close::before {
+	content: "\f00d";
+}
+.icon-underlist::before {
+	content: "\f0d7";
+}
+.icon-chevron::before{
+	content: "\f105";
+}
+.icon-home::before{
+	content: "\f015";
+}
+.icon-copyright::before{
+	content: "\f1f9";
+}
+.icon-facebook::before{
+	content: "\f09a";
+}
+.icon-fb::before{
+	content: "\f230";
+}
+.icon-twitter::before{
+	content: "\f099";
+}
+.icon-youtube::before{
+	content: "\f167";
+}
+.icon-linkedin::before{
+	content: "\f0e1";
+}
+.icon-pinterest::before{
+	content: "\f231";
+}
+.icon-print::before{
+	content: "\f02f";
+}
+.icon-eyes::before{
+	content: "\f06e";
+}
+.icon-tick::before{
+	content: "\f00c";
+}
+.icon-map-marker::before{
+	content: "\f041";
+}
+.icon-star::before{
+	content: "\f005";
+}
+.icon-star-empty::before{
+	content: "\f006";
+}
+.icon-clock::before{
+	content: "\f017";
+}
+.icone_menu{
+	width: 2.5rem;
+	height: .2rem;
+	display: inline-block;
+	margin-right: 1rem;
+	background-color: $purple;
+	position: relative;
+	&::after,
+	&::before{
+		content: "";
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		background-color: $purple;
+	}
+	&::before{
+		top: -1rem;
+	}
+	&::after{
+		bottom: -1rem;
+	}
+}
+.icone_close{
+	width: 2.5rem;
+	height: 2.5rem;
+	display: inline-block;
+	position: relative;
+	&::before,
+	&::after{
+		content: "";
+		display: inline-block;
+		height: 100%;
+		width: .2rem;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin-left: -1px;
+		background-color: $purple;
+	}
+	&::before{
+		transform: rotate(45deg);
+	}
+	&::after{
+		transform: rotate(-45deg);
+	}
+}
+@include device($tab-device){
+	.icone_menu{
+		width: 2.2rem;
+		display: table;
+		margin: 0 auto 1rem auto;
+		&::before{
+			top: -.6rem;
+		}
+		&::after{
+			bottom: -.6rem;
+		}
+	}
+}

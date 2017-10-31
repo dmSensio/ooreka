@@ -1,0 +1,164 @@
+////////// VARIABLE COULEUR
+$purple: 	#4b4182;
+$orange: 	#fa5a1e;
+$red: 		#fa3c3c;
+$grey: 		#eceff1;
+$greyLight: 	#f6f6f6;
+$green: 	#32c923;
+$blue:		#0082f8;
+
+////////// VARIABLE TEXTE
+$museo: "museo", Roboto, Arial, Helvetica, sans-serif;
+$museo900: "museo900", Roboto, Arial, Helvetica, sans-serif;
+$roboto: Roboto, Arial, Helvetica, sans-serif;
+
+////////// VARIABLE TEXTE
+$tab-device: 768px;
+$mob-device: 480px;
+
+////////// VARIABLE CMS MEDIA
+$media-url: 'https://media.ooreka.fr/public/MVP/media';
+
+////////// GRID SYSTEM
+$totalColumn : 97rem;
+$gutter: 2.6rem;
+$nbColumn: 12;
+$nbGutter: $nbColumn - 1;
+$totalGutter: $gutter * $nbGutter;
+$columnValue: ($totalColumn - $totalGutter) / $nbColumn;
+
+////////// MIXINS
+@mixin device($device){
+	@media screen and (max-width: $device) {
+		@content;
+	}
+}
+@mixin font($size, $family : $roboto, $line: null){
+	@if ($size == 1.4rem) {
+		font-size: $size;
+		font-family: $family;
+		@if ($line) {
+			line-height: $line;
+		} @else{
+			line-height: 2rem;
+		}
+	}
+	@elseif ($size == 1.5rem){
+		font-size: $size;
+		font-family: $family;
+		@if ($line) {
+			line-height: $line;
+		} @else{
+			line-height: 2.4rem;
+		}
+	}
+	@else{
+		font-size: $size;
+		font-family: $family;
+		@if ($line) {
+			line-height: $line;
+		} @else{
+			line-height: 100%;
+		}
+	}
+	@if ($family == $museo) {
+		transform: rotate(-0.0001deg);
+	}
+}
+@mixin placeholder($color){
+	&::-webkit-input-placeholder {
+		color: $color;
+	}
+	&:-moz-placeholder {
+		color: $color;
+		opacity:  1;
+	}
+	&::-moz-placeholder {
+		color: $color;
+		opacity:  1;
+	}
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+	&::-ms-input-placeholder {
+		color: $color;
+	}
+}
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}
+@mixin elemCenter($margin, $justTop: false) {
+	display: table !important;
+	@if ($justTop) {
+		margin: $margin auto 0 auto !important;
+	} @else {
+		margin: $margin auto !important;
+	}
+}
+@function text-color($color) {
+	@if (lightness($color) > 50) {
+		@return #333;
+	} @else {
+		@return #fff;
+	}
+}
+@mixin gradient($color: #eee, $start: #ddd, $stop: #eee, $direction: top, $pourcent: 100%){
+	background: $color;
+	background: -moz-linear-gradient($direction,  $start 0%, $stop $pourcent);
+	background: -webkit-gradient(linear, $direction, color-stop(0%,$start), color-stop($pourcent,$stop));
+	background: -webkit-linear-gradient($direction,  $start 0%,$stop $pourcent);
+	background: -o-linear-gradient($direction,  $start 0%,$stop $pourcent);
+	background: -ms-linear-gradient($direction,  $start 0%,$stop $pourcent);
+	background: linear-gradient($direction,  $start 0%,$stop $pourcent);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$start, endColorstr=$stop,GradientType=0 );
+}
+@mixin d-flex(){
+	display: flex;
+	display: -ms-flexbox;
+}
+@mixin flex-w($value:wrap){
+	-ms-flex-wrap: $value;
+	flex-wrap: $value;
+}
+@mixin flex-g($value){
+	-webkit-flex-grow: $value;
+	-ms-flex-positive: $value;
+	-webkit-box-flex: $value;
+	flex-grow: $value;
+}
+@mixin flex-s($value){
+	-ms-flex-negative: $value;
+	flex-shrink: $value;
+}
+@mixin flex-b($value){
+	-ms-flex-preferred-size: $value;
+	flex-basis: $value;
+}
+@mixin flex-d($value:row){
+	-ms-flex-direction: $value;
+	flex-direction: $value;
+	@if ($value == row) {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+	}
+	@elseif ($value == row-reverse) {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: reverse;
+	}
+	@elseif ($value == column) {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+	}
+	@elseif ($value == column-reverse) {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: reverse;
+	}
+}

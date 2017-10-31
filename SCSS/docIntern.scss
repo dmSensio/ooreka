@@ -1,0 +1,38 @@
+.doc_front{
+	margin-top: 5rem;
+	.home{
+		a{
+			border: 1px solid $grey;
+			transition: all .3s ease-in-out 0s;
+			&:hover{
+				border-color: $purple;
+			}
+		}
+		p{
+			word-wrap: break-word;
+		}
+	}
+	.titre_doc_front{
+		margin-bottom: 2rem;
+		@include font(2rem);
+		color: $orange;
+	}
+	> .w_full > * + *{
+		border-top: 2px solid $grey;
+		margin-top: 6rem;
+		padding-top: 6rem;
+	}
+	pre{
+		margin-top: 3rem;
+		background: #333;
+		padding: 2rem;
+		color: #fff;
+		max-width: 100%;
+	}
+	.pub_right{
+		background-color: $grey;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

@@ -1,0 +1,119 @@
+///// CATEGORIES
+.bloc_cat > div{
+	h2 span{
+		@include font(1.8rem);
+	}
+	article{
+		position: relative;
+		$position: 1.5rem;
+		cursor: pointer;
+		h3{
+			position: absolute;
+			bottom: $position;
+			left: $position;
+			right: $position;
+			padding: $position $position*2 $position $position;
+			margin: 0;
+			background-color: #fff;
+			&::before{
+				content: "";
+				position: absolute;
+				top: 50%;
+				right: $position;
+				display: inline-block;
+				width: $position/2.5;
+				height: $position/2.5;
+				background-color: $orange;
+				box-shadow: 0 -9px 0 0 $orange, 0 9px 0 0 $orange;
+				transform: translateY(-($position/2.5)/2);
+			}
+		}
+	}
+	.flex_column{
+		@include d-flex();
+		@include flex-d(column);
+		justify-content: space-between;
+	}
+	&.project_1{
+		.fiche_entretien{
+			margin-top: 0;
+			> div{
+				height: 100%;
+			}
+		}
+	}
+	.fiche_entretien{
+		border: 1px solid darken($grey, 10%);
+		margin-top: $gutter;
+		ul{
+			padding-left: 0;
+		}
+		> div{
+			padding: 3rem 2rem;
+			> p{
+				@include font(1.8rem, $museo);
+				margin-bottom: 2rem;
+			}
+			a{
+				display: block;
+				color: #333;
+				&:hover{
+					color: $orange;
+				}
+			}
+			+ a{
+				background-color: $grey;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				padding: 1rem;
+				text-align: center;
+				color: $orange;
+				span{
+					color: $orange;
+					@include font(1.8rem);
+					font-weight: bold;
+				}
+				&:hover{
+					background-color: $orange;
+					color: #fff;
+					text-decoration: none;
+					span{
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}
+///// LISTING FICHE ENTRETIEN
+.listing_entretien{
+	.page_liste{
+		> p{
+			padding-bottom: .5rem;
+			border-bottom: 1px solid $grey;
+		}
+	}
+}
+@media screen and (max-width: $tab-device) {
+	.bloc_cat > div{
+		&.project_1{
+			.fiche_entretien{
+				margin-top: $gutter;
+			}
+		}
+		.flex_column{
+			> * + *{
+				margin-top: $gutter;
+			}
+		}
+		.fiche_entretien [class^="col_"] + a{
+			margin-top: 0;
+			@include flex-d(row);
+			span{
+				margin-right: .5rem;
+			}
+		}
+	}
+}

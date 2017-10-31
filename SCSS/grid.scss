@@ -1,0 +1,171 @@
+.elementGrid{
+	background-color: $grey;
+	@include d-flex();
+	align-items: center;
+	justify-content: center;
+	min-height: 10rem;
+}
+
+///// GRID SYSTEM
+$column : (
+	'col_2' : 2,
+	'col_3' : 3,
+	'col_4' : 4,
+	'col_5' : 5,
+	'col_6' : 6,
+	'col_7' : 7,
+	'col_8' : 8,
+	'col_9' : 9,
+	'col_10' : 10,
+	'col_11' : 11,
+	'col_12' : 12
+);
+[class*="grid"] {
+	@include d-flex();
+	@include flex-w();
+	> * {
+		width: $columnValue;
+		margin-left: $gutter;
+		margin-top: 0;
+		&:first-child{
+			margin-left: 0;
+		}
+		@for $i from 1 through 12{
+			&.col_#{$i}{
+				width: $columnValue * $i + ($gutter * ($i - 1));
+			}
+		}
+		&.full{
+			width: 100%;
+			@include flex-b(100%);
+		}
+		&.full,
+		&.full + *,
+		&.push{
+			margin-left: 0;
+		}
+		&.pull{
+			margin-left: $gutter !important;
+		}
+	}
+	> img{
+		align-self: center;
+	}
+	@for $i from 1 through 6{
+		&.mtop_#{$i}{
+			> *{
+				margin-top: $i + rem;
+			}
+		}
+	}
+	+ [class*="grid"]{
+		margin-top: $gutter;
+	}
+}
+.grid{
+	> *{
+		@include flex-g(1);
+		@include flex-s(1);
+		@include flex-b(auto);
+		@each $nbColumn in $column{
+			&.#{nth($nbColumn, 1)} {
+				@include flex-g(0);
+				@include flex-s(0);
+				@include flex-b(auto);
+			}
+		}
+	}
+	&.without_margin{
+		> *{
+			margin-left: 0;
+		}
+		&.separateur{
+			> * + * {
+				border-left: 1px solid #ccc;
+				&::before{
+					display: none;
+				}
+			}
+		}
+	}
+	&.separateur{
+		> * + *{
+			position: relative;
+			&::before{
+				content: '';
+				width: 1px;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left : - $gutter/2;
+				background-color: #ccc;
+
+			}
+		}
+	}
+}
+@for $i from 1 through 12{
+	.grid_#{$i}{
+		> * {
+			width: calc((100% - (#{$i} - 1) * #{$gutter}) / #{$i});
+			margin-top: $gutter;
+			&:nth-child(#{$i}n + 1){
+				margin-left: 0;
+			}
+			&:nth-child(-n + #{$i}){
+				margin-top: 0;
+			}
+		}
+	}
+}
+@for $i from 1 through 12{
+	.col_#{$i}{
+		width: $columnValue * $i + ($gutter * ($i - 1));
+	}
+}
+.col_center{
+	display: table;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: $tab-device) {
+	[class*="grid"] {
+		> * {
+			width: 100%;
+			margin-left: 0;
+			&:nth-child(n + 2){
+				margin-top: $gutter;
+			}
+			@each $name, $nbColumn in $column{
+				&.#{$name} {
+					width: 100%;
+				}
+			}
+		}
+		@for $i from 1 through 6{
+			&.mtop_#{$i}{
+				> *:nth-child(n + 2){
+					margin-top: $i + rem;
+				}
+			}
+		}
+	}
+}
+
+@for $i from 1 through 4 {
+	.column_#{$i}{
+		columns: $i;
+		@for $i from 1 through 6{
+			&.mtop_#{$i}{
+				> * + *{
+					margin-top: $i + rem;
+				}
+			}
+		}
+	}
+}
+@for $i from 1 through 4 {
+	.gap_#{$i}{
+		column-gap: $i + rem;
+	}
+}
